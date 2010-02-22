@@ -77,11 +77,12 @@ require 'malete/php/Isis.php';
     }
 ?>
 
-<h3>query reading 1</h3>
+<h3>query reading a record</h3>
 
 <?php
-    $r = $db->read(1);
-    echo "<pre>---\n", $r->toString(), "---\n</pre>\n";
+    $r = $db->read(522);
+    echo "<pre>---\n", $r->toString(), "---\n</pre><br>\n";
+    print_r($r);
   } // end else could contact server
 ?>
 

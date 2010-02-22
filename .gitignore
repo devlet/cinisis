@@ -1,3 +1,4 @@
 *.swp
 malete
 localhost:*
+db/*
