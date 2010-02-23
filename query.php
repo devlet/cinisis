@@ -6,6 +6,9 @@
 // Import Malete Library
 require 'malete/php/Isis.php';
 
+// Import Spyc
+include('spyc/spyc.php');
+
 ?>
 
 <html><head><title>Query</title></head><body>
@@ -122,25 +125,34 @@ require 'malete/php/Isis.php';
 		  'vídeo'                       => 902,
 		  );
 
-  $fdt = $fdt_tupi;
+  $fdt  = $fdt_anu10;
+  $yaml = Spyc::YAMLDump($fdt);
 ?>
 
 <h2>server</h2>
 
 <?php
-  $db = new Isis_Db($fdt, 'tupi', new Isis_Server());
+  $db = new Isis_Db($fdt, 'anu10', new Isis_Server());
   if (!$db->srv->sock) {
     echo "could not contact server\n";
   }
   else {
-    print_r($db);
+    //print_r($db);
+?>
+
+<h3>number of records...</h3>
+
+<?php
+    $query = 'HORA';
+    $recs  = $db->num_recs($query);
+    echo "got ",count($recs), " terms for '$query'</br>\n";
 ?>
 
 <h3>terms beginning with...</h3>
 
 <?php
-    $query = 'a';
-    $terms = $db->terms($query);
+    $query = 'Hora';
+    $terms = $db->terms(strtoupper($query));
     echo "got ",count($terms), " terms for '$query'</br>\n";
     foreach ($terms as $t) {
       list($cnt, $term) = explode("\t", $t);
@@ -153,7 +165,7 @@ require 'malete/php/Isis.php';
 
 <?php
     $query = 'Corumbiara';
-    $recs  = $db->query($query);
+    $recs  = $db->query(strtoupper($query));
     echo "got ",count($recs), " records for '$query'</br>\n";
     foreach ($recs as $r) {
       echo "<pre>---\n", $r->toString(), "---\n</pre>\n";
