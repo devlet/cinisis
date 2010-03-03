@@ -43,7 +43,7 @@ include('spyc/spyc.php');
 		  'Recorte'              => 19,
 		  'Alimentador'          => 20,
 		  'Tema Anuario'         => 21,
-	      );
+    );
 
   $fdt_tupi = array(
 		  'cod.titulo'                  => 1,
@@ -123,7 +123,7 @@ include('spyc/spyc.php');
 		  'quicktime'                   => 900,
 		  'revisão'                     => 901,
 		  'vídeo'                       => 902,
-		  );
+    );
 
   $fdt  = $fdt_anu10;
   $yaml = Spyc::YAMLDump($fdt);
