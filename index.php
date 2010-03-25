@@ -125,14 +125,16 @@ include('spyc/spyc.php');
 		  'vídeo'                       => 902,
     );
 
-  $fdt  = $fdt_anu10;
+  $db   = 'tupi';
+  //$db   = 'anu10';
+  $fdt  = ${'fdt_'. $db};
   $yaml = Spyc::YAMLDump($fdt);
 ?>
 
 <h2>server</h2>
 
 <?php
-  $db = new Isis_Db($fdt, 'anu10', new Isis_Server());
+  $db = new Isis_Db($fdt, $db, new Isis_Server());
   if (!$db->srv->sock) {
     echo "could not contact server\n";
   }
@@ -175,9 +177,11 @@ include('spyc/spyc.php');
 <h3>query reading a record</h3>
 
 <?php
-    $r = $db->read(1);
+    $r = $db->read(3);
     echo "<pre>---\n", $r->toString(), "---\n</pre><br>\n";
-    print_r($r);
+    echo '<pre>';
+    echo print_r($r);
+    echo '</pre>';
   } // end else could contact server
 ?>
 
