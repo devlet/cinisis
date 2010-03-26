@@ -177,10 +177,13 @@ include('spyc/spyc.php');
 <h3>query reading a record</h3>
 
 <?php
-    $r = $db->read(3);
+    $r = $db->read(6);
     echo "<pre>---\n", $r->toString(), "---\n</pre><br>\n";
     echo '<pre>';
-    echo print_r($r);
+    //print_r($r);
+    //print_r($r->val[8]);
+    print_r(preg_split('/\t/', $r->val[7]));
+
     echo '</pre>';
   } // end else could contact server
 ?>
