@@ -109,3 +109,9 @@ class MaleteDb implements IsisDb {
     return $data;
   }
 }
+
+/**
+ * PHP-Isis implementation of IsisDb.
+ */
+class PhpIsis implements IsisDb {
+}
