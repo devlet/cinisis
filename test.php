@@ -192,7 +192,6 @@ include('contrib/spyc/spyc.php');
   echo '<table>';
 
   $result = isis_search('$', $db);
-  /*
   while ($record = isis_fetch_flat_array($result) ) {
     print (" <tr><td colspan=\"2\">MFN: $record[mfn]</td></tr>\n");
     for ($i=0; $i<count($record)-1; ++$i) { //-1 porque el mfn es +1
@@ -203,7 +202,6 @@ include('contrib/spyc/spyc.php');
         " </tr>\n");
     }
   }
-  */
   echo '</table>';
 ?>
 </body></html>
