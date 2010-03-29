@@ -15,13 +15,6 @@ include('contrib/spyc/spyc.php');
 
 <?php
 	
-  // Get request parameters a and b
-  // (as well as any plain numeric and v%d style
-  $param = Isis_Http::fromReq(array(
-			'a' => 22,
-			'b' => 42,
-			));
-
   // Create a db with field list ("fdt")
   $fdt_anu10 = array(
 		  'Periodico'            =>  1,
