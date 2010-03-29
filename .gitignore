@@ -1,5 +1,5 @@
 *.swp
-malete
 localhost:*
 db/*
-spyc*
+contrib/*
+tmp/*

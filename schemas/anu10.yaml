@@ -1,0 +1,42 @@
+---
+db: 
+  name: anu10
+fields: 
+  1: 
+    name: Periodico
+  2: 
+    name: Data
+  3: 
+    name: Titulo
+  4: 
+    name: Autor
+  5: 
+    name: Assuntos primarios
+  6: 
+    name: Assuntos secundarios
+  7: 
+    name: Ilustrado
+  8: 
+    name: Caderno
+  9: 
+    name: Pagina
+  10: 
+    name: Arquivo digital
+  11: 
+    name: Forma documento
+  12: 
+    name: Local de publicacao
+  13: 
+    name: Observacoes
+  14: 
+    name: Descritores imagem
+  16: 
+    name: Termo geografico
+  17: 
+    name: Coluna
+  19: 
+    name: Recorte
+  20: 
+    name: Alimentador
+  21: 
+    name: Tema Anuario

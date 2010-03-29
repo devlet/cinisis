@@ -4,27 +4,6 @@
  */
 
 /**
- * Schema format example.
- */
-$schema = array(
-  'db'          => array(
-    'name'      => 'dbname',
-  ),
-  'fields'      => array(
-    'field_name'  => array(
-      'id'        => 1,
-      'size'      => 1000,
-      'format'    => 'numeric',
-      'repeat'    => TRUE,
-      'subfields' => array(
-        'a'       => 'test',
-        'b'       => 'test2',
-      ),
-    ),
-  ),
-);
-
-/**
  * Generic interface for reading Isis databases.
  */
 interface IsisDb {
@@ -32,16 +11,19 @@ interface IsisDb {
   public function __construct($schema);
 
   // Return field data for a given entry.
-  public function fields($id);
+  public function fields($id = NULL);
 
   // Return subfield data for a given entry.
-  public function subfields($id);
+  public function subfields($id = NULL);
 
   // Read an entry.
   public function read($id);
 
   // Return number of rows in the database.
   public function rows();
+
+  // Return a default example schema.
+  public function default_schema();
 }
 
 /**
@@ -54,33 +36,76 @@ class MaleteDb implements IsisDb {
 
   public function __construct($schema) {
     // Save db schema.
-    $format = $schema;
+    $this->format = $schema;
 
     // Setup $fdt used by malete.
     foreach ($schema['fields'] as $field => $info) {
-      $fdt[$field] = $info['id'];
+      $this->fdt[$field] = $info['name'];
     }
 
     // Open a database connection.
-    $db = new Isis_Db($fdt, $schema['db']['name'], new Isis_Server());
-  }
-
-  public function fields($id == NULL) {
-  }
-
-  public function subfields($id == NULL) {
-  }
-
-  // TODO: put result into $schema format.
-  public function read($id) {
-    if (!is_numeric($id) {
+    $this->db = new Isis_Db($this->fdt, $schema['db']['name'], new Isis_Server());
+    if (!$this->db->srv->sock) {
       return FALSE;
     }
-    return $this->$db->read($id);
+  }
+
+  public function fields($id = NULL) {
+  }
+
+  public function subfields($id = NULL) {
+  }
+
+  public function read($id) {
+    if (!is_numeric($id)) {
+      return FALSE;
+    }
+    $results = $this->db->read($id);
+    return $this->tag($results);
   }
 
   public function rows() {
   }
-}
 
-?>
+  /**
+   * Schema format example.
+   */
+  public function default_schema() {
+    $schema = array(
+      'db'             => array(
+        'name'         => 'dbname',
+      ),
+      'fields'         => array(
+        1              => array(
+          'name'       => 'field_name',
+          'size'       => 1000,
+          'format'     => 'numeric',
+          'repeat'     => TRUE,
+          'subfields'  => array(
+            'a'        => 'test',
+            'b'        => 'test2',
+          ),
+        ),
+      ),
+    );
+
+    return $schema;
+  }
+
+  // Tag results of a db query.
+  function tag($results) {
+    foreach ($results->val as $key => $value) {
+      $field = $results->tag[$key];
+      $name  = $this->format['fields'][$field]['name'];
+
+      // Handles field repetition.
+      if ($this->format['fields'][$field]['repeat']) {
+        $data[$name][] = $value;
+      }
+      else {
+        $data[$name] = $value;
+      }
+    }
+    return $data;
+  }
+}

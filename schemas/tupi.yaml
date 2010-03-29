@@ -1,0 +1,128 @@
+---
+db: 
+  name: tupi
+fields: 
+  1: 
+    name: cod.titulo
+  2: 
+    name: postopo
+  3: 
+    name: num.entrada
+  4: 
+    name: num.tombo
+  5: 
+    name: datain
+  6: 
+    name: dataex
+  7: 
+    name: acervo (DIF ou PRE)
+  10: 
+    name: cadarq
+  11: 
+    name: caddep
+  12: 
+    name: cadddl
+  13: 
+    name: outarq
+  15: 
+    name: categorias
+  16: 
+    name: presok
+  17: 
+    name: roteiro de locução
+  18: 
+    name: mat.acervo
+  19: 
+    name: mat.orig
+  20: 
+    name: titulo
+  22: 
+    name: outros titulos
+  24: 
+    name: data/série
+  25: 
+    name: conteudo/sinopse
+  26: 
+    name: descritores
+  27: 
+    name: descritores secundários
+  28: 
+    name: identidades
+  29: 
+    name: ndxlib
+  45: 
+    name: materiais
+  55: 
+    name: mat
+  56: 
+    name: evol.estado tec.
+  58: 
+    name: movimentacao
+  59: 
+    name: obsmat
+  60: 
+    name: 'producao*'
+  61: 
+    name: 'dir.arte*'
+  62: 
+    name: 'fotografia*'
+  63: 
+    name: 'musica*'
+  64: 
+    name: 'som*'
+  65: 
+    name: 'montagem*'
+  66: 
+    name: 'direcao*'
+  67: 
+    name: 'arg/roteiro*'
+  68: 
+    name: 'distribuicao*'
+  69: 
+    name: colab./outros
+  70: 
+    name: producao1
+  71: 
+    name: dir.arte1
+  72: 
+    name: fotografia1
+  73: 
+    name: musica1
+  74: 
+    name: som1
+  75: 
+    name: montagem1
+  80: 
+    name: producao2(res.p/expandir)
+  81: 
+    name: dir.arte2(res.p/expandir)
+  82: 
+    name: fotografia2(res.p/expandir)
+  83: 
+    name: musica2(res.p/expandir)
+  84: 
+    name: som2(res.p/expandir)
+  85: 
+    name: loc.prod.lan
+  86: 
+    name: dat.prod.lan
+  87: 
+    name: lab/est/locacoes
+  88: 
+    name: premios
+  89: 
+    name: fontes
+  95: 
+    name: certificados
+  98: 
+    name: examinador
+  99: 
+    name: observações
+  165: 
+    name: termos geográficos
+  900: 
+    name: quicktime
+  901: 
+    name: revisão
+  902: 
+    name: vídeo
