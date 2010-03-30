@@ -86,6 +86,11 @@ class MaleteDb implements IsisDb {
   /**
    * Tag results of a db query.
    *
+   * This function converts the keys of query result from field numbers
+   * to names and and also puts repetition fields into place as Malete
+   * deals with field repetition by using a 'tag' property in the resulting
+   * query object. 
+   *
    * @param $results
    *   Database query results.
    *

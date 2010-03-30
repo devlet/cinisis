@@ -7,15 +7,21 @@ interface IsisDb {
   /**
    * Constructor.
    *
+   * The implementation constructor should accept a database
+   * schema definition and setup the appropriate db resource.
+   *
    * @param $schema
    *   High level database schema description.
+   *
+   * @return
+   *   Database resource or FALSE in case of error.
    *
    * @see default_schema()
    */
   public function __construct($schema);
 
   /**
-   * Read an entry.
+   * Read an entry from the database.
    *
    * @param $id
    *   Database row id.
@@ -32,6 +38,9 @@ interface IsisDb {
 
   /**
    * Return a default example schema.
+   *
+   * The example schema should have all information the implementation
+   * needs to be able to open and read a database.
    *
    * @return
    *   Array with a sample database schema.

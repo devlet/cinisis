@@ -70,6 +70,9 @@ class PhpIsisDb implements IsisDb {
   /**
    * Tag results of a db query.
    *
+   * This function converts the keys of query result from field
+   * numbers to names.
+   *   
    * @param $results
    *   Database query results.
    *
