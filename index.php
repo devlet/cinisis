@@ -17,12 +17,15 @@ function __autoload($class) {
   require_once 'classes/' .$class. '.php';
 }
 
+// Load configuration.
+$config = Spyc::YAMLLoad('config/config.yaml');
+
 // Load database schema.
-$schema = Spyc::YAMLLoad('schemas/anu10.yaml');
+$schema = Spyc::YAMLLoad('schemas/'. $config['database'] .'.yaml');
 
 // Setup database connection.
-$db   = new MaleteDb($schema);
-//$db     = new PhpIsisDb($schema);
+$implementation = $config['implementation'] .'Db';
+$db             = new $implementation($schema);
 
 // Test connection.
 if ($db) {
