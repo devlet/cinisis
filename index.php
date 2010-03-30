@@ -19,8 +19,8 @@ function __autoload($class) {
 
 // Test database connection.
 $schema = Spyc::YAMLLoad('schemas/anu10.yaml');
-//$db   = new MaleteDb($schema);
-$db     = new PhpIsisDb($schema);
+$db   = new MaleteDb($schema);
+//$db     = new PhpIsisDb($schema);
 if ($db) {
   $result = $db->read(1);
   //$result = $db->rows();

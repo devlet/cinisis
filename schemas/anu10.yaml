@@ -14,6 +14,7 @@ fields:
     name: Assuntos primarios
   6: 
     name: Assuntos secundarios
+    repeat: Yes
   7: 
     name: Ilustrado
   8: 
@@ -24,6 +25,7 @@ fields:
     name: Arquivo digital
   11: 
     name: Forma documento
+    repeat: Yes
   12: 
     name: Local de publicacao
   13: 
