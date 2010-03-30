@@ -28,11 +28,21 @@ class MaleteDb implements IsisDb {
     if (!is_numeric($id)) {
       return FALSE;
     }
-    $results = $this->db->read($id);
-    return $this->tag($results);
+    if ($results !== FALSE) {
+      $results = $this->db->read($id);
+      return $this->tag($results);
+    }
+    else {
+      return FALSE;
+    }
   }
 
   public function rows() {
+    $id = 1;
+    while($this->db->read($id)) {
+      $id++; 
+    }
+    return $id - 1;
   }
 
   public function default_schema() {
