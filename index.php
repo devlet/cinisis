@@ -17,14 +17,18 @@ function __autoload($class) {
   require_once 'classes/' .$class. '.php';
 }
 
-// Test database connection.
+// Load database schema.
 $schema = Spyc::YAMLLoad('schemas/anu10.yaml');
+
+// Setup database connection.
 $db   = new MaleteDb($schema);
 //$db     = new PhpIsisDb($schema);
+
+// Test connection.
 if ($db) {
+  echo '<pre>';
   $result = $db->read(1);
   //$result = $db->rows();
-  echo '<pre>';
   print_r($result);
   echo '</pre>';
 }

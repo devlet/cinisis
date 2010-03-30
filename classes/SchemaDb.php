@@ -2,8 +2,10 @@
 
 class SchemaDb {
   /**
-   * Schema format example.
-   */
+   * Return a default example schema.
+   *
+   * @see IsisDb::default_schema()
+   */    
   public function default_schema() {
     $schema = array(
       'db'             => array(

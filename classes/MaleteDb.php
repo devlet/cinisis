@@ -4,10 +4,29 @@
  * Malete implementation of IsisDb.
  */
 class MaleteDb implements IsisDb {
+  /**
+   * @var $fdt
+   *   Field description table.
+   */
   var $fdt;
+
+  /**
+   * @var $db
+   *   Database resource.
+   */
   var $db;
+
+  /**
+   * @var $format
+   *   Database format, derived from $schema.
+   */
   var $format;
 
+  /**
+   * Constructor.
+   *
+   * @see IsisDb::__construct()
+   */ 
   public function __construct($schema) {
     // Save db schema.
     $this->format = $schema;
@@ -24,6 +43,11 @@ class MaleteDb implements IsisDb {
     }
   }
 
+  /**
+   * Read an entry.
+   *
+   * @see IsisDb::read()
+   */  
   public function read($id) {
     if (!is_numeric($id)) {
       return FALSE;
@@ -37,6 +61,11 @@ class MaleteDb implements IsisDb {
     }
   }
 
+  /**
+   * Return number of rows in the database.
+   *
+   * @see IsisDb::read()
+   */  
   public function rows() {
     $id = 1;
     while($this->db->read($id)) {
@@ -45,11 +74,24 @@ class MaleteDb implements IsisDb {
     return $id - 1;
   }
 
+  /**
+   * Return a default example schema.
+   *
+   * @see IsisDb::default_schema()
+   */  
   public function default_schema() {
     return SchemaDb::default_schema();
   }
 
-  // Tag results of a db query.
+  /**
+   * Tag results of a db query.
+   *
+   * @param $results
+   *   Database query results.
+   *
+   * @return
+   *   Tagged database result.
+   */
   function tag($results) {
     foreach ($results->val as $key => $value) {
       $field = $results->tag[$key];

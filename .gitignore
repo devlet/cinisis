@@ -3,3 +3,4 @@ localhost:*
 db/*
 contrib/*
 tmp/*
+doc/*

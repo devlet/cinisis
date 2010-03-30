@@ -4,9 +4,23 @@
  * PHP-Isis implementation of IsisDb.
  */
 class PhpIsisDb implements IsisDb {
+  /**
+   * @var $db
+   *   Database resource.
+   */  
   var $db;
+
+  /**
+   * @var $format
+   *   Database format, derived from $schema.
+   */
   var $format;
 
+  /**
+   * Constructor.
+   *
+   * @see IsisDb::__construct()
+   */
   public function __construct($schema) {
     // Save db schema.
     $this->format = $schema;
@@ -21,6 +35,11 @@ class PhpIsisDb implements IsisDb {
     $this->db = isis_open("db/$name/$name");
   }
 
+  /**
+   * Read an entry.
+   *
+   * @see IsisDb::read()
+   */    
   public function read($id) {
     $results = isis_search('$', $this->db);
     if (!isis_data_seek($results, $id)) {
@@ -30,15 +49,33 @@ class PhpIsisDb implements IsisDb {
     return $this->tag(isis_fetch_array($results));
   }
 
+  /**
+   * Return number of rows in the database.
+   *
+   * @see IsisDb::rows()
+   */    
   public function rows() {
     return isis_last_mfn($this->db);
   }
 
+  /**
+   * Return a default example schema.
+   *
+   * @see IsisDb::default_schema()
+   */    
   public function default_schema() {
     return SchemaDb::default_schema();
   }
 
-  // Tag results of a db query.
+  /**
+   * Tag results of a db query.
+   *
+   * @param $results
+   *   Database query results.
+   *
+   * @return
+   *   Tagged database result.
+   */
   function tag($results) {
     foreach ($results as $key => $value) {
       if ($key != 'mfn') {
