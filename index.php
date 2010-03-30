@@ -29,9 +29,12 @@ $db             = new $implementation($schema);
 
 // Test connection.
 if ($db) {
-  echo '<pre>';
   $result = $db->read(1);
-  //$result = $db->rows();
+  $rows   = $db->rows();
+
+  // Format output.
+  echo '<pre>';
+  echo "Rows: $rows\n";
   print_r($result);
   echo '</pre>';
 }
