@@ -7,7 +7,7 @@
 require 'contrib/malete/php/Isis.php';
 
 // Import Spyc.
-include('contrib/spyc/spyc.php');
+require 'contrib/spyc/spyc.php';
 
 // Import Isis interface.
 require 'interface.php';
