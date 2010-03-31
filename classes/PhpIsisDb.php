@@ -38,6 +38,10 @@ class PhpIsisDb implements IsisDb {
   /**
    * Read an entry.
    *
+   * The PHP-Isis API doen't implement such feature so we
+   * have to emulate it by geting all entries and using
+   * isis_data_seek() to get the desired record.
+   *
    * @see IsisDb::read()
    */    
   public function read($id) {

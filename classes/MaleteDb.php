@@ -64,6 +64,10 @@ class MaleteDb implements IsisDb {
   /**
    * Return number of rows in the database.
    *
+   * The Malete API doen't implement such feature so we
+   * have to emulate it by iterating over all entries
+   * until MaleteDb::read() returns FALSE.
+   *
    * @see IsisDb::read()
    */  
   public function rows() {
