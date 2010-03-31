@@ -71,11 +71,11 @@ class MaleteDb implements IsisDb {
    * @see IsisDb::read()
    */  
   public function rows() {
-    $id = 1;
+    $id = 0;
     while($this->db->read($id)) {
       $id++; 
     }
-    return $id - 1;
+    return $id;
   }
 
   /**

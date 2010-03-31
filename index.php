@@ -1,36 +1,32 @@
 <?php
 /**
- * Isis db migration tool.
+ * CinIsis - Isis db reading tool.
  */
 
 // Import Malete Library.
-require 'contrib/malete/php/Isis.php';
+require_once 'contrib/malete/php/Isis.php';
 
 // Import Spyc.
-require 'contrib/spyc/spyc.php';
+require_once 'contrib/spyc/spyc.php';
 
 // Import Isis interface.
-require 'interface.php';
+require_once 'interface.php';
 
 // Autoloader.
-function __autoload($class) {
+function cinisis_autoload($class) {
   require_once 'classes/' .$class. '.php';
 }
 
-// Load configuration.
-$config = Spyc::YAMLLoad('config/config.yaml');
+// Register autoloader.
+spl_autoload_register("cinisis_autoload");
 
-// Load database schema.
-$schema = Spyc::YAMLLoad('schemas/'. $config['database'] .'.yaml');
-
-// Setup database connection.
-$implementation = $config['implementation'] .'Db';
-$db             = new $implementation($schema);
+// Get a db instance.
+$isis = new CinIsis();
 
 // Test connection.
-if ($db) {
-  $result = $db->read(1);
-  $rows   = $db->rows();
+if ($isis->db) {
+  $result = $isis->db->read(1);
+  $rows   = $isis->db->rows();
 
   // Format output.
   echo '<pre>';
