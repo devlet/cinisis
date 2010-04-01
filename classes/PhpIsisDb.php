@@ -50,7 +50,7 @@ class PhpIsisDb implements IsisDb {
       return FALSE;
     }
 
-    // Tag results
+    // Tag results.
     $data = $this->tag(isis_fetch_array($results));
 
     // Charset conversion.
