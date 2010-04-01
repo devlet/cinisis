@@ -1,6 +1,7 @@
 ---
 db: 
   name: tupi
+  charset: cp850
 fields: 
   1: 
     name: cod.titulo

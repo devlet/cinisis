@@ -50,6 +50,10 @@ class PhpIsisDb implements IsisDb {
       return FALSE;
     }
 
+    // Charset conversion.
+    array_walk_recursive($data, array('PhpIsisDb', 'charset'));
+
+    // Return the result.
     return $this->tag(isis_fetch_array($results));
   }
 
@@ -90,6 +94,25 @@ class PhpIsisDb implements IsisDb {
         $data[$name] = $value;
       }
     }
+
     return $data;
-  }  
+  }
+
+  /**
+   * Charset conversion.
+   *
+   * Converts a string from the database charset to UTF-8.
+   *
+   * @param $data
+   *   String to be converted.
+   *
+   * @param $count
+   *   Data index. Currently unused.
+   *
+   * @return
+   *   String converted to UTF-8.
+   */
+  function charset($data, $count) {
+    return iconv($data, $this->format['db']['charset'], 'UTF-8');
+  }
 }

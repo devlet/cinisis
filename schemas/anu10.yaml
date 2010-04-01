@@ -1,6 +1,7 @@
 ---
 db: 
   name: anu10
+  charset: cp850
 fields: 
   1: 
     name: Periodico
