@@ -21,6 +21,9 @@ class CinIsis {
    *
    * @param $file
    *   Optional parameter to set alternative config file.
+   *
+   * @todo
+   *   Config check.
    */   
   function __construct($file = 'config/config.yaml') {
     try {
