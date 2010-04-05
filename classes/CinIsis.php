@@ -19,25 +19,41 @@ class CinIsis {
   /**
    * Constructor.
    *
-   * @param $config
-   *   Alternative config file (defaults to 'config/config.yaml').
-   *
-   * @todo
-   *   Config check.
+   * @param $file
+   *   Optional parameter to set alternative config file.
    */   
-  function __construct($config = NULL) {
-    if ($config == NULL) {
-      $config = 'config/config.yaml';
+  function __construct($file = 'config/config.yaml') {
+    try {
+      // Load main configuration.
+      $config = $this->config($file);
+
+      // Load database schema.
+      $schema = $this->config('schemas/'. $config['database'] .'.yaml');
+    } catch (Exception $e) {
+      echo '[cinisis] caught exception: ',  $e->getMessage(), "\n";
+      return FALSE;
     }
-
-    // Load configuration.
-    $config = Spyc::YAMLLoad($config);
-
-    // Load database schema.
-    $schema = Spyc::YAMLLoad('schemas/'. $config['database'] .'.yaml');
 
     // Setup database connection.
     $this->implementation = $config['implementation'] .'Db';
     $this->db             = new $this->implementation($schema);
+  }
+
+  /**
+   * Config file load.
+   *
+   * @param $file
+   *   Config file.
+   *
+   * @return
+   *   Array with configuration.
+   */
+  function config($file) {
+    if (!file_exists($file)) {
+      throw new Exception('Config '. $file .' not found.');
+    }
+
+    // Load configuration.
+    return Spyc::YAMLLoad($file);
   }
 }
