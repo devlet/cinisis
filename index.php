@@ -1,6 +1,6 @@
 <?php
 /**
- * CinIsis - Isis db reading tool.
+ * Cinisis - Isis db reading tool.
  */
 
 // Import Malete Library.
