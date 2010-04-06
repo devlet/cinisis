@@ -79,12 +79,12 @@ class MaleteDb implements IsisDb {
   }
 
   /**
-   * Return a default example schema.
+   * Return an example schema.
    *
-   * @see IsisDb::default_schema()
+   * @see IsisDb::example()
    */  
-  public function default_schema() {
-    return SchemaDb::default_schema();
+  public function example() {
+    return SchemaDb::example();
   }
 
   /**

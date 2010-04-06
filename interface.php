@@ -45,5 +45,5 @@ interface IsisDb {
    * @return
    *   Array with a sample database schema.
    */
-  public function default_schema();
+  public function example();
 }

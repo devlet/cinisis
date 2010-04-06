@@ -21,7 +21,7 @@ function cinisis_autoload($class) {
 spl_autoload_register("cinisis_autoload");
 
 // Get a db instance.
-$isis = new CinIsis();
+$isis = new CinisisDb();
 
 ?>
 
