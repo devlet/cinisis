@@ -43,6 +43,9 @@ class PhpIsisDb implements IsisDb {
    * isis_data_seek() to get the desired record.
    *
    * @see IsisDb::read()
+   *
+   * @todo
+   *   Subfields.
    */    
   public function read($id) {
     $results = isis_search('$', $this->db);
