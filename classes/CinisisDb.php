@@ -28,16 +28,18 @@ class CinisisDb {
       // Check main configuration.
       $config = $this->parse($config);
 
+      // Set database implementation.
+      $this->implementation = $config['implementation'] .'Db';
+
       // Check database schema.
-      $schema = $this->parse('schemas/'. $config['database'] .'.yaml', 'schema');
+      $schema = $this->parse('schemas/'. $config['database'] .'.yaml', $this->implementation);
     } catch (Exception $e) {
-      echo '[cinisis] caught exception: ',  $e->getMessage(), "\n";
+      echo __CLASS__ .' caught exception: ',  $e->getMessage(), "\n";
       return FALSE;
     }
 
     // Setup database connection.
-    $this->implementation = $config['implementation'] .'Db';
-    $this->db             = new $this->implementation($schema);
+    $this->db = new $this->implementation($schema);
   }
 
   /**
@@ -47,11 +49,12 @@ class CinisisDb {
    *   Config file.
    *
    * @return
-   *   Array with configuration.
+   *   Array with configuration or FALSE if error.
    */
-  function load($file) {
+  public function load($file) {
     if (!file_exists($file)) {
       throw new Exception('Config '. $file .' not found.');
+      return FALSE;
     }
 
     // Load configuration.
@@ -64,20 +67,19 @@ class CinisisDb {
    * @param $config
    *   Config file or array with configuration.
    *
-   * @param $type
-   *   Configuration type (either 'cinisis' or 'schema').
+   * @param $class
+   *   Configuration class name.
    *
    * @return
    *   Array with configuration or FALSE on error.
    */
-  function parse($config, $type = 'cinisis') {
+  public function parse($config, $class = __CLASS__) {
     // Load configuration if needed.
     if (!is_array($config)) {
       $config = $this->load($config);
     }
 
     // Check configuration.
-    $class = ucfirst($type) .'Db';
     return call_user_func(array($class, 'check'), $config);
   }
 
@@ -99,6 +101,7 @@ class CinisisDb {
     // Check database configuration.
     if (!isset($config['database'])) {
       throw new Exception('No database set on configuration.');
+      return FALSE;
     }
 
     return $config;

@@ -37,7 +37,7 @@ interface IsisDb {
   public function rows();
 
   /**
-   * Return a default example schema.
+   * Return an example database schema.
    *
    * The example schema should have all information the implementation
    * needs to be able to open and read a database.
@@ -46,4 +46,18 @@ interface IsisDb {
    *   Array with a sample database schema.
    */
   public function example();
+
+  /**
+   * Configuration check.
+   *
+   * @param $schema
+   *   Database schema to check.
+   *
+   * @param $section
+   *   Configuration section.
+   *
+   * @return
+   *   Database schema or FALSE if error.
+   */
+  function check($schema, $section = NULL);
 }

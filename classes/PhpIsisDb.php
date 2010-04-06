@@ -79,6 +79,15 @@ class PhpIsisDb implements IsisDb {
   }
 
   /**
+   * Check configuration.
+   *
+   * @see IsisDb::check()
+   */  
+  public function check($schema, $section = NULL) {
+    return SchemaDb::check($schema, $section);
+  }
+
+  /**
    * Tag results of a db query.
    *
    * This function converts the keys of query result from field

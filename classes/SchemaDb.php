@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * SchemaDb class with standard database procedures and
+ * configuration.
+ */
 class SchemaDb {
   /**
    * Return the required database config.
@@ -36,7 +40,7 @@ class SchemaDb {
   }
 
   /**
-   * Return an example schema.
+   * Return an example database schema.
    *
    * @see IsisDb::example()
    */    
@@ -65,11 +69,28 @@ class SchemaDb {
   }
 
   /**
-   * Check required fields.
+   * Recursively check for required fields in a database schema.
    *
-   * @todo
+   * @see IsisDb::check()
    */
-  function check($schema = NULL) {
+  function check($schema, $section = NULL) {
+    if ($section === NULL) {
+      $section = SchemaDb::required();
+    }
+
+    foreach ($section as $key => $value) {
+      if (!isset($schema[$key])) {
+        throw new Exception('Undefined required parameter '. $key .' on database configuration.');
+        return FALSE;
+      }
+
+      if (is_array($value)) {
+        if (SchemaDb::check($schema[$key], $section[$key]) == FALSE) {
+          return FALSE;
+        }
+      }
+    }
+
     return $schema;
   }
 }
