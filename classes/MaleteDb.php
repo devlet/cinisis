@@ -74,11 +74,13 @@ class MaleteDb implements IsisDb {
    * @see IsisDb::read()
    */  
   public function rows() {
-    $id = 0;
+    // The first entry in a malete database has id 1 and
+    // not 0, therefore $id's initial value should be 1.
+    $id = 1;
     while($this->db->read($id)) {
       $id++; 
     }
-    return $id;
+    return $id - 1;
   }
 
   /**

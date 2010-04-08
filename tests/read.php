@@ -11,6 +11,8 @@
   </head>
   <body>
 
+<table><tr>
+
 <?php
 
 // Import Malete Library.
@@ -19,11 +21,11 @@ require_once '../index.php';
 $configs = array(
   0 => array(
     'implementation' => 'PhpIsis',
-    'database'       => 'tupi',
+    'database'       => 'anu10',
     ),
   1 => array(
     'implementation' => 'Malete',
-    'database'       => 'tupi',
+    'database'       => 'anu10',
     ),
 );
 
@@ -37,13 +39,17 @@ foreach ($configs as $config) {
     $rows   = $isis->db->rows();
 
     // Format output.
+    echo '<td>';
     echo '<pre>';
-    echo "Connection test:\n";
+    echo 'Implementation: '. $config['implementation'] ."\n";
     echo "Rows: $rows\n";
     print_r($result);
     echo '</pre>';
+    echo '</td>';
   }
 }
 
 ?>
+
+</tr></td></table>
 </body>

@@ -9,10 +9,13 @@ fields:
     name: Data
   3: 
     name: Titulo
+    repeat: Yes
   4: 
     name: Autor
+    repeat: Yes
   5: 
     name: Assuntos primarios
+    repeat: Yes
   6: 
     name: Assuntos secundarios
     repeat: Yes
