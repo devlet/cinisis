@@ -26,6 +26,7 @@ if ($isis->db) {
 
   // Format output.
   echo '<pre>';
+  echo "Connection test:\n";
   echo "Rows: $rows\n";
   print_r($result);
   echo '</pre>';

@@ -122,7 +122,8 @@ class CinisisDb {
    * Get a file path.
    *
    * @param $config
-   *   Config file name (either relative to the library or absolute).
+   *   Config file name (either relative to the library or absolute)
+   *   or array with configuration.
    *
    * @param $section
    *   Config file section (ignored for absolute files).
@@ -131,8 +132,11 @@ class CinisisDb {
    *   Return the assembled file path.
    */
   public function file($config = NULL, $section = 'config') {
-    // Check for NULL or relative config path.
-    if ($config == NULL) {
+    // Check config format (array, NULL or relative config path).
+    if (is_array($config)) {
+      return $config;
+    }
+    elseif ($config == NULL) {
       $config = "$section/config.yaml";
     }
     elseif (substr($config, 0, 1) != '/') {
