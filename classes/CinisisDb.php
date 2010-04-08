@@ -23,16 +23,16 @@ class CinisisDb {
    *   Optional parameter to set alternative config file or array
    *   with configuration.
    */   
-  function __construct($config = 'config/config.yaml') {
+  function __construct($config = NULL) {
     try {
       // Check main configuration.
-      $config = $this->parse($config);
+      $config = $this->parse($this->file($config));
 
       // Set database implementation.
       $this->implementation = $config['implementation'] .'Db';
 
       // Check database schema.
-      $schema = $this->parse('schemas/'. $config['database'] .'.yaml', $this->implementation);
+      $schema = $this->parse($this->file($config['database'] .'.yaml', 'schemas'), $this->implementation);
     } catch (Exception $e) {
       echo __CLASS__ .' caught exception: ',  $e->getMessage(), "\n";
       return FALSE;
@@ -105,5 +105,40 @@ class CinisisDb {
     }
 
     return $config;
+  }
+
+  /**
+   * Get library base folder.
+   *
+   * @return
+   *   Return base folder.
+   */
+  public function base() {
+    global $cinisis_basedir;
+    return $cinisis_basedir;
+  }
+
+  /**
+   * Get a file path.
+   *
+   * @param $config
+   *   Config file name (either relative to the library or absolute).
+   *
+   * @param $section
+   *   Config file section (ignored for absolute files).
+   *
+   * @return
+   *   Return the assembled file path.
+   */
+  public function file($config = NULL, $section = 'config') {
+    // Check for NULL or relative config path.
+    if ($config == NULL) {
+      $config = "$section/config.yaml";
+    }
+    elseif (substr($config, 0, 1) != '/') {
+      $config = "$section/$config";
+    }
+
+    return call_user_func(array(__CLASS__, 'base')) .'/'. $config;
   }
 }

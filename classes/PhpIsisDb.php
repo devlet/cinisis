@@ -32,7 +32,7 @@ class PhpIsisDb implements IsisDb {
 
     // Open the database.
     $name     = $schema['db']['name'];
-    $this->db = isis_open("db/$name/$name");
+    $this->db = isis_open(CinisisDb::file("$name/$name", 'db'));
   }
 
   /**
@@ -57,7 +57,7 @@ class PhpIsisDb implements IsisDb {
     $data = $this->tag(isis_fetch_array($results));
 
     // Charset conversion.
-    array_walk_recursive($data, array('PhpIsisDb', 'charset'));
+    array_walk_recursive($data, array(__CLASS__, 'charset'));
 
     // Return the result.
     return $data;
