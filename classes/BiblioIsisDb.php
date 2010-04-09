@@ -97,10 +97,6 @@ class BiblioIsisDb implements IsisDb {
   /**
    * Return number of rows in the database.
    *
-   * The Malete API doen't implement such feature so we
-   * have to emulate it by iterating over all entries
-   * until MaleteDb::read() returns FALSE.
-   *
    * @see IsisDb::read()
    */  
   public function rows() {
@@ -129,9 +125,7 @@ class BiblioIsisDb implements IsisDb {
    * Tag results of a db query.
    *
    * This function converts the keys of query result from field numbers
-   * to names and and also puts repetition fields into place as Malete
-   * deals with field repetition by using a 'tag' property in the resulting
-   * query object. 
+   * to names.
    *
    * @param $results
    *   Database query results.
