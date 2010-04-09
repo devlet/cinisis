@@ -51,6 +51,8 @@ fields:
     name: identidades
   29: 
     name: ndxlib
+  40:
+    name: materiais
   45: 
     name: materiais
   55: 
@@ -107,6 +109,10 @@ fields:
     name: loc.prod.lan
   86: 
     name: dat.prod.lan
+    repeat: No
+    subfields:
+      a: ano
+      d: data
   87: 
     name: lab/est/locacoes
   88: 

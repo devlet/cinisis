@@ -132,16 +132,49 @@ class BiblioIsisDb implements IsisDb {
    *
    * @return
    *   Tagged database result.
-   *
-   * @todo
-   *   Subfields.
    */
   function tag($results) {
     foreach ($results as $key => $value) {
-      $name        = $this->format['fields'][$key]['name'];
-      $data[$name] = $value;
+      // Key '000' used to hold MFN.
+      if ($key != '000') {
+        $name        = $this->format['fields'][$key]['name'];
+        $data[$name] = $this->repetition($key, $value);
+
+        // Subfield handling.
+        if (isset($this->format['fields'][$key]['subfields']) && is_array($data[$name])) {
+          foreach ($data[$name] as $subkey => $subvalue) {
+            $subname               = $this->format['fields'][$key]['subfields'][$subkey];
+            $data[$name][$subname] = $subvalue;
+            unset($data[$name][$subkey]);
+          }
+        }
+      }
     }
 
     return $data;    
+  }
+
+  /**
+   * Deals with repetition.
+   *
+   * As Biblio::Isis always return field values as arrays, we
+   * have to check the database schema to see if we have to
+   * convert then to a single value.
+   *
+   * @param $field
+   *   Database field.
+   *
+   * @param $value
+   *   Query field result.
+   *
+   * @return
+   *   The value according to the repetition config.
+   */
+  function repetition($field, $value) {
+    if (isset($this->format['fields'][$field]['repeat']) &&
+      $this->format['fields'][$key]['repeat'] == FALSE) {
+        return $value[0];
+      }
+    return $value;
   }
 }
