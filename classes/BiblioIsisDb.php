@@ -172,7 +172,7 @@ class BiblioIsisDb implements IsisDb {
    */
   function repetition($field, $value) {
     if (isset($this->format['fields'][$field]['repeat']) &&
-      $this->format['fields'][$key]['repeat'] == FALSE) {
+      $this->format['fields'][$key]['repeat'] == FALSE   && is_array($value)) {
         return $value[0];
       }
     return $value;
