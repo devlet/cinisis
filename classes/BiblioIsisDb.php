@@ -11,10 +11,9 @@ class BiblioIsisDb implements IsisDb {
   var $fdt;
 
   /**
-   * @var $db
-   *   Database resource.
+   * Class instance of a perl interpreter;
    */
-  var $db;
+  var $perl;
 
   /**
    * @var $format
@@ -28,17 +27,71 @@ class BiblioIsisDb implements IsisDb {
    * @see IsisDb::__construct()
    */ 
   public function __construct($schema) {
+    // Save db schema.
+    $this->format = $schema;
+
+    // Setup $fdt.
+    foreach ($schema['fields'] as $field => $info) {
+      $this->fdt[$field] = $info['name'];
+    }
+
+    // Create a perl instance.
+    $this->perl = new Perl();
+  }
+
+  /**
+   * Send requests to the perl backend.
+   *
+   * @param $method
+   *   Backend method name to invoke.
+   *
+   * @param $args
+   *   Backend method arguments.
+   *
+   * @return
+   *   Backend return value.
+   */
+  function backend($method = 'count', $args = NULL) {
+    // Setup the database.
+    $name = $this->format['db']['name'];
+    $db   = CinisisDb::file("$name/$name", 'db');
+
+    // Setup arguments.
+    if ($args != NULL) {
+      $args = '('. $args .')';
+    }
+
+    try {
+      // Call backend.
+      return $this->perl->eval('
+        use Biblio::Isis;
+
+        my $isis = new Biblio::Isis(
+           isisdb => "'. $db .'",
+        );
+
+        return $isis->'. $method . $args .';');
+    }
+    catch (PerlException $exception) {
+      echo __CLASS__ .': Perl error: ' . $exception->getMessage();
+      return FALSE;
+    }    
   }
 
   /**
    * Read an entry.
    *
    * @see IsisDb::read()
-   *
-   * @todo
-   *   Subfields.
    */  
   public function read($id) {
+    // Database query.
+    $results = $this->backend('to_hash', $id);
+
+    // Tag results.
+    $data = $this->tag($results);
+
+    // Return the result.
+    return $data;
   }
 
   /**
@@ -51,6 +104,7 @@ class BiblioIsisDb implements IsisDb {
    * @see IsisDb::read()
    */  
   public function rows() {
+    return $this->backend('count');
   }
 
   /**
@@ -84,7 +138,16 @@ class BiblioIsisDb implements IsisDb {
    *
    * @return
    *   Tagged database result.
+   *
+   * @todo
+   *   Subfields.
    */
   function tag($results) {
+    foreach ($results as $key => $value) {
+      $name        = $this->format['fields'][$key]['name'];
+      $data[$name] = $value;
+    }
+
+    return $data;    
   }
 }

@@ -25,7 +25,7 @@ class PhpIsisDb implements IsisDb {
     // Save db schema.
     $this->format = $schema;
 
-    // Setup $fdt used by malete.
+    // Setup $fdt.
     foreach ($schema['fields'] as $field => $info) {
       $this->fdt[$field] = $info['name'];
     }
@@ -105,7 +105,7 @@ class PhpIsisDb implements IsisDb {
   function tag($results) {
     foreach ($results as $key => $value) {
       if ($key != 'mfn') {
-        $name  = $this->format['fields'][$key]['name'];
+        $name        = $this->format['fields'][$key]['name'];
         $data[$name] = $value;
       }
     }
