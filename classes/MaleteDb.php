@@ -98,6 +98,13 @@ class MaleteDb implements IsisDb {
    * @see IsisDb::check()
    */  
   public function check($schema, $section = NULL) {
+    // Check API availability.
+    if (!class_exists('Isis_Db')) {
+      throw new Exception('Could not find Isis_Db class. Please check your malete installation.');
+      return FALSE;
+    }
+
+    // Check schema configuration.
     return SchemaDb::check($schema, $section);
   }
 

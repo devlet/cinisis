@@ -24,7 +24,7 @@ $configs = array(
     'database'       => 'anu10',
     ),
   1 => array(
-    'implementation' => 'Malete',
+    'implementation' => 'BiblioIsis',
     'database'       => 'anu10',
     ),
 );

@@ -118,6 +118,13 @@ class BiblioIsisDb implements IsisDb {
    * @see IsisDb::check()
    */  
   public function check($schema, $section = NULL) {
+    // Check API availability.
+    if (!class_exists('Perl')) {
+      throw new Exception('Could not find Perl class. Please check your php-perl installation.');
+      return FALSE;
+    }
+
+    // Check schema configuration.
     return SchemaDb::check($schema, $section);
   }
 
