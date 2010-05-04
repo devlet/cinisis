@@ -1,0 +1,81 @@
+---
+db: 
+  name: fbe
+  charset: cp850
+fields: 
+  1: 
+    name: Código do filme
+    repeat: Yes
+  20: 
+    name: Título
+    repeat: Yes
+    subfields:
+      a: título
+      d: título atribuído
+  22:
+    name: Outros títulos
+    repeat: Yes
+    subfields:
+      y: outros títulos
+  66:
+    name: Direção
+    repeat: Yes
+    subfields:
+      a: direção
+  67:
+    name: Argumento/roteiro
+    repeat: Yes
+    subfields:
+      d: roteiro
+  62:
+    name: Fotografia
+    repeat: Yes
+    subfields:
+      a: fotografia
+  15:
+    name: Categorias
+    repeat: Yes
+    subfields:
+      a: NAC/EST/COP
+      b: LM/CM/CJ
+      c: SONORO
+      e: FICÇÃO/NAO-FICÇÃO
+  19:
+    name: Material Original
+    repeat: Yes
+    subfields:
+      a: formato original
+      b: processo
+      c: duração
+  24:
+    name: Gênero
+    repeat: Yes
+  25:
+    name: Sinopse/Enredo
+    repeat: Yes
+  26:
+    name: Assuntos/Voc. Controlado
+    repeat: Yes
+  27:
+    name: Assuntos/Termos Livres
+    repeat: Yes
+  165:
+    name: Termos geográficos
+    repeat: Yes
+  60:
+    name: Produção
+    repeat: Yes
+    subfields:
+      a: companhia produtora
+      d: produção
+  86:
+    name: Data e local de produção
+    repeat: Yes
+    subfields:
+      a: ano de produção
+      x: país
+      y: cidade
+      z: estado
+  162:
+    name: BCC
+    repeat: Yes
