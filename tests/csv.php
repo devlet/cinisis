@@ -3,6 +3,13 @@
  * Cinisis - Isis db reading tool.
  */
 
+/**
+ * Format a value for CSV output.
+ */
+function csv($field) {
+  return '"'. preg_replace('/"/', '""', $field) .'",';
+}
+
 // Import Cinisis Library.
 require_once '../index.php';
 
@@ -23,10 +30,10 @@ if ($isis->db) {
 
   // Format fields.
   foreach ($format['fields'] as $field) {
-    echo $field['name'] .',';
+    echo csv($field['name']);
     if (is_array($field['subfields'])) {
       foreach ($field['subfields'] as $key => $value) {
-        echo $field['name'] .': '. $value.',';
+        echo csv($field['name'] .': '. $value);
       }
     }
   }
@@ -35,10 +42,10 @@ if ($isis->db) {
   for ($n=1; $n <= $rows; $n++) {
     $result = $isis->db->read($n);
     foreach ($format['fields'] as $field) {
-      echo $result[$field['name']] .',';
+      echo csv($result[$field['name']]);
       if (is_array($field['subfields'])) {
         foreach ($field['subfields'] as $key => $value) {
-          echo $result[$field['name']][$value] .',';
+          echo csv($result[$field['name']][$value]);
         }
       }
     }
