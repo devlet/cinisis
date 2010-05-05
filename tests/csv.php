@@ -6,7 +6,7 @@
 /**
  * Format a value for CSV output.
  */
-function csv($field) {
+function csv($field = NULL) {
   return '"'. preg_replace('/"/', '""', $field) .'",';
 }
 
@@ -38,17 +38,27 @@ if ($isis->db) {
     }
   }
 
+  // New roll.
+  echo "\n";
+
   // Format output.
-  for ($n=1; $n <= $rows; $n++) {
+  for ($n=1; $n <= $n; $n++) {
     $result = $isis->db->read($n);
     foreach ($format['fields'] as $field) {
-      echo csv($result[$field['name']]);
+      if (is_array($result[$field['name']])) {
+        echo csv();
+      }
+      else {
+        echo csv($result[$field['name']]);
+      }
       if (is_array($field['subfields'])) {
         foreach ($field['subfields'] as $key => $value) {
           echo csv($result[$field['name']][$value]);
         }
       }
     }
+
+    // New roll.
     echo "\n";
   }
 }
