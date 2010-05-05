@@ -15,7 +15,7 @@
 
 <?php
 
-// Import Malete Library.
+// Import Cinisis Library.
 require_once '../index.php';
 
 $configs = array(

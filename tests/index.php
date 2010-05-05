@@ -13,7 +13,7 @@
 
 <?php
 
-// Import Malete Library.
+// Import Cinisis Library.
 require_once '../index.php';
 
 // Get a db instance.
