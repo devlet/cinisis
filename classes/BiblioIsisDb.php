@@ -90,6 +90,9 @@ class BiblioIsisDb implements IsisDb {
     // Tag results.
     $data = $this->tag($results);
 
+    // Charset conversion.
+    array_walk_recursive($data, array(__CLASS__, 'charset'));
+
     // Return the result.
     return $data;
   }
@@ -183,5 +186,20 @@ class BiblioIsisDb implements IsisDb {
         return $value[0];
       }
     return $value;
+  }
+
+  /**
+   * Charset conversion.
+   *
+   * Converts a string from the database charset to UTF-8.
+   *
+   * @param $data
+   *   String to be converted.
+   *
+   * @return
+   *   String converted to UTF-8.
+   */
+  function charset(&$data) {
+    $data = iconv($this->format['db']['charset'], 'UTF-8', $data);
   }
 }

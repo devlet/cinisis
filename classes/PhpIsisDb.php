@@ -131,7 +131,7 @@ class PhpIsisDb implements IsisDb {
    * @return
    *   String converted to UTF-8.
    */
-  function charset($data) {
-    return iconv($data, $this->format['db']['charset'], 'UTF-8');
-  }
+  function charset(&$data) {
+    $data = iconv($this->format['db']['charset'], 'UTF-8', $data);
+  }  
 }
