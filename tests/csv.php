@@ -42,7 +42,7 @@ if ($isis->db) {
   echo "\n";
 
   // Format output.
-  for ($n=1; $n <= $n; $n++) {
+  for ($n=1; $n <= $rows; $n++) {
     $result = $isis->db->read($n);
     foreach ($format['fields'] as $field) {
       if (is_array($result[$field['name']])) {
