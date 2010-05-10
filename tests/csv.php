@@ -5,9 +5,27 @@
 
 /**
  * Format a value for CSV output.
+ *
+ * @param $field
+ *   Field entry.
+ *
+ * @return
+ *   Formatted CSV field.
  */
 function csv($field = NULL) {
   return '"'. preg_replace('/"/', '""', $field) .'",';
+}
+
+/**
+ * Apply filters into the result.
+ *
+ * @param $field
+ *   Field entry.
+ */
+function filter(&$field = NULL) {
+  // Remove brackets from field content.
+  $field = str_replace('<', '', $field);
+  $field = str_replace('>', '', $field);
 }
 
 // Import Cinisis Library.
@@ -44,6 +62,10 @@ if ($isis->db) {
   // Format output.
   for ($n=1; $n <= $rows; $n++) {
     $result = $isis->db->read($n);
+
+    // Filter results.
+    array_walk_recursive($result, 'filter');
+
     foreach ($format['fields'] as $field) {
       if (is_array($result[$field['name']])) {
         echo csv();
