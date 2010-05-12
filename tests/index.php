@@ -21,7 +21,7 @@ $isis = new CinisisDb();
 
 // Test connection.
 if ($isis->db) {
-  $result = $isis->db->read(430);
+  $result = $isis->db->read(1);
   $rows   = $isis->db->rows();
 
   // Format output.
