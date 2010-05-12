@@ -63,24 +63,26 @@ if ($isis->db) {
   for ($n=1; $n <= $rows; $n++) {
     $result = $isis->db->read($n);
 
-    // Filter results.
-    array_walk_recursive($result, 'filter');
+    if ($result) {
+      // Filter results.
+      array_walk_recursive($result, 'filter');
 
-    foreach ($format['fields'] as $field) {
-      if (is_array($result[$field['name']])) {
-        echo csv();
-      }
-      else {
-        echo csv($result[$field['name']]);
-      }
-      if (is_array($field['subfields'])) {
-        foreach ($field['subfields'] as $key => $value) {
-          echo csv($result[$field['name']][$value]);
+      foreach ($format['fields'] as $field) {
+        if (is_array($result[$field['name']])) {
+          echo csv();
+        }
+        else {
+          echo csv($result[$field['name']]);
+        }
+        if (is_array($field['subfields'])) {
+          foreach ($field['subfields'] as $key => $value) {
+            echo csv($result[$field['name']][$value]);
+          }
         }
       }
-    }
 
-    // New roll.
-    echo "\n";
+      // New roll.
+      echo "\n";
+    }
   }
 }

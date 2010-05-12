@@ -87,14 +87,16 @@ class BiblioIsisDb implements IsisDb {
     // Database query.
     $results = $this->backend('to_hash', $id);
 
-    // Tag results.
-    $data = $this->tag($results);
+    if ($results) {
+      // Tag results.
+      $data = $this->tag($results);
 
-    // Charset conversion.
-    array_walk_recursive($data, array(__CLASS__, 'charset'));
+      // Charset conversion.
+      array_walk_recursive($data, array(__CLASS__, 'charset'));
 
-    // Return the result.
-    return $data;
+      // Return the result.
+      return $data;
+    }
   }
 
   /**
