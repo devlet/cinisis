@@ -11,7 +11,7 @@ fields:
     repeat: Yes
     subfields:
       a: título
-      d: título atribuído
+      b: título atribuído
   22:
     name: Outros títulos
     repeat: Yes
