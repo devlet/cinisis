@@ -113,7 +113,7 @@ class CinisisDb {
    * @return
    *   Return base folder.
    */
-  public function base() {
+  static function base() {
     global $cinisis_basedir;
     return $cinisis_basedir;
   }
