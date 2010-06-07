@@ -14,7 +14,7 @@ require_once 'interface.php';
 
 // Autoloader.
 function cinisis_autoload($class) {
-  require_once 'classes/' .$class. '.php';
+  require_once 'classes/'. $class .'.php';
 }
 
 // Register autoloader.

@@ -155,9 +155,17 @@ class BiblioIsisDb implements IsisDb {
         // Subfield handling.
         if (isset($this->format['fields'][$key]['subfields']) && is_array($data[$name])) {
           foreach ($data[$name] as $subkey => $subvalue) {
-            $subname               = $this->format['fields'][$key]['subfields'][$subkey];
+            if (isset($this->format['fields'][$key]['subfields'][$subkey])) {
+              $subname = $this->format['fields'][$key]['subfields'][$subkey];
+            } else {
+              $subname = $subkey;
+            }
+
             $data[$name][$subname] = $subvalue;
-            unset($data[$name][$subkey]);
+
+            if ($subkey != $subname) {
+              unset($data[$name][$subkey]);
+            }
           }
         }
       }
@@ -187,6 +195,7 @@ class BiblioIsisDb implements IsisDb {
       $this->format['fields'][$key]['repeat'] == FALSE   && is_array($value)) {
         return $value[0];
       }
+
     return $value;
   }
 

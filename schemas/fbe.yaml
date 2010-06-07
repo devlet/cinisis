@@ -5,7 +5,7 @@ db:
 fields: 
   1: 
     name: Código do filme
-    repeat: Yes
+    repeat: No
   20: 
     name: Título
     repeat: Yes
