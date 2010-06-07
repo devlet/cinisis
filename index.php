@@ -17,7 +17,4 @@ function cinisis_autoload($class) {
 // Register autoloader.
 spl_autoload_register("cinisis_autoload");
 
-// Reference to the base path.
-$cinisis_basedir = dirname(__FILE__);
-
 ?>

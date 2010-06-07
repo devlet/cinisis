@@ -114,8 +114,7 @@ class CinisisDb {
    *   Return base folder.
    */
   static function base() {
-    global $cinisis_basedir;
-    return $cinisis_basedir;
+    return dirname(__FILE__) .'/../';
   }
 
   /**
