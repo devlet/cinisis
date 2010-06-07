@@ -92,7 +92,9 @@ class BiblioIsisDb implements IsisDb {
       $data = $this->tag($results);
 
       // Charset conversion.
-      array_walk_recursive($data, array(__CLASS__, 'charset'));
+      if (is_array($data)) {
+        array_walk_recursive($data, array(__CLASS__, 'charset'));
+      }
 
       // Return the result.
       return $data;
@@ -122,7 +124,7 @@ class BiblioIsisDb implements IsisDb {
    *
    * @see IsisDb::check()
    */  
-  public function check($schema, $section = NULL) {
+  static function check($schema, $section = NULL) {
     // Check API availability.
     if (!class_exists('Perl')) {
       throw new Exception('Could not find Perl class. Please check your php-perl installation.');
@@ -144,11 +146,18 @@ class BiblioIsisDb implements IsisDb {
    *
    * @return
    *   Tagged database result.
+   *
+   * @todo
+   *    Alternative handling for when $key is not set.
    */
   function tag($results) {
     foreach ($results as $key => $value) {
       // Key '000' used to hold MFN.
       if ($key != '000') {
+        if (!isset($this->format['fields'][$key])) {
+          return;
+        }
+
         $name        = $this->format['fields'][$key]['name'];
         $data[$name] = $this->repetition($key, $value);
 

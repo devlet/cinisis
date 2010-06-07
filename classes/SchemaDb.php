@@ -11,7 +11,7 @@ class SchemaDb {
    * @return
    *   Array with required config.
    */
-  public function required() {
+  static function required() {
     $schema = array(
       'db'             => array(
         'name'         => 'dbname',
@@ -73,7 +73,7 @@ class SchemaDb {
    *
    * @see IsisDb::check()
    */
-  function check($schema, $section = NULL) {
+  static function check($schema, $section = NULL) {
     if ($section === NULL) {
       $section = SchemaDb::required();
     }

@@ -92,7 +92,7 @@ class CinisisDb {
    * @return
    *   Array with configuration or FALSE on error.
    */  
-  public function check($config) {
+  static function check($config) {
     // Set default database backend if needed.
     if (!isset($config['implementation'])) {
       $config['implementation'] = 'PhpIsis';
@@ -130,7 +130,7 @@ class CinisisDb {
    * @return
    *   Return the assembled file path.
    */
-  public function file($config = NULL, $section = 'config') {
+  static function file($config = NULL, $section = 'config') {
     // Check config format (array, NULL or relative config path).
     if (is_array($config)) {
       return $config;

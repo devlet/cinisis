@@ -59,5 +59,5 @@ interface IsisDb {
    * @return
    *   Database schema or FALSE if error.
    */
-  function check($schema, $section = NULL);
+  static function check($schema, $section = NULL);
 }
