@@ -149,6 +149,9 @@ class BiblioIsisDb implements IsisDb {
    *
    * @todo
    *    Alternative handling for when $key is not set.
+   *
+   * @fixme
+   *    Repetitive fields are not being tagged.
    */
   function tag($results) {
     foreach ($results as $key => $value) {
