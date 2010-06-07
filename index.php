@@ -9,9 +9,6 @@ require_once 'contrib/malete/php/Isis.php';
 // Import Spyc.
 require_once 'contrib/spyc/spyc.php';
 
-// Import Isis interface.
-require_once 'interface.php';
-
 // Autoloader.
 function cinisis_autoload($class) {
   require_once 'classes/'. $class .'.php';
