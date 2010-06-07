@@ -86,7 +86,7 @@ class PhpIsisDb implements IsisDb {
    *
    * @see IsisDb::check()
    */  
-  public function check($schema, $section = NULL) {
+  static function check($schema, $section = NULL) {
     // Check API availability.
     if (!function_exists('isis_open')) {
       throw new Exception('Could not find function isis_open. Please check your php-isis installation.');

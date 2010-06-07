@@ -155,7 +155,7 @@ class BiblioIsisDb implements IsisDb {
       // Key '000' used to hold MFN.
       if ($key != '000') {
         if (!isset($this->format['fields'][$key])) {
-          return;
+          continue;
         }
 
         $name        = $this->format['fields'][$key]['name'];
@@ -201,7 +201,7 @@ class BiblioIsisDb implements IsisDb {
    */
   function repetition($field, $value) {
     if (isset($this->format['fields'][$field]['repeat']) &&
-      $this->format['fields'][$key]['repeat'] == FALSE   && is_array($value)) {
+      $this->format['fields'][$field]['repeat'] == FALSE && is_array($value)) {
         return $value[0];
       }
 
