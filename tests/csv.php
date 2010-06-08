@@ -1,6 +1,9 @@
 <?php
 /**
  * Cinisis - Isis db reading tool.
+ *
+ * @fixme: script is broken after BiblioIsis repetition support
+ *         was enhanced.
  */
 
 /**
@@ -41,10 +44,12 @@ if ($isis->db) {
   $format = $isis->db->format;
 
   // Prepare output.
+  /*
   header("Content-type: application/text/x-csv");
   header("Content-Disposition: attachment; filename=export.csv");
 	header("Pragma: no-cache");
 	header("Expires: 0");
+  */
 
   // Format fields.
   foreach ($format['fields'] as $field) {
@@ -60,7 +65,7 @@ if ($isis->db) {
   echo "\n";
 
   // Format output.
-  for ($n=1; $n <= $rows; $n++) {
+  for ($n=1; $n <= 30; $n++) {
     $result = $isis->db->read($n);
 
     if ($result) {
@@ -76,7 +81,16 @@ if ($isis->db) {
         }
         if (is_array($field['subfields'])) {
           foreach ($field['subfields'] as $key => $value) {
-            echo csv($result[$field['name']][$value]);
+            if (isset($result[$field['name']][0][$value])) {
+              $cel = '';
+              foreach ($result[$field['name']] as $subkey => $subvalue) {
+                $cel = $cel . $result[$field['name']][$subkey][$value] .'; ';
+              }
+              echo csv($cel);
+            }
+            else {
+              echo csv($result[$field['name']][$value]);
+            }
           }
         }
       }
