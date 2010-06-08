@@ -165,25 +165,53 @@ class BiblioIsisDb implements IsisDb {
         $data[$name] = $this->repetition($key, $value);
 
         // Subfield handling.
-        if (isset($this->format['fields'][$key]['subfields']) && is_array($data[$name])) {
-          foreach ($data[$name] as $subkey => $subvalue) {
-            if (isset($this->format['fields'][$key]['subfields'][$subkey])) {
-              $subname = $this->format['fields'][$key]['subfields'][$subkey];
-            } else {
-              $subname = $subkey;
-            }
-
-            $data[$name][$subname] = $subvalue;
-
-            if ($subkey != $subname) {
-              unset($data[$name][$subkey]);
-            }
-          }
-        }
+        $this->subfield($data, $name, $key);
       }
     }
 
     return $data;    
+  }
+
+  function subfield(&$data, $name, $key) {
+    if (isset($this->format['fields'][$key]['subfields']) && is_array($data[$name])) {
+
+      foreach ($data[$name] as $subkey => $subvalue) {
+        if (isset($this->format['fields'][$key]['subfields'][$subkey])) {
+          $subname = $this->format['fields'][$key]['subfields'][$subkey];
+        } else {
+          $subname = $subkey;
+        }
+
+        $data[$name][$subname] = $subvalue;
+
+        if ($subkey != $subname) {
+          unset($data[$name][$subkey]);
+        }
+      }
+
+    }
+  }
+
+  /**
+   * Deals with repetition.
+   *
+   * As Biblio::Isis always return field values as arrays, we
+   * have to check the database schema to see if we have to
+   * convert then to a single value.
+   *
+   * @param $field
+   *   Database field.
+   *
+   * @return
+   *   True if repetitive, false otherwise.
+   */
+  function is_repetitive($field, $value) {
+    if (isset($this->format['fields'][$field]['repeat']) &&
+      $this->format['fields'][$field]['repeat'] == FALSE && is_array($value)) {
+        return FALSE;
+      }
+
+    return TRUE;
   }
 
   /**
@@ -202,13 +230,13 @@ class BiblioIsisDb implements IsisDb {
    * @return
    *   The value according to the repetition config.
    */
-  function repetition($field, $value) {
-    if (isset($this->format['fields'][$field]['repeat']) &&
-      $this->format['fields'][$field]['repeat'] == FALSE && is_array($value)) {
-        return $value[0];
-      }
-
-    return $value;
+  function repetition($key, $value) {
+    if ($this->is_repetitive($key, $value)) {
+      return $value;
+    }
+    else {
+      return $value[0];
+    }
   }
 
   /**
