@@ -22,6 +22,12 @@ class BiblioIsisDb implements IsisDb {
   var $format;
 
   /**
+   * @var $log
+   *   Class action log.
+   */
+  var $log;
+
+  /**
    * Constructor.
    *
    * @see IsisDb::__construct()
@@ -37,6 +43,13 @@ class BiblioIsisDb implements IsisDb {
 
     // Create a perl instance.
     $this->perl = new Perl();
+  }
+
+  /**
+   * Class logger.
+   */
+  function logger($message) {
+    $this->log[] = $message;
   }
 
   /**
@@ -146,12 +159,6 @@ class BiblioIsisDb implements IsisDb {
    *
    * @return
    *   Tagged database result.
-   *
-   * @todo
-   *    Alternative handling for when $key is not set.
-   *
-   * @fixme
-   *    Repetitive fields are not being tagged.
    */
   function tag($results) {
     foreach ($results as $key => $value) {
@@ -171,6 +178,15 @@ class BiblioIsisDb implements IsisDb {
     return $data;
   }
 
+  /**
+   * Checks whether a field has subfields.
+   *
+   * @param $key
+   *   Field key.
+   *
+   * @return
+   *   True if has subfields, false otherwise.
+   */
   function has_subfields($key) {
     if (isset($this->format['fields'][$key]['subfields'])) {
       return TRUE;
@@ -179,7 +195,21 @@ class BiblioIsisDb implements IsisDb {
     return FALSE;
   }
 
+  /**
+   * Switch keys on subfields.
+   *
+   * @param $key
+   *   Field key.
+   *
+   * @param $value
+   *   Dataset.
+   */
   function subfields_switch($key, &$value) {
+    // TODO: check this condition.
+    if (!is_array($value)) {
+      return;
+    }
+
     foreach ($value as $subkey => $subvalue) {
       if (isset($this->format['fields'][$key]['subfields'][$subkey])) {
         $subname = $this->format['fields'][$key]['subfields'][$subkey];
@@ -195,6 +225,15 @@ class BiblioIsisDb implements IsisDb {
     }
   }
 
+  /**
+   * Makes subfield substitution in a dataset.
+   *
+   * @param $key
+   *   Field key.
+   *
+   * @param $value
+   *   Dataset.
+   */
   function subfields($name, $key) {
     if ($this->has_subfields($key) && is_array($name)) {
       if ($this->is_repetitive($key, $name)) {
@@ -223,14 +262,13 @@ class BiblioIsisDb implements IsisDb {
    *
    * @return
    *   True if repetitive, false otherwise.
-   *
-   * @todo
-   *   Warn on configuration/data mismatch ("config says that
-   *   $field is non repetitive but data shows a repetition").
    */
   function is_repetitive($field, $value) {
     if (isset($this->format['fields'][$field]['repeat']) &&
-      $this->format['fields'][$field]['repeat'] == FALSE && is_array($value)) {
+      $this->format['fields'][$field]['repeat'] == FALSE) {
+        if (!is_array($value)) {
+          $this->logger("$field is configured as non repetitive but data shows a repetition for value $value");
+        }
         return FALSE;
       }
 
