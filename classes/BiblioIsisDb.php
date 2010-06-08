@@ -161,15 +161,14 @@ class BiblioIsisDb implements IsisDb {
           continue;
         }
 
+        // Format, repetition and subfield handling.
         $name        = $this->format['fields'][$key]['name'];
         $data[$name] = $this->repetition($key, $value);
-
-        // Subfield handling.
-        $this->subfield($data, $name, $key);
+        $data[$name] = $this->subfields($data[$name], $key);
       }
     }
 
-    return $data;    
+    return $data;
   }
 
   function has_subfields($key) {
@@ -180,22 +179,36 @@ class BiblioIsisDb implements IsisDb {
     return FALSE;
   }
 
-  function subfield(&$data, $name, $key) {
-    if ($this->has_subfields($key) && is_array($data[$name])) {
-      foreach ($data[$name] as $subkey => $subvalue) {
-        if (isset($this->format['fields'][$key]['subfields'][$subkey])) {
-          $subname = $this->format['fields'][$key]['subfields'][$subkey];
-        } else {
-          $subname = $subkey;
-        }
+  function subfields_switch($key, &$value) {
+    foreach ($value as $subkey => $subvalue) {
+      if (isset($this->format['fields'][$key]['subfields'][$subkey])) {
+        $subname = $this->format['fields'][$key]['subfields'][$subkey];
+      } else {
+        $subname = $subkey;
+      }
 
-        $data[$name][$subname] = $subvalue;
+      $value[$subname] = $subvalue;
 
-        if ($subkey != $subname) {
-          unset($data[$name][$subkey]);
-        }
+      if ($subkey != $subname) {
+        unset($value[$subkey]);
       }
     }
+  }
+
+  function subfields($name, $key) {
+    if ($this->has_subfields($key) && is_array($name)) {
+      if ($this->is_repetitive($key, $name)) {
+        foreach ($name as $entry => $value) {
+          $this->subfields_switch($key, $value);
+          $name[$entry] = $value;
+        }
+      }
+      else {
+        $this->subfields_switch($key, $name);
+      }
+    }
+
+    return $name;
   }
 
   /**
