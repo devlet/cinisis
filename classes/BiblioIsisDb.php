@@ -172,9 +172,16 @@ class BiblioIsisDb implements IsisDb {
     return $data;    
   }
 
-  function subfield(&$data, $name, $key) {
-    if (isset($this->format['fields'][$key]['subfields']) && is_array($data[$name])) {
+  function has_subfields($key) {
+    if (isset($this->format['fields'][$key]['subfields'])) {
+      return TRUE;
+    }
 
+    return FALSE;
+  }
+
+  function subfield(&$data, $name, $key) {
+    if ($this->has_subfields($key) && is_array($data[$name])) {
       foreach ($data[$name] as $subkey => $subvalue) {
         if (isset($this->format['fields'][$key]['subfields'][$subkey])) {
           $subname = $this->format['fields'][$key]['subfields'][$subkey];
@@ -188,7 +195,6 @@ class BiblioIsisDb implements IsisDb {
           unset($data[$name][$subkey]);
         }
       }
-
     }
   }
 
@@ -204,6 +210,10 @@ class BiblioIsisDb implements IsisDb {
    *
    * @return
    *   True if repetitive, false otherwise.
+   *
+   * @todo
+   *   Warn on configuration/data mismatch ("config says that
+   *   $field is non repetitive but data shows a repetition").
    */
   function is_repetitive($field, $value) {
     if (isset($this->format['fields'][$field]['repeat']) &&
