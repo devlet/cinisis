@@ -2,8 +2,7 @@
 /**
  * Cinisis - Isis db reading tool.
  *
- * @fixme: script is broken after BiblioIsis repetition support
- *         was enhanced.
+ * @TODO: check what happens if theres a field and subfields with repetition.
  */
 
 /**
@@ -85,7 +84,7 @@ if ($isis->db) {
   echo "\n";
 
   // Format output.
-  for ($n=1; $n <= $rows; $n++) {
+  for ($n = 1; $n <= $rows; $n++) {
     $result = $isis->db->read($n);
 
     if ($result) {
@@ -94,7 +93,13 @@ if ($isis->db) {
 
       foreach ($format['fields'] as $field) {
         if (is_array($result[$field['name']])) {
-          echo csv();
+          // Print main field if needed.
+          if (is_array($result[$field['name']][0])) {
+            echo csv();
+          }
+          else {
+            echo csv($result[$field['name']][0]);
+          }
         }
         else {
           echo csv($result[$field['name']]);
