@@ -94,15 +94,21 @@ class BiblioIsisDb implements IsisDb {
   /**
    * Read an entry.
    *
+   * @param $id
+   *   Record Id.
+   *
+   * @param $method
+   *   Database read method.
+   *
    * @see IsisDb::read()
    */  
-  public function read($id) {
+  public function read($id, $method = 'to_hash') {
     // Database query.
-    $results = $this->backend('to_hash', $id);
+    $results = $this->backend($method, $id);
 
     if ($results) {
       // Tag results.
-      $data = $this->tag($results);
+      $data = $this->tag($results, $method);
 
       // Charset conversion.
       if (is_array($data)) {
@@ -157,10 +163,13 @@ class BiblioIsisDb implements IsisDb {
    * @param $results
    *   Database query results.
    *
+   * @param $method
+   *   Database read method.
+   *
    * @return
    *   Tagged database result.
    */
-  function tag($results) {
+  function tag($results, $method = 'to_hash') {
     foreach ($results as $key => $value) {
       // Key '000' used to hold MFN.
       if ($key != '000') {
@@ -171,7 +180,7 @@ class BiblioIsisDb implements IsisDb {
         // Format, repetition and subfield handling.
         $name        = $this->format['fields'][$key]['name'];
         $data[$name] = $this->repetition($key, $value);
-        $data[$name] = $this->subfields($data[$name], $key);
+        $data[$name] = $this->subfields($data[$name], $key, $method);
       }
     }
 
@@ -203,9 +212,11 @@ class BiblioIsisDb implements IsisDb {
    *
    * @param $value
    *   Dataset.
+   *
+   * @todo
+   *   Check is_array condition.
    */
   function subfields_switch($key, &$value) {
-    // TODO: check this condition.
     if (!is_array($value)) {
       return;
     }
@@ -233,21 +244,88 @@ class BiblioIsisDb implements IsisDb {
    *
    * @param $value
    *   Dataset.
+   *
+   * @param $method
+   *   Database read method.
+   *
+   * @return
+   *   Data with processed subfields.
    */
-  function subfields($name, $key) {
+  function subfields($name, $key, $method) {
     if ($this->has_subfields($key) && is_array($name)) {
-      if ($this->is_repetitive($key, $name)) {
-        foreach ($name as $entry => $value) {
-          $this->subfields_switch($key, $value);
-          $name[$entry] = $value;
-        }
-      }
-      else {
-        $this->subfields_switch($key, $name);
-      }
+      $method = 'subfields_from_'. $method;
+      return $this->{$method}($name, $key);
     }
 
     return $name;
+  }
+
+  /**
+   * Subfield handling for data read by 'to_hash' method.
+   *
+   * @param $key
+   *   Field key.
+   *
+   * @param $value
+   *   Dataset.
+   *
+   * @param $method
+   *   Database read method.
+   *
+   * @return
+   *   Data with processed subfields.
+   */
+  function subfields_from_to_hash($name, $key) {
+    if ($this->is_repetitive($key, $name)) {
+      foreach ($name as $entry => $value) {
+        $this->subfields_switch($key, $value);
+        $name[$entry] = $value;
+      }
+    }
+    else {
+      $this->subfields_switch($key, $name);
+    }
+
+    return $name;
+  }
+
+  /**
+   * @param $key
+   *   Field key.
+   *
+   * @param $value
+   *   Dataset.
+   *
+   * @param $method
+   *   Database read method.
+   *
+   * @return
+   *   Data with processed subfields.
+   */
+  function subfields_from_fetch($name, $key) {
+    foreach ($name as $entry => $value) {
+      if (substr($value, 0, 1) != '^') {
+        $field     = preg_replace('/\^.*/', '', $value);
+        $subfields = substr($value, strlen($field) + 1);
+
+        $data[$entry]['field'] = $field;
+        $subfields             = explode('^', $subfields);
+      }
+      else {
+        $subfields = explode('^', substr($value, 1));
+      }
+
+      // Subfield tagging.
+      foreach ($subfields as $subfield => $subvalue) {
+        $subkey = substr($subvalue, 0, 1);
+        if (isset($this->format['fields'][$key]['subfields'][$subkey])) {
+          $subkey = $this->format['fields'][$key]['subfields'][$subkey];
+        }
+        $data[$entry]['subfields'][$subkey] = substr($subvalue, 1);
+      }
+    }
+
+    return $data;
   }
 
   /**

@@ -79,3 +79,8 @@ fields:
   162:
     name: BCC
     repeat: Yes
+  28:
+    name: Elenco
+    repeat: Yes
+    subfields:
+      p: papel
