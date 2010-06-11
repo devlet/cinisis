@@ -309,7 +309,7 @@ class BiblioIsisDb implements IsisDb {
         $subfields = substr($value, strlen($field) + 1);
 
         $data[$entry]['field'] = $field;
-        $subfields             = explode('^', $subfields);
+        $subfields             = (!empty($subfields)) ? $subfields = explode('^', $subfields) : array();
       }
       else {
         $subfields = explode('^', substr($value, 1));

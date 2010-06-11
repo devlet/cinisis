@@ -6,47 +6,111 @@ fields:
   1: 
     name: Código do filme
     repeat: No
+    subfields:
+      y: código do título matriz quando episodio, série ou capítulo
   20: 
     name: Título
     repeat: Yes
     subfields:
       a: título
       b: título atribuído
+      x: título ainda não confirmado
   22:
     name: Outros títulos
     repeat: Yes
     subfields:
-      y: outros títulos
+      a: capítulo,número,aula,parte
+      b: numeral para identificação de filmes diferentes com o mesmo título
+      c: série
+      e: título do episódio explicitado na tela ou atribuído pelo catalogador
+      r: relançamento
+      x: título traduzido
+      y: outras remetências
+      z: códigos dos títulos quando se referem a episódios, séries ou capítulos
   66:
     name: Direção
     repeat: Yes
     subfields:
       a: direção
+      b: co-direção
+      c: assistência de direção
+      d: direção de atores
+      e: diretor adjunto
+      f: diretor assistente
+      g: direção de cena
+      h: continuidade
+      i: assistência de continuidade
+      j: roteiro de filmagem
+      k: roteiro técnico ou análise técnica
+      l: story-board
+      m: coreografia
+      n: direção especializada (ação, filmagem aérea, etc.)
+      x: diretor a confirmar
+      w: (qualificador)
   67:
     name: Argumento/roteiro
     repeat: Yes
     subfields:
-      d: roteiro
+      a: argumentista/entrecho/argumento
+      b: co-argumentista
+      c: autor da estória
+      d: roteirista/entrecho organizado em cenas/roteiro
+      e: co-roteirista 
+      f: diálogos
+      g: adaptado por
+      h: autoria do texto de locução / redator
+      i: baseada (Inspirada) em, na, no, / romance; obra, peça
+      j: diálogos adicionais
+      k: supervisão de roteiro
+      l: enquadração (nomenclatura de época)
+      s: direção de pesquisa
+      t: pesquisa
+      u: assistência de pesquisa
+      x: argumentista / roteirista a confirmar
+      w: (qualificador)
   62:
     name: Fotografia
     repeat: Yes
     subfields:
-      a: fotografia
+      a: direção de fotografia / fotografia / diretor de fotografia
+      b: assistência de fotografia / assistente de fotografia
+      c: câmera
+      d: assistência de câmera / assistente de câmera
+      e: efeitos especiais de câmera
+      f: fotografia de cena / still / fotógrafo de still / fotógrafo de cena
+      g: iluminação
+      h: operador (nomenclatura de época), operador de câmera
+      i: cinegrafista
+      j: assistência de iluminação / assistente de iluminação
+      l: animador /  empresa encarregada da animação
+      m: desenhos de animação
+      o: trucagens
+      x: fotografia a confirmar
+      w: (qualificador)
   15:
     name: Categorias
     repeat: Yes
     subfields:
       a: NAC/EST/COP
-      b: LM/CM/CJ
-      c: SONORO
-      e: FICÇÃO/NAO-FICÇÃO
+      b: LM/CM/CJ/PU/VC
+      c: SON/SIL
+      e: F/NF/FeNF
+      f: EP
+      g: IN 
+      h: FDO
+      i: PROJ
   19:
     name: Material Original
     repeat: Yes
     subfields:
-      a: formato original
-      b: processo
-      c: duração
+      a: formato (do filme, não do material)
+      b: processo (COR ou PB ou CORePB)
+      c: duração (em minutos ou segundos)
+      e: sistema de cor
+      f: sistema sonoro
+      g: tipo de tela
+      h: metragem
+    c: duração
   24:
     name: Gênero
     repeat: Yes
@@ -67,7 +131,18 @@ fields:
     repeat: Yes
     subfields:
       a: companhia produtora
-      d: produção
+      b: companhia co-produtora
+      c: companhia produtora associada
+      d: produtor
+      e: co-produtor
+      f: direção de produção
+      g: produção executiva
+      h: produtor associado 
+      i: assistência de produção
+      j: produtor assistente
+      x: produtor a confirmar
+      y: companhia produtora a confirmar
+      w: qualificador
   86:
     name: Data e local de produção
     repeat: Yes
@@ -80,7 +155,366 @@ fields:
     name: BCC
     repeat: Yes
   28:
-    name: Elenco
+    name: Identidades/Elenco
     repeat: Yes
     subfields:
-      p: papel
+      p: personagem
+      a: apresentando
+      c: ator convidado
+      e: participação especial
+      d: intérprete/dublador(a)/dublado  por
+      f: figurante
+      l: locução
+      n: narração
+      o: componente
+      i: (sem descrição na bula) – identificador
+  280:
+    name: Identidades/Elenco - dados adicionais
+    repeat: Yes
+    subfields:
+      p: personagem
+      a: apresentando
+      c: ator convidado
+      e: participação especial
+      d: intérprete/dublador(a)/dublado  por
+      f: figurante
+      l: locução
+      n: narração
+      o: componente
+      i: (sem descrição na bula) – identificador
+  70:
+    name: Produção
+    repeat: Yes
+    subfields:
+      a: agência
+      b: cliente
+      c: financiamento / patrocínio
+      d: anunciante
+      e: secretaria de produção
+      f: supervisão de produção/coordenação de produto
+      g: assistência de secretaria de produção
+      k: equipe de produção
+      l: produtor executivo assistente
+      m: relações públicas
+      n: comercialização
+      o: contabilidade
+      p: produção de locação
+      q: gerente de produção
+      r: assistência de produção executiva
+      s: empresa de figuração
+      t: motorista
+      u: transporte
+      v: produção de dublagem
+      w: (qualificador)
+  68:
+    name: Distribuição
+    repeat: Yes
+    subfields:
+      a: 	companhia distribuidora
+      b: 	companhia distribuidora no relançamento
+      x: 	companhia distribuidora a confirmar
+  72:
+    name: Dados adicionais de fotografia
+    repeat: Yes
+    subfields:
+      a: foco  / foquista
+      b: fotografia adicional / filmagem adicional
+      c: fotografia da 2ª unidade / segunda unidade de fotografia
+      e: técnico de cor /  técnico de cores
+      f: operador de VT ou video-asssistant / vídeo assistente / operador de vídeo
+      g: enquadramento
+      j: consultoria de imagem
+      k: chefe eletricista / chefe-eletricista / eletricista chefe
+      l: eletricista
+      m: assistente de eletricista
+      n: maquinista
+      o: auxiliar de maquinista
+      w: (qualificador)
+  64:
+    name: Som
+    repeat: Yes
+    subfields:
+      a: direção de som/diretor de som
+      b: técnico de som
+      c: engenharia de som
+      d: som direto
+      e: mixagem
+      f: sonografia/sonorização
+      g: efeitos especiais de som/efeitos sonoros
+      h: som adicional
+      i: direção de gravação
+      j: direção de dublagem/diretor de dublagem
+      n: trilha sonora (nomenclatura de época)
+      x: som a confirmar
+      w: (qualificador)
+  74:
+    name: Dados adicionais de som
+    repeat: Yes
+    subfields:
+      a: transcrição óptica/transcrição ótica
+      c: ruídos de sala
+      d: transcrição ou retranscrição de ruídos
+      e: efeitos sonoros/efeitos de som
+      f: som guia
+      g: transcrição ou retranscrição magnética
+      h: assistente de operador de microfone / operador de boom
+      i: assistente de som/assistência de som
+      j: técnico de gravações
+      k: técnico de mixagem
+      l: retranscrição de som
+      m: (sem descrição na bula)
+      n: técnico de dublagem
+      o: operador de microfone/operador de boom = microfonista
+      p: contra-regra de som
+      r: sonoplastia
+      s: assistência de dublagem
+      w: (qualificador)
+  65:
+    name: Montagem
+    repeat: Yes
+    subfields:
+      a: montagem/montador [nos filmes até cerca de 1960, usava-se os termos coordenação/coordenador/corte ou corte final]
+      b: edição/editor
+      c: assistente de montagem/assistência de montagem
+      d: corte final
+      e: co-editor/co-montador
+      f: montagem de som/edição de som
+      x: montagem a confirmar
+      w: (qualificador)
+  75:
+    name: Montagem - dados adicionais
+    repeat: Yes
+    subfields:
+      a: montador de negativo/montagem de negativo
+      c: pré-montagem
+      d: roteiro de montagem
+      e: editor musical/edição musical
+      f: assistência de edição/assistente de edição
+      g: secretaria de edição
+      h: sincronização
+      w: (qualificador)
+  61:
+    name: Direção de arte
+    repeat: Yes
+    subfields:
+      a: direção de arte
+      b: assistente de direção de arte
+      c: figurinos
+      d: Guarda-roupa
+      e: cenografia
+      j: letreiros/intertítulos (desenhos)
+      k: créditos
+      l: desenho de produção
+      m: consultoria de cor/consultor de cor
+      n: títulos de apresentação 
+      o: desenho de letreiros de apresentação
+      p: programação visual/programador visual
+      w: (qualificador)
+  71:
+    name: Direção de arte - dados adicionais
+      a: assistência de cenografia
+      b: assistência de decoração
+      c: carpinteiro
+      d: responsável por construções
+      e: contra-regra
+      f: decoração/decorador
+      g: montagem de cenários/construção de cenários/cenotécnico
+      h: produção de cenografia
+      i: cabelereiro/cabelos
+      j: maquiagem
+      k: assistência de maquiagem
+      l: desenho de figurinos
+      m: costureira/costura
+      n: guarda-roupeira
+      o: adereços/acessórios de cenografia/aderecista
+      p: produção de figurinos
+      q: penteados
+      r: desenho de cenografia
+      s: assistência de figurino
+      t: vestuário
+      w: (qualificador)
+  63:
+    name: Música
+    repeat: Yes
+    subfields:
+      a: arranjos musicais
+      b: musica de (composições não orginiais)
+      c: música (genérico)
+      d: direção musical
+      e: música original
+      f: (sem descrição na bula)
+      g: música-tema
+      h: trilha musical
+      i: produção musical
+      j: seleção musical
+      x: musica a confirmar
+  73:
+    name: Música - dados adicionais
+    repeat: Yes
+    subfields:
+      a: autor da música
+      b: intérprete
+      c: título da música
+      d: orquestra
+      e: regente/maestro
+      f: instrumentista
+      g: partitura musical
+      h: orquestração
+      i: conjuntos/bandas
+      j: componentes
+  83:
+    name: Canção
+    repeat: Yes
+    subfields:
+      a: título
+      b: autor da canção
+      c: autor da música da canção
+      d: intérprete
+      e: orquestra
+      f: regente 
+      g: instrumentista
+      h: partitura musical
+      i: orquestração
+      j: conjunto/banda
+      k: dublado por (ainda não presente na base)
+      l: componentes
+  87:
+    name: Estúdios/Laboratórios/Locações
+    repeat: Yes
+    subfields:
+      a: estúdio de filmagem
+      b: estúdio de som
+      c: laboratório de imagem
+      d: laboratório de som
+      f: locações
+      g: estúdio de mixagem
+      h: estúdio de gravação de música
+      i: estúdio de dublagem
+  86:
+    name: Data e local de produção
+    repeat: Yes
+    subfields:
+      a: ano de produção
+      b: início de produção
+      c: final de produção
+      d: início de filmagem
+      e: final de filmagem
+      f: data de filmagem
+      g: em produção (primeira notícia de produção)
+      h: data a confirmar
+      x: país de produção (BR ou BR-código isso do(s) país(es))
+      y: cidade de produção
+      z: estado de produção
+      w: país estrangeiro de produção
+  85:
+    name: Data e local de Lançamento
+    repeat: Yes
+    subfields:
+      a: data de lançamento (nacional)
+      b: local de lançamento (nacional)
+      c: circuito lançador
+      d: sala de exibição lançadora
+      e: data de pré-lançamento
+      f: local de pré-lançamento
+      g: data de exibição especial
+      h: loca de exibição especial
+      i: sala de pré-lançamento
+      j: sala de exibição especial
+  58:
+    name: Circuito exibidor
+    repeat: Yes
+  88:
+    name: Prêmios
+    repeat: Yes
+  95:
+    name: Certificados
+    repeat: Yes
+  69:
+    name: Colaborações/Outras funções
+    repeat: Yes
+  690:
+    name: Agradecimentos/Outras informações
+    repeat: Yes
+  17:
+    name: Status de Catalogação
+    repeat: Yes
+    subfields:
+      a: S/N
+      b: FIL/VID/DIG
+  89:
+    name: Fontes utilizadas
+    repeat: Yes
+    subfields:
+      a: outras informações complementares à fonte mencionada
+  890:
+    name: Fontes consultadas
+    repeat: Yes
+    subfields:
+      b: sem descrição na bula
+  13:
+    name: Arquivos que possuem materiais
+    repeat: Yes
+    subfields:
+      b: 	código de arquivo
+      p: 	material
+  16:
+    name: Status de preservação
+    repeat: Yes
+  99:
+    name: Observações
+    repeat: Yes
+  104:
+    name: Código da foto
+    repeat: Yes
+    subfields:
+      b: legenda para a foto
+  161:
+    name: AVI
+    repeat: Yes
+    subfields:
+      b: legenda para a imagem em movimento
+  162:
+    name: BCC
+    repeat: No
+  164:
+    name: Histórico do título
+    repeat: Yes
+  980:
+    name: Revisão
+    repeat: Yes
+    subfields:
+      a: (sem descrição na bula)
+      b: nome dos revisores
+      c: indicação de finalização
+  163:
+    name: Versão
+    repeat: Yes
+    subfields:
+      a: lf Língua(s) dos diálogos/narração/interlúdios/cartelas
+      b: leg Língua(s) de legenda
+  151:
+    name: Título padronizado
+    repeat: Yes
+    subfields:
+      a: 	(preenchimento errado)
+      b: 	para título atribuído v20^b
+      c: 	para série v22^c
+      e: 	para episódio
+      r: 	para título de relançamento v22^r
+      x: 	para título traduzido v22^x
+      y: 	para outras remetências v22^y
+  5:
+    name: Data de entrada/responsável
+    repeat: Yes
+    subfields:
+      a: ano   
+      b: mês/dia
+      c: nome do alimentador
+  98:
+    name: Data de revisão/responsável
+    repeat: Yes
+    subfields:
+      a: ano   
+      b: mês/dia
+      c: nome do revisor
+
