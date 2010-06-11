@@ -8,6 +8,34 @@ fields:
     repeat: No
     subfields:
       y: código do título matriz quando episodio, série ou capítulo
+    map:
+      field: code
+      subfields:
+        y: parent_film
+  15:
+    name: Categorias
+    repeat: Yes
+    subfields:
+      a: NAC/EST/COP
+      b: LM/CM/CJ/PU/VC
+      c: SON/SIL
+      e: F/NF/FeNF
+      f: EP
+      g: IN 
+      h: FDO
+      i: PROJ
+  19:
+    name: Material Original
+    repeat: Yes
+    subfields:
+      a: formato (do filme, não do material)
+      b: processo (COR ou PB ou CORePB)
+      c: duração (em minutos ou segundos)
+      e: sistema de cor
+      f: sistema sonoro
+      g: tipo de tela
+      h: metragem
+      c: duração
   20: 
     name: Título
     repeat: Yes
@@ -15,6 +43,8 @@ fields:
       a: título
       b: título atribuído
       x: título ainda não confirmado
+    map:
+      field: title
   22:
     name: Outros títulos
     repeat: Yes
@@ -27,6 +57,20 @@ fields:
       x: título traduzido
       y: outras remetências
       z: códigos dos títulos quando se referem a episódios, séries ou capítulos
+  24:
+    name: Gênero
+    repeat: Yes
+  25:
+    name: Sinopse/Enredo
+    repeat: Yes
+    map:
+      field: plot
+  26:
+    name: Assuntos/Voc. Controlado
+    repeat: Yes
+  27:
+    name: Assuntos/Termos Livres
+    repeat: Yes
   66:
     name: Direção
     repeat: Yes
@@ -87,45 +131,6 @@ fields:
       o: trucagens
       x: fotografia a confirmar
       w: (qualificador)
-  15:
-    name: Categorias
-    repeat: Yes
-    subfields:
-      a: NAC/EST/COP
-      b: LM/CM/CJ/PU/VC
-      c: SON/SIL
-      e: F/NF/FeNF
-      f: EP
-      g: IN 
-      h: FDO
-      i: PROJ
-  19:
-    name: Material Original
-    repeat: Yes
-    subfields:
-      a: formato (do filme, não do material)
-      b: processo (COR ou PB ou CORePB)
-      c: duração (em minutos ou segundos)
-      e: sistema de cor
-      f: sistema sonoro
-      g: tipo de tela
-      h: metragem
-    c: duração
-  24:
-    name: Gênero
-    repeat: Yes
-  25:
-    name: Sinopse/Enredo
-    repeat: Yes
-  26:
-    name: Assuntos/Voc. Controlado
-    repeat: Yes
-  27:
-    name: Assuntos/Termos Livres
-    repeat: Yes
-  165:
-    name: Termos geográficos
-    repeat: Yes
   60:
     name: Produção
     repeat: Yes
@@ -460,6 +465,13 @@ fields:
   16:
     name: Status de preservação
     repeat: Yes
+  98:
+    name: Data de revisão/responsável
+    repeat: Yes
+    subfields:
+      a: ano   
+      b: mês/dia
+      c: nome do revisor
   99:
     name: Observações
     repeat: Yes
@@ -510,11 +522,7 @@ fields:
       a: ano   
       b: mês/dia
       c: nome do alimentador
-  98:
-    name: Data de revisão/responsável
+  165:
+    name: Termos geográficos
     repeat: Yes
-    subfields:
-      a: ano   
-      b: mês/dia
-      c: nome do revisor
 
