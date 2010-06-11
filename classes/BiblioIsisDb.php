@@ -102,7 +102,7 @@ class BiblioIsisDb implements IsisDb {
    *
    * @see IsisDb::read()
    */  
-  public function read($id, $method = 'to_hash') {
+  public function read($id, $method = 'fetch') {
     // Database query.
     $results = $this->backend($method, $id);
 
@@ -169,7 +169,7 @@ class BiblioIsisDb implements IsisDb {
    * @return
    *   Tagged database result.
    */
-  function tag($results, $method = 'to_hash') {
+  function tag($results, $method = 'fetch') {
     foreach ($results as $key => $value) {
       // Key '000' used to hold MFN.
       if ($key != '000') {
