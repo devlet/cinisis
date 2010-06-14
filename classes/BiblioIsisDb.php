@@ -256,8 +256,13 @@ class BiblioIsisDb implements IsisDb {
       $method = 'subfields_from_'. $method;
       return $this->{$method}($name, $key);
     }
+    else {
+      foreach ($name as $value) {
+        $data[] = array('field' => $value);
+      }
+    }
 
-    return $name;
+    return $data;
   }
 
   /**
@@ -332,7 +337,7 @@ class BiblioIsisDb implements IsisDb {
    * Deals with repetition.
    *
    * As Biblio::Isis always return field values as arrays, we
-   * have to check the database schema to see if we have to
+   * have to check the database schema to see if we want to
    * convert then to a single value.
    *
    * @param $field
@@ -357,8 +362,9 @@ class BiblioIsisDb implements IsisDb {
    * Deals with repetition.
    *
    * As Biblio::Isis always return field values as arrays, we
-   * have to check the database schema to see if we have to
-   * convert then to a single value.
+   * have to check the database schema to see if we want to
+   * convert then to a single value. The current implementation
+   * is just a placeholder as no conversion is done.
    *
    * @param $field
    *   Database field.
@@ -370,12 +376,7 @@ class BiblioIsisDb implements IsisDb {
    *   The value according to the repetition config.
    */
   function repetition($key, $value) {
-    if ($this->is_repetitive($key, $value)) {
-      return $value;
-    }
-    else {
-      return $value[0];
-    }
+    return $value;
   }
 
   /**

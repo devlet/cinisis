@@ -44,7 +44,8 @@ fields:
       b: título atribuído
       x: título ainda não confirmado
     map:
-      field: title
+      subfields:
+        a: title
   22:
     name: Outros títulos
     repeat: Yes
