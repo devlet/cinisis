@@ -10,8 +10,6 @@ fields:
       y: código do título matriz quando episodio, série ou capítulo
     map:
       field: code
-      subfields:
-        y: parent_film
   15:
     name: Categorias
     repeat: Yes
