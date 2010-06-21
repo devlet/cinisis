@@ -2,17 +2,20 @@
 db: 
   name: fbe
   charset: cp850
+  base_model: Film
 fields: 
   1: 
     name: Código do filme
-    repeat: No
+    repeat: No # FIXME: na pratica ocorre
     subfields:
       y: código do título matriz quando episodio, série ou capítulo
     map:
-      field: code
+      field:
+        type: value
+        dest: code
   15:
     name: Categorias
-    repeat: Yes
+    repeat: Yes # FIXME: possivel no fdt, porem conceituamente nao-repetitivo
     subfields:
       a: NAC/EST/COP
       b: LM/CM/CJ/PU/VC
@@ -22,9 +25,13 @@ fields:
       g: IN 
       h: FDO
       i: PROJ
+   # map:
+   #   subfields:
+   #     all:
+   #       type: value
   19:
     name: Material Original
-    repeat: Yes
+    repeat: No # FIXME: possivel no fdt, porem conceituamente nao-repetitivo
     subfields:
       a: formato (do filme, não do material)
       b: processo (COR ou PB ou CORePB)
@@ -34,6 +41,10 @@ fields:
       g: tipo de tela
       h: metragem
       c: duração
+   # map:
+   #   subfields:
+   #     all:
+   #       type: value
   20: 
     name: Título
     repeat: Yes
@@ -42,8 +53,11 @@ fields:
       b: título atribuído
       x: título ainda não confirmado
     map:
+   # FIXME: title is repeatable
       subfields:
-        a: title
+        a:
+          type: value
+          dest: title
   22:
     name: Outros títulos
     repeat: Yes
@@ -63,7 +77,10 @@ fields:
     name: Sinopse/Enredo
     repeat: Yes
     map:
-      field: plot
+      # TODO: use relation instead of value type / repeat
+      field:
+        type: value
+        dest: plot
   26:
     name: Assuntos/Voc. Controlado
     repeat: Yes
@@ -90,6 +107,11 @@ fields:
       n: direção especializada (ação, filmagem aérea, etc.)
       x: diretor a confirmar
       w: (qualificador)
+    map:
+      subfields:
+        all:
+          type: relation
+          dest: Performer
   67:
     name: Argumento/roteiro
     repeat: Yes
@@ -462,6 +484,7 @@ fields:
       b: 	código de arquivo
       p: 	material
   16:
+    # Nao deveria fazer parte da FB
     name: Status de preservação
     repeat: Yes
   98:
@@ -480,6 +503,7 @@ fields:
     subfields:
       b: legenda para a foto
   161:
+    # Provavelmente serah removido
     name: AVI
     repeat: Yes
     subfields:
