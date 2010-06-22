@@ -10,9 +10,8 @@ fields:
     subfields:
       y: código do título matriz quando episodio, série ou capítulo
     map:
-      field:
-        type: value
-        dest: code
+      type: value
+      field: code
   15:
     name: Categorias
     repeat: Yes # FIXME: possivel no fdt, porem conceituamente nao-repetitivo
@@ -26,8 +25,7 @@ fields:
       h: FDO
       i: PROJ
     #map:
-    #  all:
-    #    type: value
+    #  type: value
   19:
     name: Material Original
     repeat: No # FIXME: possivel no fdt, porem conceituamente nao-repetitivo
@@ -52,13 +50,10 @@ fields:
       x: título ainda não confirmado
     map:
       # FIXME: title is repeatable
-      #all:
-      #  type: relation
-      #  dest: Property
+      #type: Property
+      type: value
       subfields:
-        a:
-          type: value
-          dest: title
+        a: title
   22:
     name: Outros títulos
     repeat: Yes
@@ -89,12 +84,11 @@ fields:
     name: Sinopse/Enredo
     repeat: Yes
     map:
-      field:
-        # TODO: use relation instead of value type / repeat
-        #type: relation
-        #dest: Property
-        type: value
-        dest: plot
+      # TODO: use relation instead of value type / repeat
+      #type: relation
+      #field: Property
+      type: value
+      field: plot
   26:
     name: Assuntos/Voc. Controlado
     repeat: Yes
@@ -122,9 +116,7 @@ fields:
       x: diretor a confirmar
       w: (qualificador)
     map:
-      all:
-        type: relation
-        dest: Performer
+      type: Performer
   67:
     name: Argumento/roteiro
     repeat: Yes
@@ -147,9 +139,7 @@ fields:
       x: argumentista / roteirista a confirmar
       w: (qualificador)
     map:
-      all:
-        type: relation
-        dest: Performer
+      type: Performer
   62:
     name: Fotografia
     repeat: Yes
@@ -170,9 +160,7 @@ fields:
       x: fotografia a confirmar
       w: (qualificador)
     map:
-      all:
-        type: relation
-        dest: Performer
+      type: Performer
   72:
     name: Dados adicionais de fotografia
     repeat: Yes
@@ -191,9 +179,7 @@ fields:
       o: auxiliar de maquinista
       w: (qualificador)
     map:
-      all:
-        type: relation
-        dest: Performer
+      type: Performer
   60:
     name: Produção
     repeat: Yes
@@ -212,9 +198,7 @@ fields:
       y: companhia produtora a confirmar
       w: qualificador
     map:
-      all:
-        type: relation
-        dest: Performer
+      type: Performer
   86:
     name: Data e local de produção
     repeat: Yes
@@ -241,9 +225,7 @@ fields:
       o: componente
       i: (sem descrição na bula) – identificador
     map:
-      all:
-        type: relation
-        dest: Character
+      type: Character
   280:
     name: Identidades/Elenco - dados adicionais
     repeat: Yes
@@ -259,9 +241,7 @@ fields:
       o: componente
       i: (sem descrição na bula) – identificador
     map:
-      all:
-        type: relation
-        dest: Character
+      type: Character
   70:
     name: Produção
     repeat: Yes
@@ -287,9 +267,7 @@ fields:
       v: produção de dublagem
       w: (qualificador)
     map:
-      all:
-        type: relation
-        dest: Performer
+      type: Performer
   68:
     name: Distribuição
     repeat: Yes
@@ -298,9 +276,7 @@ fields:
       b: companhia distribuidora no relançamento
       x: companhia distribuidora a confirmar
     map:
-      all:
-        type: relation
-        dest: Performer
+      type: Performer
   64:
     name: Som
     repeat: Yes
@@ -319,9 +295,7 @@ fields:
       x: som a confirmar
       w: (qualificador)
     map:
-      all:
-        type: relation
-        dest: Performer
+      type: Performer
   74:
     name: Dados adicionais de som
     repeat: Yes
@@ -357,9 +331,7 @@ fields:
       x: montagem a confirmar
       w: (qualificador)
     map:
-      all:
-        type: relation
-        dest: Performer
+      type: Performer
   75:
     name: Montagem - dados adicionais
     repeat: Yes
@@ -373,9 +345,7 @@ fields:
       h: sincronização
       w: (qualificador)
     map:
-      all:
-        type: relation
-        dest: Performer
+      type: Performer
   61:
     name: Direção de arte
     repeat: Yes
@@ -394,9 +364,7 @@ fields:
       p: programação visual/programador visual
       w: (qualificador)
     map:
-      all:
-        type: relation
-        dest: Performer
+      type: Performer
   71:
     name: Direção de arte - dados adicionais
     subfields:
@@ -422,9 +390,7 @@ fields:
       t: vestuário
       w: (qualificador)
     map:
-      all:
-        type: relation
-        dest: Performer
+      type: Performer
   63:
     name: Música
     repeat: Yes
