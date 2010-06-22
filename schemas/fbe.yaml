@@ -25,10 +25,9 @@ fields:
       g: IN 
       h: FDO
       i: PROJ
-   # map:
-   #   subfields:
-   #     all:
-   #       type: value
+    #map:
+    #  all:
+    #    type: value
   19:
     name: Material Original
     repeat: No # FIXME: possivel no fdt, porem conceituamente nao-repetitivo
@@ -41,10 +40,9 @@ fields:
       g: tipo de tela
       h: metragem
       c: duração
-   # map:
-   #   subfields:
-   #     all:
-   #       type: value
+    #map:
+    #  all:
+    #    type: value
   20: 
     name: Título
     repeat: Yes
@@ -53,7 +51,10 @@ fields:
       b: título atribuído
       x: título ainda não confirmado
     map:
-   # FIXME: title is repeatable
+      # FIXME: title is repeatable
+      #all:
+      #  type: relation
+      #  dest: Property
       subfields:
         a:
           type: value
@@ -70,6 +71,17 @@ fields:
       x: título traduzido
       y: outras remetências
       z: códigos dos títulos quando se referem a episódios, séries ou capítulos
+  151:
+    name: Título padronizado
+    repeat: Yes
+    subfields:
+      a: 	(preenchimento errado)
+      b: 	para título atribuído v20^b
+      c: 	para série v22^c
+      e: 	para episódio
+      r: 	para título de relançamento v22^r
+      x: 	para título traduzido v22^x
+      y: 	para outras remetências v22^y
   24:
     name: Gênero
     repeat: Yes
@@ -77,8 +89,10 @@ fields:
     name: Sinopse/Enredo
     repeat: Yes
     map:
-      # TODO: use relation instead of value type / repeat
       field:
+        # TODO: use relation instead of value type / repeat
+        #type: relation
+        #dest: Property
         type: value
         dest: plot
   26:
@@ -108,10 +122,9 @@ fields:
       x: diretor a confirmar
       w: (qualificador)
     map:
-      subfields:
-        all:
-          type: relation
-          dest: Performer
+      all:
+        type: relation
+        dest: Performer
   67:
     name: Argumento/roteiro
     repeat: Yes
@@ -133,6 +146,10 @@ fields:
       u: assistência de pesquisa
       x: argumentista / roteirista a confirmar
       w: (qualificador)
+    map:
+      all:
+        type: relation
+        dest: Performer
   62:
     name: Fotografia
     repeat: Yes
@@ -152,6 +169,31 @@ fields:
       o: trucagens
       x: fotografia a confirmar
       w: (qualificador)
+    map:
+      all:
+        type: relation
+        dest: Performer
+  72:
+    name: Dados adicionais de fotografia
+    repeat: Yes
+    subfields:
+      a: foco  / foquista
+      b: fotografia adicional / filmagem adicional
+      c: fotografia da 2ª unidade / segunda unidade de fotografia
+      e: técnico de cor /  técnico de cores
+      f: operador de VT ou video-asssistant / vídeo assistente / operador de vídeo
+      g: enquadramento
+      j: consultoria de imagem
+      k: chefe eletricista / chefe-eletricista / eletricista chefe
+      l: eletricista
+      m: assistente de eletricista
+      n: maquinista
+      o: auxiliar de maquinista
+      w: (qualificador)
+    map:
+      all:
+        type: relation
+        dest: Performer
   60:
     name: Produção
     repeat: Yes
@@ -169,6 +211,10 @@ fields:
       x: produtor a confirmar
       y: companhia produtora a confirmar
       w: qualificador
+    map:
+      all:
+        type: relation
+        dest: Performer
   86:
     name: Data e local de produção
     repeat: Yes
@@ -194,6 +240,10 @@ fields:
       n: narração
       o: componente
       i: (sem descrição na bula) – identificador
+    map:
+      all:
+        type: relation
+        dest: Character
   280:
     name: Identidades/Elenco - dados adicionais
     repeat: Yes
@@ -208,6 +258,10 @@ fields:
       n: narração
       o: componente
       i: (sem descrição na bula) – identificador
+    map:
+      all:
+        type: relation
+        dest: Character
   70:
     name: Produção
     repeat: Yes
@@ -232,30 +286,21 @@ fields:
       u: transporte
       v: produção de dublagem
       w: (qualificador)
+    map:
+      all:
+        type: relation
+        dest: Performer
   68:
     name: Distribuição
     repeat: Yes
     subfields:
-      a: 	companhia distribuidora
-      b: 	companhia distribuidora no relançamento
-      x: 	companhia distribuidora a confirmar
-  72:
-    name: Dados adicionais de fotografia
-    repeat: Yes
-    subfields:
-      a: foco  / foquista
-      b: fotografia adicional / filmagem adicional
-      c: fotografia da 2ª unidade / segunda unidade de fotografia
-      e: técnico de cor /  técnico de cores
-      f: operador de VT ou video-asssistant / vídeo assistente / operador de vídeo
-      g: enquadramento
-      j: consultoria de imagem
-      k: chefe eletricista / chefe-eletricista / eletricista chefe
-      l: eletricista
-      m: assistente de eletricista
-      n: maquinista
-      o: auxiliar de maquinista
-      w: (qualificador)
+      a: companhia distribuidora
+      b: companhia distribuidora no relançamento
+      x: companhia distribuidora a confirmar
+    map:
+      all:
+        type: relation
+        dest: Performer
   64:
     name: Som
     repeat: Yes
@@ -273,6 +318,10 @@ fields:
       n: trilha sonora (nomenclatura de época)
       x: som a confirmar
       w: (qualificador)
+    map:
+      all:
+        type: relation
+        dest: Performer
   74:
     name: Dados adicionais de som
     repeat: Yes
@@ -307,6 +356,10 @@ fields:
       f: montagem de som/edição de som
       x: montagem a confirmar
       w: (qualificador)
+    map:
+      all:
+        type: relation
+        dest: Performer
   75:
     name: Montagem - dados adicionais
     repeat: Yes
@@ -319,6 +372,10 @@ fields:
       g: secretaria de edição
       h: sincronização
       w: (qualificador)
+    map:
+      all:
+        type: relation
+        dest: Performer
   61:
     name: Direção de arte
     repeat: Yes
@@ -336,8 +393,13 @@ fields:
       o: desenho de letreiros de apresentação
       p: programação visual/programador visual
       w: (qualificador)
+    map:
+      all:
+        type: relation
+        dest: Performer
   71:
     name: Direção de arte - dados adicionais
+    subfields:
       a: assistência de cenografia
       b: assistência de decoração
       c: carpinteiro
@@ -359,6 +421,10 @@ fields:
       s: assistência de figurino
       t: vestuário
       w: (qualificador)
+    map:
+      all:
+        type: relation
+        dest: Performer
   63:
     name: Música
     repeat: Yes
@@ -527,17 +593,6 @@ fields:
     subfields:
       a: lf Língua(s) dos diálogos/narração/interlúdios/cartelas
       b: leg Língua(s) de legenda
-  151:
-    name: Título padronizado
-    repeat: Yes
-    subfields:
-      a: 	(preenchimento errado)
-      b: 	para título atribuído v20^b
-      c: 	para série v22^c
-      e: 	para episódio
-      r: 	para título de relançamento v22^r
-      x: 	para título traduzido v22^x
-      y: 	para outras remetências v22^y
   5:
     name: Data de entrada/responsável
     repeat: Yes
@@ -548,4 +603,3 @@ fields:
   165:
     name: Termos geográficos
     repeat: Yes
-
