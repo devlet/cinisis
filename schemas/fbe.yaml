@@ -10,7 +10,7 @@ fields:
     subfields:
       y: código do título matriz quando episodio, série ou capítulo
     map:
-      type: value
+      type: values
       field: code
   15:
     name: Categorias
@@ -25,7 +25,7 @@ fields:
       h: FDO
       i: PROJ
     #map:
-    #  type: value
+    #  type: values
   19:
     name: Material Original
     repeat: No # FIXME: possivel no fdt, porem conceituamente nao-repetitivo
@@ -40,7 +40,7 @@ fields:
       c: duração
     #map:
     #  all:
-    #    type: value
+    #    type: values
   20: 
     name: Título
     repeat: Yes
@@ -51,7 +51,7 @@ fields:
     map:
       # FIXME: title is repeatable
       #type: Property
-      type: value
+      type: values
       subfields:
         a: title
   22:
@@ -87,7 +87,7 @@ fields:
       # TODO: use relation instead of value type / repeat
       #type: relation
       #field: Property
-      type: value
+      type: values
       field: plot
   26:
     name: Assuntos/Voc. Controlado
