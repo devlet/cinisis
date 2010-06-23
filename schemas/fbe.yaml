@@ -116,7 +116,7 @@ fields:
       x: diretor a confirmar
       w: (qualificador)
     map:
-      type: Performer
+      type: Performers
   67:
     name: Argumento/roteiro
     repeat: Yes
@@ -139,7 +139,7 @@ fields:
       x: argumentista / roteirista a confirmar
       w: (qualificador)
     map:
-      type: Performer
+      type: Performers
   62:
     name: Fotografia
     repeat: Yes
@@ -160,7 +160,7 @@ fields:
       x: fotografia a confirmar
       w: (qualificador)
     map:
-      type: Performer
+      type: Performers
   72:
     name: Dados adicionais de fotografia
     repeat: Yes
@@ -179,7 +179,7 @@ fields:
       o: auxiliar de maquinista
       w: (qualificador)
     map:
-      type: Performer
+      type: Performers
   60:
     name: Produção
     repeat: Yes
@@ -198,7 +198,7 @@ fields:
       y: companhia produtora a confirmar
       w: qualificador
     map:
-      type: Performer
+      type: Performers
   86:
     name: Data e local de produção
     repeat: Yes
@@ -267,7 +267,7 @@ fields:
       v: produção de dublagem
       w: (qualificador)
     map:
-      type: Performer
+      type: Performers
   68:
     name: Distribuição
     repeat: Yes
@@ -276,7 +276,7 @@ fields:
       b: companhia distribuidora no relançamento
       x: companhia distribuidora a confirmar
     map:
-      type: Performer
+      type: Performers
   64:
     name: Som
     repeat: Yes
@@ -295,7 +295,7 @@ fields:
       x: som a confirmar
       w: (qualificador)
     map:
-      type: Performer
+      type: Performers
   74:
     name: Dados adicionais de som
     repeat: Yes
@@ -331,7 +331,7 @@ fields:
       x: montagem a confirmar
       w: (qualificador)
     map:
-      type: Performer
+      type: Performers
   75:
     name: Montagem - dados adicionais
     repeat: Yes
@@ -345,7 +345,7 @@ fields:
       h: sincronização
       w: (qualificador)
     map:
-      type: Performer
+      type: Performers
   61:
     name: Direção de arte
     repeat: Yes
@@ -364,7 +364,7 @@ fields:
       p: programação visual/programador visual
       w: (qualificador)
     map:
-      type: Performer
+      type: Performers
   71:
     name: Direção de arte - dados adicionais
     subfields:
@@ -390,7 +390,7 @@ fields:
       t: vestuário
       w: (qualificador)
     map:
-      type: Performer
+      type: Performers
   63:
     name: Música
     repeat: Yes
