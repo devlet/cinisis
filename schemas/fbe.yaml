@@ -1,46 +1,46 @@
 ---
 db: 
-  name: fbe
-  charset: cp850
+  name:       fbe
+  charset:    cp850
   base_model: Film
 fields: 
   1: 
     name: Código do filme
-    repeat: No # FIXME: na pratica ocorre
+    repeat: No  # FIXME: na pratica ocorre
     subfields:
-      y: código do título matriz quando episodio, série ou capítulo
+      y: matriz # código do título matriz quando episodio, série ou capítulo
     map:
-      type: values
+      type:  values
       field: code
   15:
     name: Categorias
     repeat: Yes # FIXME: possivel no fdt, porem conceituamente nao-repetitivo
     subfields:
-      a: NAC/EST/COP
-      b: LM/CM/CJ/PU/VC
-      c: SON/SIL
-      e: F/NF/FeNF
-      f: EP
+      a: nacionalidade # NAC/EST/COP
+      b: metragem      # LM/CM/CJ/PU/VC
+      c: sonorizado    # SON/SIL
+      e: narrativa     # F/NF/FeNF
+      f: episodio      # EP
       g: IN 
       h: FDO
       i: PROJ
-    #map:
-    #  type: values
+    map:
+      type: FilmCategories
   19:
     name: Material Original
-    repeat: No # FIXME: possivel no fdt, porem conceituamente nao-repetitivo
+    repeat: No    # FIXME: possivel no fdt, porem conceituamente nao-repetitivo
     subfields:
-      a: formato (do filme, não do material)
-      b: processo (COR ou PB ou CORePB)
-      c: duração (em minutos ou segundos)
-      e: sistema de cor
-      f: sistema sonoro
-      g: tipo de tela
+      a: formato  # formato (do filme, não do material)
+      b: processo # processo (COR ou PB ou CORePB)
+      c: duração  # duração (em minutos ou segundos)
+      e: cor      # sistema de cor
+      f: som      # sistema sonoro
+      g: tela     # tipo de tela
       h: metragem
       c: duração
-    #map:
-    #  all:
-    #    type: values
+    map:
+      all:
+        type: FilmMaterials
   20: 
     name: Título
     repeat: Yes
@@ -49,8 +49,8 @@ fields:
       b: título atribuído
       x: título ainda não confirmado
     map:
-      # FIXME: title is repeatable
-      #type: Property
+      # TODO
+      #type: FilmTitles
       type: values
       subfields:
         a: title
@@ -66,17 +66,21 @@ fields:
       x: título traduzido
       y: outras remetências
       z: códigos dos títulos quando se referem a episódios, séries ou capítulos
+    #map:
+    #  type: FilmTitles
   151:
     name: Título padronizado
     repeat: Yes
     subfields:
-      a: 	(preenchimento errado)
-      b: 	para título atribuído v20^b
-      c: 	para série v22^c
-      e: 	para episódio
-      r: 	para título de relançamento v22^r
-      x: 	para título traduzido v22^x
-      y: 	para outras remetências v22^y
+      a: (preenchimento errado)
+      b: para título atribuído v20^b
+      c: para série v22^c
+      e: para episódio
+      r: para título de relançamento v22^r
+      x: para título traduzido v22^x
+      y: para outras remetências v22^y
+    #map:
+    #  type: FilmTitles
   24:
     name: Gênero
     repeat: Yes
@@ -112,7 +116,7 @@ fields:
       k: roteiro técnico ou análise técnica
       l: story-board
       m: coreografia
-      n: direção especializada (ação, filmagem aérea, etc.)
+      n: direção especializada # (ação, filmagem aérea, etc.)
       x: diretor a confirmar
       w: (qualificador)
     map:
@@ -121,15 +125,15 @@ fields:
     name: Argumento/roteiro
     repeat: Yes
     subfields:
-      a: argumentista/entrecho/argumento
+      a: argumentista     # argumentista/entrecho/argumento
       b: co-argumentista
       c: autor da estória
-      d: roteirista/entrecho organizado em cenas/roteiro
+      d: roteirista       # roteirista/entrecho organizado em cenas/roteiro
       e: co-roteirista 
       f: diálogos
       g: adaptado por
       h: autoria do texto de locução / redator
-      i: baseada (Inspirada) em, na, no, / romance; obra, peça
+      i: baseada          # baseada (Inspirada) em, na, no, / romance; obra, peça
       j: diálogos adicionais
       k: supervisão de roteiro
       l: enquadração (nomenclatura de época)
@@ -180,25 +184,6 @@ fields:
       w: (qualificador)
     map:
       type: Performers
-  60:
-    name: Produção
-    repeat: Yes
-    subfields:
-      a: companhia produtora
-      b: companhia co-produtora
-      c: companhia produtora associada
-      d: produtor
-      e: co-produtor
-      f: direção de produção
-      g: produção executiva
-      h: produtor associado 
-      i: assistência de produção
-      j: produtor assistente
-      x: produtor a confirmar
-      y: companhia produtora a confirmar
-      w: qualificador
-    map:
-      type: Performers
   86:
     name: Data e local de produção
     repeat: Yes
@@ -242,8 +227,27 @@ fields:
       i: (sem descrição na bula) – identificador
     map:
       type: Character
-  70:
+  60:
     name: Produção
+    repeat: Yes
+    subfields:
+      a: companhia produtora
+      b: companhia co-produtora
+      c: companhia produtora associada
+      d: produtor
+      e: co-produtor
+      f: direção de produção
+      g: produção executiva
+      h: produtor associado 
+      i: assistência de produção
+      j: produtor assistente
+      x: produtor a confirmar
+      y: companhia produtora a confirmar
+      w: qualificador
+    map:
+      type: Performers
+  70:
+    name: Produção - dados adicionais
     repeat: Yes
     subfields:
       a: agência
@@ -313,7 +317,7 @@ fields:
       l: retranscrição de som
       m: (sem descrição na bula)
       n: técnico de dublagem
-      o: operador de microfone/operador de boom = microfonista
+      o: microfonista # operador de microfone/operador de boom = microfonista
       p: contra-regra de som
       r: sonoplastia
       s: assistência de dublagem
@@ -322,9 +326,9 @@ fields:
     name: Montagem
     repeat: Yes
     subfields:
-      a: montagem/montador [nos filmes até cerca de 1960, usava-se os termos coordenação/coordenador/corte ou corte final]
-      b: edição/editor
-      c: assistente de montagem/assistência de montagem
+      a: montagem/montador      # [nos filmes até cerca de 1960, usava-se os termos coordenação/coordenador/corte ou corte final]
+      b: edição                 # editor
+      c: assistente de montagem # assistência de montagem
       d: corte final
       e: co-editor/co-montador
       f: montagem de som/edição de som
@@ -444,7 +448,7 @@ fields:
       b: estúdio de som
       c: laboratório de imagem
       d: laboratório de som
-      f: locações
+      f: locações # relacionar com termos geograficos?
       g: estúdio de mixagem
       h: estúdio de gravação de música
       i: estúdio de dublagem
@@ -463,7 +467,7 @@ fields:
       x: país de produção (BR ou BR-código isso do(s) país(es))
       y: cidade de produção
       z: estado de produção
-      w: país estrangeiro de produção
+      w: país estrangeiro de produção # Usado codigo ISO 2 digitos
   85:
     name: Data e local de Lançamento
     repeat: Yes
