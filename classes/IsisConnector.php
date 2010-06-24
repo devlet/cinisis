@@ -65,6 +65,9 @@ class IsisConnector {
    * @param $subfield
    *   Subfield name.
    *
+   * @param $row
+   *   Row number if repetitive data.
+   *
    * @return
    *   Subfield data.
    */
@@ -123,7 +126,7 @@ class IsisConnector {
    * @param $subfield
    *   Subfield name. 
    *
-   * @retrn
+   * @return
    *   A map destination to the field or subfield.
    * 
    * @todo

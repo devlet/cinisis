@@ -239,11 +239,11 @@ class BiblioIsisDb implements IsisDb {
   /**
    * Makes subfield substitution in a dataset.
    *
+   * @param $name
+   *   Dataset.
+   *
    * @param $key
    *   Field key.
-   *
-   * @param $value
-   *   Dataset.
    *
    * @param $method
    *   Database read method.
@@ -268,14 +268,11 @@ class BiblioIsisDb implements IsisDb {
   /**
    * Subfield handling for data read by 'to_hash' method.
    *
-   * @param $key
-   *   Field key.
-   *
-   * @param $value
+   * @param $name
    *   Dataset.
    *
-   * @param $method
-   *   Database read method.
+   * @param $key
+   *   Field key.
    *
    * @return
    *   Data with processed subfields.
@@ -295,14 +292,13 @@ class BiblioIsisDb implements IsisDb {
   }
 
   /**
-   * @param $key
-   *   Field key.
+   * Subfield handling for data read by 'from_fetch' method.
    *
-   * @param $value
+   * @param name$
    *   Dataset.
    *
-   * @param $method
-   *   Database read method.
+   * @param $key
+   *   Field key.
    *
    * @return
    *   Data with processed subfields.
@@ -343,6 +339,9 @@ class BiblioIsisDb implements IsisDb {
    * @param $field
    *   Database field.
    *
+   * @param $value
+   *   Data (with or without repetition).
+   *
    * @return
    *   True if repetitive, false otherwise.
    */
@@ -366,8 +365,8 @@ class BiblioIsisDb implements IsisDb {
    * convert then to a single value. The current implementation
    * is just a placeholder as no conversion is done.
    *
-   * @param $field
-   *   Database field.
+   * @param $key
+   *   Database key.
    *
    * @param $value
    *   Query field result.
