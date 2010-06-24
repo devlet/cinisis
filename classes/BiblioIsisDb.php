@@ -47,6 +47,9 @@ class BiblioIsisDb implements IsisDb {
 
   /**
    * Class logger.
+   *
+   * @param $message
+   *   Log message.
    */
   function logger($message) {
     $this->log[] = $message;
@@ -344,6 +347,9 @@ class BiblioIsisDb implements IsisDb {
    *
    * @return
    *   True if repetitive, false otherwise.
+   *
+   * @todo
+   *   Check log message as BiblioIsis always output arrays.
    */
   function is_repetitive($field, $value) {
     if (isset($this->format['fields'][$field]['repeat']) &&
