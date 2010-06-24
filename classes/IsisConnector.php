@@ -42,7 +42,7 @@ class IsisConnector {
    * Get the value of a given field.
    *
    * @param $field
-   *   Field number.
+   *   Field array.
    *
    * @param $row
    *   Optional row number if repetitive field.
@@ -60,7 +60,7 @@ class IsisConnector {
    * Get the value of a given subfield.
    *
    * @param $field
-   *   Field name.
+   *   Field array.
    *
    * @param $subfield
    *   Subfield name.
@@ -81,7 +81,7 @@ class IsisConnector {
    * Get the list of subfields from a given field.
    *
    * @param $field
-   *   Subfield name.
+   *   Field array.
    */
   public function getSubfields($field) {
     if (isset($field['subfields'])) {
@@ -121,7 +121,7 @@ class IsisConnector {
    *       a: subtitle
    * 
    * @param $field
-   *   Field number.
+   *   Field array.
    *
    * @param $subfield
    *   Subfield name. 
@@ -163,7 +163,7 @@ class IsisConnector {
    * Get the mapping type of a given field.
    *
    * @param $field
-   *   Field number.
+   *   Field array.
    *
    * @return
    *   The mapping type.
@@ -176,7 +176,7 @@ class IsisConnector {
    * Check on an ISIS schema whether a field has a map.
    *
    * @param $field
-   *   Field number.
+   *   Field array.
    *
    * @return
    *   TRUE if field has a map, FALSE otherwise.
@@ -192,7 +192,7 @@ class IsisConnector {
    * Check on an ISIS schema whether a subfield has a map.
    *
    * @param $field
-   *   Field number.
+   *   Field array.
    *
    * @param $subfield
    *   Subfield name.
@@ -214,7 +214,7 @@ class IsisConnector {
    * Get the key of a subfield entry.
    *
    * @param $field
-   *   Field number.
+   *   Field array.
    *
    * @param $subfield
    *   Subfield name.
