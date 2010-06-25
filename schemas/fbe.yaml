@@ -17,27 +17,27 @@ fields:
     repeat: No         # FIXME: possivel no fdt, porem conceituamente nao-repetitivo
     subfields:
       a: nationality # nacionalidade # NAC/EST/COP
-      #b: lenght      # metragem      # LM/CM/CJ/PU/VC
-      #c: sound       # sonorizado    # SON/SIL
-      #e: narrative   # narrativa     # F/NF/FeNF
-      #f: episode     # episodio      # EP
+      b: lenght      # metragem      # LM/CM/CJ/PU/VC
+      c: sound       # sonorizado    # SON/SIL
+      e: narrative   # narrativa     # F/NF/FeNF
+      f: episode     # episodio      # EP
       #g: IN         # TODO
-      #h: fdo         # FDO
-      #i: proj        # PROJ
+      h: fdo         # FDO
+      i: proj        # PROJ
     map:
       type: FilmCategories
   19:
     name: Material Original
     repeat: No    # FIXME: possivel no fdt, porem conceituamente nao-repetitivo
     subfields:
-      a: formato  # formato (do filme, não do material)
-      b: processo # processo (COR ou PB ou CORePB)
-      c: duração  # duração (em minutos ou segundos)
-      e: cor      # sistema de cor
-      f: som      # sistema sonoro
-      g: tela     # tipo de tela
-      h: metragem
-      c: duração
+      a: format   # formato  # formato (do filme, não do material)
+      b: process  # processo # processo (COR ou PB ou CORePB)
+      c: duration # duração  # duração (em minutos ou segundos)
+      e: color    # cor      # sistema de cor
+      f: sound    # som      # sistema sonoro
+      g: screen   # tela     # tipo de tela
+      h: lenght   # metragem
+      #c: duração # TODO
     map:
       all:
         type: FilmMaterials
