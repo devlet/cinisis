@@ -215,9 +215,6 @@ class BiblioIsisDb implements IsisDb {
    *
    * @param $value
    *   Dataset.
-   *
-   * @todo
-   *   Check is_array condition.
    */
   function subfields_switch($key, &$value) {
     if (!is_array($value)) {
@@ -347,14 +344,11 @@ class BiblioIsisDb implements IsisDb {
    *
    * @return
    *   True if repetitive, false otherwise.
-   *
-   * @todo
-   *   Check log message as BiblioIsis always output arrays.
    */
   function is_repetitive($field, $value) {
     if (isset($this->format['fields'][$field]['repeat']) &&
       $this->format['fields'][$field]['repeat'] == FALSE) {
-        if (!is_array($value)) {
+        if (is_array($value) && count($value) > 1) {
           $this->logger("$field is configured as non repetitive but data shows a repetition for value $value");
         }
         return FALSE;
