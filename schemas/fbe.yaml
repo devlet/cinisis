@@ -14,16 +14,16 @@ fields:
       field: code
   15:
     name: Categorias
-    repeat: Yes # FIXME: possivel no fdt, porem conceituamente nao-repetitivo
+    repeat: No         # FIXME: possivel no fdt, porem conceituamente nao-repetitivo
     subfields:
-      a: nacionalidade # NAC/EST/COP
-      b: metragem      # LM/CM/CJ/PU/VC
-      c: sonorizado    # SON/SIL
-      e: narrativa     # F/NF/FeNF
-      f: episodio      # EP
-      g: IN 
-      h: FDO
-      i: PROJ
+      a: nationality # nacionalidade # NAC/EST/COP
+      #b: lenght      # metragem      # LM/CM/CJ/PU/VC
+      #c: sound       # sonorizado    # SON/SIL
+      #e: narrative   # narrativa     # F/NF/FeNF
+      #f: episode     # episodio      # EP
+      #g: IN         # TODO
+      #h: fdo         # FDO
+      #i: proj        # PROJ
     map:
       type: FilmCategories
   19:
