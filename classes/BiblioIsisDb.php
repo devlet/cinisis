@@ -50,6 +50,9 @@ class BiblioIsisDb implements IsisDb {
    *
    * @param $message
    *   Log message.
+   *
+   * @todo
+   *   Decide how logging should be implemented.
    */
   function logger($message) {
     $this->log[] = $message;
@@ -349,7 +352,7 @@ class BiblioIsisDb implements IsisDb {
     if (isset($this->format['fields'][$field]['repeat']) &&
       $this->format['fields'][$field]['repeat'] == FALSE) {
         if (is_array($value) && count($value) > 1) {
-          $this->logger("$field is configured as non repetitive but data shows a repetition for value $value");
+          $this->logger("$field is configured as non repetitive but data shows a repetition for value". var_dump($value));
         }
         return FALSE;
       }
