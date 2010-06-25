@@ -84,6 +84,9 @@ fields:
   24:
     name: Gênero
     repeat: Yes
+    map:
+      type:  FilmGenres
+      field: description
   25:
     name: Sinopse/Enredo
     repeat: Yes

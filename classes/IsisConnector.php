@@ -39,6 +39,21 @@ class IsisConnector {
   }
 
   /**
+   * Get all values of a given field.
+   *
+   * @param $field
+   *   Field array.
+   *
+   * @return
+   *   Field data.
+   */
+  public function getFields($field) {
+    if (isset($this->result[$field['name']])) {
+      return $this->result[$field['name']];
+    }
+  }
+
+  /**
    * Get the value of a given field.
    *
    * @param $field
