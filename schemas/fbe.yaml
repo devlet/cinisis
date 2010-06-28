@@ -248,7 +248,7 @@ fields:
       y: companhia produtora a confirmar
       w: qualificador
     map:
-      type: Performers
+      type: Producers
   70:
     name: Produção - dados adicionais
     repeat: Yes
@@ -274,7 +274,7 @@ fields:
       v: produção de dublagem
       w: (qualificador)
     map:
-      type: Performers
+      type: Producers
   68:
     name: Distribuição
     repeat: Yes
@@ -283,7 +283,7 @@ fields:
       b: companhia distribuidora no relançamento
       x: companhia distribuidora a confirmar
     map:
-      type: Performers
+      type: Distributers
   64:
     name: Som
     repeat: Yes
