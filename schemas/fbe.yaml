@@ -36,7 +36,7 @@ fields:
       e: color    # cor      # sistema de cor
       f: sound    # som      # sistema sonoro
       g: screen   # tela     # tipo de tela
-      h: lenght   # metragem
+      h: length   # metragem
       #c: duração # TODO
     map:
       all:
@@ -218,7 +218,7 @@ fields:
       o: componente
       i: (sem descrição na bula) – identificador
     map:
-      type: Character
+      type: Characters
   280:
     name: Identidades/Elenco - dados adicionais
     repeat: Yes
@@ -234,7 +234,7 @@ fields:
       o: componente
       i: (sem descrição na bula) – identificador
     map:
-      type: Character
+      type: Characters
   60:
     name: Produção
     repeat: Yes
