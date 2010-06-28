@@ -14,7 +14,7 @@ fields:
       field: code
   15:
     name: Categorias
-    repeat: No         # FIXME: possivel no fdt, porem conceituamente nao-repetitivo
+    repeat: No       # FIXME: possivel no fdt, porem conceituamente nao-repetitivo
     subfields:
       a: nationality # nacionalidade # NAC/EST/COP
       b: lenght      # metragem      # LM/CM/CJ/PU/VC
@@ -92,16 +92,21 @@ fields:
     repeat: Yes
     map:
       # TODO: use relation instead of value type / repeat
-      #type: relation
-      #field: Property
+      #type: Plot
       type: values
       field: plot
   26:
     name: Assuntos/Voc. Controlado
     repeat: Yes
+    # TODO
+    #map:
+    #  type: Subject
   27:
     name: Assuntos/Termos Livres
     repeat: Yes
+    # TODO
+    #map:
+    #  type: FreeTerms
   66:
     name: Direção
     repeat: Yes
@@ -529,7 +534,7 @@ fields:
       b: 	código de arquivo
       p: 	material
   16:
-    # Nao deveria fazer parte da FB
+    # TODO: Nao deveria fazer parte da FB
     name: Status de preservação
     repeat: Yes
   98:
