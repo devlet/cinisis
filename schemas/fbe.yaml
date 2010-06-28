@@ -151,17 +151,17 @@ fields:
     name: Fotografia
     repeat: Yes
     subfields:
-      a: direção de fotografia / fotografia / diretor de fotografia
-      b: assistência de fotografia / assistente de fotografia
+      a: direção de fotografia    # direção de fotografia / fotografia / diretor de fotografia
+      b: assistente de fotografia # assistência de fotografia / assistente de fotografia
       c: câmera
-      d: assistência de câmera / assistente de câmera
+      d: assistente de câmera     # assistência de câmera / assistente de câmera
       e: efeitos especiais de câmera
-      f: fotografia de cena / still / fotógrafo de still / fotógrafo de cena
+      f: fotografia de cena       # fotografia de cena / still / fotógrafo de still / fotógrafo de cena
       g: iluminação
-      h: operador (nomenclatura de época), operador de câmera
+      h: operador de câmera       # operador (nomenclatura de época), operador de câmera
       i: cinegrafista
-      j: assistência de iluminação / assistente de iluminação
-      l: animador /  empresa encarregada da animação
+      j: assistente de iluminação # assistência de iluminação / assistente de iluminação
+      l: animação                 # animador /  empresa encarregada da animação # TODO: company
       m: desenhos de animação
       o: trucagens
       x: fotografia a confirmar
