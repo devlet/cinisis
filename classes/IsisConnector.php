@@ -243,4 +243,43 @@ class IsisConnector {
       return $keys[$subfield];
     }
   }
+
+  /**
+   * Remove brackets from strings whithin an array.
+   *
+   * @param &$values
+   *   Array with bracketed strings.
+   */
+  public function removeBrackets($value) {
+    $value = str_replace('<', '', $value);
+    $value = str_replace('>', '', $value);
+    return $value;
+  }
+
+  /**
+   * Remove brackets from strings whithin an array.
+   *
+   * @param &$values
+   *   Array with bracketed strings.
+   */
+  public function removeBracketsFromArray(&$values) {
+    foreach ($values as $key => $value) {
+      $values[$key] = $this->removeBrackets($value);
+    }
+  }
+
+  /**
+   * Explode a bracketed string into values. Just strings
+   * inside brackets are returned.
+   *
+   * @param $subject
+   *   Strings containing brackets.
+   *
+   * @return
+   *   Array of matched strings.
+   */
+  public function explodeBrackets($subject) {
+    $values = preg_split('/[<\s>]+/', $subject, -1, PREG_SPLIT_NO_EMPTY);
+    return $values;
+  }
 }
