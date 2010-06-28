@@ -325,6 +325,8 @@ fields:
       r: sonoplastia
       s: assistência de dublagem
       w: (qualificador)
+    map:
+      type: Performers
   65:
     name: Montagem
     repeat: Yes
@@ -413,6 +415,8 @@ fields:
       i: produção musical
       j: seleção musical
       x: musica a confirmar
+    map:
+      type: Performers
   73:
     name: Música - dados adicionais
     repeat: Yes
@@ -427,6 +431,8 @@ fields:
       h: orquestração
       i: conjuntos/bandas
       j: componentes
+    map:
+      type: Performers
   83:
     name: Canção
     repeat: Yes

@@ -51,6 +51,8 @@ class IsisConnector {
     if (isset($this->result[$field['name']])) {
       return $this->result[$field['name']];
     }
+
+    return array();
   }
 
   /**
