@@ -66,6 +66,7 @@ fields:
       x: título traduzido
       y: outras remetências
       z: códigos dos títulos quando se referem a episódios, séries ou capítulos
+    # TODO: find an example
     #map:
     #  type: FilmTitles
   151:
@@ -79,6 +80,7 @@ fields:
       r: para título de relançamento v22^r
       x: para título traduzido v22^x
       y: para outras remetências v22^y
+    # TODO: find an example
     #map:
     #  type: FilmTitles
   24:
