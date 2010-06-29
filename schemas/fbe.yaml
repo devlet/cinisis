@@ -21,7 +21,7 @@ fields:
       c: sound       # sonorizado    # SON/SIL
       e: narrative   # narrativa     # F/NF/FeNF
       f: episode     # episodio      # EP
-      #g: IN         # TODO
+      #g: IN         # TODO: inacabado
       h: fdo         # FDO
       i: proj        # PROJ
     map:
@@ -537,8 +537,8 @@ fields:
     name: Arquivos que possuem materiais
     repeat: Yes
     subfields:
-      b: 	código de arquivo
-      p: 	material
+      b: código de arquivo
+      p: material
   16:
     # TODO: Nao deveria fazer parte da FB
     name: Status de preservação
@@ -553,6 +553,8 @@ fields:
   99:
     name: Observações
     repeat: Yes
+    map:
+      type: FilmObservations
   104:
     name: Código da foto
     repeat: Yes
@@ -566,7 +568,7 @@ fields:
       b: legenda para a imagem em movimento
   162:
     name: BCC
-    repeat: No
+    repeat: No # TODO: Confirm
   164:
     name: Histórico do título
     repeat: Yes
