@@ -37,7 +37,7 @@ fields:
       f: sound    # som      # sistema sonoro
       g: screen   # tela     # tipo de tela
       h: length   # metragem
-      #c: duração # TODO
+      c: duration # duração
     map:
       all:
         type: FilmMaterials
@@ -100,15 +100,13 @@ fields:
   26:
     name: Assuntos/Voc. Controlado
     repeat: Yes
-    # TODO
-    #map:
-    #  type: Subject
+    map:
+      type: Terms
   27:
     name: Assuntos/Termos Livres
     repeat: Yes
-    # TODO
-    #map:
-    #  type: FreeTerms
+    map:
+      type: FreeTerms
   66:
     name: Direção
     repeat: Yes
@@ -501,12 +499,18 @@ fields:
   58:
     name: Circuito exibidor
     repeat: Yes
+    map:
+      type: FilmCircuits
   88:
     name: Prêmios
     repeat: Yes
+    map:
+      type: FilmPrizes
   95:
     name: Certificados
     repeat: Yes
+    map:
+      type: FilmCertificates
   69:
     name: Colaborações/Outras funções
     repeat: Yes
