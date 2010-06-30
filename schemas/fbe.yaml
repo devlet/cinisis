@@ -93,10 +93,7 @@ fields:
     name: Sinopse/Enredo
     repeat: Yes
     map:
-      # TODO: use relation instead of value type / repeat
-      #type: Plot
-      type: values
-      field: plot
+      type: Plot
   26:
     name: Assuntos/Voc. Controlado
     repeat: Yes
@@ -141,7 +138,7 @@ fields:
       f: diálogos
       g: adaptado por
       h: autoria do texto de locução / redator
-      i: baseada          # baseada (Inspirada) em, na, no, / romance; obra, peça
+      i: baseada          # baseada (Inspirada) em, na, no, / romance; obra, peça # TODO: not a performer field
       j: diálogos adicionais
       k: supervisão de roteiro
       l: enquadração (nomenclatura de época)
@@ -437,6 +434,7 @@ fields:
       i: conjuntos/bandas
       j: componentes
     map:
+      # TODO: type: Music
       type: Performers
   83:
     name: Canção

@@ -282,12 +282,26 @@ class IsisConnector {
    */
   public function explodeBrackets($subject) {
     preg_match_all('/<[^<>]*>/', $subject, $values);
+    return $this->filterBrackets($values[0]);
+  }
 
-    // Why this doesn't work?
-    //$values = preg_replace(array('/</', '/>/'), '', $values);
-
-    foreach ($values[0] as $key => $value) {
-      $values[$key] = preg_replace(array('/</', '/>/'), '', $value);
+  /**
+   * Filter out brackets from strings.
+   *
+   * @param $values
+   *   String (or array filled with strings) to be filtered.
+   *
+   * @result
+   *   Filtered string or array.
+   */
+  public function filterBrackets($values) {
+    if (is_array($values)) {
+      foreach ($values as $key => $value) {
+        $values[$key] = $this->filterBrackets($value);
+      }
+    }
+    else {
+      $values = preg_replace(array('/</', '/>/'), '', $values);
     }
 
     return $values;
@@ -298,6 +312,7 @@ class IsisConnector {
    *
    * @param $value
    *   String to be compared.
+   *
    * @return
    *   True if string has brackets, false otherwise.
    */
@@ -316,6 +331,7 @@ class IsisConnector {
    *
    * @param $value
    *   String with values.
+   *
    * @return
    *   Array with values.
    */
