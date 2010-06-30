@@ -281,7 +281,54 @@ class IsisConnector {
    *   Array of matched strings.
    */
   public function explodeBrackets($subject) {
-    $values = preg_split('/[<\s>]+/', $subject, -1, PREG_SPLIT_NO_EMPTY);
+    preg_match_all('/<[^<>]*>/', $subject, $values);
+
+    // Why this doesn't work?
+    //$values = preg_replace(array('/</', '/>/'), '', $values);
+
+    foreach ($values[0] as $key => $value) {
+      $values[$key] = preg_replace(array('/</', '/>/'), '', $value);
+    }
+
     return $values;
+  }
+
+  /**
+   * Check if a string has brackets.
+   *
+   * @param $value
+   *   String to be compared.
+   * @return
+   *   True if string has brackets, false otherwise.
+   */
+  public function hasBrackets($value) {
+    if (strstr($value, '<') && strstr($value, '>')) {
+      return TRUE;
+    }
+
+    return FALSE;
+  }
+
+  /**
+   * Explode values from fields or subfields. Split values
+   * inside brackets if needed, but then doesn't return any
+   * value outside brackets.
+   *
+   * @param $value
+   *   String with values.
+   * @return
+   *   Array with values.
+   */
+  public function explodeValue($value) {
+    if ($this->hasBrackets($value)) {
+      return $this->explodeBrackets($value);
+    }
+    else {
+      if (!is_array($value)) {
+        $value = array($value);
+      }
+    }
+
+    return $value;
   }
 }
