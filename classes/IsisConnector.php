@@ -47,7 +47,7 @@ class IsisConnector {
    * @return
    *   Field data.
    */
-  public function getFields($field) {
+  public function getValues($field) {
     if (isset($this->result[$field['name']])) {
       return $this->result[$field['name']];
     }
@@ -74,6 +74,23 @@ class IsisConnector {
   }
 
   /**
+   * Get all values of a given field.
+   *
+   * @param $field
+   *   Field array.
+   *
+   * @return
+   *   Field data.
+   */
+  public function getFields($field) {
+    for ($n = 0; $n >= count($this->result[$field['name']]); $n++) {
+      $values[$n] = $this->getField($field, $n);
+    }
+
+    return $values;
+  }
+
+  /**
    * Get the value of a given subfield.
    *
    * @param $field
@@ -95,12 +112,32 @@ class IsisConnector {
   }
 
   /**
+   * Get all values of a given subfield.
+   *
+   * @param $field
+   *   Field array.
+   *
+   * @param $subfield
+   *   Subfield name.
+   *
+   * @return
+   *   Subfield data.
+   */
+  public function getSubfields($field, $subfield) {
+    for ($n = 0; $n >= count($this->result[$field['name']]); $n++) {
+      $values[$n] = $this->getSubfield($field, $subfield, $n);
+    }
+
+    return $values;
+  }
+
+  /**
    * Get the list of subfields from a given field.
    *
    * @param $field
    *   Field array.
    */
-  public function getSubfields($field) {
+  public function getSubfieldList($field) {
     if (isset($field['subfields'])) {
       return $field['subfields'];
     }
