@@ -56,6 +56,19 @@ class IsisConnector {
   }
 
   /**
+   * Get the number of resulting rows for a given field.
+   *
+   * @param $field
+   *   Field array.
+   *
+   * @return
+   *   Number of rows.
+   */
+  public function getRows($field) {
+    return count($this->result[$field['name']]);
+  }
+
+  /**
    * Get the value of a given field.
    *
    * @param $field
@@ -83,8 +96,8 @@ class IsisConnector {
    *   Field data.
    */
   public function getFields($field) {
-    for ($n = 0; $n >= count($this->result[$field['name']]); $n++) {
-      $values[$n] = $this->getField($field, $n);
+    for ($row = 0; $row >= $this->getRows($field); $row++) {
+      $values[$row] = $this->getField($field, $row);
     }
 
     return $values;
@@ -124,8 +137,8 @@ class IsisConnector {
    *   Subfield data.
    */
   public function getSubfields($field, $subfield) {
-    for ($n = 0; $n >= count($this->result[$field['name']]); $n++) {
-      $values[$n] = $this->getSubfield($field, $subfield, $n);
+    for ($row = 0; $row >= $this->getRows($field); $row++) {
+      $values[$row] = $this->getSubfield($field, $subfield, $row);
     }
 
     return $values;
@@ -141,6 +154,7 @@ class IsisConnector {
     if (isset($field['subfields'])) {
       return $field['subfields'];
     }
+
     return array();
   }
 

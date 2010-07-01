@@ -44,7 +44,8 @@ class IsisMethodIterator implements Iterator
   }
 
   /**
-   * Move forward to next element.
+   * Move forward to next element. The method should be callabe, otherwise
+   * we move to the next position.
    */
   function next() {
     do {
