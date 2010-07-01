@@ -96,7 +96,7 @@ class IsisConnector {
    *   Field data.
    */
   public function getFields($field) {
-    for ($row = 0; $row <= $this->getRows($field); $row++) {
+    foreach (new IsisRowIterator($this, $field) as $row) {
       $values[$row] = $this->getField($field, $row);
     }
 
@@ -137,7 +137,7 @@ class IsisConnector {
    *   Subfield data.
    */
   public function getSubfields($field, $subfield) {
-    for ($row = 0; $row <= $this->getRows($field); $row++) {
+    foreach (new IsisRowIterator($this, $field) as $row) {
       $values[$row] = $this->getSubfield($field, $subfield, $row);
     }
 
