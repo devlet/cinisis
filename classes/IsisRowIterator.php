@@ -5,8 +5,8 @@
  */
 class IsisRowIterator implements Iterator
 {
-  private $position = 0;
-  private $total    = 0;
+  private $row  = 0;
+  private $rows = 0;
 
   /**
    * Constructor.
@@ -18,41 +18,41 @@ class IsisRowIterator implements Iterator
    *   Field to iterate over.
    */ 
   public function __construct($class, $field) {
-    $this->total = $class->getRows($field);
+    $this->rows = $class->getRows($field);
   }
 
   /**
    * Rewind the Iterator to the first element.
    */
   function rewind() {
-    $this->position = 0;
+    $this->row = 0;
   }
 
   /**
    * Return the key of the current element.
    */
   function key() {
-    return $this->position;
+    return $this->row;
   }
 
   /**
    * Return the current element.
    */
   function current() {
-    return $this->position;
+    return $this->row;
   }
 
   /**
    * Move forward to next element.
    */
   function next() {
-    ++$this->position;
+    ++$this->row;
   }
 
   /**
    * Check if there is a current element after calls to rewind() or next().
    */
   function valid() {
-    return $this->position <= $this->total;
+    return $this->row <= $this->rows;
   }  
 }  
