@@ -15,6 +15,7 @@ class IsisSubfieldIterator implements Iterator
       $this->field     = $field;
       $this->subfields = $class->getSubfields($field);
       $this->keys      = array_values($this->subfields);
+      $this->total     = count($this->class->result[$field['name']);
       print_r($field);
     }
 
