@@ -17,7 +17,7 @@ fields:
     repeat: No       # FIXME: possivel no fdt, porem conceituamente nao-repetitivo
     subfields:
       a: nationality # nacionalidade # NAC/EST/COP
-      b: lenght      # metragem      # LM/CM/CJ/PU/VC
+      b: length      # metragem      # LM/CM/CJ/PU/VC
       c: sound       # sonorizado    # SON/SIL
       e: narrative   # narrativa     # F/NF/FeNF
       f: episode     # episodio      # EP
@@ -43,7 +43,7 @@ fields:
         type: FilmMaterials
   20: 
     name: Título
-    repeat: Yes
+    repeat: No
     subfields:
       a: título
       b: título atribuído
@@ -59,7 +59,7 @@ fields:
       c: série
       e: título do episódio explicitado na tela ou atribuído pelo catalogador
       r: relançamento
-      x: título traduzido
+      x: título traduzido # e/ou titulo nacional / explicativo
       y: outras remetências
       z: códigos dos títulos quando se referem a episódios, séries ou capítulos
     # TODO: find an example
