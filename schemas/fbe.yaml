@@ -49,11 +49,7 @@ fields:
       b: título atribuído
       x: título ainda não confirmado
     map:
-      # TODO
-      #type: FilmTitles
-      type: values
-      subfields:
-        a: title
+      type: FilmTitles
   22:
     name: Outros títulos
     repeat: Yes
