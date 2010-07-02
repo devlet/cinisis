@@ -298,6 +298,19 @@ class IsisConnector {
   }
 
   /**
+   * Get the key of a field entry.
+   *
+   * @param $field
+   *   Field array.
+   *
+   * @return
+   *   Field key.
+   */
+  public function getFieldKey($field) {
+    return array_search($field, $this->format['fields']);
+  }
+
+  /**
    * Remove brackets from strings whithin an array.
    *
    * @param &$values
