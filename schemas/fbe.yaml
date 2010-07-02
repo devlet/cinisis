@@ -93,7 +93,7 @@ fields:
     name: Sinopse/Enredo
     repeat: Yes
     map:
-      type: Plot
+      type: FilmPlots
   26:
     name: Assuntos/Voc. Controlado
     repeat: Yes
