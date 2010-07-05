@@ -313,7 +313,7 @@ class IsisConnector {
   /**
    * Remove brackets from strings whithin an array.
    *
-   * @param &$values
+   * @param $value
    *   Array with bracketed strings.
    */
   public function removeBrackets($value) {

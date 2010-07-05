@@ -219,7 +219,7 @@ fields:
       f: Fotografia de cena / still / fotógrafo de still / fotógrafo de cena
       h: Operador (nomenclatura de época), operador de câmera
       j: Assistência de iluminação / assistente de iluminação
-      l: Animador /  empresa encarregada da animação
+      l: Animador / empresa encarregada da animação
   72:
     name: Dados adicionais de fotografia
     repeat: Yes
