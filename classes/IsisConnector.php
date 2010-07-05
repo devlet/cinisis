@@ -432,7 +432,7 @@ class IsisConnector {
   }
 
   /**
-   * Filter brackets for a given subfield, avoiding null entries.
+   * Filter brackets for a given subfield.
    *
    * @param $field
    *   Field data.
@@ -447,6 +447,6 @@ class IsisConnector {
    *   Filterd subfield data.
    */
   public function filterSubfield($field, $subfield, $row) {
-    return array_filter($this->filterBrackets($this->getSubfield($field, $subfield, $row)));
+    return $this->filterBrackets($this->getSubfield($field, $subfield, $row));
   }
 }
