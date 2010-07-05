@@ -404,6 +404,7 @@ fields:
   # Dates and places
   #
   86:
+    # FIXME: repeticao possivel no fdt, porem nao conceituamente.
     name: Data e local de produção
     repeat: Yes
     subfields:
@@ -469,6 +470,9 @@ fields:
       g: estúdio de mixagem
       h: estúdio de gravação de música
       i: estúdio de dublagem
+  165:
+    name: Termos geográficos
+    repeat: Yes
 
   #
   # Characters
@@ -668,9 +672,6 @@ fields:
       a: ano   
       b: mês/dia
       c: nome do alimentador
-  165:
-    name: Termos geográficos
-    repeat: Yes
   162:
     name: BCC
     repeat: Yes
