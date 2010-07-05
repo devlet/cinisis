@@ -411,4 +411,42 @@ class IsisConnector {
 
     return $value;
   }
+
+  /**
+   * Explode brackets for a given subfield, avoiding null entries.
+   *
+   * @param $field
+   *   Field data.
+   *
+   * @param $subfield
+   *   Subfield.
+   *
+   * @param $row
+   *   Row number.
+   *
+   * @return
+   *   Exploded subfield data.
+   */
+  public function explodeSubfield($field, $subfield, $row) {
+    return array_filter($this->explodeValue($this->getSubfield($field, $subfield, $row)));
+  }
+
+  /**
+   * Filter brackets for a given subfield, avoiding null entries.
+   *
+   * @param $field
+   *   Field data.
+   *
+   * @param $subfield
+   *   Subfield.
+   *
+   * @param $row
+   *   Row number.
+   *
+   * @return
+   *   Filterd subfield data.
+   */
+  public function filterSubfield($field, $subfield, $row) {
+    return array_filter($this->filterBrackets($this->getSubfield($field, $subfield, $row)));
+  }
 }
