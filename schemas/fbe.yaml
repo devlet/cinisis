@@ -408,9 +408,39 @@ fields:
     repeat: Yes
     subfields:
       a: ano de produção
-      x: país
-      y: cidade
-      z: estado
+      b: início de produção
+      c: final de produção
+      d: início de filmagem
+      e: final de filmagem
+      f: data de filmagem
+      g: em produção
+      h: data a confirmar
+      x: país de produção
+      y: cidade de produção
+      z: estado de produção
+      w: país estrangeiro de produção
+    map:
+      type:  values
+      subfields:
+        a: year
+    description:
+      g: Primeira notícia de produção
+      x: BR ou BR-código isso do(s) país(es)
+      w: Usado codigo ISO 2 digitos
+  85:
+    name: Data e local de Lançamento
+    repeat: Yes
+    subfields:
+      a: data de lançamento (nacional)
+      b: local de lançamento (nacional)
+      c: circuito lançador
+      d: sala de exibição lançadora
+      e: data de pré-lançamento
+      f: local de pré-lançamento
+      g: data de exibição especial
+      h: loca de exibição especial
+      i: sala de pré-lançamento
+      j: sala de exibição especial
   83:
     name: Canção
     repeat: Yes
@@ -439,40 +469,6 @@ fields:
       g: estúdio de mixagem
       h: estúdio de gravação de música
       i: estúdio de dublagem
-  86:
-    name: Data e local de produção
-    repeat: Yes
-    subfields:
-      a: ano de produção
-      b: início de produção
-      c: final de produção
-      d: início de filmagem
-      e: final de filmagem
-      f: data de filmagem
-      g: em produção
-      h: data a confirmar
-      x: país de produção
-      y: cidade de produção
-      z: estado de produção
-      w: país estrangeiro de produção
-    description:
-      g: Primeira notícia de produção
-      x: BR ou BR-código isso do(s) país(es)
-      w: Usado codigo ISO 2 digitos
-  85:
-    name: Data e local de Lançamento
-    repeat: Yes
-    subfields:
-      a: data de lançamento (nacional)
-      b: local de lançamento (nacional)
-      c: circuito lançador
-      d: sala de exibição lançadora
-      e: data de pré-lançamento
-      f: local de pré-lançamento
-      g: data de exibição especial
-      h: loca de exibição especial
-      i: sala de pré-lançamento
-      j: sala de exibição especial
 
   #
   # Characters
