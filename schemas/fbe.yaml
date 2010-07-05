@@ -4,43 +4,73 @@ db:
   charset:    cp850
   base_model: Film
 fields: 
+  #
+  # General
+  #
   1: 
+    # FIXME: na pratica pode ser repetitivo. Como proceder?
     name: Código do filme
-    repeat: No  # FIXME: na pratica ocorre
+    repeat: No
     subfields:
-      y: matriz # código do título matriz quando episodio, série ou capítulo
+      y: matriz
     map:
       type:  values
       field: code
+    description:
+      y: Código do título matriz quando episodio, série ou capítulo
   15:
+    # FIXME: repeticao possivel no fdt, porem nao conceituamente.
     name: Categorias
-    repeat: No       # FIXME: possivel no fdt, porem conceituamente nao-repetitivo
+    repeat: No
     subfields:
-      a: nationality # nacionalidade # NAC/EST/COP
-      b: length      # metragem      # LM/CM/CJ/PU/VC
-      c: sound       # sonorizado    # SON/SIL
-      e: narrative   # narrativa     # F/NF/FeNF
-      f: episode     # episodio      # EP
-      #g: IN         # TODO: inacabado
-      h: fdo         # FDO
-      i: proj        # PROJ
+      a: nationality
+      b: length
+      c: sound
+      e: narrative
+      f: episode
+      g: finished
+      h: fdo
+      i: proj
     map:
       type: FilmCategories
+    description:
+      a: Nacionalidade (NAC/EST/COP)
+      b: Metragem      (LM/CM/CJ/PU/VC)
+      c: Sonorizado    (SON/SIL)
+      e: Narrativa     (F/NF/FeNF)
+      f: Episódio      (EP)
+      g: Inacabado     (IN)
+      h: FDO
+      i: PROJ
   19:
+    # FIXME: repeticao possivel no fdt, porem nao conceituamente.
     name: Material Original
-    repeat: No    # FIXME: possivel no fdt, porem conceituamente nao-repetitivo
+    repeat: No
     subfields:
-      a: format   # formato  # formato (do filme, não do material)
-      b: process  # processo # processo (COR ou PB ou CORePB)
-      c: duration # duração  # duração (em minutos ou segundos)
-      e: color    # cor      # sistema de cor
-      f: sound    # som      # sistema sonoro
-      g: screen   # tela     # tipo de tela
-      h: length   # metragem
-      c: duration # duração
+      a: format
+      b: process
+      c: duration
+      e: color
+      f: sound
+      g: screen
+      h: length
+      c: duration
     map:
       all:
         type: FilmMaterials
+    description:
+      a: Formato  (do filme, não do material)
+      b: Processo (COR ou PB ou CORePB)
+      c: Duração  (em minutos ou segundos)
+      e: Cor      (sistema de cor)
+      f: Som      (sistema sonoro)
+      g: Tela     (tipo de tela)
+      h: Metragem
+      c: Duração
+
+  #
+  # Titles
+  #
   20: 
     name: Título
     repeat: No
@@ -59,12 +89,14 @@ fields:
       c: série
       e: título do episódio explicitado na tela ou atribuído pelo catalogador
       r: relançamento
-      x: título traduzido # e/ou titulo nacional / explicativo
+      x: título traduzido
       y: outras remetências
       z: códigos dos títulos quando se referem a episódios, séries ou capítulos
     # TODO: find an example
     #map:
     #  type: FilmTitles
+    description:
+      x: Título traduzido e/ou titulo nacional / explicativo
   151:
     name: Título padronizado
     repeat: Yes
@@ -79,6 +111,10 @@ fields:
     # TODO: find an example
     #map:
     #  type: FilmTitles
+
+  #
+  # Genre, plot, etc
+  #
   24:
     name: Gênero
     repeat: Yes
@@ -100,6 +136,10 @@ fields:
     repeat: Yes
     map:
       type: FreeTerms
+
+  #
+  # Performers
+  #
   66:
     name: Direção
     repeat: Yes
@@ -117,24 +157,26 @@ fields:
       k: roteiro técnico ou análise técnica
       l: story-board
       m: coreografia
-      n: direção especializada # (ação, filmagem aérea, etc.)
+      n: direção especializada
       x: diretor a confirmar
       w: (qualificador)
     map:
       type: Performers
+    description:
+      n: Direção especializada (ação, filmagem aérea, etc.)
   67:
     name: Argumento/roteiro
     repeat: Yes
     subfields:
-      a: argumentista     # argumentista/entrecho/argumento
+      a: argumentista
       b: co-argumentista
       c: autor da estória
-      d: roteirista       # roteirista/entrecho organizado em cenas/roteiro
+      d: roteirista
       e: co-roteirista 
       f: diálogos
       g: adaptado por
       h: autoria do texto de locução / redator
-      i: baseada          # baseada (Inspirada) em, na, no, / romance; obra, peça # TODO: not a performer field
+      i: baseada          # TODO: not a performer field
       j: diálogos adicionais
       k: supervisão de roteiro
       l: enquadração (nomenclatura de época)
@@ -145,32 +187,44 @@ fields:
       w: (qualificador)
     map:
       type: Performers
+    description:
+      a: Argumentista/entrecho/argumento
+      d: Roteirista/entrecho organizado em cenas/roteiro
+      i: Baseada (Inspirada) em, na, no, / romance; obra, peça
   62:
     name: Fotografia
     repeat: Yes
     subfields:
-      a: direção de fotografia    # direção de fotografia / fotografia / diretor de fotografia
-      b: assistente de fotografia # assistência de fotografia / assistente de fotografia
+      a: direção de fotografia
+      b: assistente de fotografia
       c: câmera
-      d: assistente de câmera     # assistência de câmera / assistente de câmera
+      d: assistente de câmera
       e: efeitos especiais de câmera
-      f: fotografia de cena       # fotografia de cena / still / fotógrafo de still / fotógrafo de cena
+      f: fotografia de cena
       g: iluminação
-      h: operador de câmera       # operador (nomenclatura de época), operador de câmera
+      h: operador de câmera
       i: cinegrafista
-      j: assistente de iluminação # assistência de iluminação / assistente de iluminação
-      l: animação                 # animador /  empresa encarregada da animação # TODO: company
+      j: assistente de iluminação
+      l: animação                 # TODO: company
       m: desenhos de animação
       o: trucagens
       x: fotografia a confirmar
       w: (qualificador)
     map:
       type: Performers
+    description:
+      a: Direção de fotografia / fotografia / diretor de fotografia
+      b: Assistência de fotografia / assistente de fotografia
+      d: Assistência de câmera / assistente de câmera
+      f: Fotografia de cena / still / fotógrafo de still / fotógrafo de cena
+      h: Operador (nomenclatura de época), operador de câmera
+      j: Assistência de iluminação / assistente de iluminação
+      l: Animador /  empresa encarregada da animação
   72:
     name: Dados adicionais de fotografia
     repeat: Yes
     subfields:
-      a: foco  / foquista
+      a: foco / foquista
       b: fotografia adicional / filmagem adicional
       c: fotografia da 2ª unidade / segunda unidade de fotografia
       e: técnico de cor /  técnico de cores
@@ -185,103 +239,6 @@ fields:
       w: (qualificador)
     map:
       type: Performers
-  86:
-    name: Data e local de produção
-    repeat: Yes
-    subfields:
-      a: ano de produção
-      x: país
-      y: cidade
-      z: estado
-  162:
-    name: BCC
-    repeat: Yes
-  28:
-    name: Identidades/Elenco
-    repeat: Yes
-    subfields:
-      p: personagem
-      a: apresentando
-      c: ator convidado
-      e: participação especial
-      d: intérprete/dublador(a)/dublado  por
-      f: figurante
-      l: locução
-      n: narração
-      o: componente
-      i: (sem descrição na bula) – identificador
-    map:
-      type: Characters
-  280:
-    name: Identidades/Elenco - dados adicionais
-    repeat: Yes
-    subfields:
-      p: personagem
-      a: apresentando
-      c: ator convidado
-      e: participação especial
-      d: intérprete/dublador(a)/dublado  por
-      f: figurante
-      l: locução
-      n: narração
-      o: componente
-      i: (sem descrição na bula) – identificador
-    map:
-      type: Characters
-  60:
-    name: Produção
-    repeat: Yes
-    subfields:
-      a: companhia produtora
-      b: companhia co-produtora
-      c: companhia produtora associada
-      d: produtor
-      e: co-produtor
-      f: direção de produção
-      g: produção executiva
-      h: produtor associado 
-      i: assistência de produção
-      j: produtor assistente
-      x: produtor a confirmar
-      y: companhia produtora a confirmar
-      w: qualificador
-    map:
-      type: Producers
-  70:
-    name: Produção - dados adicionais
-    repeat: Yes
-    subfields:
-      a: agência
-      b: cliente
-      c: financiamento / patrocínio
-      d: anunciante
-      e: secretaria de produção
-      f: supervisão de produção/coordenação de produto
-      g: assistência de secretaria de produção
-      k: equipe de produção
-      l: produtor executivo assistente
-      m: relações públicas
-      n: comercialização
-      o: contabilidade
-      p: produção de locação
-      q: gerente de produção
-      r: assistência de produção executiva
-      s: empresa de figuração
-      t: motorista
-      u: transporte
-      v: produção de dublagem
-      w: (qualificador)
-    map:
-      type: Producers
-  68:
-    name: Distribuição
-    repeat: Yes
-    subfields:
-      a: companhia distribuidora
-      b: companhia distribuidora no relançamento
-      x: companhia distribuidora a confirmar
-    map:
-      type: Distributers
   64:
     name: Som
     repeat: Yes
@@ -325,13 +282,15 @@ fields:
       w: (qualificador)
     map:
       type: Performers
+    description:
+      o: Microfonista (operador de microfone/operador de boom = microfonista)
   65:
     name: Montagem
     repeat: Yes
     subfields:
-      a: montagem/montador      # [nos filmes até cerca de 1960, usava-se os termos coordenação/coordenador/corte ou corte final]
-      b: edição                 # editor
-      c: assistente de montagem # assistência de montagem
+      a: montagem/montador
+      b: edição
+      c: assistente de montagem
       d: corte final
       e: co-editor/co-montador
       f: montagem de som/edição de som
@@ -339,6 +298,10 @@ fields:
       w: (qualificador)
     map:
       type: Performers
+    description:
+      a: Montagem/montador      (nos filmes até cerca de 1960, usava-se os termos coordenação/coordenador/corte ou corte final)
+      b: Edição                 (editor)
+      c: Assistente de montagem (assistência de montagem)
   75:
     name: Montagem - dados adicionais
     repeat: Yes
@@ -398,6 +361,10 @@ fields:
       w: (qualificador)
     map:
       type: Performers
+
+  #
+  # Sound/music
+  #
   63:
     name: Música
     repeat: Yes
@@ -432,6 +399,18 @@ fields:
     map:
       # TODO: type: Music
       type: Performers
+
+  #
+  # Dates and places
+  #
+  86:
+    name: Data e local de produção
+    repeat: Yes
+    subfields:
+      a: ano de produção
+      x: país
+      y: cidade
+      z: estado
   83:
     name: Canção
     repeat: Yes
@@ -456,7 +435,7 @@ fields:
       b: estúdio de som
       c: laboratório de imagem
       d: laboratório de som
-      f: locações # relacionar com termos geograficos?
+      f: locações # TODO: relacionar com termos geograficos?
       g: estúdio de mixagem
       h: estúdio de gravação de música
       i: estúdio de dublagem
@@ -470,12 +449,16 @@ fields:
       d: início de filmagem
       e: final de filmagem
       f: data de filmagem
-      g: em produção (primeira notícia de produção)
+      g: em produção
       h: data a confirmar
-      x: país de produção (BR ou BR-código isso do(s) país(es))
+      x: país de produção
       y: cidade de produção
       z: estado de produção
-      w: país estrangeiro de produção # Usado codigo ISO 2 digitos
+      w: país estrangeiro de produção
+    description:
+      g: Primeira notícia de produção
+      x: BR ou BR-código isso do(s) país(es)
+      w: Usado codigo ISO 2 digitos
   85:
     name: Data e local de Lançamento
     repeat: Yes
@@ -490,6 +473,108 @@ fields:
       h: loca de exibição especial
       i: sala de pré-lançamento
       j: sala de exibição especial
+
+  #
+  # Characters
+  #
+  28:
+    name: Identidades/Elenco
+    repeat: Yes
+    subfields:
+      p: personagem
+      a: apresentando
+      c: ator convidado
+      e: participação especial
+      d: intérprete/dublador(a)/dublado  por
+      f: figurante
+      l: locução
+      n: narração
+      o: componente
+      i: (sem descrição na bula) – identificador
+    map:
+      type: Characters
+  280:
+    name: Identidades/Elenco - dados adicionais
+    repeat: Yes
+    subfields:
+      p: personagem
+      a: apresentando
+      c: ator convidado
+      e: participação especial
+      d: intérprete/dublador(a)/dublado  por
+      f: figurante
+      l: locução
+      n: narração
+      o: componente
+      i: (sem descrição na bula) – identificador
+    map:
+      type: Characters
+
+  #
+  # Producers
+  #
+  60:
+    name: Produção
+    repeat: Yes
+    subfields:
+      a: companhia produtora
+      b: companhia co-produtora
+      c: companhia produtora associada
+      d: produtor
+      e: co-produtor
+      f: direção de produção
+      g: produção executiva
+      h: produtor associado 
+      i: assistência de produção
+      j: produtor assistente
+      x: produtor a confirmar
+      y: companhia produtora a confirmar
+      w: qualificador
+    map:
+      type: Producers
+  70:
+    name: Produção - dados adicionais
+    repeat: Yes
+    subfields:
+      a: agência
+      b: cliente
+      c: financiamento / patrocínio
+      d: anunciante
+      e: secretaria de produção
+      f: supervisão de produção/coordenação de produto
+      g: assistência de secretaria de produção
+      k: equipe de produção
+      l: produtor executivo assistente
+      m: relações públicas
+      n: comercialização
+      o: contabilidade
+      p: produção de locação
+      q: gerente de produção
+      r: assistência de produção executiva
+      s: empresa de figuração
+      t: motorista
+      u: transporte
+      v: produção de dublagem
+      w: (qualificador)
+    map:
+      type: Producers
+
+  #
+  # Distributers
+  #
+  68:
+    name: Distribuição
+    repeat: Yes
+    subfields:
+      a: companhia distribuidora
+      b: companhia distribuidora no relançamento
+      x: companhia distribuidora a confirmar
+    map:
+      type: Distributers
+
+  #
+  # Circuits, prizes, etc
+  #
   58:
     name: Circuito exibidor
     repeat: Yes
@@ -505,6 +590,10 @@ fields:
     repeat: Yes
     map:
       type: FilmCertificates
+
+  #
+  # Other
+  #
   69:
     name: Colaborações/Outras funções
     repeat: Yes
@@ -534,7 +623,7 @@ fields:
       b: código de arquivo
       p: material
   16:
-    # TODO: Nao deveria fazer parte da FB
+    # TODO: Nao deveria fazer parte da FB.
     name: Status de preservação
     repeat: Yes
   98:
@@ -555,14 +644,11 @@ fields:
     subfields:
       b: legenda para a foto
   161:
-    # TODO: Provavelmente serah removido
+    # TODO: Provavelmente serah removido.
     name: AVI
     repeat: Yes
     subfields:
       b: legenda para a imagem em movimento
-  162:
-    name: BCC
-    repeat: No # TODO: Confirm
   164:
     name: Histórico do título
     repeat: Yes
@@ -588,4 +674,7 @@ fields:
       c: nome do alimentador
   165:
     name: Termos geográficos
+    repeat: Yes
+  162:
+    name: BCC
     repeat: Yes
