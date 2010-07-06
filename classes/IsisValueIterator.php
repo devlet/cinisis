@@ -6,12 +6,9 @@
  */
 class IsisValueIterator implements Iterator
 {
-  private $keys;
   private $valueset;
   private $row    = 0;
   private $rows   = 0;
-  private $value  = 0;
-  private $values = 0;
 
   /**
    * Constructor.
@@ -25,8 +22,6 @@ class IsisValueIterator implements Iterator
   public function __construct($class, $field) {
     $this->rows     = $class->getRows($field);
     $this->valueset = $class->getValues($field);
-    $this->keys     = array_keys($this->valueset);
-    $this->values   = count($this->keys);
   }
 
   /**
@@ -48,20 +43,14 @@ class IsisValueIterator implements Iterator
    * Return the current element.
    */
   function current() {
-    return $this->valueset[$this->keys[$this->value]];
+    return $this->valueset[$this->row];
   }
 
   /**
    * Move forward to next element.
    */
   function next() {
-    if ($this->value >= $this->values) {
-      $this->value = 0;
-      ++$this->row;
-    }
-    else {
-      ++$this->value;
-    }
+    ++$this->row;
   }
 
   /**
