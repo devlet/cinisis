@@ -450,8 +450,11 @@ class IsisConnector {
   /**
    * Normalize field names.
    *
-   * @param  string $name Field name
-   * @return string       Normalized field name
+   * @param  $name
+   *   Field name
+   *
+   * @return
+   *   Normalized field name
    */
   static function normalizeFieldName($name)
   {
@@ -461,8 +464,11 @@ class IsisConnector {
   /**
    * Build a map name.
    *
-   * @param  string $name Field name
-   * @return string       Map name
+   * @param $name
+   *   Field name
+   *
+   * @return
+   *   Map name
    */
   static function mapName($name)
   {
