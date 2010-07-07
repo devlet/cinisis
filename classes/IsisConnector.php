@@ -196,19 +196,16 @@ class IsisConnector {
    *
    * @return
    *   A map destination to the field or subfield.
-   * 
-   * @todo
-   *   Convert field and subfield names to valid field names.
    */
   public function getMap($field, $subfield = NULL) {
     if ($subfield == NULL) {
       if (isset($field['map']['field'])) {
         // Custom map provided.
-        $dest = 'set'. ucfirst($field['map']['field']);
+        $dest = $this->mapName($field['map']['field']);
       }
       else {
         // Default map.
-        $dest = 'set'. ucfirst($field['name']);
+        $dest = $this->mapName($field['name']);
       }
     }
     else {
@@ -216,11 +213,11 @@ class IsisConnector {
 
       if (isset($field['map']['subfields'][$key])) {
         // Custom map provided.
-        $dest = 'set'. ucfirst($field['map']['subfields'][$key]);
+        $dest = $this->mapName($field['map']['subfields'][$key]);
       }
       else {
         // Default map.
-        $dest = 'set'. ucfirst($subfield);
+        $dest = $this->mapName($subfield);
       }
     }
 
@@ -448,5 +445,27 @@ class IsisConnector {
    */
   public function filterSubfield($field, $subfield, $row) {
     return $this->filterBrackets($this->getSubfield($field, $subfield, $row));
+  }
+
+  /**
+   * Normalize field names.
+   *
+   * @param  string $name Field name
+   * @return string       Normalized field name
+   */
+  static function normalizeFieldName($name)
+  {
+    return ucfirst(preg_replace('/[^a-z0-9_]/', '', strtolower($name)));
+  }
+
+  /**
+   * Build a map name.
+   *
+   * @param  string $name Field name
+   * @return string       Map name
+   */
+  static function mapName($name)
+  {
+    return 'set'. self::normalizeFieldName($name);
   }
 }
