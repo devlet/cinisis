@@ -53,13 +53,27 @@ class IsisFieldIterator implements Iterator
     do {
       ++$this->row;
     }
-    while ($this->current() == NULL && $this->valid());
+    while ($this->current_null() && $this->has_more_rows());
+  }
+
+  /**
+   * Check if there are more rows.
+   */
+  function has_more_rows() {
+    return $this->row <= $this->rows;
+  }
+
+  /**
+   * Check if the current value is null.
+   */
+  function current_null() {
+    return $this->current() == NULL;
   }
 
   /**
    * Check if there is a current element after calls to rewind() or next().
    */
   function valid() {
-    return $this->row <= $this->rows;
+    return $this->has_more_rows() && !$this->current_null();
   }  
 }
