@@ -456,8 +456,7 @@ class IsisConnector {
    * @return
    *   Normalized field name
    */
-  static function normalizeFieldName($name)
-  {
+  static function normalizeFieldName($name) {
     return ucfirst(preg_replace('/[^a-z0-9_]/', '', strtolower($name)));
   }
 
@@ -470,8 +469,49 @@ class IsisConnector {
    * @return
    *   Map name
    */
-  static function mapName($name)
-  {
+  static function mapName($name) {
     return 'set'. self::normalizeFieldName($name);
+  }
+
+  /**
+   * Check if a field result has a given subfield.
+   *
+   * @param $field
+   *   Field data.
+   *
+   * @param $subfield
+   *   Subfield.
+   *
+   * @param $row
+   *   Row number.
+   *
+   * @return
+   *   True if result has the subfield, false otherwise.
+   */
+  public function hasSubfield($field, $subfield, $row) {
+    $value = $this->getSubfield($field, $subfield, $row);
+
+    if (!empty($value)) {
+      return TRUE;
+    }
+    else {
+      return FALSE;
+    }
+  }
+
+  /**
+   * Get a subfield name.
+   *
+   * @param $field_key
+   *   Field key.
+   *
+   * @param $subfield_key
+   *   Subfield key. 
+   *
+   * @return
+   *   Subfield name.
+   */
+  public function getSubfieldName($field_key, $subfield_key) {
+    return $this->format['fields'][$field_key]['subfields'][$subfield_key];
   }
 }
