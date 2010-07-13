@@ -514,4 +514,33 @@ class IsisConnector {
   public function getSubfieldName($field_key, $subfield_key) {
     return $this->format['fields'][$field_key]['subfields'][$subfield_key];
   }
+
+  /**
+   * Check if a field and subfield match a given condition.
+   *
+   * @param $field
+   *   Field data.
+   *
+   * @param $subfield
+   *   Subfield.
+   *
+   * @param $key
+   *   Field key.
+   *
+   * @param $subkey
+   *   Subfield key. 
+   *
+   * @return
+   *   True if condition match, false otherwise.
+   */
+  public function hasFieldSubfieldCondition($field, $subfield, $key, $subkey) {
+    $field_key    = $this->getFieldKey($field);
+    $subdield_key = $this->getSubfieldKey($field, $subfield);
+    if ($field_key == $key && $subfield_key == $subkey)
+    {
+      return true;
+    }
+
+    return false;
+  }
 }
