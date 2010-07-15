@@ -164,6 +164,7 @@ fields:
       type: Performers
     description:
       n: Direção especializada (ação, filmagem aérea, etc.)
+    special: [w]
   67:
     name: Argumento/roteiro
     repeat: Yes
@@ -176,7 +177,7 @@ fields:
       f: diálogos
       g: adaptado por
       h: autoria do texto de locução / redator
-      i: baseada          # TODO: not a performer field
+      i: baseada
       j: diálogos adicionais
       k: supervisão de roteiro
       l: enquadração (nomenclatura de época)
@@ -191,6 +192,7 @@ fields:
       a: Argumentista/entrecho/argumento
       d: Roteirista/entrecho organizado em cenas/roteiro
       i: Baseada (Inspirada) em, na, no, / romance; obra, peça
+    special: [w, i]
   62:
     name: Fotografia
     repeat: Yes
@@ -220,6 +222,7 @@ fields:
       h: Operador (nomenclatura de época), operador de câmera
       j: Assistência de iluminação / assistente de iluminação
       l: Animador / empresa encarregada da animação
+    special: [w]
   72:
     name: Dados adicionais de fotografia
     repeat: Yes
@@ -239,6 +242,7 @@ fields:
       w: (qualificador)
     map:
       type: Performers
+    special: [w]
   64:
     name: Som
     repeat: Yes
@@ -258,6 +262,7 @@ fields:
       w: (qualificador)
     map:
       type: Performers
+    special: [w]
   74:
     name: Dados adicionais de som
     repeat: Yes
@@ -284,6 +289,7 @@ fields:
       type: Performers
     description:
       o: Microfonista (operador de microfone/operador de boom = microfonista)
+    special: [w]
   65:
     name: Montagem
     repeat: Yes
@@ -302,6 +308,7 @@ fields:
       a: Montagem/montador      (nos filmes até cerca de 1960, usava-se os termos coordenação/coordenador/corte ou corte final)
       b: Edição                 (editor)
       c: Assistente de montagem (assistência de montagem)
+    special: [w]
   75:
     name: Montagem - dados adicionais
     repeat: Yes
@@ -316,6 +323,7 @@ fields:
       w: (qualificador)
     map:
       type: Performers
+    special: [w]
   61:
     name: Direção de arte
     repeat: Yes
@@ -335,6 +343,7 @@ fields:
       w: (qualificador)
     map:
       type: Performers
+    special: [w]
   71:
     name: Direção de arte - dados adicionais
     subfields:
@@ -361,6 +370,7 @@ fields:
       w: (qualificador)
     map:
       type: Performers
+    special: [w]
 
   #
   # Sound/music

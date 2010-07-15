@@ -23,6 +23,8 @@ class IsisSubfieldIterator implements Iterator
    *   Field to iterate over.
    */ 
   public function __construct($class, $field) {
+    $this->class     = $class;
+    $this->field     = $field;
     $this->rows      = $class->getRows($field);
     $this->fieldset  = $class->getSubfieldList($field);
     $this->keys      = array_keys($this->fieldset);

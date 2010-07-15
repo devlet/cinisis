@@ -543,4 +543,43 @@ class IsisConnector {
 
     return false;
   }
+
+  /**
+   * Deal with special subfields.
+   *
+   * @param $field
+   *   Field data from ISIS database schema.
+   *
+   * @param $subfield
+   *   Subfield name.
+   *
+   * @param $return
+   *   Specify return type.
+   *
+   * @return
+   *   True if special subfield, false otherwise of special return type
+   */
+  public function specialSubfield($field, $subfield, $return = 'boolean') {
+    if (isset($field['special'])) {
+      $field_key    = $this->getFieldKey($field);
+      $subfield_key = $this->getSubfieldKey($field, $subfield);
+      $name         = $field['name'] .':'. $subfield;
+      $code         = $field_key .':'. $subfield_key;
+
+      if (array_search($subfield_key, $field['special'])) {
+        $this->log("Found special subfield $name", 'debug');
+
+        if ($return == 'boolean') {
+          return true;
+        }
+        elseif ($return == 'code') {
+          return $code;
+        }
+
+        return $name;
+      }
+    }
+
+    return false;
+  }
 }
