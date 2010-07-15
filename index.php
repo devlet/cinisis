@@ -11,7 +11,12 @@ require_once 'contrib/spyc/spyc.php';
 
 // Autoloader.
 function cinisis_autoload($class) {
-  require_once 'classes/'. $class .'.php';
+  if (strstr($class, 'Iterator')) {
+    require_once 'classes/iterators/'. $class .'.php';
+  }
+  else {
+    require_once 'classes/'. $class .'.php';
+  }
 }
 
 // Register autoloader.
