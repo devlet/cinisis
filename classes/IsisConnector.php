@@ -567,8 +567,6 @@ class IsisConnector {
       $code         = $field_key .':'. $subfield_key;
 
       if (array_search($subfield_key, $field['special'])) {
-        $this->log("Found special subfield $name", 'debug');
-
         if ($return == 'boolean') {
           return true;
         }
