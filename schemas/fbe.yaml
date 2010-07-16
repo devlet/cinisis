@@ -485,7 +485,7 @@ fields:
     repeat: Yes
 
   #
-  # Characters
+  # FictionalCharacters
   #
   28:
     name: Identidades/Elenco
@@ -502,7 +502,8 @@ fields:
       o: componente
       i: (sem descrição na bula) – identificador
     map:
-      type: Characters
+      type: FictionalCharacters
+    special: [p]
   280:
     name: Identidades/Elenco - dados adicionais
     repeat: Yes
@@ -518,7 +519,8 @@ fields:
       o: componente
       i: (sem descrição na bula) – identificador
     map:
-      type: Characters
+      type: FictionalCharacters
+    special: [p,i]
 
   #
   # Producers
