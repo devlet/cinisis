@@ -1,14 +1,19 @@
 <?php
 
 /**
- * Isis field iterator. Iterates over all field values for
- * each result row.
+ * Isis field iterator. Iterates over a field for each result row.
+ *
+ * @todo
+ *   Support for 'join_subfields'
  */
 class IsisFieldIterator implements Iterator
 {
-  private $valueset;
-  private $row    = 0;
-  private $rows   = 0;
+  private $keys;
+  private $fieldset;
+  private $row       = 0;
+  private $rows      = 0;
+  private $subfield  = 0;
+  private $subfields = 0;
 
   /**
    * Constructor.
@@ -18,18 +23,29 @@ class IsisFieldIterator implements Iterator
    *
    * @param $field
    *   Field to iterate over.
+   *
+   * @param $main
+   *   Control to which subfield the main field should be mapped to.
+   *   By default no mapping is made.
+   *
+   * @todo
+   *   Implement $main mapping.
    */ 
-  public function __construct($class, $field) {
-    $this->rows     = $class->getRows($field);
-    $this->valueset = $class->getValues($field);
+  public function __construct($class, $field, $main = false) {
+    $this->class     = $class;
+    $this->field     = $field;
+    $this->rows      = $class->getRows($field);
+    $this->fieldset  = $class->getSubfieldList($field);
+    $this->keys      = array_keys($this->fieldset);
+    $this->subfields = count($this->keys);
   }
 
   /**
    * Rewind the Iterator to the first element.
    */
   function rewind() {
-    $this->row   = 0;
-    $this->value = 0;
+    $this->row      = 0;
+    $this->subfield = 0;
   }
 
   /**
@@ -43,37 +59,26 @@ class IsisFieldIterator implements Iterator
    * Return the current element.
    */
   function current() {
-    return $this->valueset[$this->row]['field'];
+    return $this->fieldset[$this->keys[$this->subfield]];
   }
 
   /**
    * Move forward to next element.
    */
   function next() {
-    do {
+    if ($this->subfield >= $this->subfields) {
+      $this->subfield = 0;
       ++$this->row;
     }
-    while ($this->current_null() && $this->has_more_rows());
-  }
-
-  /**
-   * Check if there are more rows.
-   */
-  function has_more_rows() {
-    return $this->row <= $this->rows;
-  }
-
-  /**
-   * Check if the current value is null.
-   */
-  function current_null() {
-    return $this->current() == NULL;
+    else {
+      ++$this->subfield;
+    }
   }
 
   /**
    * Check if there is a current element after calls to rewind() or next().
    */
   function valid() {
-    return $this->has_more_rows() && !$this->current_null();
+    return $this->row <= $this->rows;
   }  
 }
