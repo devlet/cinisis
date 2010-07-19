@@ -26,14 +26,14 @@ class IsisItemIterator implements Iterator
    *   By default no mapping is made.
    */ 
   public function __construct($class, $field, $main = false) {
-    $this->class     = $class;
-    $this->field     = $field;
-    $this->rows      = $class->getRows($field);
+    $this->class    = $class;
+    $this->field    = $field;
+    $this->rows     = $class->getRows($field);
 
     // Handle subfields
-    $this->fieldset  = $class->getSubfieldList($field);
-    $this->keys      = array_keys($this->fieldset);
-    $this->items     = count($this->keys);
+    $this->fieldset = $class->getSubfieldList($field);
+    $this->keys     = array_keys($this->fieldset);
+    $this->items    = count($this->keys);
 
     // Sum up main item
     $this->fieldset[] = $class->getMainItem($field);
