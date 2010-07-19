@@ -108,7 +108,7 @@ class IsisConnector {
    * @return
    *   Field data.
    */
-  public function getField($field, $row = 0) {
+  public function getMainField($field, $row = 0) {
     $name = $this->getMainFieldName($field);
 
     if (isset($this->result[$field['name']][$row][$name])) {
@@ -125,9 +125,9 @@ class IsisConnector {
    * @return
    *   Field data.
    */
-  public function getFields($field) {
+  public function getMainFields($field) {
     foreach (new IsisRowIterator($this, $field) as $row) {
-      $values[$row] = $this->getField($field, $row);
+      $values[$row] = $this->getMainField($field, $row);
     }
 
     return $values;
