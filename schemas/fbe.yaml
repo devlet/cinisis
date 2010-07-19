@@ -1,8 +1,9 @@
 ---
 db: 
-  name:       fbe
-  charset:    cp850
-  base_model: Film
+  name:           fbe
+  charset:        cp850
+  base_model:     Film
+  join_subfields: Yes
 fields: 
   #
   # General

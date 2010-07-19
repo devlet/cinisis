@@ -261,7 +261,7 @@ class BiblioIsisDb implements IsisDb {
     }
     else {
       foreach ($name as $value) {
-        $data[] = array('field' => $value);
+        $data[] = array($this->main_field_name($key) => $value);
       }
     }
 
@@ -269,7 +269,12 @@ class BiblioIsisDb implements IsisDb {
   }
 
   /**
-   * Subfield handling for data read by 'to_hash' method.
+   * Subfield handling for data read by 'to_hash' method. This method
+   * is not fully supported and therefore not recommended.
+   *
+   * It does not deal very well when data has "main" fields and
+   * subfields (like "data1^adata2^bdata3") and doesn't deal with
+   * advanced configuration such as 'join_subfields'.
    *
    * @param $name
    *   Dataset.
@@ -311,9 +316,11 @@ class BiblioIsisDb implements IsisDb {
       if (substr($value, 0, 1) != '^') {
         $field     = preg_replace('/\^.*/', '', $value);
         $subfields = substr($value, strlen($field) + 1);
+        $subfields = (!empty($subfields)) ? $subfields = explode('^', $subfields) : array();
 
-        $data[$entry]['field'] = $field;
-        $subfields             = (!empty($subfields)) ? $subfields = explode('^', $subfields) : array();
+        if (isset($field)) {
+          $data[$entry]['field'] = $field;
+        }
       }
       else {
         $subfields = explode('^', substr($value, 1));
@@ -327,9 +334,48 @@ class BiblioIsisDb implements IsisDb {
         }
         $data[$entry]['subfields'][$subkey] = substr($subvalue, 1);
       }
+
+      // Join subfields and main field if needed.
+      if ($this->join_subfields()) {
+        $data[$entry] = $data[$entry]['subfields'];
+        if (isset($field)) {
+          $data[$entry][$this->main_field_name($key)] = $field;
+        }
+      }
     }
 
     return $data;
+  }
+
+  /**
+   * Whether to join field and subfields in a single array.
+   *
+   * @return
+   *   Boolean.
+   */
+  public function join_subfields() {
+    if ($this->format['db']['join_subfields']) {
+      return TRUE;
+    }
+
+    return FALSE;
+  }
+
+  /**
+   * Determine the main field name depending on db configuration.
+   *
+   * @param $key
+   *   Field key.
+   *
+   * @return
+   *   Main field name, 'field' by default;
+   */
+  public function main_field_name($key) {
+    if ($this->join_subfields()) {
+      return $this->format['fields'][$key]['name'];
+    }
+
+    return 'field';
   }
 
   /**

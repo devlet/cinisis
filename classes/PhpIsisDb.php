@@ -2,6 +2,11 @@
 
 /**
  * PHP-Isis implementation of IsisDb.
+ *
+ * @todo
+ *   This implementation is currently outdated and lacks
+ *   basic functionalities such as subfield handling and
+ *   therefore it's use is not recommended.
  */
 class PhpIsisDb implements IsisDb {
   /**
