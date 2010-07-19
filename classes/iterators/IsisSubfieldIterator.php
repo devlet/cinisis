@@ -1,12 +1,9 @@
 <?php
 
 /**
- * Isis field iterator. Iterates over a field for each result row.
- *
- * @todo
- *   Support for 'join_subfields'
+ * Isis subfield iterator. Iterates over subfields for each result row.
  */
-class IsisFieldIterator implements Iterator
+class IsisSubfieldIterator implements Iterator
 {
   private $keys;
   private $fieldset;

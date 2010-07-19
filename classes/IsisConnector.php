@@ -47,7 +47,7 @@ class IsisConnector {
    * @return
    *   Main field name.
    */
-  public function getMainFieldName($field) {
+  public function getMainItemName($field) {
     $key = $this->getFieldKey($field);
     return $this->isis->db->main_field_name($key);    
   }
@@ -108,8 +108,8 @@ class IsisConnector {
    * @return
    *   Field data.
    */
-  public function getMainField($field, $row = 0) {
-    $name = $this->getMainFieldName($field);
+  public function getMainItem($field, $row = 0) {
+    $name = $this->getMainItemName($field);
 
     if (isset($this->result[$field['name']][$row][$name])) {
       return $this->result[$field['name']][$row][$name];
@@ -125,9 +125,9 @@ class IsisConnector {
    * @return
    *   Field data.
    */
-  public function getMainFields($field) {
+  public function getMainItems($field) {
     foreach (new IsisRowIterator($this, $field) as $row) {
-      $values[$row] = $this->getMainField($field, $row);
+      $values[$row] = $this->getMainItem($field, $row);
     }
 
     return $values;
@@ -176,6 +176,58 @@ class IsisConnector {
   public function getSubfields($field, $subfield) {
     foreach (new IsisRowIterator($this, $field) as $row) {
       $values[$row] = $this->getSubfield($field, $subfield, $row);
+    }
+
+    return $values;
+  }
+
+  /**
+   * Get both main field or subfields from a given field and row.
+   *
+   * @param $field
+   *   field array.
+   *
+   * @param $item
+   *   item name (field or subfield).
+   *
+   * @param $row
+   *   row number.
+   *
+   * @return
+   *   Item data.
+   */
+  public function getItem($field, $item, $row) {
+    $main_field = $this->getMainItemName($field);
+
+    if ($field == $main_field) {
+      return $this->getMainItem($field, $row);
+    }
+    else {
+      return $this->getSubfield($field, $item, $row);
+    }
+  }
+
+  /**
+   * Get all rows both main field or subfields from a given field.
+   *
+   * @param $field
+   *   field array.
+   *
+   * @param $item
+   *   item name (field or subfield).
+   *
+   * @param $row
+   *   row number.
+   *
+   * @return
+   *   Item data.
+   *
+   * @todo
+   *   Rename to getItem?
+   */
+  public function getItems($field, $item) {
+    foreach (new IsisRowIterator($this, $field) as $row) {
+      $values[$row] = $this->getItem($field, $item, $row);
     }
 
     return $values;
@@ -582,7 +634,7 @@ class IsisConnector {
   }
 
   /**
-   * Deal with special subfields.
+   * Deal with special items.
    *
    * @param $field
    *   Field data from ISIS database schema.
@@ -596,7 +648,7 @@ class IsisConnector {
    * @return
    *   True if special subfield, false otherwise of special return type
    */
-  public function specialSubfield($field, $subfield, $return = 'boolean') {
+  public function specialItem($field, $subfield, $return = 'boolean') {
     if (isset($field['special'])) {
       $field_key    = $this->getFieldKey($field);
       $subfield_key = $this->getSubfieldKey($field, $subfield);

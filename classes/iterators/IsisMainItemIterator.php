@@ -7,7 +7,7 @@
  * @todo
  *   Support for 'join_subfields'
  */
-class IsisMainFieldIterator implements Iterator
+class IsisMainItemIterator implements Iterator
 {
   private $class;
   private $field;
@@ -50,7 +50,7 @@ class IsisMainFieldIterator implements Iterator
    * Return the current element.
    */
   function current() {
-    $field = $this->class->getMainFieldName($this->field);
+    $field = $this->class->getMainItemName($this->field);
     return $this->valueset[$this->row][$field];
   }
 
