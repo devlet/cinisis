@@ -39,6 +39,34 @@ class IsisConnector {
   }
 
   /**
+   * Get the main field name.
+   *
+   * @param $field
+   *   Field data from ISIS database schema.
+   *
+   * @return
+   *   Main field name.
+   */
+  public function getMainFieldName($field) {
+    $key = $this->getFieldKey($field);
+    return $this->isis->db->main_field_name($key);    
+  }
+
+  /**
+   * Whether to join field and subfields in a single array.
+   *
+   * @return
+   *   Boolean.
+   */
+  public function joinSubfields() {
+    if ($this->isis->db->join_subfields()) {
+      return TRUE;
+    }
+
+    return FALSE;
+  }
+
+  /**
    * Get all values of a given field.
    *
    * @param $field
@@ -81,8 +109,10 @@ class IsisConnector {
    *   Field data.
    */
   public function getField($field, $row = 0) {
-    if (isset($this->result[$field['name']][$row]['field'])) {
-      return $this->result[$field['name']][$row]['field'];
+    $name = $this->getMainFieldName($field);
+
+    if (isset($this->result[$field['name']][$row][$name])) {
+      return $this->result[$field['name']][$row][$name];
     }
   }
 
@@ -119,8 +149,15 @@ class IsisConnector {
    *   Subfield data.
    */
   public function getSubfield($field, $subfield, $row = 0) {
-    if (isset($this->result[$field['name']][$row]['subfields'][$subfield])) {
-      return $this->result[$field['name']][$row]['subfields'][$subfield];
+    if ($this->joinSubfields()) {
+      $subfields = $this->result[$field['name']][$row];
+    }
+    else {
+      $subfields = $this->result[$field['name']][$row]['subfields'];
+    }
+
+    if (isset($subfields[$subfield])) {
+      return $subfields[$subfield];
     }
   }
 
@@ -536,8 +573,8 @@ class IsisConnector {
   public function hasFieldSubfieldCondition($field, $subfield, $key, $subkey) {
     $field_key    = $this->getFieldKey($field);
     $subdield_key = $this->getSubfieldKey($field, $subfield);
-    if ($field_key == $key && $subfield_key == $subkey)
-    {
+
+    if ($field_key == $key && $subfield_key == $subkey) {
       return true;
     }
 

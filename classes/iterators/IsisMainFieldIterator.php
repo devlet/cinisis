@@ -9,6 +9,8 @@
  */
 class IsisMainFieldIterator implements Iterator
 {
+  private $class;
+  private $field;
   private $valueset;
   private $row    = 0;
   private $rows   = 0;
@@ -25,6 +27,8 @@ class IsisMainFieldIterator implements Iterator
   public function __construct($class, $field) {
     $this->rows     = $class->getRows($field);
     $this->valueset = $class->getValues($field);
+    $this->class    = $class;
+    $this->field    = $field;
   }
 
   /**
@@ -46,7 +50,8 @@ class IsisMainFieldIterator implements Iterator
    * Return the current element.
    */
   function current() {
-    return $this->valueset[$this->row]['field'];
+    $field = $this->class->getMainFieldName($this->field);
+    return $this->valueset[$this->row][$field];
   }
 
   /**

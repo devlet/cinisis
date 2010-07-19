@@ -352,6 +352,9 @@ class BiblioIsisDb implements IsisDb {
    *
    * @return
    *   Boolean.
+   *
+   * @todo
+   *   Should be added at IsisDb interface?
    */
   public function join_subfields() {
     if ($this->format['db']['join_subfields']) {
@@ -368,7 +371,10 @@ class BiblioIsisDb implements IsisDb {
    *   Field key.
    *
    * @return
-   *   Main field name, 'field' by default;
+   *   Main field name, 'field' by default.
+   *
+   * @todo
+   *   Should be added at IsisDb interface?
    */
   public function main_field_name($key) {
     if ($this->join_subfields()) {

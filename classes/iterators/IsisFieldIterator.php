@@ -27,9 +27,6 @@ class IsisFieldIterator implements Iterator
    * @param $main
    *   Control to which subfield the main field should be mapped to.
    *   By default no mapping is made.
-   *
-   * @todo
-   *   Implement $main mapping.
    */ 
   public function __construct($class, $field, $main = false) {
     $this->class     = $class;
