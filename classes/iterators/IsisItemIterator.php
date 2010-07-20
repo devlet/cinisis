@@ -7,8 +7,8 @@ class IsisItemIterator implements Iterator
 {
   private $keys;
   private $fieldset;
-  private $row       = 0;
-  private $rows      = 0;
+  private $row   = 0;
+  private $rows  = 0;
   private $item  = 0;
   private $items = 0;
 
@@ -26,18 +26,19 @@ class IsisItemIterator implements Iterator
    *   By default no mapping is made.
    */ 
   public function __construct($class, $field, $main = false) {
+    // Setup.
     $this->class    = $class;
     $this->field    = $field;
     $this->rows     = $class->getRows($field);
 
-    // Handle subfields
+    // Handle subfields.
     $this->fieldset = $class->getSubfieldList($field);
     $this->keys     = array_keys($this->fieldset);
     $this->items    = count($this->keys);
 
-    // Sum up main item
-    $this->fieldset[] = $class->getMainItem($field);
-    $this->keys[]     = $class->getMainItemName($field);
+    // Sum up main item.
+    $this->fieldset['main'] = $class->getMainItemName($field);
+    $this->keys[]           = 'main';
     $this->items++;
   }
 
@@ -45,7 +46,7 @@ class IsisItemIterator implements Iterator
    * Rewind the Iterator to the first element.
    */
   function rewind() {
-    $this->row      = 0;
+    $this->row  = 0;
     $this->item = 0;
   }
 

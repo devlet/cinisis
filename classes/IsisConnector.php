@@ -196,7 +196,7 @@ class IsisConnector {
    * @return
    *   Item data.
    */
-  public function getItem($field, $item, $row) {
+  public function getItem($field, $item, $row = 0) {
     $main_field = $this->getMainItemName($field);
 
     if ($field == $main_field) {
@@ -515,6 +515,25 @@ class IsisConnector {
    */
   public function explodeSubfield($field, $subfield, $row) {
     return array_filter($this->explodeValue($this->getSubfield($field, $subfield, $row)));
+  }
+
+  /**
+   * Explode brackets for a given item, avoiding null entries.
+   *
+   * @param $field
+   *   Field data.
+   *
+   * @param $item
+   *   Item.
+   *
+   * @param $row
+   *   Row number.
+   *
+   * @return
+   *   Exploded item data.
+   */
+  public function explodeItem($field, $item, $row) {
+    return array_filter($this->explodeValue($this->getItem($field, $item, $row)));
   }
 
   /**
