@@ -486,7 +486,7 @@ fields:
     repeat: Yes
 
   #
-  # FictionalCharacters
+  # Cast
   #
   28:
     name: Identidades/Elenco
@@ -503,7 +503,7 @@ fields:
       o: componente                              # TODO
       i: (sem descrição na bula) – identificador # TODO
     map:
-      type: FictionalCharacters
+      type: Cast
     special: [p]
   280:
     name: Identidades/Elenco - dados adicionais
@@ -520,7 +520,7 @@ fields:
       o: componente
       i: (sem descrição na bula) – identificador
     map:
-      type: FictionalCharacters
+      type: Cast
     special: [p, i]
 
   #
