@@ -496,7 +496,7 @@ fields:
       a: apresentando
       c: ator convidado
       e: participação especial
-      d: intérprete/dublador(a)/dublado  por
+      d: intérprete/dublador(a)/dublado por
       f: figurante
       l: locução
       n: narração
@@ -521,7 +521,7 @@ fields:
       i: (sem descrição na bula) – identificador
     map:
       type: FictionalCharacters
-    special: [p,i]
+    special: [p, i]
 
   #
   # Producers

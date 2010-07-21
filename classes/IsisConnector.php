@@ -674,7 +674,7 @@ class IsisConnector {
       $name         = $field['name'] .':'. $subfield;
       $code         = $field_key .':'. $subfield_key;
 
-      if (array_search($subfield_key, $field['special'])) {
+      if (array_search($subfield_key, $field['special']) !== FALSE) {
         if ($return == 'boolean') {
           return true;
         }
