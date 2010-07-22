@@ -9,7 +9,7 @@ fields:
   # General
   #
   1: 
-    # FIXME: na pratica pode ser repetitivo. Como proceder?
+    # FIXME: This is a repeatable field.
     name: Código do filme
     repeat: No
     subfields:
@@ -20,7 +20,6 @@ fields:
     description:
       y: Código do título matriz quando episodio, série ou capítulo
   15:
-    # FIXME: repeticao possivel no fdt, porem nao conceituamente.
     name: Categorias
     repeat: No
     subfields:
@@ -43,8 +42,8 @@ fields:
       g: Inacabado     (IN)
       h: FDO
       i: PROJ
+    comments: Conceptually not repeatable, but allowed in the fdt.
   19:
-    # FIXME: repeticao possivel no fdt, porem nao conceituamente.
     name: Material Original
     repeat: No
     subfields:
@@ -68,6 +67,7 @@ fields:
       g: Tela     (tipo de tela)
       h: Metragem
       c: Duração
+    comments: Conceptually not repeatable, but allowed in the fdt.
 
   #
   # Titles
@@ -82,6 +82,7 @@ fields:
     map:
       type: FilmTitles
   22:
+    # TODO: Find examples.
     name: Outros títulos
     repeat: Yes
     subfields:
@@ -93,12 +94,12 @@ fields:
       x: título traduzido
       y: outras remetências
       z: códigos dos títulos quando se referem a episódios, séries ou capítulos
-    # TODO: find an example
     #map:
     #  type: FilmTitles
     description:
       x: Título traduzido e/ou titulo nacional / explicativo
   151:
+    # TODO: Find examples.
     name: Título padronizado
     repeat: Yes
     subfields:
@@ -109,7 +110,6 @@ fields:
       r: para título de relançamento v22^r
       x: para título traduzido v22^x
       y: para outras remetências v22^y
-    # TODO: find an example
     #map:
     #  type: FilmTitles
 
@@ -195,6 +195,7 @@ fields:
       i: Baseada (Inspirada) em, na, no, / romance; obra, peça
     special: [w, i]
   62:
+    # TODO: Subfield 'l' (and maybe others) should be mapped as companies?
     name: Fotografia
     repeat: Yes
     subfields:
@@ -208,7 +209,7 @@ fields:
       h: operador de câmera
       i: cinegrafista
       j: assistente de iluminação
-      l: animação                 # TODO: company
+      l: animação
       m: desenhos de animação
       o: trucagens
       x: fotografia a confirmar
@@ -281,7 +282,7 @@ fields:
       l: retranscrição de som
       m: (sem descrição na bula)
       n: técnico de dublagem
-      o: microfonista # operador de microfone/operador de boom = microfonista
+      o: microfonista
       p: contra-regra de som
       r: sonoplastia
       s: assistência de dublagem
@@ -394,6 +395,7 @@ fields:
     map:
       type: Performers
   73:
+    # TODO: Use mapping type "Music".
     name: Música - dados adicionais
     repeat: Yes
     subfields:
@@ -408,16 +410,14 @@ fields:
       i: conjuntos/bandas
       j: componentes
     map:
-      # TODO: type: Music
       type: Performers
 
   #
   # Dates and places
   #
   86:
-    # FIXME: repeticao possivel no fdt, porem nao conceituamente.
     name: Data e local de produção
-    repeat: Yes
+    repeat: No
     subfields:
       a: ano de produção
       b: início de produção
@@ -439,6 +439,7 @@ fields:
       g: Primeira notícia de produção
       x: BR ou BR-código isso do(s) país(es)
       w: Usado codigo ISO 2 digitos
+    comments: Conceptually not repeatable, but allowed in the fdt.
   85:
     name: Data e local de Lançamento
     repeat: Yes
@@ -470,6 +471,7 @@ fields:
       k: dublado por (ainda não presente na base)
       l: componentes
   87:
+    # TODO: Relate subfield 'f' with geographic terms?
     name: Estúdios/Laboratórios/Locações
     repeat: Yes
     subfields:
@@ -477,7 +479,7 @@ fields:
       b: estúdio de som
       c: laboratório de imagem
       d: laboratório de som
-      f: locações # TODO: relacionar com termos geograficos?
+      f: locações
       g: estúdio de mixagem
       h: estúdio de gravação de música
       i: estúdio de dublagem
@@ -636,9 +638,10 @@ fields:
       b: código de arquivo
       p: material
   16:
-    # TODO: Nao deveria fazer parte da FB.
+    # TODO: Confirm if this field should not be imported.
     name: Status de preservação
     repeat: Yes
+    comments: This field should not be imported as has nothing to do with filmography.
   98:
     name: Data de revisão/responsável
     repeat: Yes
@@ -657,11 +660,12 @@ fields:
     subfields:
       b: legenda para a foto
   161:
-    # TODO: Provavelmente serah removido.
+    # TODO: Confirm if this field should not be imported.
     name: AVI
     repeat: Yes
     subfields:
       b: legenda para a imagem em movimento
+    comments: This is a legacy and unused film and should not be imported.
   164:
     name: Histórico do título
     repeat: Yes
