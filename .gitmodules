@@ -1,3 +1,0 @@
-[submodule "schemas"]
-	path = schemas
-	url = ssh://gitosis@dev.bcc.org.br/schemas.git
