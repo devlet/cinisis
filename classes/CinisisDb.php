@@ -34,7 +34,7 @@ class CinisisDb {
       // Check database schema.
       $schema = $this->parse($this->file($config['database'] .'.yaml', 'schemas'), $this->implementation);
     } catch (Exception $e) {
-      echo __CLASS__ .' caught exception: ',  $e->getMessage(), "\n";
+      echo __CLASS__ .' caught exception: ', $e->getMessage(), "\n";
       return FALSE;
     }
 
