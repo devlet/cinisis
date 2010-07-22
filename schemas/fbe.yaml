@@ -496,12 +496,12 @@ fields:
       a: apresentando
       c: ator convidado
       e: participação especial
-      d: intérprete/dublador(a)/dublado por      # TODO
       f: figurante
-      l: locução                                 # TODO
-      n: narração                                # TODO
-      o: componente                              # TODO
+      l: locução
+      n: narração
       i: (sem descrição na bula) – identificador # TODO
+      d: intérprete/dublador(a)/dublado por      # TODO
+      o: componente                              # TODO
     map:
       type: Cast
     special: [p]
