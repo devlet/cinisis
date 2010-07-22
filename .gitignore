@@ -4,3 +4,4 @@ db/*
 contrib/*
 tmp/*
 doc/*
+schemas
