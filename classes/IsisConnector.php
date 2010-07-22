@@ -218,9 +218,6 @@ class IsisConnector {
    *
    * @return
    *   Item data.
-   *
-   * @todo
-   *   Rename to getItem?
    */
   public function getItems($field, $item) {
     foreach (new IsisRowIterator($this, $field) as $row) {

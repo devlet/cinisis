@@ -3,9 +3,6 @@
 /**
  * Isis field iterator. Iterates over all field main values for
  * each result row.
- *
- * @todo
- *   Support for 'join_subfields'
  */
 class IsisMainItemIterator implements Iterator
 {
