@@ -216,9 +216,6 @@ class IsisConnector {
    * @param $item
    *   item name (field or subfield).
    *
-   * @param $row
-   *   row number.
-   *
    * @return
    *   Item data.
    *
