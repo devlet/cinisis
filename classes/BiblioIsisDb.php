@@ -42,7 +42,8 @@ class BiblioIsisDb implements IsisDb {
     }
 
     // Create a perl instance.
-    $this->perl = new Perl();
+    //$this->perl = new Perl();
+    $this->perl = PerlSingleton::getInstance();
   }
 
   /**
