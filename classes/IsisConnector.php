@@ -12,9 +12,9 @@ class IsisConnector {
     $this->isis = new CinisisDb();
 
     if ($this->isis->db) {
-      $this->rows   = $this->isis->db->rows();
-      $this->format = $this->isis->db->format;
-      $this->fields = $this->format['fields'];
+      $this->entries = $this->isis->db->entries();
+      $this->format  = $this->isis->db->format;
+      $this->fields  = $this->format['fields'];
     }
     else {
       return FALSE;
@@ -24,15 +24,15 @@ class IsisConnector {
   /**
    * Alias to $isis->db->read().
    *
-   * @param $row
+   * @param $entry
    *   Row number.
    *
    * @return
    *   Resulting data.
    */
-  public function read($row) {
+  public function read($entry) {
     // Always store the last result.
-    $this->result = $this->isis->db->read($row);
+    $this->result = $this->isis->db->read($entry);
 
     // Return the result.
     return $this->result;

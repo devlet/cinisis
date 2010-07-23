@@ -127,11 +127,11 @@ class BiblioIsisDb implements IsisDb {
   }
 
   /**
-   * Return number of rows in the database.
+   * Return number of entries in the database.
    *
-   * @see IsisDb::read()
+   * @see IsisDb::entries()
    */  
-  public function rows() {
+  public function entries() {
     return $this->backend('count');
   }
 

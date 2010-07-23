@@ -60,9 +60,9 @@ $isis = new CinisisDb();
 
 // Test connection.
 if ($isis->db) {
-  // Get format and number of rows.
-  $rows   = $isis->db->rows();
-  $format = $isis->db->format;
+  // Get format and number of entries.
+  $entries = $isis->db->entries();
+  $format  = $isis->db->format;
 
   // Prepare output.
   header("Content-type: application/text/x-csv");
@@ -84,7 +84,7 @@ if ($isis->db) {
   echo "\n";
 
   // Format output.
-  for ($n = 1; $n <= $rows; $n++) {
+  for ($n = 1; $n <= $entries; $n++) {
     $result = $isis->db->read($n);
 
     if ($result) {

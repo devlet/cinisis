@@ -24,17 +24,17 @@ interface IsisDb {
    * Read an entry from the database.
    *
    * @param $id
-   *   Database row id.
+   *   Database entry id.
    */
   public function read($id);
 
   /**
-   * Return number of rows in the database.
+   * Return number of entries in the database.
    *
    * @return
-   *   Number of rows in the database.
+   *   Number of entries in the database.
    */
-  public function rows();
+  public function entries();
 
   /**
    * Return an example database schema.

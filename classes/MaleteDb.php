@@ -70,15 +70,15 @@ class MaleteDb implements IsisDb {
   }
 
   /**
-   * Return number of rows in the database.
+   * Return number of entries in the database.
    *
    * The Malete API doen't implement such feature so we
    * have to emulate it by iterating over all entries
    * until MaleteDb::read() returns FALSE.
    *
-   * @see IsisDb::read()
+   * @see IsisDb::entries()
    */  
-  public function rows() {
+  public function entries() {
     // The first entry in a malete database has id 1 and
     // not 0, therefore $id's initial value should be 1.
     $id = 1;

@@ -35,14 +35,14 @@ foreach ($configs as $config) {
 
   // Test connection.
   if ($isis->db) {
-    $result = $isis->db->read(1);
-    $rows   = $isis->db->rows();
+    $result  = $isis->db->read(1);
+    $entries = $isis->db->entries();
 
     // Format output.
     echo '<td>';
     echo '<pre>';
     echo 'Implementation: '. $config['implementation'] ."\n";
-    echo "Rows: $rows\n";
+    echo "Rows: $entries\n";
     print_r($result);
     echo '</pre>';
     echo '</td>';

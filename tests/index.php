@@ -21,13 +21,13 @@ $isis = new CinisisDb();
 
 // Test connection.
 if ($isis->db) {
-  $result = $isis->db->read(1);
-  $rows   = $isis->db->rows();
+  $result  = $isis->db->read(1);
+  $entries = $isis->db->entries();
 
   // Format output.
   echo '<pre>';
   echo "Connection test:\n";
-  echo "Rows: $rows\n";
+  echo "Rows: $entries\n";
   print_r($result);
   echo '</pre>';
 }
