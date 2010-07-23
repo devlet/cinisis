@@ -24,6 +24,18 @@ class CinisisDb {
    *   with configuration.
    */   
   function __construct($config = NULL) {
+    $this->open($config);
+  }
+
+  /**
+   * Open an ISIS database.
+   *
+   * @param $config
+   *   Optional parameter to set alternative config file or array
+   *   with configuration.
+   */
+  public function open($config)
+  {
     try {
       // Check main configuration.
       $config = $this->parse($this->file($config));
