@@ -8,8 +8,18 @@ class IsisConnector {
   /**
    * Constructor.
    */ 
-  public function __construct() {
-    $this->isis = new CinisisDb();
+  public function __construct($config = null) {
+    return $this->open($config);
+  }
+
+  /**
+   * Open a database.
+   *
+   * @param $config
+   *   Config file or array.
+   */
+  public function open($config) {
+    $this->isis = new CinisisDb($config);
 
     if ($this->isis->db) {
       $this->entries = $this->isis->db->entries();
