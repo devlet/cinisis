@@ -3,7 +3,7 @@
 /**
  * Malete implementation of IsisDb.
  *
- * @todo
+ * @warning
  *   This implementation is currently outdated and lacks
  *   basic functionalities such as subfield handling and
  *   therefore it's use is not recommended.
