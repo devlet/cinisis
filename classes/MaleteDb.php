@@ -60,7 +60,7 @@ class MaleteDb implements IsisDb {
    * @see IsisDb::read()
    *
    * @todo
-   *   Subfields.
+   *   Subfield handling.
    */  
   public function read($id) {
     if (!is_numeric($id)) {
