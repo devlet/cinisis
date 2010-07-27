@@ -60,7 +60,7 @@ class PhpIsisDb implements IsisDb {
    */    
   public function read($id) {
     $results = isis_search('$', $this->db);
-    if (!isis_data_seek($results, $id-1)) {
+    if (!isis_data_seek($results, $id - 1)) {
       return FALSE;
     }
 
