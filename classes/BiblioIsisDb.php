@@ -258,7 +258,7 @@ class BiblioIsisDb implements IsisDb {
     }
     else {
       foreach ($name as $value) {
-        $data[] = array($this->main_field_name($key) => $value);
+        $data[] = array(CinisisDb::main_field_name($this->format, $key) => $value);
       }
     }
 
@@ -333,52 +333,15 @@ class BiblioIsisDb implements IsisDb {
       }
 
       // Join subfields and main field if needed.
-      if ($this->join_subfields()) {
+      if (CinisisDb::join_subfields($this->format)) {
         $data[$entry] = $data[$entry]['subfields'];
         if (isset($field)) {
-          $data[$entry][$this->main_field_name($key)] = $field;
+          $data[$entry][CinisisDb::main_field_name($this->format, $key)] = $field;
         }
       }
     }
 
     return $data;
-  }
-
-  /**
-   * Whether to join field and subfields in a single array.
-   *
-   * @return
-   *   Boolean.
-   *
-   * @todo
-   *   Should be added at IsisDb interface?
-   */
-  public function join_subfields() {
-    if ($this->format['db']['join_subfields']) {
-      return TRUE;
-    }
-
-    return FALSE;
-  }
-
-  /**
-   * Determine the main field name depending on db configuration.
-   *
-   * @param $key
-   *   Field key.
-   *
-   * @return
-   *   Main field name, 'field' by default.
-   *
-   * @todo
-   *   Should be added at IsisDb interface?
-   */
-  public function main_field_name($key) {
-    if ($this->join_subfields()) {
-      return $this->format['fields'][$key]['name'];
-    }
-
-    return 'field';
   }
 
   /**

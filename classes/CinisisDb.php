@@ -156,4 +156,41 @@ class CinisisDb {
 
     return call_user_func(array(__CLASS__, 'base')) .'/'. $config;
   }
+
+  /**
+   * Whether to join field and subfields in a single array.
+   *
+   * @param $format
+   *   Database format.
+   *
+   * @return
+   *   Boolean.
+   */
+  static function join_subfields($format) {
+    if ($format['db']['join_subfields']) {
+      return TRUE;
+    }
+
+    return FALSE;
+  }
+
+  /**
+   * Determine the main field name depending on db configuration.
+   *
+   * @param $key
+   *   Field key.
+   *
+   * @param $format
+   *   Database format.
+   *
+   * @return
+   *   Main field name, 'field' by default.
+   */
+  static function main_field_name($format, $key) {
+    if (self::join_subfields($format)) {
+      return $format['fields'][$key]['name'];
+    }
+
+    return 'field';
+  }
 }

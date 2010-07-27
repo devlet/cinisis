@@ -59,7 +59,7 @@ class IsisConnector {
    */
   public function getMainItemName($field) {
     $key = $this->getFieldKey($field);
-    return $this->isis->db->main_field_name($key);    
+    return CinisisDb::main_field_name($this->format, $key);    
   }
 
   /**
@@ -69,7 +69,7 @@ class IsisConnector {
    *   Boolean.
    */
   public function joinSubfields() {
-    if ($this->isis->db->join_subfields()) {
+    if (CinisisDb::join_subfields($this->format)) {
       return TRUE;
     }
 
