@@ -28,6 +28,12 @@ class MaleteDb implements IsisDb {
   var $format;
 
   /**
+   * @var $log
+   *   Class action log.
+   */
+  var $log;
+
+  /**
    * Constructor.
    *
    * @see IsisDb::__construct()
@@ -141,5 +147,15 @@ class MaleteDb implements IsisDb {
       }
     }
     return $data;
+  }
+
+  /**
+   * Class logger.
+   *
+   * @param $message
+   *   Log message.
+   */
+  function logger($message) {
+    $this->log[] = $message;
   }
 }

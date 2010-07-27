@@ -22,6 +22,12 @@ class PhpIsisDb implements IsisDb {
   var $format;
 
   /**
+   * @var $log
+   *   Class action log.
+   */
+  var $log;
+
+  /**
    * Constructor.
    *
    * @see IsisDb::__construct()
@@ -139,4 +145,14 @@ class PhpIsisDb implements IsisDb {
   function charset(&$data) {
     $data = iconv($this->format['db']['charset'], 'UTF-8', $data);
   }  
+
+  /**
+   * Class logger.
+   *
+   * @param $message
+   *   Log message.
+   */
+  function logger($message) {
+    $this->log[] = $message;
+  }
 }

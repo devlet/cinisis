@@ -50,9 +50,6 @@ class BiblioIsisDb implements IsisDb {
    *
    * @param $message
    *   Log message.
-   *
-   * @todo
-   *   Decide how logging should be implemented.
    */
   function logger($message) {
     $this->log[] = $message;
