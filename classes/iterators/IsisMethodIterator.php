@@ -8,6 +8,7 @@ class IsisMethodIterator implements Iterator
   private $total = 0;
   private $class;
   private $keys;
+  private $position = -1;
 
   /**
    * Constructor.
@@ -16,16 +17,21 @@ class IsisMethodIterator implements Iterator
    *   Instance of IsisConnector or child class.
    */ 
   public function __construct($class) {
+    // Setup.
     $this->class = $class;
     $this->total = count($class->fields);
     $this->keys  = array_keys($class->fields);
+
+    // Find the first valid occurrence.
+    $this->next();
   }
 
   /**
-   * Rewind the Iterator to the first element.
+   * Rewind the Iterator to the first valid element.
    */
   function rewind() {
-    $this->position = 0;
+    $this->position = -1;
+    $this->next();
   }
 
   /**
