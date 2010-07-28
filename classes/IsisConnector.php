@@ -628,6 +628,19 @@ class IsisConnector {
   }
 
   /**
+   * Get a field name.
+   *
+   * @param $field_key
+   *   Field key.
+   *
+   * @return
+   *   Field name.
+   */
+  public function getFieldName($field_key) {
+    return $this->format['fields'][$field_key]['name'];
+  }
+
+  /**
    * Check if a field and subfield match a given condition.
    *
    * @param $field
