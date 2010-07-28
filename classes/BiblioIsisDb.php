@@ -299,7 +299,7 @@ class BiblioIsisDb implements IsisDb {
   /**
    * Subfield handling for data read by 'from_fetch' method.
    *
-   * @param name$
+   * @param $name
    *   Dataset.
    *
    * @param $key
