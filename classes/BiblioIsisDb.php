@@ -309,6 +309,10 @@ class BiblioIsisDb implements IsisDb {
    *   Data with processed subfields.
    */
   function subfields_from_fetch($name, $key) {
+    // Check if entry has repetitions.
+    $this->is_repetitive($key, $name);
+
+    // Iterate over all values.
     foreach ($name as $entry => $value) {
       if (substr($value, 0, 1) != '^') {
         $field     = preg_replace('/\^.*/', '', $value);
@@ -364,7 +368,7 @@ class BiblioIsisDb implements IsisDb {
     if (isset($this->format['fields'][$field]['repeat']) &&
       $this->format['fields'][$field]['repeat'] == FALSE) {
         if (is_array($value) && count($value) > 1) {
-          $this->logger("$field is configured as non repetitive but data shows a repetition for value". var_dump($value));
+          $this->logger("Field $field is configured as non repetitive but data shows a repetition for value.");
         }
         return FALSE;
       }
