@@ -331,6 +331,17 @@ class IsisConnector {
   }
 
   /**
+   * Guess a method name from a type.
+   *
+   * @param  string $type Mapping type
+   * @return string       Method name
+   */
+  static function methodName($type)
+  {
+    return 'import'. ucfirst($type);
+  }
+
+  /**
    * Check on an ISIS schema whether a field has a map.
    *
    * @param $field
