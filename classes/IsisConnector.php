@@ -333,11 +333,13 @@ class IsisConnector {
   /**
    * Guess a method name from a type.
    *
-   * @param  string $type Mapping type
-   * @return string       Method name
+   * @param  $type
+   *   Mapping type.
+   *
+   * @return
+   *   Method name.
    */
-  static function methodName($type)
-  {
+  static function methodName($type) {
     return 'import'. ucfirst($type);
   }
 
