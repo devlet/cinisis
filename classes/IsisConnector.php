@@ -391,12 +391,33 @@ class IsisConnector {
    *   Subfield name.
    *
    * @return
-   *   Subfield keys.
+   *   Subfield key.
    */
   public function getSubfieldKey($field, $subfield) {
     $keys = array_flip($field['subfields']);
     if (isset($keys[$subfield])) {
       return $keys[$subfield];
+    }
+  }
+
+  /**
+   * Get the item key.
+   *
+   * @param $field
+   *   Field array.
+   *
+   * @param $item
+   *   Item name.
+   *
+   * @return
+   *   Item key.
+   */
+  public function getItemKey($field, $item) {
+    if ($item == 'main') {
+      return $item;
+    }
+    else {
+      return $this->getSubfieldKey($field, $item);
     }
   }
 
@@ -672,6 +693,33 @@ class IsisConnector {
     }
 
     return $has;
+  }
+
+  /**
+   * Return the existing key items for a result.
+   *
+   * @param $field
+   *   Field data.
+   *
+   * @param $row
+   *   Row number.
+   *
+   * @return
+   *   Array with existing item keys
+   *
+   * @todo
+   *   Write and test.
+   */
+  public function existingItemKeys($field, $row = 0) {
+    $existing = array();
+
+    foreach (new IsisItemIterator($this, $field)) as $key => $item) {
+      if ($row == $key) {
+        $existing[] = $this->getItemKey($field, $item);
+      }
+    }
+
+    return $existing;
   }
 
   /**
