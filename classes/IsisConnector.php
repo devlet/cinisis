@@ -713,7 +713,7 @@ class IsisConnector {
   public function existingItemKeys($field, $row = 0) {
     $existing = array();
 
-    foreach (new IsisItemIterator($this, $field)) as $key => $item) {
+    foreach (new IsisItemIterator($this, $field) as $key => $item) {
       if ($row == $key) {
         $existing[] = $this->getItemKey($field, $item);
       }
