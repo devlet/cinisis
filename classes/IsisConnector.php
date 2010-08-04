@@ -708,7 +708,7 @@ class IsisConnector {
    *   Array with existing item keys
    *
    * @todo
-   *   Write and test.
+   *   Test.
    */
   public function existingItemKeys($field, $row = 0) {
     $existing = array();
