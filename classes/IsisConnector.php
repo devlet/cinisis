@@ -636,8 +636,7 @@ class IsisConnector {
    * @return
    *   True if result has the main item, false otherwise.
    */
-  public function hasMainItem($field, $row)
-  {
+  public function hasMainItem($field, $row) {
     $value = $this->getMainItem($field, $row);
 
     if (!empty($value)) {
@@ -663,14 +662,11 @@ class IsisConnector {
    * @return
    *   True if result has the main item, false otherwise.
    */
-  public function hasItem($field, $item, $row = 0)
-  {
-    if ($item == 'main')
-    {
+  public function hasItem($field, $item, $row = 0) {
+    if ($item == 'main') {
       $has = $this->hasMainItem($field, $row);
     }
-    else
-    {
+    else {
       $subfield = $this->getSubfieldName($this->getFieldKey($field), $item);
       $has      = $this->hasSubfield($field, $subfield, $row);
     }
