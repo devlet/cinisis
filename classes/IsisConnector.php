@@ -292,9 +292,9 @@ class IsisConnector {
    */
   public function getMap($field, $subfield = NULL) {
     if ($subfield == NULL) {
-      if (isset($field['map']['field'])) {
-        // Custom map provided.
-        $dest = $this->mapName($field['map']['field']);
+      if (isset($field['map']['main'])) {
+        // Custom map provided for the main item.
+        $dest = $this->mapName($field['map']['main']);
       }
       else {
         // Default map.
@@ -353,7 +353,7 @@ class IsisConnector {
    *   TRUE if field has a map, FALSE otherwise.
    */
   public function fieldHasMap($field) {
-    if (isset($field['map']['field'])) {
+    if (isset($field['map']['main'])) {
       return TRUE;
     }
     return FALSE;
@@ -622,6 +622,60 @@ class IsisConnector {
     else {
       return FALSE;
     }
+  }
+
+  /**
+   * Check if a field result has a main item.
+   *
+   * @param $field
+   *   Field data.
+   *
+   * @param $row
+   *   Row number.
+   *
+   * @return
+   *   True if result has the main item, false otherwise.
+   */
+  public function hasMainItem($field, $row)
+  {
+    $value = $this->getMainItem($field, $row);
+
+    if (!empty($value)) {
+      return TRUE;
+    }
+    else {
+      return FALSE;
+    }
+  }
+
+  /**
+   * Check if a field result has an item.
+   *
+   * @param $field
+   *   Field data.
+   *
+   * @param $item
+   *   Item code ('main' for the main item).
+   *
+   * @param $row
+   *   Row number.
+   *
+   * @return
+   *   True if result has the main item, false otherwise.
+   */
+  public function hasItem($field, $item, $row = 0)
+  {
+    if ($item == 'main')
+    {
+      $has = $this->hasMainItem($field, $row);
+    }
+    else
+    {
+      $subfield = $this->getSubfieldName($this->getFieldKey($field), $item);
+      $has      = $this->hasSubfield($field, $subfield, $row);
+    }
+
+    return $has;
   }
 
   /**
