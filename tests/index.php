@@ -44,12 +44,14 @@ if ($isis->db) {
 
   if ($entry != 1) {
     $prev = $entry - 1;
+    echo '<a href="index.php?entry=1">first</a> ';
     echo '<a href="index.php?entry='. $prev .'">&lt; prev</a> ';
   }
 
   if ($entry < $entries) {
     $next = $entry + 1;
-    echo '<a href="index.php?entry='. $next .'">next &gt;</a>';
+    echo '<a href="index.php?entry='. $next .'">next &gt;</a> ';
+    echo '<a href="index.php?entry='. $entries .'">last</a>';
   }
 
   // Format output.
