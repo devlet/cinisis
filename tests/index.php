@@ -35,19 +35,25 @@ $isis = new CinisisDb();
 
 // Setup database and entry number.
 if ($isis->db) {
-  $result  = $isis->db->read($entry);
+  // Get the number of entries.
   $entries = $isis->db->entries();
 
+  // Input sanitization.
   if ($entries < $entry) {
     $entry = 1;
   }
 
+  // Query database.
+  $result  = $isis->db->read($entry);
+
+  // First / prev links.
   if ($entry != 1) {
     $prev = $entry - 1;
     echo '<a href="index.php?entry=1">first</a> ';
     echo '<a href="index.php?entry='. $prev .'">&lt; prev</a> ';
   }
 
+  // Next / last links.
   if ($entry < $entries) {
     $next = $entry + 1;
     echo '<a href="index.php?entry='. $next .'">next &gt;</a> ';
