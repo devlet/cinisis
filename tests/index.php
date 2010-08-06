@@ -11,23 +11,51 @@
   </head>
   <body>
 
+<form action="index.php" method="get"> 
+Entry: <input name="entry" type="text" /> 
+<input type="submit" />
+</form>
+<br />
+
 <?php
 
 // Import Cinisis Library.
 require_once '../index.php';
 
+// Get the query parameter.
+if (isset($_GET["entry"]) && ! empty($_GET["entry"])) {
+  $entry = (int) $_GET["entry"];
+}
+else {
+  $entry = 1;
+}
+
 // Get a db instance.
 $isis = new CinisisDb();
 
-// Test connection.
+// Setup database and entry number.
 if ($isis->db) {
-  $result  = $isis->db->read(1);
+  $result  = $isis->db->read($entry);
   $entries = $isis->db->entries();
 
+  if ($entries < $entry) {
+    $entry = 1;
+  }
+
+  if ($entry != 1) {
+    $prev = $entry - 1;
+    echo '<a href="index.php?entry='. $prev .'">&lt; prev</a> ';
+  }
+
+  if ($entry < $entries) {
+    $next = $entry + 1;
+    echo '<a href="index.php?entry='. $next .'">next &gt;</a>';
+  }
+
   // Format output.
-  echo '<pre>';
-  echo "Connection test:\n";
-  echo "Rows: $entries\n";
+  echo "<pre>\n";
+  echo "Showing entry $entry from $entries total entries.\n";
+  echo "\n";
   print_r($result);
   echo '</pre>';
 }
