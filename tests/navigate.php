@@ -11,6 +11,12 @@
   </head>
   <body>
 
+<form action="navigate.php" method="get"> 
+Entry: <input name="entry" type="text" /> 
+<input type="submit" />
+</form>
+<br />
+
 <?php
 
 // Import Cinisis Library.
@@ -27,7 +33,7 @@ else {
 // Get a db instance.
 $isis = new CinisisDb();
 
-// Test connection.
+// Setup database and entry number.
 if ($isis->db) {
   $result  = $isis->db->read($entry);
   $entries = $isis->db->entries();
@@ -47,9 +53,9 @@ if ($isis->db) {
   }
 
   // Format output.
-  echo '<pre>';
-  echo "Connection test:\n";
-  echo "Rows: $entries\n";
+  echo "<pre>\n";
+  echo "Showing entry $entry from $entries total entries.\n";
+  echo "\n";
   print_r($result);
   echo '</pre>';
 }
