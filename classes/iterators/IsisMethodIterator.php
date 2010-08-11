@@ -64,6 +64,6 @@ class IsisMethodIterator implements Iterator
    * Check if there is a current element after calls to rewind() or next().
    */
   function valid() {
-    return $this->position <= $this->total;
+    return $this->position < $this->total - 1;
   }  
 }

@@ -338,7 +338,10 @@ class BiblioIsisDb implements IsisDb {
 
       // Join subfields and main field if needed.
       if (CinisisDb::join_subfields($this->format)) {
-        $data[$entry] = $data[$entry]['subfields'];
+        if (isset($data[$entry]['subfields'])) {
+          $data[$entry] = $data[$entry]['subfields'];
+        }
+
         if (isset($field)) {
           $data[$entry][CinisisDb::main_field_name($this->format, $key)] = $field;
         }

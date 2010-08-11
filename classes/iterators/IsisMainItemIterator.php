@@ -65,7 +65,7 @@ class IsisMainItemIterator implements Iterator
    * Check if there are more rows.
    */
   function has_more_rows() {
-    return $this->row <= $this->rows;
+    return $this->row < $this->rows - 1;
   }
 
   /**

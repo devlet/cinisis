@@ -103,7 +103,12 @@ class IsisConnector {
    *   Number of rows.
    */
   public function getRows($field) {
-    return count($this->result[$field['name']]);
+    if (isset($this->result[$field['name']])) {
+      return count($this->result[$field['name']]);
+    }
+    else {
+      return 0;
+    }
   }
 
   /**
@@ -735,7 +740,11 @@ class IsisConnector {
    *   Subfield name.
    */
   public function getSubfieldName($field_key, $subfield_key) {
-    return $this->format['fields'][$field_key]['subfields'][$subfield_key];
+    if (isset($this->format['fields'][$field_key]['subfields'][$subfield_key])) {
+      return $this->format['fields'][$field_key]['subfields'][$subfield_key];
+    }
+
+    return FALSE;
   }
 
   /**
@@ -771,7 +780,7 @@ class IsisConnector {
    */
   public function hasFieldSubfieldCondition($field, $subfield, $key, $subkey) {
     $field_key    = $this->getFieldKey($field);
-    $subdield_key = $this->getSubfieldKey($field, $subfield);
+    $subfield_key = $this->getSubfieldKey($field, $subfield);
 
     if ($field_key == $key && $subfield_key == $subkey) {
       return true;

@@ -60,7 +60,7 @@ class IsisSubfieldIterator implements Iterator
    * Move forward to next element.
    */
   function next() {
-    if ($this->subfield >= $this->subfields) {
+    if ($this->subfield >= $this->subfields - 1) {
       $this->subfield = 0;
       ++$this->row;
     }
@@ -73,6 +73,6 @@ class IsisSubfieldIterator implements Iterator
    * Check if there is a current element after calls to rewind() or next().
    */
   function valid() {
-    return $this->row <= $this->rows;
+    return $this->row <= $this->rows - 1;
   }  
 }

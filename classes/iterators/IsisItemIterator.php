@@ -68,7 +68,7 @@ class IsisItemIterator implements Iterator
    * Move forward to next element.
    */
   function next() {
-    if ($this->item >= $this->items) {
+    if ($this->item >= $this->items - 1) {
       $this->item = 0;
       ++$this->row;
     }
@@ -81,6 +81,6 @@ class IsisItemIterator implements Iterator
    * Check if there is a current element after calls to rewind() or next().
    */
   function valid() {
-    return $this->row <= $this->rows;
+    return $this->row <= $this->rows - 1;
   }  
 }
