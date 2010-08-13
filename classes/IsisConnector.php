@@ -165,10 +165,16 @@ class IsisConnector {
    */
   public function getSubfield($field, $subfield, $row = 0) {
     if ($this->joinSubfields()) {
-      $subfields = $this->result[$field['name']][$row];
+      if (isset($this->result[$field['name']][$row]))
+      {
+        $subfields = $this->result[$field['name']][$row];
+      }
     }
     else {
-      $subfields = $this->result[$field['name']][$row]['subfields'];
+      if (isset($this->result[$field['name']][$row]['subfields']))
+      {
+        $subfields = $this->result[$field['name']][$row]['subfields'];
+      }
     }
 
     if (isset($subfields[$subfield])) {
