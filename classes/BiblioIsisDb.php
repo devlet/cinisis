@@ -343,6 +343,7 @@ class BiblioIsisDb implements IsisDb {
         }
 
         if (isset($field)) {
+          unset($data[$entry]['field']);
           $data[$entry][CinisisDb::main_field_name($this->format, $key)] = $field;
         }
       }
