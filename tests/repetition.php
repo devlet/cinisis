@@ -8,7 +8,7 @@ require_once '../index.php';
 
 // Draw the document.
 $display = new CinisisDisplayHelper('Repetition finder');
-$form    = $display->form_input_text('code') . $display->form_input_text('display');
+$form    = $display->form_input_text('code') . $display->form_input_text('entry');
 $display->form($form, 'repetition.php');
 
 // Get field code.
