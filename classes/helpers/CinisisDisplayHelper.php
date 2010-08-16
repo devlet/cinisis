@@ -89,19 +89,19 @@ class CinisisDisplayHelper {
    * @param $action
    *   Page action.
    */
-  function navbar($entry, $entries, $action = 'index.php') {
+  function navbar($entry, $entries, $action = 'index.php', $extra = NULL) {
     // First / prev links.
     if ($entry != 1) {
       $prev = $entry - 1;
-      echo '<a href="'. $action .'?entry=1">first</a> ';
-      echo '<a href="'. $action .'?entry='. $prev .'">&lt; prev</a> ';
+      echo '<a href="'. $action .'?entry=1"'. $extra .'>first</a> ';
+      echo '<a href="'. $action .'?entry='. $prev . $extra .'">&lt; prev</a> ';
     }
 
     // Next / last links.
     if ($entry < $entries) {
       $next = $entry + 1;
-      echo '<a href="'. $action .'?entry='. $next .'">next &gt;</a> ';
-      echo '<a href="'. $action .'?entry='. $entries .'">last</a>';
+      echo '<a href="'. $action .'?entry='. $next . $extra .'">next &gt;</a> ';
+      echo '<a href="'. $action .'?entry='. $entries . $extra .'">last</a>';
     }
   }
 }
