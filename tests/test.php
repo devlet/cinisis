@@ -7,10 +7,11 @@
 <?php
 // Import requisites.
 require_once '../index.php';
-require_once 'includes/header.inc.php';
 ?>
 
 <?php
+// Draw the document.
+$display = new CinisisDisplayHelper('Isis Test');
 
 // Get a db instance.
 $isis = new CinisisDb();

@@ -7,7 +7,9 @@
 <?php
 // Import requisites.
 require_once '../index.php';
-require_once 'includes/header.inc.php';
+
+// Draw the document.
+$display = new CinisisDisplayHelper('Isis Reader');
 ?>
 
 <table><tr>
