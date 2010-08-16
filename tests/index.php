@@ -2,33 +2,16 @@
 /**
  * Cinisis - Isis db reading tool.
  */
-?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  </head>
-  <body>
-
-<form action="index.php" method="get"> 
-Entry: <input name="entry" type="text" /> 
-<input type="submit" />
-</form>
-<br />
-
-<?php
-
-// Import Cinisis Library.
+// Import requisites.
 require_once '../index.php';
 
-// Get the query parameter.
-if (isset($_GET["entry"]) && ! empty($_GET["entry"])) {
-  $entry = (int) $_GET["entry"];
-}
-else {
-  $entry = 1;
-}
+// Draw the document.
+$display = new CinisisDisplayHelper('Isis Navigator');
+$display->form($display->form_input_text('entry'));
+
+// Get entry number.
+$entry = CinisisHttpHelper::get_numeric_arg('entry');
 
 // Get a db instance.
 $isis = new CinisisDb();
@@ -45,20 +28,7 @@ if ($isis->db) {
 
   // Query database.
   $result  = $isis->db->read($entry);
-
-  // First / prev links.
-  if ($entry != 1) {
-    $prev = $entry - 1;
-    echo '<a href="index.php?entry=1">first</a> ';
-    echo '<a href="index.php?entry='. $prev .'">&lt; prev</a> ';
-  }
-
-  // Next / last links.
-  if ($entry < $entries) {
-    $next = $entry + 1;
-    echo '<a href="index.php?entry='. $next .'">next &gt;</a> ';
-    echo '<a href="index.php?entry='. $entries .'">last</a>';
-  }
+  $display->navbar($entry, $entries);
 
   // Format output.
   echo "<pre>\n";
@@ -68,5 +38,5 @@ if ($isis->db) {
   echo '</pre>';
 }
 
+$display->footer();
 ?>
-</body>
