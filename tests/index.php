@@ -6,12 +6,12 @@
 // Import requisites.
 require_once '../index.php';
 
-// Draw the document.
-$display = new CinisisDisplayHelper('Isis Navigator');
-$display->form($display->form_input_text('entry'));
-
 // Get entry number.
 $entry = CinisisHttpHelper::get_numeric_arg('entry');
+
+// Draw the document.
+$display = new CinisisDisplayHelper('Isis Navigator');
+$display->form($display->form_input_text('entry', $entry));
 
 // Get a db instance.
 $isis = new CinisisDb();

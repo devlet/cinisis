@@ -70,11 +70,18 @@ class CinisisDisplayHelper {
    * @param $name
    *   Input name.
    *
+   * @param $default
+   *   Default value.
+   *
    * @return
    *   Rendered text input.
    */
-  function form_input_text($name) {
-    return ucfirst($name) .': <input name="'. $name .'" type="text" />';
+  function form_input_text($name, $default = null) {
+    if ($default) {
+      $default = 'value="'. $default .'"';
+    }
+
+    return ucfirst($name) .': <input name="'. $name .'" type="text" '. $default .'/>';
   } 
 
   /**
@@ -88,6 +95,9 @@ class CinisisDisplayHelper {
    *
    * @param $action
    *   Page action.
+   *
+   * @param $extra
+   *   Extra parameters.
    */
   function navbar($entry, $entries, $action = 'index.php', $extra = NULL) {
     // First / prev links.
