@@ -195,6 +195,8 @@ class IsisConnector {
    *   Subfield data.
    */
   public function getSubfields($field, $subfield) {
+    $values = array();
+
     foreach (new IsisRowIterator($this, $field) as $row) {
       $values[$row] = $this->getSubfield($field, $subfield, $row);
     }
