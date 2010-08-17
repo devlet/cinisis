@@ -40,7 +40,7 @@ if ($isis->db) {
   // Format output.
   echo "<pre>\n";
   echo "Selected field: $field: $field_name.\n";
-  echo "Showing entry $entry from $entries total entries.\n";
+  echo "Showing entry ". $display->entry_link($entry) ." from $entries total entries.\n";
   echo "Repetitions found: ". count($result[$field_name]) .".\n";
   echo "\n";
   print_r($result[$field_name]);

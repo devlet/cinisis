@@ -41,10 +41,11 @@ if ($isis->db) {
   $display->navbar($entry, $entries, $repetition, '&field='. $field . '&subfield='. $subfield);
 
   // Format output.
+  $link = $display->entry_link($entry);
   echo "<pre>\n";
   echo "Selected field: $field: $field_name.\n";
   echo "Selected subfield: $subfield: $subfield_name.\n";
-  echo "Showing entry $entry from $entries total entries.\n";
+  echo "Showing entry ". $display->entry_link($entry) ." from $entries total entries.\n";
   echo "Repetitions found: ". count($result[$field]) .".\n";
   echo "\n";
   print_r($result[$field_name]);

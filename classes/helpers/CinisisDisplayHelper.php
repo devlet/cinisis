@@ -21,7 +21,7 @@ class CinisisDisplayHelper {
    * @param $title
    *   Page title;
    */
-  function title($title) {
+  static function title($title) {
     echo "<h1>$title</h1>\n";
   }
 
@@ -31,7 +31,7 @@ class CinisisDisplayHelper {
    * @param $title
    *   Page title;
    */
-  function header($title) {
+  static function header($title) {
     echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">';
     echo '<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">';
     echo '<head>';
@@ -44,7 +44,7 @@ class CinisisDisplayHelper {
   /**
    * Draws the page footer.
    */
-  function footer() {
+  static function footer() {
     echo '</body>';
   }
 
@@ -60,7 +60,7 @@ class CinisisDisplayHelper {
    * @param $method
    *   Form method.
    */
-  function form($content, $action = 'index.php', $method = 'get') {
+  static function form($content, $action = 'index.php', $method = 'get') {
     echo '<form action="'. $action .'" method="'. $method .'">';
     echo $content;
     echo '<input type="submit" />';
@@ -80,7 +80,7 @@ class CinisisDisplayHelper {
    * @return
    *   Rendered text input.
    */
-  function form_input_text($name, $default = null) {
+  static function form_input_text($name, $default = null) {
     if ($default) {
       $default = 'value="'. $default .'"';
     }
@@ -103,7 +103,7 @@ class CinisisDisplayHelper {
    * @param $extra
    *   Extra parameters.
    */
-  function navbar($entry, $entries, $action = 'index.php', $extra = NULL) {
+  static function navbar($entry, $entries, $action = 'index.php', $extra = NULL) {
     // First / prev links.
     if ($entry != 1) {
       $prev = $entry - 1;
@@ -117,5 +117,37 @@ class CinisisDisplayHelper {
       echo '<a href="'. $action .'?entry='. $next . $extra .'">next &gt;</a> ';
       echo '<a href="'. $action .'?entry='. $entries . $extra .'">last</a>';
     }
+  }
+
+  /**
+   * Format a link.
+   *
+   * @param $action
+   *   Link action.
+   *
+   * @param $args
+   *   Action arguments.
+   *
+   * @param $title
+   *   Link title.
+   *
+   * @return
+   *   Formatted link.
+   */
+  static function link($action, $args, $title) {
+    return '<a href="'. $action . $args .'">'. $title .'</a>';
+  }
+
+  /**
+   * Format an entry link.
+   *
+   * @param $entry
+   *   Entry number.
+   *
+   * @return
+   *   Formatted link.
+   */
+  static function entry_link($entry) {
+    return self::link('index.php', '?entry='. $entry, $entry);
   }
 }
