@@ -2,14 +2,10 @@
 /**
  * Cinisis - Isis db reading tool.
  */
-?>
 
-<?php
 // Import requisites.
 require_once '../index.php';
-?>
 
-<?php
 // Draw the document.
 $display = new CinisisDisplayHelper('Isis Test');
 
@@ -29,5 +25,4 @@ if ($isis->db) {
   echo '</pre>';
 }
 
-?>
-</body>
+$display->footer();

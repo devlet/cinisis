@@ -7,8 +7,7 @@
 <h3>Testing pecl-isis</h3>
 <?php
 
-  $db = isis_open('db/anu10/anu10');
-  //$db = isis_open('db/tupi/tupi');
+  $db = isis_open('db/dbname/dbname');
   print_r(isis_last_mfn($db));
 
   echo '<table>';

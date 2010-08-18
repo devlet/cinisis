@@ -2,9 +2,7 @@
 /**
  * Cinisis - Isis db reading tool.
  */
-?>
 
-<?php
 // Import requisites.
 require_once '../index.php';
 
@@ -19,11 +17,11 @@ $display = new CinisisDisplayHelper('Isis Reader');
 $configs = array(
   0 => array(
     'implementation' => 'PhpIsis',
-    'database'       => 'anu10',
+    'database'       => 'dbname',
     ),
   1 => array(
     'implementation' => 'BiblioIsis',
-    'database'       => 'anu10',
+    'database'       => 'dbname',
     ),
 );
 
@@ -49,5 +47,5 @@ foreach ($configs as $config) {
 
 ?>
 
-</tr></td></table>
+</tr></table>
 </body>
