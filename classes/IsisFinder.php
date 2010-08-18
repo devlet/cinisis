@@ -14,7 +14,7 @@ class IsisFinder extends IsisConnector {
    *   Field name.
    *
    * @return
-   *   Next repetition.
+   *   Next repetition entry and result.
    */
   public function nextRepetition($entry = 1, $field) {
     $entry--;
@@ -31,7 +31,7 @@ class IsisFinder extends IsisConnector {
       return FALSE;
     }
 
-    return $result;
+    return array($entry, $result);
   }
 
   /**
@@ -61,7 +61,7 @@ class IsisFinder extends IsisConnector {
       return FALSE;
     }
 
-    return $result;
+    return array($entry, $result);
   }
 
   /**
@@ -98,6 +98,6 @@ class IsisFinder extends IsisConnector {
       return FALSE;
     }
 
-    return $result;
+    return array($entry, $result);
   }
 }

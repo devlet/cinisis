@@ -24,9 +24,9 @@ $isis = new IsisFinder();
 // Setup database and entry number.
 if ($isis) {
   // Query database.
-  $field_name    = $isis->getFieldName($field);
-  $subfield_name = $isis->getSubfieldName($field, $subfield);
-  $result        = $isis->nextSubfield($entry, $field_name, $subfield_name);
+  $field_name           = $isis->getFieldName($field);
+  $subfield_name        = $isis->getSubfieldName($field, $subfield);
+  list($entry, $result) = $isis->nextSubfield($entry, $field_name, $subfield_name);
 
   // Navigation bar.
   $display->navbar($entry, $isis->entries, $repetition, '&field='. $field . '&subfield='. $subfield);
