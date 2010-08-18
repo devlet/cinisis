@@ -48,4 +48,3 @@ if ($isis->db) {
 }
 
 $display->footer();
-?>
