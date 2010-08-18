@@ -8,21 +8,17 @@ require_once '../index.php';
 
 // Draw the document.
 $display = new CinisisDisplayHelper('Isis Reader');
-?>
-
-<table><tr>
-
-<?php
+$display->open_table();
 
 $configs = array(
   0 => array(
     'implementation' => 'PhpIsis',
     'database'       => 'dbname',
-    ),
+  ),
   1 => array(
     'implementation' => 'BiblioIsis',
     'database'       => 'dbname',
-    ),
+  ),
 );
 
 foreach ($configs as $config) {
@@ -45,7 +41,5 @@ foreach ($configs as $config) {
   }
 }
 
-?>
-
-</tr></table>
-</body>
+$display->close_table();
+$display->footer();

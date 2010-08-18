@@ -150,4 +150,45 @@ class CinisisDisplayHelper {
   static function entry_link($entry) {
     return self::link('index.php', '?entry='. $entry, $entry);
   }
+
+  /**
+   * Draws tags for opening a table.
+   */
+  static function open_table() {
+    echo '<table><tr>';
+  }
+
+  /**
+   * Draws tags for closing a table.
+   */
+  static function close_table() {
+    echo '</tr></table>';
+  }
+
+  /**
+   * Draws a h2 element.
+   *
+   * @param $text
+   *   Inner text.
+   */
+  static function h2($text) {
+    echo "<h2>$text</h2>";
+  }
+
+  /**
+   * Draws a h3 element.
+   *
+   * @param $text
+   *   Inner text.
+   */
+  static function h3($text) {
+    echo "<h3>$text</h3>";
+  }
+
+  /**
+   * Draws a line break element.
+   */
+  static function h3($text) {
+    echo "<br />";
+  }
 }
