@@ -23,7 +23,7 @@ $configs = array(
 
 foreach ($configs as $config) {
   // Get a db instance.
-  $isis = new CinisisDb($config);
+  $isis = new Cinisis($config);
 
   // Test connection.
   if ($isis->db) {

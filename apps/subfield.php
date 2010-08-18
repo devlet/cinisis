@@ -16,32 +16,22 @@ $display = new CinisisDisplayHelper('Subfield finder');
 $form    = $display->form_input_text('entry', $entry);
 $form   .= $display->form_input_text('field', $field);
 $form   .= $display->form_input_text('subfield', $subfield);
-$display->form($form, 'subfield.php');
+$display->form($form, basename(__FILE__));
 
 // Get a db instance.
-$isis = new CinisisDb();
+$isis = new IsisFinder();
 
 // Setup database and entry number.
-if ($isis->db) {
-  // Get the number of entries.
-  $field_name    = $isis->db->format['fields'][$field]['name'];
-  $subfield_name = $isis->db->format['fields'][$field]['subfields'][$subfield];
-  $entries       = $isis->db->entries();
-  $entry--;
-
+if ($isis) {
   // Query database.
-  do {
-    $result = $isis->db->read(++$entry);
-    if ($entry == $entries) {
-      break;
-    }
-  } while (!isset($result[$field_name][0][$subfield_name]));
+  $field_name    = $isis->getFieldName($field);
+  $subfield_name = $isis->getSubfieldName($field, $subfield);
+  $result        = $isis->nextSubfield($entry, $field_name, $subfield_name);
 
   // Navigation bar.
-  $display->navbar($entry, $entries, $repetition, '&field='. $field . '&subfield='. $subfield);
+  $display->navbar($entry, $isis->entries, $repetition, '&field='. $field . '&subfield='. $subfield);
 
   // Format output.
-  $link = $display->entry_link($entry);
   echo "<pre>\n";
   echo "Selected field: $field: $field_name.\n";
   echo "Selected subfield: $subfield: $subfield_name.\n";

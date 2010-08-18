@@ -10,7 +10,7 @@ require_once '../index.php';
 $display = new CinisisDisplayHelper('Isis Test');
 
 // Get a db instance.
-$isis = new CinisisDb();
+$isis = new Cinisis();
 
 // Test connection.
 if ($isis->db) {

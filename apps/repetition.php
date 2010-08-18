@@ -14,28 +14,19 @@ $field = CinisisHttpHelper::get_numeric_arg('field');
 $display = new CinisisDisplayHelper('Repetition finder');
 $form    = $display->form_input_text('entry', $entry);
 $form   .= $display->form_input_text('field', $field);
-$display->form($form, 'repetition.php');
+$display->form($form, basename(__FILE__));
 
 // Get a db instance.
-$isis = new CinisisDb();
+$isis = new IsisFinder();
 
 // Setup database and entry number.
-if ($isis->db) {
-  // Get the number of entries.
-  $field_name = $isis->db->format['fields'][$field]['name'];
-  $entries    = $isis->db->entries();
-  $entry--;
-
+if ($isis) {
   // Query database.
-  do {
-    $result = $isis->db->read(++$entry);
-    if ($entry == $entries) {
-      break;
-    }
-  } while (!isset($result[$field_name]) || count($result[$field_name]) < 2);
+  $field_name = $isis->getFieldName($field);
+  $result     = $isis->nextRepetition($entry, $field_name);
 
   // Navigation bar.
-  $display->navbar($entry, $entries, $repetition, '&field='. $field);
+  $display->navbar($entry, $isis->entries, $repetition, '&field='. $field);
 
   // Format output.
   echo "<pre>\n";

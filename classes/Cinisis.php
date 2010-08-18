@@ -1,9 +1,9 @@
 <?php
 
 /**
- * CinisisDb main class.
+ * Cinisis main class.
  */
-class CinisisDb {
+class Cinisis {
   /**
    * @var $db
    *   Database resource.

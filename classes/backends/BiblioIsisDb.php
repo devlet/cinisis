@@ -70,7 +70,7 @@ class BiblioIsisDb implements IsisDb {
   function backend($method = 'count', $args = NULL) {
     // Setup the database.
     $name = $this->format['db']['name'];
-    $db   = CinisisDb::file("$name/$name", 'db');
+    $db   = Cinisis::file("$name/$name", 'db');
 
     // Setup arguments.
     if ($args != NULL) {
@@ -258,7 +258,7 @@ class BiblioIsisDb implements IsisDb {
     }
     else {
       foreach ($name as $value) {
-        $data[] = array(CinisisDb::main_field_name($this->format, $key) => $value);
+        $data[] = array(Cinisis::main_field_name($this->format, $key) => $value);
       }
     }
 
@@ -337,14 +337,14 @@ class BiblioIsisDb implements IsisDb {
       }
 
       // Join subfields and main field if needed.
-      if (CinisisDb::join_subfields($this->format)) {
+      if (Cinisis::join_subfields($this->format)) {
         if (isset($data[$entry]['subfields'])) {
           $data[$entry] = $data[$entry]['subfields'];
         }
 
         if (isset($field)) {
           unset($data[$entry]['field']);
-          $data[$entry][CinisisDb::main_field_name($this->format, $key)] = $field;
+          $data[$entry][Cinisis::main_field_name($this->format, $key)] = $field;
         }
       }
     }

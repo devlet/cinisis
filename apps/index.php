@@ -14,7 +14,7 @@ $display = new CinisisDisplayHelper('Isis Navigator');
 $display->form($display->form_input_text('entry', $entry));
 
 // Get a db instance.
-$isis = new CinisisDb();
+$isis = new Cinisis();
 
 // Setup database and entry number.
 if ($isis->db) {

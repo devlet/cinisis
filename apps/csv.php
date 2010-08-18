@@ -56,7 +56,7 @@ function merge_fields($data, $field) {
 require_once '../index.php';
 
 // Get a db instance.
-$isis = new CinisisDb();
+$isis = new Cinisis();
 
 // Test connection.
 if ($isis->db) {

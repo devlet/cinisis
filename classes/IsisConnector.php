@@ -19,7 +19,7 @@ class IsisConnector {
    *   Config file or array.
    */
   public function open($config) {
-    $this->isis = new CinisisDb($config);
+    $this->isis = new Cinisis($config);
 
     if ($this->isis->db) {
       $this->entries = $this->isis->db->entries();
@@ -59,7 +59,7 @@ class IsisConnector {
    */
   public function getMainItemName($field) {
     $key = $this->getFieldKey($field);
-    return CinisisDb::main_field_name($this->format, $key);    
+    return Cinisis::main_field_name($this->format, $key);    
   }
 
   /**
@@ -69,7 +69,7 @@ class IsisConnector {
    *   Boolean.
    */
   public function joinSubfields() {
-    if (CinisisDb::join_subfields($this->format)) {
+    if (Cinisis::join_subfields($this->format)) {
       return TRUE;
     }
 

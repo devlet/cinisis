@@ -188,7 +188,7 @@ class CinisisDisplayHelper {
   /**
    * Draws a line break element.
    */
-  static function h3($text) {
+  static function br($text) {
     echo "<br />";
   }
 

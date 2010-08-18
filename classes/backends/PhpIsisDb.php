@@ -43,7 +43,7 @@ class PhpIsisDb implements IsisDb {
 
     // Open the database.
     $name     = $schema['db']['name'];
-    $this->db = isis_open(CinisisDb::file("$name/$name", 'db'));
+    $this->db = isis_open(Cinisis::file("$name/$name", 'db'));
   }
 
   /**
