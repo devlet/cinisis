@@ -18,8 +18,8 @@ $fdt = array(
 );
 
 // Database connection setup.
-$db  = 'dbname';
-$db  = new Isis_Db($fdt, $db, new Isis_Server());
+$db = 'dbname';
+$db = new Isis_Db($fdt, $db, new Isis_Server());
 
 $display->h2('Server');
 
@@ -52,7 +52,7 @@ else {
   }
 
   $display->h3('Query reading a record');
-  $r = $db->read(6);
+  $r = $db->read(1);
   $display->pre($r->toString());
 }
 
