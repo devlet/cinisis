@@ -633,7 +633,7 @@ class IsisConnector {
   }
 
   /**
-   * Check if a field result has a given subfield.
+   * Check if a field result and row has a given subfield.
    *
    * @param $field
    *   Field data.

@@ -80,8 +80,7 @@ class IsisFinder extends IsisConnector {
    *   Next occurrence.
    *
    * @todo
-   *   The subfield might be in any now and not just
-   *   in the first one.
+   *   Test.
    */
   public function nextSubfield($entry = 1, $field, $subfield) {
     $entry--;
@@ -92,12 +91,35 @@ class IsisFinder extends IsisConnector {
       if ($entry == $entries) {
         break;
       }
-    } while (!isset($result[$field][0][$subfield]));
+      $has = $this->hasSubfieldInRows($field, $subfield);
+    } while ($has === FALSE);
 
-    if (!isset($result[$field][0][$subfield])) {
+    if (!isset($result[$field][$has][$subfield])) {
       return FALSE;
     }
 
     return array($entry, $result);
+  }
+
+  /**
+   * Check if a field result has a given subfield.
+   *
+   * @param $field
+   *   Field data.
+   *
+   * @param $subfield
+   *   Subfield.
+   *
+   * @return
+   *   True if result has the subfield, false otherwise.
+   */  
+  public function hasSubfieldInRows($field, $subfield) {
+    foreach (new IsisRowIterator($this, $field) as $row) {
+      if ($this->hasSubfield($field, $subfield, $row)) {
+        return $row;
+      }
+    }
+
+    return FALSE;
   }
 }
