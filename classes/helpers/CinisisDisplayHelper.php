@@ -191,4 +191,14 @@ class CinisisDisplayHelper {
   static function h3($text) {
     echo "<br />";
   }
+
+  /**
+   * Draws a pre format block element.
+   *
+   * @param $text
+   *   Inner text.
+   */
+  static function pre($text) {
+    echo "<pre>$text</pre>";
+  }  
 }
