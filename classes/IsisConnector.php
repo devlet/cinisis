@@ -6,6 +6,24 @@
  */
 class IsisConnector extends IsisMap {
   /**
+   * Get the number of resulting rows for a given field.
+   *
+   * @param $field
+   *   Field array.
+   *
+   * @return
+   *   Number of rows.
+   */
+  public function getRows($field) {
+    if (isset($this->result[$field['name']])) {
+      return count($this->result[$field['name']]);
+    }
+    else {
+      return 0;
+    }
+  }
+
+  /**
    * Get all values of a given field.
    *
    * @param $field
@@ -23,21 +41,49 @@ class IsisConnector extends IsisMap {
   }
 
   /**
-   * Get the number of resulting rows for a given field.
+   * Get both main field or subfields from a given field and row.
    *
    * @param $field
-   *   Field array.
+   *   field array.
+   *
+   * @param $item
+   *   item name (field or subfield).
+   *
+   * @param $row
+   *   row number.
    *
    * @return
-   *   Number of rows.
+   *   Item data.
    */
-  public function getRows($field) {
-    if (isset($this->result[$field['name']])) {
-      return count($this->result[$field['name']]);
+  public function getItem($field, $item, $row = 0) {
+    $main_field = $this->getMainItemName($field);
+
+    if ($field == $main_field) {
+      return $this->getMainItem($field, $row);
     }
     else {
-      return 0;
+      return $this->getSubfield($field, $item, $row);
     }
+  }
+
+  /**
+   * Get all rows both main field or subfields from a given field.
+   *
+   * @param $field
+   *   field array.
+   *
+   * @param $item
+   *   item name (field or subfield).
+   *
+   * @return
+   *   Item data.
+   */
+  public function getItems($field, $item) {
+    foreach (new IsisRowIterator($this, $field) as $row) {
+      $values[$row] = $this->getItem($field, $item, $row);
+    }
+
+    return $values;
   }
 
   /**
@@ -134,52 +180,6 @@ class IsisConnector extends IsisMap {
   }
 
   /**
-   * Get both main field or subfields from a given field and row.
-   *
-   * @param $field
-   *   field array.
-   *
-   * @param $item
-   *   item name (field or subfield).
-   *
-   * @param $row
-   *   row number.
-   *
-   * @return
-   *   Item data.
-   */
-  public function getItem($field, $item, $row = 0) {
-    $main_field = $this->getMainItemName($field);
-
-    if ($field == $main_field) {
-      return $this->getMainItem($field, $row);
-    }
-    else {
-      return $this->getSubfield($field, $item, $row);
-    }
-  }
-
-  /**
-   * Get all rows both main field or subfields from a given field.
-   *
-   * @param $field
-   *   field array.
-   *
-   * @param $item
-   *   item name (field or subfield).
-   *
-   * @return
-   *   Item data.
-   */
-  public function getItems($field, $item) {
-    foreach (new IsisRowIterator($this, $field) as $row) {
-      $values[$row] = $this->getItem($field, $item, $row);
-    }
-
-    return $values;
-  }
-
-  /**
    * Explode brackets for a given subfield, avoiding null entries.
    *
    * @param $field
@@ -237,29 +237,30 @@ class IsisConnector extends IsisMap {
   }
 
   /**
-   * Check if a field result and row has a given subfield.
+   * Check if a field result has an item.
    *
    * @param $field
    *   Field data.
    *
-   * @param $subfield
-   *   Subfield.
+   * @param $item
+   *   Item code ('main' for the main item).
    *
    * @param $row
    *   Row number.
    *
    * @return
-   *   True if result has the subfield, false otherwise.
+   *   True if result has the main item, false otherwise.
    */
-  public function hasSubfield($field, $subfield, $row) {
-    $value = $this->getSubfield($field, $subfield, $row);
-
-    if (!empty($value)) {
-      return TRUE;
+  public function hasItem($field, $item, $row = 0) {
+    if ($item == 'main') {
+      $has = $this->hasMainItem($field, $row);
     }
     else {
-      return FALSE;
+      $subfield = $this->getSubfieldName($this->getFieldKey($field), $item);
+      $has      = $this->hasSubfield($field, $subfield, $row);
     }
+
+    return $has;
   }
 
   /**
@@ -286,30 +287,29 @@ class IsisConnector extends IsisMap {
   }
 
   /**
-   * Check if a field result has an item.
+   * Check if a field result and row has a given subfield.
    *
    * @param $field
    *   Field data.
    *
-   * @param $item
-   *   Item code ('main' for the main item).
+   * @param $subfield
+   *   Subfield.
    *
    * @param $row
    *   Row number.
    *
    * @return
-   *   True if result has the main item, false otherwise.
+   *   True if result has the subfield, false otherwise.
    */
-  public function hasItem($field, $item, $row = 0) {
-    if ($item == 'main') {
-      $has = $this->hasMainItem($field, $row);
+  public function hasSubfield($field, $subfield, $row) {
+    $value = $this->getSubfield($field, $subfield, $row);
+
+    if (!empty($value)) {
+      return TRUE;
     }
     else {
-      $subfield = $this->getSubfieldName($this->getFieldKey($field), $item);
-      $has      = $this->hasSubfield($field, $subfield, $row);
+      return FALSE;
     }
-
-    return $has;
   }
 
   /**
