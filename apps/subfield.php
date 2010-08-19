@@ -7,15 +7,15 @@
 require_once '../index.php';
 
 // Get input data.
-$entry        = CinisisHttpHelper::get_numeric_arg('entry');
-$field_key    = CinisisHttpHelper::get_numeric_arg('field_key');
-$subfield_key = CinisisHttpHelper::get_textual_arg('subfield_key');
+$entry = CinisisHttpHelper::get_numeric_arg('entry');
+$fid   = CinisisHttpHelper::get_numeric_arg('fid');
+$sid   = CinisisHttpHelper::get_textual_arg('sid');
 
 // Draw the document.
 $display = new CinisisDisplayHelper('Subfield finder');
 $form    = $display->form_input_text('entry', $entry);
-$form   .= $display->form_input_text('field_key', $field_key);
-$form   .= $display->form_input_text('subfield_key', $subfield_key);
+$form   .= $display->form_input_text('fid', $fid);
+$form   .= $display->form_input_text('sid', $sid);
 $display->form($form, basename(__FILE__));
 
 // Get a db instance.
@@ -24,17 +24,17 @@ $isis = new IsisFinder();
 // Setup database and entry number.
 if ($isis) {
   // Query database.
-  $field                = $isis->getFieldArray($field_key);
-  $subfield             = $isis->getSubfieldName($field_key, $subfield_key);
+  $field                = $isis->getFieldArray($fid);
+  $subfield             = $isis->getSubfieldName($fid, $sid);
   list($entry, $result) = $isis->nextSubfield($entry, $field, $subfield);
 
   // Navigation bar.
-  $display->navbar($entry, $isis->entries, $repetition, '&field_key='. $field_key . '&subfield_key='. $subfield_key);
+  $display->navbar($entry, $isis->entries, $repetition, '&fid='. $fid . '&sid='. $sid);
 
   // Format output.
   echo "<pre>\n";
-  echo "Selected field: $field_key: ". $field['name'] .".\n";
-  echo "Selected subfield: $subfield_key: $subfield.\n";
+  echo "Selected field: $fid: ". $field['name'] .".\n";
+  echo "Selected subfield: $sid: $subfield.\n";
   echo "Showing entry ". $display->entry_link($entry) ." from $entries total entries.\n";
   echo "Repetitions found: ". count($result[$field['name']]) .".\n";
   echo "\n";
