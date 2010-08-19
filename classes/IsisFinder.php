@@ -25,9 +25,10 @@ class IsisFinder extends IsisConnector {
       if ($entry == $entries) {
         break;
       }
-    } while (!isset($result[$field['name']]) || count($result[$field['name']]) < 2);
+      $values = $this->getValues($field);
+    } while (count($values) < 2);
 
-    if (!isset($result[$field['name']]) || count($result[$field['name']]) < 2) {
+    if (count($values) < 2) {
       return FALSE;
     }
 
@@ -55,9 +56,10 @@ class IsisFinder extends IsisConnector {
       if ($entry == $entries) {
         break;
       }
-    } while (!isset($result[$field['name']]));
+      $values = $this->getValues($field);
+    } while (empty($values));
 
-    if (!isset($result[$field['name']])) {
+    if (empty($values)) {
       return FALSE;
     }
 
