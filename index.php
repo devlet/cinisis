@@ -3,9 +3,6 @@
  * Cinisis - Isis db reading tool.
  */
 
-// Import Spyc.
-require_once 'contrib/spyc/spyc.php';
-
 // Autoloader.
 function cinisis_autoload($class) {
   if (strstr($class, 'Db')) {

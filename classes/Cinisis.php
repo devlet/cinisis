@@ -70,7 +70,30 @@ class Cinisis {
     }
 
     // Load configuration.
-    return Spyc::YAMLLoad($file);
+    return $this->yaml($file);
+  }
+
+  /**
+   * Load YAML into array using backend libraries.
+   *
+   * @param $file
+   *   Config file.
+   *
+   * @return
+   *   Array with configuration or FALSE if error.
+   */
+  static function yaml($file) {
+    if (file_exists('../contrib/spyc/spyc.php')) {
+      // Use Spyc.
+      include_once '../contrib/spyc/spyc.php';
+      return Spyc::YAMLLoad($file);
+    }
+    elseif (is_callable(array('sfYaml', 'load'))) {
+      // Use symfony built-in yaml loader.
+      return sfYaml::load($file);
+    }
+
+    throw new Exception('No suitable methods for parsing YAML found.');
   }
 
   /**
