@@ -26,12 +26,12 @@ if ($isis) {
   list($entry, $result) = $isis->nextRepetition($entry, $field);
 
   // Navigation bar.
-  $display->navbar($entry, $isis->entries, $repetition, '&fid='. $fid);
+  $display->navbar($entry, $isis->entries, 'repetition.php', '&fid='. $fid);
 
   // Format output.
   echo "<pre>\n";
   echo "Selected field: $fid: ". $field['name'] ."\n";
-  echo "Showing entry ". $display->entry_link($entry) ." from $entries total entries.\n";
+  echo "Showing entry ". $display->entry_link($entry) ." from ". $isis->entries ." total entries.\n";
   echo "Repetitions found: ". count($result[$field['name']]) .".\n";
   echo "\n";
   print_r($result[$field['name']]);

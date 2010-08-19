@@ -17,22 +17,13 @@ class IsisFinder extends IsisConnector {
    *   Next repetition entry and result.
    */
   public function nextRepetition($entry = 1, $field) {
-    $entry--;
-
-    // Query database.
-    do {
-      $result = $this->read(++$entry);
-      if ($entry == $entries) {
-        break;
+    foreach(new IsisEntryIterator($this, $entry) as $entry => $result) {
+      if (count($this->getValues($field)) >= 2) {
+        return array($entry, $result);
       }
-      $values = $this->getValues($field);
-    } while (count($values) < 2);
-
-    if (count($values) < 2) {
-      return FALSE;
     }
 
-    return array($entry, $result);
+    return FALSE;
   }
 
   /**
@@ -48,22 +39,13 @@ class IsisFinder extends IsisConnector {
    *   Next occurrence.
    */
   public function nextField($entry = 1, $field) {
-    $entry--;
-
-    // Query database.
-    do {
-      $result = $this->read(++$entry);
-      if ($entry == $entries) {
-        break;
+    foreach(new IsisEntryIterator($this, $entry) as $entry => $result) {
+      if (count($this->getValues($field)) > 0) {
+        return array($entry, $result);
       }
-      $values = $this->getValues($field);
-    } while (empty($values));
-
-    if (empty($values)) {
-      return FALSE;
     }
 
-    return array($entry, $result);
+    return FALSE;
   }
 
   /**
@@ -82,22 +64,13 @@ class IsisFinder extends IsisConnector {
    *   Next occurrence.
    */
   public function nextSubfield($entry = 1, $field, $subfield) {
-    $entry--;
-
-    // Query database.
-    do {
-      $result = $this->read(++$entry);
-      if ($entry == $entries) {
-        break;
+    foreach(new IsisEntryIterator($this, $entry) as $entry => $result) {
+      if ($this->hasSubfieldInRows($field, $subfield) !== FALSE) {
+        return array($entry, $result);
       }
-      $has = $this->hasSubfieldInRows($field, $subfield);
-    } while ($has === FALSE);
-
-    if (!$this->hasSubfield($field, $subfield, $has)) {
-      return FALSE;
     }
 
-    return array($entry, $result);
+    return FALSE;
   }
 
   /**

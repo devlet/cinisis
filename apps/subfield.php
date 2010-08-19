@@ -29,13 +29,13 @@ if ($isis) {
   list($entry, $result) = $isis->nextSubfield($entry, $field, $subfield);
 
   // Navigation bar.
-  $display->navbar($entry, $isis->entries, $repetition, '&fid='. $fid . '&sid='. $sid);
+  $display->navbar($entry, $isis->entries, 'subfield.php', '&fid='. $fid . '&sid='. $sid);
 
   // Format output.
   echo "<pre>\n";
   echo "Selected field: $fid: ". $field['name'] .".\n";
   echo "Selected subfield: $sid: $subfield.\n";
-  echo "Showing entry ". $display->entry_link($entry) ." from $entries total entries.\n";
+  echo "Showing entry ". $display->entry_link($entry) ." from ". $isis->entries ." total entries.\n";
   echo "Repetitions found: ". count($result[$field['name']]) .".\n";
   echo "\n";
   print_r($result[$field['name']]);
