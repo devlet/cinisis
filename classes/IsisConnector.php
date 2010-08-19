@@ -448,6 +448,23 @@ class IsisConnector {
   }
 
   /**
+   * Get the array which defines a field.
+   *
+   * @param $field_key
+   *   Field key.
+   * 
+   * @return
+   *   Field array.
+   */
+  public function getFieldArray($field_key) {
+    if (isset($this->format['fields'][$field_key])) {
+      return $this->format['fields'][$field_key];
+    }
+
+    return NULL;
+  }
+
+  /**
    * Remove brackets from strings whithin an array.
    *
    * @param $value

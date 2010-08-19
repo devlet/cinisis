@@ -11,7 +11,7 @@ class IsisFinder extends IsisConnector {
    *   Start entry number to begin the search.
    *
    * @param $field
-   *   Field name.
+   *   Field data.
    *
    * @return
    *   Next repetition entry and result.
@@ -25,9 +25,9 @@ class IsisFinder extends IsisConnector {
       if ($entry == $entries) {
         break;
       }
-    } while (!isset($result[$field]) || count($result[$field]) < 2);
+    } while (!isset($result[$field['name']]) || count($result[$field['name']]) < 2);
 
-    if (!isset($result[$field]) || count($result[$field]) < 2) {
+    if (!isset($result[$field['name']]) || count($result[$field['name']]) < 2) {
       return FALSE;
     }
 
@@ -41,7 +41,7 @@ class IsisFinder extends IsisConnector {
    *   Start entry number to begin the search.
    *
    * @param $field
-   *   Field name.
+   *   Field data.
    *
    * @return
    *   Next occurrence.
@@ -55,9 +55,9 @@ class IsisFinder extends IsisConnector {
       if ($entry == $entries) {
         break;
       }
-    } while (!isset($result[$field]));
+    } while (!isset($result[$field['name']]));
 
-    if (!isset($result[$field])) {
+    if (!isset($result[$field['name']])) {
       return FALSE;
     }
 
@@ -71,7 +71,7 @@ class IsisFinder extends IsisConnector {
    *   Start entry number to begin the search.
    *
    * @param $field
-   *   Field name.
+   *   Field data.
    *
    * @param $subfield
    *   Subfield name.
@@ -94,7 +94,7 @@ class IsisFinder extends IsisConnector {
       $has = $this->hasSubfieldInRows($field, $subfield);
     } while ($has === FALSE);
 
-    if (!isset($result[$field][$has][$subfield])) {
+    if (!$this->hasSubfield($field, $subfield, $has)) {
       return FALSE;
     }
 
