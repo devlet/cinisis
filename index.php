@@ -3,9 +3,6 @@
  * Cinisis - Isis db reading tool.
  */
 
-// Import Malete Library.
-require_once 'contrib/malete/php/Isis.php';
-
 // Import Spyc.
 require_once 'contrib/spyc/spyc.php';
 

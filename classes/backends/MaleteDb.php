@@ -1,5 +1,8 @@
 <?php
 
+// Import Malete Library.
+require_once '../contrib/malete/php/Isis.php';
+
 /**
  * Malete implementation of IsisDb.
  *
