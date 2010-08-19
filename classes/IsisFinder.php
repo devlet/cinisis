@@ -78,9 +78,6 @@ class IsisFinder extends IsisConnector {
    *
    * @return
    *   Next occurrence.
-   *
-   * @todo
-   *   Test.
    */
   public function nextSubfield($entry = 1, $field, $subfield) {
     $entry--;
