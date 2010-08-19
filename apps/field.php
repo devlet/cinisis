@@ -23,7 +23,7 @@ $isis = new IsisFinder();
 if ($isis) {
   // Query database.
   $field                = $isis->getFieldArray($fid);
-  list($entry, $result) = $isis->nextField($entry, $field);
+  list($entry, $result) = $isis->nextField($field, $entry);
 
   // Navigation bar.
   $display->navbar($entry, $isis->entries, 'field.php', '&fid='. $fid);

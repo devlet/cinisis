@@ -16,7 +16,7 @@ class IsisFinder extends IsisConnector {
    * @return
    *   Next repetition entry and result.
    */
-  public function nextRepetition($entry = 1, $field) {
+  public function nextRepetition($field, $entry = 1) {
     foreach(new IsisEntryIterator($this, $entry) as $entry => $result) {
       if (count($this->getValues($field)) >= 2) {
         return array($entry, $result);
@@ -38,7 +38,7 @@ class IsisFinder extends IsisConnector {
    * @return
    *   Next occurrence.
    */
-  public function nextField($entry = 1, $field) {
+  public function nextField($field, $entry = 1) {
     foreach(new IsisEntryIterator($this, $entry) as $entry => $result) {
       if (count($this->getValues($field)) > 0) {
         return array($entry, $result);
@@ -63,7 +63,7 @@ class IsisFinder extends IsisConnector {
    * @return
    *   Next occurrence.
    */
-  public function nextSubfield($entry = 1, $field, $subfield) {
+  public function nextSubfield($field, $subfield, $entry = 1) {
     foreach(new IsisEntryIterator($this, $entry) as $entry => $result) {
       if ($this->hasSubfieldInRows($field, $subfield) !== FALSE) {
         return array($entry, $result);

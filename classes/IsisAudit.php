@@ -6,31 +6,27 @@
 class IsisAudit extends IsisFinder {
   /**
    * Run a standard audit procedure.
-   *
-   * @todo
-   *   Test.
    */
   public function run() {
     foreach ($this->format['fields'] as $field) {
-      $field_name = $this->getFieldName($field);
-      $repetition = $this->nextRepetition(null, $field_name);
+      $repetition = $this->nextRepetition($field);
 
       // Check for repetitions.
-      if ($field['repeat'] && !$repetition)
-      {
-        echo "Field $field_name is configured for repetitions but no repetitions found.\n";
+      if ($field['repeat'] && !$repetition) {
+        echo "Field ". $field['name'] ." is configured for repetitions but no repetitions found.\n";
       }
       elseif (!$field['repeat'] && $repetition) {
-        echo "Field $field_name is not configured for repetitions but a repetition was found.\n";
+        echo "Field ". $field['name'] ." is not configured for repetitions but a repetition was found for entry ". $repetition[0] .".\n";
       }
 
       // Check for subfields.
-      foreach ($field['subfields'] as $subfield) {
-        $subfield_name = $this->getSubfieldName($field, $subfield);
-        $next_subfield = $isis->nextSubfield(null, $field_name, $subfield_name);
+      if (isset($field['subfields'])) {
+        foreach ($field['subfields'] as $subfield) {
+          $next_subfield = $this->nextSubfield($field, $subfield);
 
-        if (!$next_subfield) {
-          echo "No occurrences found for field $field_name and subfield $subfield_name\n";
+          if (!$next_subfield) {
+            echo "No occurrences found for field ". $field['name'] ." and subfield $subfield\n";
+          }
         }
       }
     }
