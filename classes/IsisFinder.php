@@ -94,4 +94,126 @@ class IsisFinder extends IsisConnector {
 
     return FALSE;
   }
+
+  /**
+   * Search the next match inside a result.
+   *
+   * @param $field
+   *   Field data.
+   *
+   * @param $item
+   *   Item name (main field or subfield).
+   *
+   * @param $search
+   *   Search token.
+   *
+   * @param $entry
+   *   Start entry number to begin the search.
+   *
+   * @param $match
+   *   Set to false do find the next result where the
+   *   item has not the token specified in $search.
+   */
+  public function nextResult($field, $item, $search, $entry = 1, $match = TRUE) {
+    do {
+      // Get the next entry that has the field/subfield we'll look at.
+      if ($item = 'main') {
+        $next = $this->nextField($field, $entry);
+      }
+      else {
+        $next = $this->nextSubfield($field, $item, $entry);
+      }
+
+      // Check if there's a next matching field/subfield.
+      if ($next === FALSE) {
+        break;
+      }
+      else {
+        list($entry, $result) = $next;
+      }
+
+      // Search for any occurrence.
+      foreach (new IsisRowIterator($this, $field) as $row) {
+        if ($item = 'main') {
+          $verify = $this->matchMainItem($field, $row, $search, $match);
+        }
+        else {
+          $verify = $this->matchSubfield($field, $row, $search, $match);
+        }
+
+        if ($verify !== FALSE)
+        {
+          return array($entry, $result);
+        }
+      }
+    }
+    while ($entry++);
+  }
+
+  /**
+   * Check if a main item match a given value.
+   *
+   * @param $field
+   *   Field data.
+   *
+   * @param $row
+   *   Row number.
+   *
+   * @param $search
+   *   Search token.
+   *
+   * @param $match
+   *   Set to false do find the next result where the
+   *   item has not the token specified in $search.
+   *
+   * @return
+   *   True if match, false otherwise.
+   */
+  public function matchMainItem($field, $row, $search, $match) {
+    if ($this->getMainItem($field, $row) == $search) {
+      if ($match) {
+        return TRUE;
+      }
+    }
+    elseif (!$match) {
+      return TRUE;
+    }
+
+    return FALSE;
+  }
+
+  /**
+   * Check if a subfield match a given value.
+   *
+   * @param $field
+   *   Field data.
+   *
+   * @param $subfield
+   *   Subfield name.
+   *
+   * @param $row
+   *   Row number.
+   *
+   * @param $search
+   *   Search token.
+   *
+   * @param $match
+   *   Set to false do find the next result where the
+   *   item has not the token specified in $search.
+   *
+   * @return
+   *   True if match, false otherwise.
+   */
+  public function matchSubfield($field, $subfield, $row, $search, $match) {
+    if ($this->getSubfield($field, $subfield, $row) == $search) {
+      if ($match) {
+        return TRUE;
+      }
+      elseif (!$match) {
+        return TRUE;
+      }
+    }
+
+    return FALSE;
+  }
 }
