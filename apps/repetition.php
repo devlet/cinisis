@@ -7,8 +7,8 @@
 require_once '../index.php';
 
 // Get input data.
-$entry = CinisisHttpHelper::get_numeric_arg('entry');
-$fid   = CinisisHttpHelper::get_numeric_arg('fid');
+$entry = CinisisHttpHelper::getNumericArg('entry');
+$fid   = CinisisHttpHelper::getNumericArg('fid');
 
 // Draw the document.
 $display = new CinisisDisplayHelper('Repetition finder');

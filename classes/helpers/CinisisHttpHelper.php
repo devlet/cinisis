@@ -16,7 +16,7 @@ class CinisisHttpHelper {
    * @return
    *   Argument value.
    */
-  static function get_arg($name, $default = 1) {
+  static function getArg($name, $default = 1) {
     // Get the query parameter.
     if (isset($_GET[$name]) && ! empty($_GET[$name])) {
       $arg = $_GET[$name];
@@ -37,8 +37,8 @@ class CinisisHttpHelper {
    * @return
    *   Argument value.
    */
-  static function get_numeric_arg($name) {
-    return (int) self::get_arg($name, 1);
+  static function getNumericArg($name) {
+    return (int) self::getArg($name, 1);
   }
 
   /**
@@ -50,7 +50,7 @@ class CinisisHttpHelper {
    * @return
    *   Argument value.
    */
-  static function get_textual_arg($name) {
-    return (string) self::get_arg($name, 'a');
+  static function getTextualArg($name) {
+    return htmlspecialchars((string) self::getArg($name, 'a'));
   }
 }

@@ -7,7 +7,7 @@
 require_once '../index.php';
 
 // Get entry number.
-$entry = CinisisHttpHelper::get_numeric_arg('entry');
+$entry = CinisisHttpHelper::getNumericArg('entry');
 
 // Draw the document.
 $display = new CinisisDisplayHelper('Isis Navigator');

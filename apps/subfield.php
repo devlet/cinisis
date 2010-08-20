@@ -7,9 +7,9 @@
 require_once '../index.php';
 
 // Get input data.
-$entry = CinisisHttpHelper::get_numeric_arg('entry');
-$fid   = CinisisHttpHelper::get_numeric_arg('fid');
-$sid   = CinisisHttpHelper::get_textual_arg('sid');
+$entry = CinisisHttpHelper::getNumericArg('entry');
+$fid   = CinisisHttpHelper::getNumericArg('fid');
+$sid   = CinisisHttpHelper::getTextualArg('sid');
 
 // Draw the document.
 $display = new CinisisDisplayHelper('Subfield finder');
