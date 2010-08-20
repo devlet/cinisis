@@ -16,12 +16,70 @@ class CinisisDisplayHelper {
   }
 
   /**
+   * Determine internal method names.
+   *
+   * @param $method
+   *   Method name.
+   *
+   * @return
+   *   Method name.
+   */
+  static function methodName($method) {
+    if (php_sapi_name() == "cli") {
+      return 'cli'. ucfirst($method);
+    }
+    else {
+      return 'web'. ucfirst($method);
+    }
+  }
+
+  /**
+   * Dispatcher, dynamic version.
+   *
+   * @param $method
+   *   Method name.
+   *
+   * @param $arguments
+   *   Argument list.
+   *
+   * @return
+   *   Callback result.
+   */
+  public function __call($method, $arguments) {
+    $method = $this->methodName($method);
+
+    if (method_exists($this, $method)) {
+      return call_user_func_array(array($this, $method), $arguments);
+    }
+  }
+
+  /**
+   * Dispatcher, static version.
+   *
+   * @param $method
+   *   Method name.
+   *
+   * @param $arguments
+   *   Argument list.
+   *
+   * @return
+   *   Callback result.
+   */
+  public static function __callStatic($method, $arguments) {
+    $method = self::methodName($method);
+
+    if (is_callable('self', $method)) {
+      return call_user_func_array(array('self', $method), $arguments);
+    }
+  }
+
+  /**
    * Draws a page title.
    *
    * @param $title
    *   Page title;
    */
-  static function title($title) {
+  protected static function webTitle($title) {
     if (php_sapi_name() == "cli") {
       echo "$title\n";
     }
@@ -31,33 +89,36 @@ class CinisisDisplayHelper {
   }
 
   /**
+   * Draws title, CLI version.
+   *
+   * @param $title
+   *   Page title;
+   */
+  protected static function cliTitle($title) {
+    echo "$title\n";
+  }
+
+  /**
    * Draws the page header.
    *
    * @param $title
    *   Page title;
    */
-  static function header($title) {
-    if (php_sapi_name() == "cli") {
-      echo "$title\n";
-    }
-    else {
-      echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">';
-      echo '<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">';
-      echo '<head>';
-      echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
-      echo '<title>'. $title .'</title>';
-      echo '</head>';
-      echo '<body>';
-    }
+  protected static function webHeader($title) {
+    echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">';
+    echo '<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">';
+    echo '<head>';
+    echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
+    echo '<title>'. $title .'</title>';
+    echo '</head>';
+    echo '<body>';
   }
 
   /**
    * Draws the page footer.
    */
-  static function footer() {
-    if (php_sapi_name() != "cli") {
-      echo '</body>';
-    }
+  protected static function webFooter() {
+    echo '</body>';
   }
 
   /**
@@ -72,14 +133,12 @@ class CinisisDisplayHelper {
    * @param $method
    *   Form method.
    */
-  static function form($content, $action = 'index.php', $method = 'get') {
-    if (php_sapi_name() != "cli") {
-      echo '<form action="'. $action .'" method="'. $method .'">';
-      echo $content;
-      echo '<input type="submit" />';
-      echo '</form>';
-      echo '<br />';
-    }
+  protected static function webForm($content, $action = 'index.php', $method = 'get') {
+    echo '<form action="'. $action .'" method="'. $method .'">';
+    echo $content;
+    echo '<input type="submit" />';
+    echo '</form>';
+    echo '<br />';
   }
 
   /**
@@ -94,11 +153,7 @@ class CinisisDisplayHelper {
    * @return
    *   Rendered text input.
    */
-  static function form_input_text($name, $default = null) {
-    if (php_sapi_name() == "cli") {
-      return;
-    }
-
+  protected static function webFormInputText($name, $default = null) {
     if ($default) {
       $default = 'value="'. $default .'"';
     }
@@ -121,11 +176,7 @@ class CinisisDisplayHelper {
    * @param $extra
    *   Extra parameters.
    */
-  static function navbar($entry, $entries, $action = 'index.php', $extra = NULL) {
-    if (php_sapi_name() == "cli") {
-      return;
-    }
-
+  protected static function webNavbar($entry, $entries, $action = 'index.php', $extra = NULL) {
     // First / prev links.
     if ($entry != 1) {
       $prev = $entry - 1;
@@ -156,10 +207,8 @@ class CinisisDisplayHelper {
    * @return
    *   Formatted link.
    */
-  static function link($action, $args, $title) {
-    if (php_sapi_name() != "cli") {
-      return '<a href="'. $action . $args .'">'. $title .'</a>';
-    }
+  protected static function webLink($action, $args, $title) {
+    return '<a href="'. $action . $args .'">'. $title .'</a>';
   }
 
   /**
@@ -171,28 +220,22 @@ class CinisisDisplayHelper {
    * @return
    *   Formatted link.
    */
-  static function entry_link($entry) {
-    if (php_sapi_name() != "cli") {
-      return self::link('index.php', '?entry='. $entry, $entry);
-    }
+  protected static function webEntryLink($entry) {
+    return self::link('index.php', '?entry='. $entry, $entry);
   }
 
   /**
    * Draws tags for opening a table.
    */
-  static function open_table() {
-    if (php_sapi_name() != "cli") {
-      echo '<table><tr>';
-    }
+  protected static function webOpenTable() {
+    echo '<table><tr>';
   }
 
   /**
    * Draws tags for closing a table.
    */
-  static function close_table() {
-    if (php_sapi_name() != "cli") {
-      echo '</tr></table>';
-    }
+  protected static function webCloseTable() {
+    echo '</tr></table>';
   }
 
   /**
@@ -201,13 +244,18 @@ class CinisisDisplayHelper {
    * @param $text
    *   Inner text.
    */
-  static function h2($text) {
-    if (php_sapi_name() == "cli") {
-      echo "$text\n";
-    }
-    else {
-      echo "<h2>$text</h2>";
-    }
+  protected static function webH2($text) {
+    echo "<h2>$text</h2>";
+  }
+
+  /**
+   * Draws a h2 element, CLI version.
+   *
+   * @param $text
+   *   Inner text.
+   */
+  protected static function cliH2($text) {
+    echo "$text\n";
   }
 
   /**
@@ -216,25 +264,32 @@ class CinisisDisplayHelper {
    * @param $text
    *   Inner text.
    */
-  static function h3($text) {
-    if (php_sapi_name() == "cli") {
-      echo "$text\n";
-    }
-    else {
-      echo "<h3>$text</h3>";
-    }
+  protected static function webH3($text) {
+    echo "<h3>$text</h3>";
+  }
+
+  /**
+   * Draws a h3 element, CLI version.
+   *
+   * @param $text
+   *   Inner text.
+   */
+  protected static function cliH3($text) {
+    echo "$text\n";
   }
 
   /**
    * Draws a line break element.
    */
-  static function br() {
-    if (php_sapi_name() == "cli") {
-      echo "\n";
-    }
-    else {
-      echo "<br />";
-    }
+  protected static function webBr() {
+    echo "<br />";
+  }
+
+  /**
+   * Draws a line break element, CLI version.
+   */
+  protected static function cliBr() {
+    echo "\n";
   }
 
   /**
@@ -243,12 +298,17 @@ class CinisisDisplayHelper {
    * @param $text
    *   Inner text.
    */
-  static function pre($text) {
-    if (php_sapi_name() == "cli") {
-      echo "$text\n";
-    }
-    else {
-      echo "<pre>\n$text</pre>";
-    }
-  }  
+  protected static function webPre($text) {
+    echo "<pre>\n$text</pre>";
+  }
+
+  /**
+   * Draws a pre format block element.
+   *
+   * @param $text
+   *   Inner text.
+   */
+  protected static function cliPre($text) {
+    echo "$text\n";
+  }
 }

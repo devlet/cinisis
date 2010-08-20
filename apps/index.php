@@ -11,7 +11,7 @@ $entry = CinisisHttpHelper::get_numeric_arg('entry');
 
 // Draw the document.
 $display = new CinisisDisplayHelper('Isis Navigator');
-$display->form($display->form_input_text('entry', $entry));
+$display->form($display->formInputText('entry', $entry));
 
 // Get a db instance.
 $isis = new Cinisis();
