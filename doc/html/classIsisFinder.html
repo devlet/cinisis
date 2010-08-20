@@ -65,6 +65,9 @@ Inheritance diagram for IsisFinder:</div>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIsisFinder.html#a7d708e281bea35ee38f5875c8f2cad8d">nextField</a> ($field, $entry=1)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIsisFinder.html#aa367980783d341197e003684a639ff1a">nextSubfield</a> ($field, $subfield, $entry=1)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIsisFinder.html#a41410b18c4462c05ac669e4ee889d8a7">hasSubfieldInRows</a> ($field, $subfield)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIsisFinder.html#af965ba4acae18aa61bc4a3242bcdadfc">nextResult</a> ($field, $item, $search, $entry=1, $match=TRUE)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIsisFinder.html#ab35a9bb21e83df846b6ff57bcbe117ae">matchMainItem</a> ($field, $row, $search, $match)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIsisFinder.html#a20539e44cfc30ca3897e174781c4b26c">matchSubfield</a> ($field, $subfield, $row, $search, $match)</td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>Provides Isis Database search methods. </p>
@@ -102,6 +105,113 @@ Inheritance diagram for IsisFinder:</div>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>True if result has the subfield, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab35a9bb21e83df846b6ff57bcbe117ae"></a><!-- doxytag: member="IsisFinder::matchMainItem" ref="ab35a9bb21e83df846b6ff57bcbe117ae" args="($field, $row, $search, $match)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IsisFinder::matchMainItem </td>
+          <td>(</td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>field</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>search</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>match</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Check if a main item match a given value.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$field</em>&nbsp;</td><td>Field data.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$row</em>&nbsp;</td><td>Row number.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$search</em>&nbsp;</td><td>Search token.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$match</em>&nbsp;</td><td>Set to false do find the next result where the item has not the token specified in $search.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>True if match, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a20539e44cfc30ca3897e174781c4b26c"></a><!-- doxytag: member="IsisFinder::matchSubfield" ref="a20539e44cfc30ca3897e174781c4b26c" args="($field, $subfield, $row, $search, $match)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IsisFinder::matchSubfield </td>
+          <td>(</td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>field</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>subfield</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>search</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>match</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Check if a subfield match a given value.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$field</em>&nbsp;</td><td>Field data.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$subfield</em>&nbsp;</td><td>Subfield name.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$row</em>&nbsp;</td><td>Row number.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$search</em>&nbsp;</td><td>Search token.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$match</em>&nbsp;</td><td>Set to false do find the next result where the item has not the token specified in $search.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>True if match, false otherwise. </dd></dl>
 
 </div>
 </div>
@@ -177,6 +287,62 @@ Inheritance diagram for IsisFinder:</div>
 
 </div>
 </div>
+<a class="anchor" id="af965ba4acae18aa61bc4a3242bcdadfc"></a><!-- doxytag: member="IsisFinder::nextResult" ref="af965ba4acae18aa61bc4a3242bcdadfc" args="($field, $item, $search, $entry=1, $match=TRUE)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IsisFinder::nextResult </td>
+          <td>(</td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>field</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>item</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>search</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>entry</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>match</em> = <code>TRUE</code></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Search the next match inside a result.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$field</em>&nbsp;</td><td>Field data.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$item</em>&nbsp;</td><td>Item name (main field or subfield).</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$search</em>&nbsp;</td><td>Search token.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$entry</em>&nbsp;</td><td>Start entry number to begin the search.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$match</em>&nbsp;</td><td>Set to false do find the next result where the item has not the token specified in $search. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="aa367980783d341197e003684a639ff1a"></a><!-- doxytag: member="IsisFinder::nextSubfield" ref="aa367980783d341197e003684a639ff1a" args="($field, $subfield, $entry=1)" -->
 <div class="memitem">
 <div class="memproto">
@@ -238,7 +404,7 @@ Inheritance diagram for IsisFinder:</div>
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Fri Aug 20 16:55:37 2010 for Cinisis Database Reader by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Fri Aug 20 18:50:27 2010 for Cinisis Database Reader by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

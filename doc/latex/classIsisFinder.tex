@@ -18,6 +18,12 @@ Inheritance diagram for IsisFinder:\begin{figure}[H]
 \hyperlink{classIsisFinder_aa367980783d341197e003684a639ff1a}{nextSubfield} (\$field, \$subfield, \$entry=1)
 \item 
 \hyperlink{classIsisFinder_a41410b18c4462c05ac669e4ee889d8a7}{hasSubfieldInRows} (\$field, \$subfield)
+\item 
+\hyperlink{classIsisFinder_af965ba4acae18aa61bc4a3242bcdadfc}{nextResult} (\$field, \$item, \$search, \$entry=1, \$match=TRUE)
+\item 
+\hyperlink{classIsisFinder_ab35a9bb21e83df846b6ff57bcbe117ae}{matchMainItem} (\$field, \$row, \$search, \$match)
+\item 
+\hyperlink{classIsisFinder_a20539e44cfc30ca3897e174781c4b26c}{matchSubfield} (\$field, \$subfield, \$row, \$search, \$match)
 \end{DoxyCompactItemize}
 
 
@@ -37,6 +43,32 @@ Check if a field result has a given subfield.
 \item[{\em \$field}]Field data.\item[{\em \$subfield}]Subfield.\end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 True if result has the subfield, false otherwise. 
+\end{DoxyReturn}
+\hypertarget{classIsisFinder_ab35a9bb21e83df846b6ff57bcbe117ae}{
+\index{IsisFinder@{IsisFinder}!matchMainItem@{matchMainItem}}
+\index{matchMainItem@{matchMainItem}!IsisFinder@{IsisFinder}}
+\subsubsection[{matchMainItem}]{\setlength{\rightskip}{0pt plus 5cm}IsisFinder::matchMainItem (\$ {\em field}, \/  \$ {\em row}, \/  \$ {\em search}, \/  \$ {\em match})}}
+\label{classIsisFinder_ab35a9bb21e83df846b6ff57bcbe117ae}
+Check if a main item match a given value.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field data.\item[{\em \$row}]Row number.\item[{\em \$search}]Search token.\item[{\em \$match}]Set to false do find the next result where the item has not the token specified in \$search.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if match, false otherwise. 
+\end{DoxyReturn}
+\hypertarget{classIsisFinder_a20539e44cfc30ca3897e174781c4b26c}{
+\index{IsisFinder@{IsisFinder}!matchSubfield@{matchSubfield}}
+\index{matchSubfield@{matchSubfield}!IsisFinder@{IsisFinder}}
+\subsubsection[{matchSubfield}]{\setlength{\rightskip}{0pt plus 5cm}IsisFinder::matchSubfield (\$ {\em field}, \/  \$ {\em subfield}, \/  \$ {\em row}, \/  \$ {\em search}, \/  \$ {\em match})}}
+\label{classIsisFinder_a20539e44cfc30ca3897e174781c4b26c}
+Check if a subfield match a given value.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field data.\item[{\em \$subfield}]Subfield name.\item[{\em \$row}]Row number.\item[{\em \$search}]Search token.\item[{\em \$match}]Set to false do find the next result where the item has not the token specified in \$search.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if match, false otherwise. 
 \end{DoxyReturn}
 \hypertarget{classIsisFinder_a7d708e281bea35ee38f5875c8f2cad8d}{
 \index{IsisFinder@{IsisFinder}!nextField@{nextField}}
@@ -64,6 +96,16 @@ Find the next repetition of a field.
 \begin{DoxyReturn}{Returns}
 Next repetition entry and result. 
 \end{DoxyReturn}
+\hypertarget{classIsisFinder_af965ba4acae18aa61bc4a3242bcdadfc}{
+\index{IsisFinder@{IsisFinder}!nextResult@{nextResult}}
+\index{nextResult@{nextResult}!IsisFinder@{IsisFinder}}
+\subsubsection[{nextResult}]{\setlength{\rightskip}{0pt plus 5cm}IsisFinder::nextResult (\$ {\em field}, \/  \$ {\em item}, \/  \$ {\em search}, \/  \$ {\em entry} = {\ttfamily 1}, \/  \$ {\em match} = {\ttfamily TRUE})}}
+\label{classIsisFinder_af965ba4acae18aa61bc4a3242bcdadfc}
+Search the next match inside a result.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field data.\item[{\em \$item}]Item name (main field or subfield).\item[{\em \$search}]Search token.\item[{\em \$entry}]Start entry number to begin the search.\item[{\em \$match}]Set to false do find the next result where the item has not the token specified in \$search. \end{DoxyParams}
 \hypertarget{classIsisFinder_aa367980783d341197e003684a639ff1a}{
 \index{IsisFinder@{IsisFinder}!nextSubfield@{nextSubfield}}
 \index{nextSubfield@{nextSubfield}!IsisFinder@{IsisFinder}}
