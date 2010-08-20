@@ -1,0 +1,192 @@
+\hypertarget{classPhpIsisDb}{
+\section{PhpIsisDb Class Reference}
+\label{classPhpIsisDb}\index{PhpIsisDb@{PhpIsisDb}}
+}
+Inheritance diagram for PhpIsisDb:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classPhpIsisDb}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPhpIsisDb_abb6db51373d065baf9135fd278653bc5}{\_\-\_\-construct} (\$schema)
+\item 
+\hyperlink{classPhpIsisDb_af2266931746f6f2335b831be8b8333fb}{read} (\$id)
+\item 
+\hyperlink{classPhpIsisDb_a0491ce84e5a85e775f811f18e63ef0fb}{entries} ()
+\item 
+\hyperlink{classPhpIsisDb_a7f4f3a9fd6dab86bd3cb3149d65f92cd}{example} ()
+\item 
+\hyperlink{classPhpIsisDb_a849f238c3323f53431be1c225a914d98}{tag} (\$results)
+\item 
+\hyperlink{classPhpIsisDb_a46f8c39b305f170e2cf8ae5f4d218e74}{charset} (\&\$data)
+\item 
+\hyperlink{classPhpIsisDb_a8d8185060a26d4fe673844b2ea3db39a}{logger} (\$message)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classPhpIsisDb_a23761cc04114090a2863467b2accc80a}{check} (\$schema, \$section=NULL)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPhpIsisDb_a536e4c67dda71a7c7dad9ffbac299f9b}{\$db}
+\item 
+\hyperlink{classPhpIsisDb_a275e29f3711d37fc67cea340b564ddf3}{\$format}
+\item 
+\hyperlink{classPhpIsisDb_a0742105b3efab477fda99cd0561f98c7}{\$log}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+PHP-\/Isis implementation of \hyperlink{interfaceIsisDb}{IsisDb}.
+
+\begin{DoxyWarning}{Warning}
+This implementation is currently outdated and lacks basic functionalities such as subfield handling and therefore it's use is not recommended. 
+\end{DoxyWarning}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classPhpIsisDb_abb6db51373d065baf9135fd278653bc5}{
+\index{PhpIsisDb@{PhpIsisDb}!\_\-\_\-construct@{\_\-\_\-construct}}
+\index{\_\-\_\-construct@{\_\-\_\-construct}!PhpIsisDb@{PhpIsisDb}}
+\subsubsection[{\_\-\_\-construct}]{\setlength{\rightskip}{0pt plus 5cm}PhpIsisDb::\_\-\_\-construct (\$ {\em schema})}}
+\label{classPhpIsisDb_abb6db51373d065baf9135fd278653bc5}
+Constructor.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{interfaceIsisDb_ae1c0a3496d55f710d34c5c19ada7a66b}{IsisDb::\_\-\_\-construct()} 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{interfaceIsisDb_ae1c0a3496d55f710d34c5c19ada7a66b}{IsisDb}.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classPhpIsisDb_a46f8c39b305f170e2cf8ae5f4d218e74}{
+\index{PhpIsisDb@{PhpIsisDb}!charset@{charset}}
+\index{charset@{charset}!PhpIsisDb@{PhpIsisDb}}
+\subsubsection[{charset}]{\setlength{\rightskip}{0pt plus 5cm}PhpIsisDb::charset (\&\$ {\em data})}}
+\label{classPhpIsisDb_a46f8c39b305f170e2cf8ae5f4d218e74}
+Charset conversion.
+
+Converts a string from the database charset to UTF-\/8.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$data}]String to be converted.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String converted to UTF-\/8. 
+\end{DoxyReturn}
+\hypertarget{classPhpIsisDb_a23761cc04114090a2863467b2accc80a}{
+\index{PhpIsisDb@{PhpIsisDb}!check@{check}}
+\index{check@{check}!PhpIsisDb@{PhpIsisDb}}
+\subsubsection[{check}]{\setlength{\rightskip}{0pt plus 5cm}static PhpIsisDb::check (\$ {\em schema}, \/  \$ {\em section} = {\ttfamily NULL})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classPhpIsisDb_a23761cc04114090a2863467b2accc80a}
+Check configuration.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{interfaceIsisDb_af681b8f990b579f1835aa7ba4c83f1b8}{IsisDb::check()} 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{interfaceIsisDb_af681b8f990b579f1835aa7ba4c83f1b8}{IsisDb}.
+
+\hypertarget{classPhpIsisDb_a0491ce84e5a85e775f811f18e63ef0fb}{
+\index{PhpIsisDb@{PhpIsisDb}!entries@{entries}}
+\index{entries@{entries}!PhpIsisDb@{PhpIsisDb}}
+\subsubsection[{entries}]{\setlength{\rightskip}{0pt plus 5cm}PhpIsisDb::entries ()}}
+\label{classPhpIsisDb_a0491ce84e5a85e775f811f18e63ef0fb}
+Return number of entries in the database.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{interfaceIsisDb_a86f38eca2b6d0835b60770d8a4e511ff}{IsisDb::entries()} 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{interfaceIsisDb_a86f38eca2b6d0835b60770d8a4e511ff}{IsisDb}.
+
+\hypertarget{classPhpIsisDb_a7f4f3a9fd6dab86bd3cb3149d65f92cd}{
+\index{PhpIsisDb@{PhpIsisDb}!example@{example}}
+\index{example@{example}!PhpIsisDb@{PhpIsisDb}}
+\subsubsection[{example}]{\setlength{\rightskip}{0pt plus 5cm}PhpIsisDb::example ()}}
+\label{classPhpIsisDb_a7f4f3a9fd6dab86bd3cb3149d65f92cd}
+Return an example schema.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{interfaceIsisDb_a857c10d90da64067efa17afb2f32edb6}{IsisDb::example()} 
+\end{DoxySeeAlso}
+
+
+Implements \hyperlink{interfaceIsisDb_a857c10d90da64067efa17afb2f32edb6}{IsisDb}.
+
+\hypertarget{classPhpIsisDb_a8d8185060a26d4fe673844b2ea3db39a}{
+\index{PhpIsisDb@{PhpIsisDb}!logger@{logger}}
+\index{logger@{logger}!PhpIsisDb@{PhpIsisDb}}
+\subsubsection[{logger}]{\setlength{\rightskip}{0pt plus 5cm}PhpIsisDb::logger (\$ {\em message})}}
+\label{classPhpIsisDb_a8d8185060a26d4fe673844b2ea3db39a}
+Class logger.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$message}]Log message. \end{DoxyParams}
+\hypertarget{classPhpIsisDb_af2266931746f6f2335b831be8b8333fb}{
+\index{PhpIsisDb@{PhpIsisDb}!read@{read}}
+\index{read@{read}!PhpIsisDb@{PhpIsisDb}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}PhpIsisDb::read (\$ {\em id})}}
+\label{classPhpIsisDb_af2266931746f6f2335b831be8b8333fb}
+Read an entry.
+
+The PHP-\/Isis API doen't implement such feature so we have to emulate it by geting all entries and using isis\_\-data\_\-seek() to get the desired record.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{interfaceIsisDb_a68335ec0db01ef03f0725621b38b5686}{IsisDb::read()}
+\end{DoxySeeAlso}
+\begin{Desc}
+\item[\hyperlink{todo__todo000003}{Todo}]Subfield handling. \end{Desc}
+
+
+Implements \hyperlink{interfaceIsisDb_a68335ec0db01ef03f0725621b38b5686}{IsisDb}.
+
+\hypertarget{classPhpIsisDb_a849f238c3323f53431be1c225a914d98}{
+\index{PhpIsisDb@{PhpIsisDb}!tag@{tag}}
+\index{tag@{tag}!PhpIsisDb@{PhpIsisDb}}
+\subsubsection[{tag}]{\setlength{\rightskip}{0pt plus 5cm}PhpIsisDb::tag (\$ {\em results})}}
+\label{classPhpIsisDb_a849f238c3323f53431be1c225a914d98}
+Tag results of a db query.
+
+This function converts the keys of query result from field numbers to names.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$results}]Database query results.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Tagged database result. 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classPhpIsisDb_a536e4c67dda71a7c7dad9ffbac299f9b}{
+\index{PhpIsisDb@{PhpIsisDb}!\$db@{\$db}}
+\index{\$db@{\$db}!PhpIsisDb@{PhpIsisDb}}
+\subsubsection[{\$db}]{\setlength{\rightskip}{0pt plus 5cm}PhpIsisDb::\$db}}
+\label{classPhpIsisDb_a536e4c67dda71a7c7dad9ffbac299f9b}
+Database resource. \hypertarget{classPhpIsisDb_a275e29f3711d37fc67cea340b564ddf3}{
+\index{PhpIsisDb@{PhpIsisDb}!\$format@{\$format}}
+\index{\$format@{\$format}!PhpIsisDb@{PhpIsisDb}}
+\subsubsection[{\$format}]{\setlength{\rightskip}{0pt plus 5cm}PhpIsisDb::\$format}}
+\label{classPhpIsisDb_a275e29f3711d37fc67cea340b564ddf3}
+Database format, derived from \$schema. \hypertarget{classPhpIsisDb_a0742105b3efab477fda99cd0561f98c7}{
+\index{PhpIsisDb@{PhpIsisDb}!\$log@{\$log}}
+\index{\$log@{\$log}!PhpIsisDb@{PhpIsisDb}}
+\subsubsection[{\$log}]{\setlength{\rightskip}{0pt plus 5cm}PhpIsisDb::\$log}}
+\label{classPhpIsisDb_a0742105b3efab477fda99cd0561f98c7}
+Class action log. 
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+classes/backends/PhpIsisDb.php\end{DoxyCompactItemize}

@@ -3,5 +3,4 @@ localhost:*
 db/*
 contrib/*
 tmp/*
-doc/*
 schemas

@@ -1,0 +1,261 @@
+\hypertarget{classIsisMap}{
+\section{IsisMap Class Reference}
+\label{classIsisMap}\index{IsisMap@{IsisMap}}
+}
+Inheritance diagram for IsisMap:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5cm]{classIsisMap}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classIsisMap_af689f27e67b0b38a3e880ead17a487f5}{getMainItemName} (\$field)
+\item 
+\hyperlink{classIsisMap_ad0b61ec2fbfb011db4bf89c5f54efab4}{getSubfieldList} (\$field)
+\item 
+\hyperlink{classIsisMap_a29eb2c45b51f95fdfb9ff7af770ca6ce}{getMap} (\$field, \$subfield=NULL)
+\item 
+\hyperlink{classIsisMap_a62b933be483fb6704e12e41f10286cd5}{getMapType} (\$field)
+\item 
+\hyperlink{classIsisMap_af94e1fc5d73a6272f04a60c0acaeb409}{fieldHasMap} (\$field)
+\item 
+\hyperlink{classIsisMap_ab5493af644e529c11a3c3e6edc37c3b9}{subfieldHasMap} (\$field, \$subfield)
+\item 
+\hyperlink{classIsisMap_ae5d904b8407b38751656715fb9efd7cf}{getSubfieldKey} (\$field, \$subfield)
+\item 
+\hyperlink{classIsisMap_a994934784caa4149737bda55160a459f}{getItemKey} (\$field, \$item)
+\item 
+\hyperlink{classIsisMap_ac6a4eed048ddfa62c76e6d813754af81}{getFieldKey} (\$field)
+\item 
+\hyperlink{classIsisMap_aee1953b6e46b1612c725b2da82414d14}{getFieldArray} (\$field\_\-key)
+\item 
+\hyperlink{classIsisMap_a83ffdd84c385513a09e5ab523a44d6f2}{getSubfieldName} (\$field\_\-key, \$subfield\_\-key)
+\item 
+\hyperlink{classIsisMap_ae41313537e399f15ff16a4db887cf5b9}{getFieldName} (\$field\_\-key)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classIsisMap_af80aedabfeca623a9022dfcbc95d591c}{methodName} (\$type)
+\item 
+static \hyperlink{classIsisMap_ae2abf0591a4862f537fa23537ffca705}{normalizeFieldName} (\$name)
+\item 
+static \hyperlink{classIsisMap_a7f1b9b1cce7a02dea704a40ca85e2117}{mapName} (\$name)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides mappings and schema functionalities around \hyperlink{classCinisis}{Cinisis}. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classIsisMap_af94e1fc5d73a6272f04a60c0acaeb409}{
+\index{IsisMap@{IsisMap}!fieldHasMap@{fieldHasMap}}
+\index{fieldHasMap@{fieldHasMap}!IsisMap@{IsisMap}}
+\subsubsection[{fieldHasMap}]{\setlength{\rightskip}{0pt plus 5cm}IsisMap::fieldHasMap (\$ {\em field})}}
+\label{classIsisMap_af94e1fc5d73a6272f04a60c0acaeb409}
+Check on an ISIS schema whether a field has a map.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field array.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE if field has a map, FALSE otherwise. 
+\end{DoxyReturn}
+\hypertarget{classIsisMap_aee1953b6e46b1612c725b2da82414d14}{
+\index{IsisMap@{IsisMap}!getFieldArray@{getFieldArray}}
+\index{getFieldArray@{getFieldArray}!IsisMap@{IsisMap}}
+\subsubsection[{getFieldArray}]{\setlength{\rightskip}{0pt plus 5cm}IsisMap::getFieldArray (\$ {\em field\_\-key})}}
+\label{classIsisMap_aee1953b6e46b1612c725b2da82414d14}
+Get the array which defines a field.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field\_\-key}]Field key.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Field array. 
+\end{DoxyReturn}
+\hypertarget{classIsisMap_ac6a4eed048ddfa62c76e6d813754af81}{
+\index{IsisMap@{IsisMap}!getFieldKey@{getFieldKey}}
+\index{getFieldKey@{getFieldKey}!IsisMap@{IsisMap}}
+\subsubsection[{getFieldKey}]{\setlength{\rightskip}{0pt plus 5cm}IsisMap::getFieldKey (\$ {\em field})}}
+\label{classIsisMap_ac6a4eed048ddfa62c76e6d813754af81}
+Get the key of a field entry.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field array.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Field key. 
+\end{DoxyReturn}
+\hypertarget{classIsisMap_ae41313537e399f15ff16a4db887cf5b9}{
+\index{IsisMap@{IsisMap}!getFieldName@{getFieldName}}
+\index{getFieldName@{getFieldName}!IsisMap@{IsisMap}}
+\subsubsection[{getFieldName}]{\setlength{\rightskip}{0pt plus 5cm}IsisMap::getFieldName (\$ {\em field\_\-key})}}
+\label{classIsisMap_ae41313537e399f15ff16a4db887cf5b9}
+Get a field name.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field\_\-key}]Field key.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Field name. 
+\end{DoxyReturn}
+\hypertarget{classIsisMap_a994934784caa4149737bda55160a459f}{
+\index{IsisMap@{IsisMap}!getItemKey@{getItemKey}}
+\index{getItemKey@{getItemKey}!IsisMap@{IsisMap}}
+\subsubsection[{getItemKey}]{\setlength{\rightskip}{0pt plus 5cm}IsisMap::getItemKey (\$ {\em field}, \/  \$ {\em item})}}
+\label{classIsisMap_a994934784caa4149737bda55160a459f}
+Get the item key.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field array.\item[{\em \$item}]Item name.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Item key. 
+\end{DoxyReturn}
+\hypertarget{classIsisMap_af689f27e67b0b38a3e880ead17a487f5}{
+\index{IsisMap@{IsisMap}!getMainItemName@{getMainItemName}}
+\index{getMainItemName@{getMainItemName}!IsisMap@{IsisMap}}
+\subsubsection[{getMainItemName}]{\setlength{\rightskip}{0pt plus 5cm}IsisMap::getMainItemName (\$ {\em field})}}
+\label{classIsisMap_af689f27e67b0b38a3e880ead17a487f5}
+Get the main field name.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field data from ISIS database schema.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Main field name. 
+\end{DoxyReturn}
+\hypertarget{classIsisMap_a29eb2c45b51f95fdfb9ff7af770ca6ce}{
+\index{IsisMap@{IsisMap}!getMap@{getMap}}
+\index{getMap@{getMap}!IsisMap@{IsisMap}}
+\subsubsection[{getMap}]{\setlength{\rightskip}{0pt plus 5cm}IsisMap::getMap (\$ {\em field}, \/  \$ {\em subfield} = {\ttfamily NULL})}}
+\label{classIsisMap_a29eb2c45b51f95fdfb9ff7af770ca6ce}
+Determine which model field an ISIS db field should be mapped to. When importing an ISIS database to another system, a mapping provided in the database schema can be used to put the originating entries (fields and subfields) in the right place at the destination database.
+
+Map format:
+
+map: type: relation
+
+map: type: value field: dest subfields: a: dest b: dest
+
+Examples:
+
+map: type: Performer
+
+map: type: value field: title subfields: a: subtitle
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field array.\item[{\em \$subfield}]Subfield name.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A map destination to the field or subfield. 
+\end{DoxyReturn}
+\hypertarget{classIsisMap_a62b933be483fb6704e12e41f10286cd5}{
+\index{IsisMap@{IsisMap}!getMapType@{getMapType}}
+\index{getMapType@{getMapType}!IsisMap@{IsisMap}}
+\subsubsection[{getMapType}]{\setlength{\rightskip}{0pt plus 5cm}IsisMap::getMapType (\$ {\em field})}}
+\label{classIsisMap_a62b933be483fb6704e12e41f10286cd5}
+Get the mapping type of a given field.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field array.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The mapping type. 
+\end{DoxyReturn}
+\hypertarget{classIsisMap_ae5d904b8407b38751656715fb9efd7cf}{
+\index{IsisMap@{IsisMap}!getSubfieldKey@{getSubfieldKey}}
+\index{getSubfieldKey@{getSubfieldKey}!IsisMap@{IsisMap}}
+\subsubsection[{getSubfieldKey}]{\setlength{\rightskip}{0pt plus 5cm}IsisMap::getSubfieldKey (\$ {\em field}, \/  \$ {\em subfield})}}
+\label{classIsisMap_ae5d904b8407b38751656715fb9efd7cf}
+Get the key of a subfield entry.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field array.\item[{\em \$subfield}]Subfield name.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Subfield key. 
+\end{DoxyReturn}
+\hypertarget{classIsisMap_ad0b61ec2fbfb011db4bf89c5f54efab4}{
+\index{IsisMap@{IsisMap}!getSubfieldList@{getSubfieldList}}
+\index{getSubfieldList@{getSubfieldList}!IsisMap@{IsisMap}}
+\subsubsection[{getSubfieldList}]{\setlength{\rightskip}{0pt plus 5cm}IsisMap::getSubfieldList (\$ {\em field})}}
+\label{classIsisMap_ad0b61ec2fbfb011db4bf89c5f54efab4}
+Get the list of subfields from a given field.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field array. \end{DoxyParams}
+\hypertarget{classIsisMap_a83ffdd84c385513a09e5ab523a44d6f2}{
+\index{IsisMap@{IsisMap}!getSubfieldName@{getSubfieldName}}
+\index{getSubfieldName@{getSubfieldName}!IsisMap@{IsisMap}}
+\subsubsection[{getSubfieldName}]{\setlength{\rightskip}{0pt plus 5cm}IsisMap::getSubfieldName (\$ {\em field\_\-key}, \/  \$ {\em subfield\_\-key})}}
+\label{classIsisMap_a83ffdd84c385513a09e5ab523a44d6f2}
+Get a subfield name.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field\_\-key}]Field key.\item[{\em \$subfield\_\-key}]Subfield key.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Subfield name. 
+\end{DoxyReturn}
+\hypertarget{classIsisMap_a7f1b9b1cce7a02dea704a40ca85e2117}{
+\index{IsisMap@{IsisMap}!mapName@{mapName}}
+\index{mapName@{mapName}!IsisMap@{IsisMap}}
+\subsubsection[{mapName}]{\setlength{\rightskip}{0pt plus 5cm}static IsisMap::mapName (\$ {\em name})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classIsisMap_a7f1b9b1cce7a02dea704a40ca85e2117}
+Build a map name.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$name}]Field name\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Map name 
+\end{DoxyReturn}
+\hypertarget{classIsisMap_af80aedabfeca623a9022dfcbc95d591c}{
+\index{IsisMap@{IsisMap}!methodName@{methodName}}
+\index{methodName@{methodName}!IsisMap@{IsisMap}}
+\subsubsection[{methodName}]{\setlength{\rightskip}{0pt plus 5cm}static IsisMap::methodName (\$ {\em type})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classIsisMap_af80aedabfeca623a9022dfcbc95d591c}
+Guess a method name from a type.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$type}]Mapping type.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Method name. 
+\end{DoxyReturn}
+\hypertarget{classIsisMap_ae2abf0591a4862f537fa23537ffca705}{
+\index{IsisMap@{IsisMap}!normalizeFieldName@{normalizeFieldName}}
+\index{normalizeFieldName@{normalizeFieldName}!IsisMap@{IsisMap}}
+\subsubsection[{normalizeFieldName}]{\setlength{\rightskip}{0pt plus 5cm}static IsisMap::normalizeFieldName (\$ {\em name})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classIsisMap_ae2abf0591a4862f537fa23537ffca705}
+Normalize field names.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$name}]Field name\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Normalized field name 
+\end{DoxyReturn}
+\hypertarget{classIsisMap_ab5493af644e529c11a3c3e6edc37c3b9}{
+\index{IsisMap@{IsisMap}!subfieldHasMap@{subfieldHasMap}}
+\index{subfieldHasMap@{subfieldHasMap}!IsisMap@{IsisMap}}
+\subsubsection[{subfieldHasMap}]{\setlength{\rightskip}{0pt plus 5cm}IsisMap::subfieldHasMap (\$ {\em field}, \/  \$ {\em subfield})}}
+\label{classIsisMap_ab5493af644e529c11a3c3e6edc37c3b9}
+Check on an ISIS schema whether a subfield has a map.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field array.\item[{\em \$subfield}]Subfield name.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE if subfield has a map, FALSE otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+classes/IsisMap.php\end{DoxyCompactItemize}

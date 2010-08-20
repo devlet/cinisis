@@ -1,0 +1,157 @@
+\hypertarget{classIsisReader}{
+\section{IsisReader Class Reference}
+\label{classIsisReader}\index{IsisReader@{IsisReader}}
+}
+Inheritance diagram for IsisReader:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5cm]{classIsisReader}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classIsisReader_a70d1444cf56269795b4947dd82b2a4ac}{\_\-\_\-construct} (\$config=null)
+\item 
+\hyperlink{classIsisReader_afa6e3d3d94854913e5ed2604919d2316}{open} (\$config)
+\item 
+\hyperlink{classIsisReader_a630791a319bec2bc55d0102cbb7f93df}{read} (\$entry)
+\item 
+\hyperlink{classIsisReader_a99ce7b10b2997dad6a64558ac1f9f10e}{removeBrackets} (\$value)
+\item 
+\hyperlink{classIsisReader_a60ece3bbe11a2b4ac6afa6e65f282724}{removeBracketsFromArray} (\&\$values)
+\item 
+\hyperlink{classIsisReader_a4610ebcf69c197e2c596965e2dc0358e}{explodeBrackets} (\$subject)
+\item 
+\hyperlink{classIsisReader_aa6099ed6bd276b32bd7bba184f144529}{filterBrackets} (\$values)
+\item 
+\hyperlink{classIsisReader_a109a6ef49b2190bfbcee796dae954baf}{hasBrackets} (\$value)
+\item 
+\hyperlink{classIsisReader_a3cc08df25da082046d496db93778709b}{explodeValue} (\$value)
+\item 
+\hyperlink{classIsisReader_ae65e172e3b5c9ac3c8a5e1352ba80904}{joinSubfields} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides basic Isis read capabilities around \hyperlink{classCinisis}{Cinisis}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classIsisReader_a70d1444cf56269795b4947dd82b2a4ac}{
+\index{IsisReader@{IsisReader}!\_\-\_\-construct@{\_\-\_\-construct}}
+\index{\_\-\_\-construct@{\_\-\_\-construct}!IsisReader@{IsisReader}}
+\subsubsection[{\_\-\_\-construct}]{\setlength{\rightskip}{0pt plus 5cm}IsisReader::\_\-\_\-construct (\$ {\em config} = {\ttfamily null})}}
+\label{classIsisReader_a70d1444cf56269795b4947dd82b2a4ac}
+Constructor. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classIsisReader_a4610ebcf69c197e2c596965e2dc0358e}{
+\index{IsisReader@{IsisReader}!explodeBrackets@{explodeBrackets}}
+\index{explodeBrackets@{explodeBrackets}!IsisReader@{IsisReader}}
+\subsubsection[{explodeBrackets}]{\setlength{\rightskip}{0pt plus 5cm}IsisReader::explodeBrackets (\$ {\em subject})}}
+\label{classIsisReader_a4610ebcf69c197e2c596965e2dc0358e}
+Explode a bracketed string into values. Just strings inside brackets are returned.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$subject}]Strings containing brackets.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Array of matched strings. 
+\end{DoxyReturn}
+\hypertarget{classIsisReader_a3cc08df25da082046d496db93778709b}{
+\index{IsisReader@{IsisReader}!explodeValue@{explodeValue}}
+\index{explodeValue@{explodeValue}!IsisReader@{IsisReader}}
+\subsubsection[{explodeValue}]{\setlength{\rightskip}{0pt plus 5cm}IsisReader::explodeValue (\$ {\em value})}}
+\label{classIsisReader_a3cc08df25da082046d496db93778709b}
+Explode values from fields or subfields. Split values inside brackets if needed, but then doesn't return any value outside brackets.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$value}]String with values.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Array with values. 
+\end{DoxyReturn}
+\hypertarget{classIsisReader_aa6099ed6bd276b32bd7bba184f144529}{
+\index{IsisReader@{IsisReader}!filterBrackets@{filterBrackets}}
+\index{filterBrackets@{filterBrackets}!IsisReader@{IsisReader}}
+\subsubsection[{filterBrackets}]{\setlength{\rightskip}{0pt plus 5cm}IsisReader::filterBrackets (\$ {\em values})}}
+\label{classIsisReader_aa6099ed6bd276b32bd7bba184f144529}
+Filter out brackets from strings.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$values}]String (or array filled with strings) to be filtered.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Filtered string or array. 
+\end{DoxyReturn}
+\hypertarget{classIsisReader_a109a6ef49b2190bfbcee796dae954baf}{
+\index{IsisReader@{IsisReader}!hasBrackets@{hasBrackets}}
+\index{hasBrackets@{hasBrackets}!IsisReader@{IsisReader}}
+\subsubsection[{hasBrackets}]{\setlength{\rightskip}{0pt plus 5cm}IsisReader::hasBrackets (\$ {\em value})}}
+\label{classIsisReader_a109a6ef49b2190bfbcee796dae954baf}
+Check if a string has brackets.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$value}]String to be compared.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if string has brackets, false otherwise. 
+\end{DoxyReturn}
+\hypertarget{classIsisReader_ae65e172e3b5c9ac3c8a5e1352ba80904}{
+\index{IsisReader@{IsisReader}!joinSubfields@{joinSubfields}}
+\index{joinSubfields@{joinSubfields}!IsisReader@{IsisReader}}
+\subsubsection[{joinSubfields}]{\setlength{\rightskip}{0pt plus 5cm}IsisReader::joinSubfields ()}}
+\label{classIsisReader_ae65e172e3b5c9ac3c8a5e1352ba80904}
+Whether to join field and subfields in a single array.
+
+\begin{DoxyReturn}{Returns}
+Boolean. 
+\end{DoxyReturn}
+\hypertarget{classIsisReader_afa6e3d3d94854913e5ed2604919d2316}{
+\index{IsisReader@{IsisReader}!open@{open}}
+\index{open@{open}!IsisReader@{IsisReader}}
+\subsubsection[{open}]{\setlength{\rightskip}{0pt plus 5cm}IsisReader::open (\$ {\em config})}}
+\label{classIsisReader_afa6e3d3d94854913e5ed2604919d2316}
+Open a database.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$config}]Config file or array. \end{DoxyParams}
+\hypertarget{classIsisReader_a630791a319bec2bc55d0102cbb7f93df}{
+\index{IsisReader@{IsisReader}!read@{read}}
+\index{read@{read}!IsisReader@{IsisReader}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}IsisReader::read (\$ {\em entry})}}
+\label{classIsisReader_a630791a319bec2bc55d0102cbb7f93df}
+Alias to \$isis-\/$>$db-\/$>$\hyperlink{classIsisReader_a630791a319bec2bc55d0102cbb7f93df}{read()}.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$entry}]Row number.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Resulting data. 
+\end{DoxyReturn}
+\hypertarget{classIsisReader_a99ce7b10b2997dad6a64558ac1f9f10e}{
+\index{IsisReader@{IsisReader}!removeBrackets@{removeBrackets}}
+\index{removeBrackets@{removeBrackets}!IsisReader@{IsisReader}}
+\subsubsection[{removeBrackets}]{\setlength{\rightskip}{0pt plus 5cm}IsisReader::removeBrackets (\$ {\em value})}}
+\label{classIsisReader_a99ce7b10b2997dad6a64558ac1f9f10e}
+Remove brackets from strings whithin an array.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$value}]Array with bracketed strings. \end{DoxyParams}
+\hypertarget{classIsisReader_a60ece3bbe11a2b4ac6afa6e65f282724}{
+\index{IsisReader@{IsisReader}!removeBracketsFromArray@{removeBracketsFromArray}}
+\index{removeBracketsFromArray@{removeBracketsFromArray}!IsisReader@{IsisReader}}
+\subsubsection[{removeBracketsFromArray}]{\setlength{\rightskip}{0pt plus 5cm}IsisReader::removeBracketsFromArray (\&\$ {\em values})}}
+\label{classIsisReader_a60ece3bbe11a2b4ac6afa6e65f282724}
+Remove brackets from strings whithin an array.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \&\$values}]Array with bracketed strings. \end{DoxyParams}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+classes/IsisReader.php\end{DoxyCompactItemize}

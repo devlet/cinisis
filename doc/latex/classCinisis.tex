@@ -1,0 +1,185 @@
+\hypertarget{classCinisis}{
+\section{Cinisis Class Reference}
+\label{classCinisis}\index{Cinisis@{Cinisis}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCinisis_ab9cb7a94d6a5dfb13d50e83e58a4cc10}{\_\-\_\-construct} (\$config=NULL)
+\item 
+\hyperlink{classCinisis_ad5ebe493037aad5a2d8a2f6c51fab09f}{open} (\$config)
+\item 
+\hyperlink{classCinisis_a0bd044303b01793f1a59c54040ff0242}{load} (\$file)
+\item 
+\hyperlink{classCinisis_ae8d2f767bfb149031b1ac7077c45c7d6}{parse} (\$config, \$class=\_\-\_\-CLASS\_\-\_\-)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classCinisis_add6ffac62cffb6ba5e5b0bec552b2cee}{yaml} (\$file)
+\item 
+static \hyperlink{classCinisis_ae6f679192f136ba61e85130ccab8e7ef}{check} (\$config)
+\item 
+static \hyperlink{classCinisis_a125ecd4426e15e2c27daa16d4aaac3f2}{base} ()
+\item 
+static \hyperlink{classCinisis_aac686f5d4862085721eb0de1d6203a57}{file} (\$config=NULL, \$section= 'config')
+\item 
+static \hyperlink{classCinisis_a0163d3358b31657bd6e91f94aa618918}{join\_\-subfields} (\$format)
+\item 
+static \hyperlink{classCinisis_ac470ab9dc1f8c02545708f1c7b820d9e}{main\_\-field\_\-name} (\$format, \$key)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCinisis_ae8aedec88384439c95da89f423a219c0}{\$db}
+\item 
+\hyperlink{classCinisis_ae537c5305e84e86ae7dd305d2cd253fc}{\$implementation}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classCinisis}{Cinisis} main class. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classCinisis_ab9cb7a94d6a5dfb13d50e83e58a4cc10}{
+\index{Cinisis@{Cinisis}!\_\-\_\-construct@{\_\-\_\-construct}}
+\index{\_\-\_\-construct@{\_\-\_\-construct}!Cinisis@{Cinisis}}
+\subsubsection[{\_\-\_\-construct}]{\setlength{\rightskip}{0pt plus 5cm}Cinisis::\_\-\_\-construct (\$ {\em config} = {\ttfamily NULL})}}
+\label{classCinisis_ab9cb7a94d6a5dfb13d50e83e58a4cc10}
+Constructor.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$config}]Optional parameter to set alternative config file or array with configuration. \end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classCinisis_a125ecd4426e15e2c27daa16d4aaac3f2}{
+\index{Cinisis@{Cinisis}!base@{base}}
+\index{base@{base}!Cinisis@{Cinisis}}
+\subsubsection[{base}]{\setlength{\rightskip}{0pt plus 5cm}static Cinisis::base ()\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classCinisis_a125ecd4426e15e2c27daa16d4aaac3f2}
+Get library base folder.
+
+\begin{DoxyReturn}{Returns}
+Return base folder. 
+\end{DoxyReturn}
+\hypertarget{classCinisis_ae6f679192f136ba61e85130ccab8e7ef}{
+\index{Cinisis@{Cinisis}!check@{check}}
+\index{check@{check}!Cinisis@{Cinisis}}
+\subsubsection[{check}]{\setlength{\rightskip}{0pt plus 5cm}static Cinisis::check (\$ {\em config})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classCinisis_ae6f679192f136ba61e85130ccab8e7ef}
+Check configuration.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$config}]Config file or array with configuration.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Array with configuration or FALSE on error. 
+\end{DoxyReturn}
+\hypertarget{classCinisis_aac686f5d4862085721eb0de1d6203a57}{
+\index{Cinisis@{Cinisis}!file@{file}}
+\index{file@{file}!Cinisis@{Cinisis}}
+\subsubsection[{file}]{\setlength{\rightskip}{0pt plus 5cm}static Cinisis::file (\$ {\em config} = {\ttfamily NULL}, \/  \$ {\em section} = {\ttfamily 'config'})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classCinisis_aac686f5d4862085721eb0de1d6203a57}
+Get a file path.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$config}]Config file name (either relative to the library or absolute) or array with configuration.\item[{\em \$section}]Config file section (ignored for absolute files).\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return the assembled file path. 
+\end{DoxyReturn}
+\hypertarget{classCinisis_a0163d3358b31657bd6e91f94aa618918}{
+\index{Cinisis@{Cinisis}!join\_\-subfields@{join\_\-subfields}}
+\index{join\_\-subfields@{join\_\-subfields}!Cinisis@{Cinisis}}
+\subsubsection[{join\_\-subfields}]{\setlength{\rightskip}{0pt plus 5cm}static Cinisis::join\_\-subfields (\$ {\em format})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classCinisis_a0163d3358b31657bd6e91f94aa618918}
+Whether to join field and subfields in a single array.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$format}]Database format.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean. 
+\end{DoxyReturn}
+\hypertarget{classCinisis_a0bd044303b01793f1a59c54040ff0242}{
+\index{Cinisis@{Cinisis}!load@{load}}
+\index{load@{load}!Cinisis@{Cinisis}}
+\subsubsection[{load}]{\setlength{\rightskip}{0pt plus 5cm}Cinisis::load (\$ {\em file})}}
+\label{classCinisis_a0bd044303b01793f1a59c54040ff0242}
+Config file load.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$file}]Config file.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Array with configuration or FALSE if error. 
+\end{DoxyReturn}
+\hypertarget{classCinisis_ac470ab9dc1f8c02545708f1c7b820d9e}{
+\index{Cinisis@{Cinisis}!main\_\-field\_\-name@{main\_\-field\_\-name}}
+\index{main\_\-field\_\-name@{main\_\-field\_\-name}!Cinisis@{Cinisis}}
+\subsubsection[{main\_\-field\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}static Cinisis::main\_\-field\_\-name (\$ {\em format}, \/  \$ {\em key})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classCinisis_ac470ab9dc1f8c02545708f1c7b820d9e}
+Determine the main field name depending on db configuration.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$key}]Field key.\item[{\em \$format}]Database format.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Main field name, 'field' by default. 
+\end{DoxyReturn}
+\hypertarget{classCinisis_ad5ebe493037aad5a2d8a2f6c51fab09f}{
+\index{Cinisis@{Cinisis}!open@{open}}
+\index{open@{open}!Cinisis@{Cinisis}}
+\subsubsection[{open}]{\setlength{\rightskip}{0pt plus 5cm}Cinisis::open (\$ {\em config})}}
+\label{classCinisis_ad5ebe493037aad5a2d8a2f6c51fab09f}
+Open an ISIS database.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$config}]Optional parameter to set alternative config file or array with configuration. \end{DoxyParams}
+\hypertarget{classCinisis_ae8d2f767bfb149031b1ac7077c45c7d6}{
+\index{Cinisis@{Cinisis}!parse@{parse}}
+\index{parse@{parse}!Cinisis@{Cinisis}}
+\subsubsection[{parse}]{\setlength{\rightskip}{0pt plus 5cm}Cinisis::parse (\$ {\em config}, \/  \$ {\em class} = {\ttfamily \_\-\_\-CLASS\_\-\_\-})}}
+\label{classCinisis_ae8d2f767bfb149031b1ac7077c45c7d6}
+Parse configuration.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$config}]Config file or array with configuration.\item[{\em \$class}]Configuration class name.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Array with configuration or FALSE on error. 
+\end{DoxyReturn}
+\hypertarget{classCinisis_add6ffac62cffb6ba5e5b0bec552b2cee}{
+\index{Cinisis@{Cinisis}!yaml@{yaml}}
+\index{yaml@{yaml}!Cinisis@{Cinisis}}
+\subsubsection[{yaml}]{\setlength{\rightskip}{0pt plus 5cm}static Cinisis::yaml (\$ {\em file})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classCinisis_add6ffac62cffb6ba5e5b0bec552b2cee}
+Load YAML into array using backend libraries.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$file}]Config file.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Array with configuration or FALSE if error. 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classCinisis_ae8aedec88384439c95da89f423a219c0}{
+\index{Cinisis@{Cinisis}!\$db@{\$db}}
+\index{\$db@{\$db}!Cinisis@{Cinisis}}
+\subsubsection[{\$db}]{\setlength{\rightskip}{0pt plus 5cm}Cinisis::\$db}}
+\label{classCinisis_ae8aedec88384439c95da89f423a219c0}
+Database resource. \hypertarget{classCinisis_ae537c5305e84e86ae7dd305d2cd253fc}{
+\index{Cinisis@{Cinisis}!\$implementation@{\$implementation}}
+\index{\$implementation@{\$implementation}!Cinisis@{Cinisis}}
+\subsubsection[{\$implementation}]{\setlength{\rightskip}{0pt plus 5cm}Cinisis::\$implementation}}
+\label{classCinisis_ae537c5305e84e86ae7dd305d2cd253fc}
+Database implementation. 
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+classes/Cinisis.php\end{DoxyCompactItemize}

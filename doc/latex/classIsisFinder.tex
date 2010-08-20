@@ -1,0 +1,84 @@
+\hypertarget{classIsisFinder}{
+\section{IsisFinder Class Reference}
+\label{classIsisFinder}\index{IsisFinder@{IsisFinder}}
+}
+Inheritance diagram for IsisFinder:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5cm]{classIsisFinder}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classIsisFinder_ac4e3a8f45995cbf940b3f2899b71bd1e}{nextRepetition} (\$field, \$entry=1)
+\item 
+\hyperlink{classIsisFinder_a7d708e281bea35ee38f5875c8f2cad8d}{nextField} (\$field, \$entry=1)
+\item 
+\hyperlink{classIsisFinder_aa367980783d341197e003684a639ff1a}{nextSubfield} (\$field, \$subfield, \$entry=1)
+\item 
+\hyperlink{classIsisFinder_a41410b18c4462c05ac669e4ee889d8a7}{hasSubfieldInRows} (\$field, \$subfield)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides Isis Database search methods. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classIsisFinder_a41410b18c4462c05ac669e4ee889d8a7}{
+\index{IsisFinder@{IsisFinder}!hasSubfieldInRows@{hasSubfieldInRows}}
+\index{hasSubfieldInRows@{hasSubfieldInRows}!IsisFinder@{IsisFinder}}
+\subsubsection[{hasSubfieldInRows}]{\setlength{\rightskip}{0pt plus 5cm}IsisFinder::hasSubfieldInRows (\$ {\em field}, \/  \$ {\em subfield})}}
+\label{classIsisFinder_a41410b18c4462c05ac669e4ee889d8a7}
+Check if a field result has a given subfield.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field data.\item[{\em \$subfield}]Subfield.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if result has the subfield, false otherwise. 
+\end{DoxyReturn}
+\hypertarget{classIsisFinder_a7d708e281bea35ee38f5875c8f2cad8d}{
+\index{IsisFinder@{IsisFinder}!nextField@{nextField}}
+\index{nextField@{nextField}!IsisFinder@{IsisFinder}}
+\subsubsection[{nextField}]{\setlength{\rightskip}{0pt plus 5cm}IsisFinder::nextField (\$ {\em field}, \/  \$ {\em entry} = {\ttfamily 1})}}
+\label{classIsisFinder_a7d708e281bea35ee38f5875c8f2cad8d}
+Find the next occurrence of a field.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$entry}]Start entry number to begin the search.\item[{\em \$field}]Field data.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Next occurrence. 
+\end{DoxyReturn}
+\hypertarget{classIsisFinder_ac4e3a8f45995cbf940b3f2899b71bd1e}{
+\index{IsisFinder@{IsisFinder}!nextRepetition@{nextRepetition}}
+\index{nextRepetition@{nextRepetition}!IsisFinder@{IsisFinder}}
+\subsubsection[{nextRepetition}]{\setlength{\rightskip}{0pt plus 5cm}IsisFinder::nextRepetition (\$ {\em field}, \/  \$ {\em entry} = {\ttfamily 1})}}
+\label{classIsisFinder_ac4e3a8f45995cbf940b3f2899b71bd1e}
+Find the next repetition of a field.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$entry}]Start entry number to begin the search.\item[{\em \$field}]Field data.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Next repetition entry and result. 
+\end{DoxyReturn}
+\hypertarget{classIsisFinder_aa367980783d341197e003684a639ff1a}{
+\index{IsisFinder@{IsisFinder}!nextSubfield@{nextSubfield}}
+\index{nextSubfield@{nextSubfield}!IsisFinder@{IsisFinder}}
+\subsubsection[{nextSubfield}]{\setlength{\rightskip}{0pt plus 5cm}IsisFinder::nextSubfield (\$ {\em field}, \/  \$ {\em subfield}, \/  \$ {\em entry} = {\ttfamily 1})}}
+\label{classIsisFinder_aa367980783d341197e003684a639ff1a}
+Find the next occurrence of a subfield.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$entry}]Start entry number to begin the search.\item[{\em \$field}]Field data.\item[{\em \$subfield}]Subfield name.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Next occurrence. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+classes/IsisFinder.php\end{DoxyCompactItemize}

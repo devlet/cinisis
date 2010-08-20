@@ -1,0 +1,281 @@
+\hypertarget{classIsisConnector}{
+\section{IsisConnector Class Reference}
+\label{classIsisConnector}\index{IsisConnector@{IsisConnector}}
+}
+Inheritance diagram for IsisConnector:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5cm]{classIsisConnector}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classIsisConnector_a0d1ebc176fe54568044aae02d7932c9b}{getRows} (\$field)
+\item 
+\hyperlink{classIsisConnector_ad806dcc5be703fe9aea63d72d68af0a2}{getValues} (\$field)
+\item 
+\hyperlink{classIsisConnector_aa16bb24a54837048eee6244957cbf091}{getItem} (\$field, \$item, \$row=0)
+\item 
+\hyperlink{classIsisConnector_aa928456a26e0264bf0c1a4869a02cbb3}{getItems} (\$field, \$item)
+\item 
+\hyperlink{classIsisConnector_a21c7c4e9fec2440f8c7d36f8a632c8c2}{getMainItem} (\$field, \$row=0)
+\item 
+\hyperlink{classIsisConnector_a2bace7162ec3bf49df9f7acd9367c360}{getMainItems} (\$field)
+\item 
+\hyperlink{classIsisConnector_a1ddaff24266ee02d652de9a752c1be8e}{getSubfield} (\$field, \$subfield, \$row=0)
+\item 
+\hyperlink{classIsisConnector_ad8af0f5cef3b139649d9fb317264df10}{getSubfields} (\$field, \$subfield)
+\item 
+\hyperlink{classIsisConnector_afc97554b42b8b9e98f396811bbfa13d8}{explodeSubfield} (\$field, \$subfield, \$row)
+\item 
+\hyperlink{classIsisConnector_acfea4d86a683cc7455d258cdb80db478}{explodeItem} (\$field, \$item, \$row)
+\item 
+\hyperlink{classIsisConnector_a8baad24b6abc2ef29d8968f353ea6dae}{filterSubfield} (\$field, \$subfield, \$row)
+\item 
+\hyperlink{classIsisConnector_ad88ed9012aac0687aef1c8554879cd52}{hasItem} (\$field, \$item, \$row=0)
+\item 
+\hyperlink{classIsisConnector_a7bc914f2aa6c523404f368dc0b7b130b}{hasMainItem} (\$field, \$row)
+\item 
+\hyperlink{classIsisConnector_a2e6970a3aca76a1dbb5b4bb5ac3adda1}{hasSubfield} (\$field, \$subfield, \$row)
+\item 
+\hyperlink{classIsisConnector_a10669b49c4145a86dc3662c77733d74d}{existingItemKeys} (\$field, \$row=0)
+\item 
+\hyperlink{classIsisConnector_afbcef48a723b073a2777d5a5ed73d280}{hasFieldSubfieldCondition} (\$field, \$subfield, \$key, \$subkey)
+\item 
+\hyperlink{classIsisConnector_a9050227e8d8f10821a4df08a5705832a}{specialItem} (\$field, \$subfield, \$return= 'boolean')
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classIsisConnector}{IsisConnector}: provides an easy interface to connect an application with \hyperlink{classCinisis}{Cinisis}. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classIsisConnector_a10669b49c4145a86dc3662c77733d74d}{
+\index{IsisConnector@{IsisConnector}!existingItemKeys@{existingItemKeys}}
+\index{existingItemKeys@{existingItemKeys}!IsisConnector@{IsisConnector}}
+\subsubsection[{existingItemKeys}]{\setlength{\rightskip}{0pt plus 5cm}IsisConnector::existingItemKeys (\$ {\em field}, \/  \$ {\em row} = {\ttfamily 0})}}
+\label{classIsisConnector_a10669b49c4145a86dc3662c77733d74d}
+Return the existing key items for a result.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field data.\item[{\em \$row}]Row number.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Array with existing item keys
+\end{DoxyReturn}
+\begin{Desc}
+\item[\hyperlink{todo__todo000001}{Todo}]Test. \end{Desc}
+\hypertarget{classIsisConnector_acfea4d86a683cc7455d258cdb80db478}{
+\index{IsisConnector@{IsisConnector}!explodeItem@{explodeItem}}
+\index{explodeItem@{explodeItem}!IsisConnector@{IsisConnector}}
+\subsubsection[{explodeItem}]{\setlength{\rightskip}{0pt plus 5cm}IsisConnector::explodeItem (\$ {\em field}, \/  \$ {\em item}, \/  \$ {\em row})}}
+\label{classIsisConnector_acfea4d86a683cc7455d258cdb80db478}
+Explode brackets for a given item, avoiding null entries.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field data.\item[{\em \$item}]Item.\item[{\em \$row}]Row number.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Exploded item data. 
+\end{DoxyReturn}
+\hypertarget{classIsisConnector_afc97554b42b8b9e98f396811bbfa13d8}{
+\index{IsisConnector@{IsisConnector}!explodeSubfield@{explodeSubfield}}
+\index{explodeSubfield@{explodeSubfield}!IsisConnector@{IsisConnector}}
+\subsubsection[{explodeSubfield}]{\setlength{\rightskip}{0pt plus 5cm}IsisConnector::explodeSubfield (\$ {\em field}, \/  \$ {\em subfield}, \/  \$ {\em row})}}
+\label{classIsisConnector_afc97554b42b8b9e98f396811bbfa13d8}
+Explode brackets for a given subfield, avoiding null entries.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field data.\item[{\em \$subfield}]Subfield.\item[{\em \$row}]Row number.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Exploded subfield data. 
+\end{DoxyReturn}
+\hypertarget{classIsisConnector_a8baad24b6abc2ef29d8968f353ea6dae}{
+\index{IsisConnector@{IsisConnector}!filterSubfield@{filterSubfield}}
+\index{filterSubfield@{filterSubfield}!IsisConnector@{IsisConnector}}
+\subsubsection[{filterSubfield}]{\setlength{\rightskip}{0pt plus 5cm}IsisConnector::filterSubfield (\$ {\em field}, \/  \$ {\em subfield}, \/  \$ {\em row})}}
+\label{classIsisConnector_a8baad24b6abc2ef29d8968f353ea6dae}
+Filter brackets for a given subfield.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field data.\item[{\em \$subfield}]Subfield.\item[{\em \$row}]Row number.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Filterd subfield data. 
+\end{DoxyReturn}
+\hypertarget{classIsisConnector_aa16bb24a54837048eee6244957cbf091}{
+\index{IsisConnector@{IsisConnector}!getItem@{getItem}}
+\index{getItem@{getItem}!IsisConnector@{IsisConnector}}
+\subsubsection[{getItem}]{\setlength{\rightskip}{0pt plus 5cm}IsisConnector::getItem (\$ {\em field}, \/  \$ {\em item}, \/  \$ {\em row} = {\ttfamily 0})}}
+\label{classIsisConnector_aa16bb24a54837048eee6244957cbf091}
+Get both main field or subfields from a given field and row.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]field array.\item[{\em \$item}]item name (field or subfield).\item[{\em \$row}]row number.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Item data. 
+\end{DoxyReturn}
+\hypertarget{classIsisConnector_aa928456a26e0264bf0c1a4869a02cbb3}{
+\index{IsisConnector@{IsisConnector}!getItems@{getItems}}
+\index{getItems@{getItems}!IsisConnector@{IsisConnector}}
+\subsubsection[{getItems}]{\setlength{\rightskip}{0pt plus 5cm}IsisConnector::getItems (\$ {\em field}, \/  \$ {\em item})}}
+\label{classIsisConnector_aa928456a26e0264bf0c1a4869a02cbb3}
+Get all rows both main field or subfields from a given field.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]field array.\item[{\em \$item}]item name (field or subfield).\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Item data. 
+\end{DoxyReturn}
+\hypertarget{classIsisConnector_a21c7c4e9fec2440f8c7d36f8a632c8c2}{
+\index{IsisConnector@{IsisConnector}!getMainItem@{getMainItem}}
+\index{getMainItem@{getMainItem}!IsisConnector@{IsisConnector}}
+\subsubsection[{getMainItem}]{\setlength{\rightskip}{0pt plus 5cm}IsisConnector::getMainItem (\$ {\em field}, \/  \$ {\em row} = {\ttfamily 0})}}
+\label{classIsisConnector_a21c7c4e9fec2440f8c7d36f8a632c8c2}
+Get the value of a given field.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field array.\item[{\em \$row}]Optional row number if repetitive field.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Field data. 
+\end{DoxyReturn}
+\hypertarget{classIsisConnector_a2bace7162ec3bf49df9f7acd9367c360}{
+\index{IsisConnector@{IsisConnector}!getMainItems@{getMainItems}}
+\index{getMainItems@{getMainItems}!IsisConnector@{IsisConnector}}
+\subsubsection[{getMainItems}]{\setlength{\rightskip}{0pt plus 5cm}IsisConnector::getMainItems (\$ {\em field})}}
+\label{classIsisConnector_a2bace7162ec3bf49df9f7acd9367c360}
+Get all values of a given field.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field array.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Field data. 
+\end{DoxyReturn}
+\hypertarget{classIsisConnector_a0d1ebc176fe54568044aae02d7932c9b}{
+\index{IsisConnector@{IsisConnector}!getRows@{getRows}}
+\index{getRows@{getRows}!IsisConnector@{IsisConnector}}
+\subsubsection[{getRows}]{\setlength{\rightskip}{0pt plus 5cm}IsisConnector::getRows (\$ {\em field})}}
+\label{classIsisConnector_a0d1ebc176fe54568044aae02d7932c9b}
+Get the number of resulting rows for a given field.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field array.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of rows. 
+\end{DoxyReturn}
+\hypertarget{classIsisConnector_a1ddaff24266ee02d652de9a752c1be8e}{
+\index{IsisConnector@{IsisConnector}!getSubfield@{getSubfield}}
+\index{getSubfield@{getSubfield}!IsisConnector@{IsisConnector}}
+\subsubsection[{getSubfield}]{\setlength{\rightskip}{0pt plus 5cm}IsisConnector::getSubfield (\$ {\em field}, \/  \$ {\em subfield}, \/  \$ {\em row} = {\ttfamily 0})}}
+\label{classIsisConnector_a1ddaff24266ee02d652de9a752c1be8e}
+Get the value of a given subfield.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field array.\item[{\em \$subfield}]Subfield name.\item[{\em \$row}]Row number if repetitive data.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Subfield data. 
+\end{DoxyReturn}
+\hypertarget{classIsisConnector_ad8af0f5cef3b139649d9fb317264df10}{
+\index{IsisConnector@{IsisConnector}!getSubfields@{getSubfields}}
+\index{getSubfields@{getSubfields}!IsisConnector@{IsisConnector}}
+\subsubsection[{getSubfields}]{\setlength{\rightskip}{0pt plus 5cm}IsisConnector::getSubfields (\$ {\em field}, \/  \$ {\em subfield})}}
+\label{classIsisConnector_ad8af0f5cef3b139649d9fb317264df10}
+Get all values of a given subfield.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field array.\item[{\em \$subfield}]Subfield name.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Subfield data. 
+\end{DoxyReturn}
+\hypertarget{classIsisConnector_ad806dcc5be703fe9aea63d72d68af0a2}{
+\index{IsisConnector@{IsisConnector}!getValues@{getValues}}
+\index{getValues@{getValues}!IsisConnector@{IsisConnector}}
+\subsubsection[{getValues}]{\setlength{\rightskip}{0pt plus 5cm}IsisConnector::getValues (\$ {\em field})}}
+\label{classIsisConnector_ad806dcc5be703fe9aea63d72d68af0a2}
+Get all values of a given field.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field array.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Field data. 
+\end{DoxyReturn}
+\hypertarget{classIsisConnector_afbcef48a723b073a2777d5a5ed73d280}{
+\index{IsisConnector@{IsisConnector}!hasFieldSubfieldCondition@{hasFieldSubfieldCondition}}
+\index{hasFieldSubfieldCondition@{hasFieldSubfieldCondition}!IsisConnector@{IsisConnector}}
+\subsubsection[{hasFieldSubfieldCondition}]{\setlength{\rightskip}{0pt plus 5cm}IsisConnector::hasFieldSubfieldCondition (\$ {\em field}, \/  \$ {\em subfield}, \/  \$ {\em key}, \/  \$ {\em subkey})}}
+\label{classIsisConnector_afbcef48a723b073a2777d5a5ed73d280}
+Check if a field and subfield match a given condition.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field data.\item[{\em \$subfield}]Subfield.\item[{\em \$key}]Field key.\item[{\em \$subkey}]Subfield key.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if condition match, false otherwise. 
+\end{DoxyReturn}
+\hypertarget{classIsisConnector_ad88ed9012aac0687aef1c8554879cd52}{
+\index{IsisConnector@{IsisConnector}!hasItem@{hasItem}}
+\index{hasItem@{hasItem}!IsisConnector@{IsisConnector}}
+\subsubsection[{hasItem}]{\setlength{\rightskip}{0pt plus 5cm}IsisConnector::hasItem (\$ {\em field}, \/  \$ {\em item}, \/  \$ {\em row} = {\ttfamily 0})}}
+\label{classIsisConnector_ad88ed9012aac0687aef1c8554879cd52}
+Check if a field result has an item.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field data.\item[{\em \$item}]Item code ('main' for the main item).\item[{\em \$row}]Row number.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if result has the main item, false otherwise. 
+\end{DoxyReturn}
+\hypertarget{classIsisConnector_a7bc914f2aa6c523404f368dc0b7b130b}{
+\index{IsisConnector@{IsisConnector}!hasMainItem@{hasMainItem}}
+\index{hasMainItem@{hasMainItem}!IsisConnector@{IsisConnector}}
+\subsubsection[{hasMainItem}]{\setlength{\rightskip}{0pt plus 5cm}IsisConnector::hasMainItem (\$ {\em field}, \/  \$ {\em row})}}
+\label{classIsisConnector_a7bc914f2aa6c523404f368dc0b7b130b}
+Check if a field result has a main item.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field data.\item[{\em \$row}]Row number.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if result has the main item, false otherwise. 
+\end{DoxyReturn}
+\hypertarget{classIsisConnector_a2e6970a3aca76a1dbb5b4bb5ac3adda1}{
+\index{IsisConnector@{IsisConnector}!hasSubfield@{hasSubfield}}
+\index{hasSubfield@{hasSubfield}!IsisConnector@{IsisConnector}}
+\subsubsection[{hasSubfield}]{\setlength{\rightskip}{0pt plus 5cm}IsisConnector::hasSubfield (\$ {\em field}, \/  \$ {\em subfield}, \/  \$ {\em row})}}
+\label{classIsisConnector_a2e6970a3aca76a1dbb5b4bb5ac3adda1}
+Check if a field result and row has a given subfield.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field data.\item[{\em \$subfield}]Subfield.\item[{\em \$row}]Row number.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if result has the subfield, false otherwise. 
+\end{DoxyReturn}
+\hypertarget{classIsisConnector_a9050227e8d8f10821a4df08a5705832a}{
+\index{IsisConnector@{IsisConnector}!specialItem@{specialItem}}
+\index{specialItem@{specialItem}!IsisConnector@{IsisConnector}}
+\subsubsection[{specialItem}]{\setlength{\rightskip}{0pt plus 5cm}IsisConnector::specialItem (\$ {\em field}, \/  \$ {\em subfield}, \/  \$ {\em return} = {\ttfamily 'boolean'})}}
+\label{classIsisConnector_a9050227e8d8f10821a4df08a5705832a}
+Deal with special items.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field data from ISIS database schema.\item[{\em \$subfield}]Subfield name.\item[{\em \$return}]Specify return type.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if special subfield, false otherwise of special return type 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+classes/IsisConnector.php\end{DoxyCompactItemize}

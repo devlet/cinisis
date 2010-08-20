@@ -1,0 +1,123 @@
+\hypertarget{interfaceIsisDb}{
+\section{IsisDb Interface Reference}
+\label{interfaceIsisDb}\index{IsisDb@{IsisDb}}
+}
+Inheritance diagram for IsisDb:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{interfaceIsisDb}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{interfaceIsisDb_ae1c0a3496d55f710d34c5c19ada7a66b}{\_\-\_\-construct} (\$schema)
+\item 
+\hyperlink{interfaceIsisDb_a68335ec0db01ef03f0725621b38b5686}{read} (\$id)
+\item 
+\hyperlink{interfaceIsisDb_a86f38eca2b6d0835b60770d8a4e511ff}{entries} ()
+\item 
+\hyperlink{interfaceIsisDb_a857c10d90da64067efa17afb2f32edb6}{example} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{interfaceIsisDb_af681b8f990b579f1835aa7ba4c83f1b8}{check} (\$schema, \$section=NULL)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Generic interface for reading Isis databases. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{interfaceIsisDb_ae1c0a3496d55f710d34c5c19ada7a66b}{
+\index{IsisDb@{IsisDb}!\_\-\_\-construct@{\_\-\_\-construct}}
+\index{\_\-\_\-construct@{\_\-\_\-construct}!IsisDb@{IsisDb}}
+\subsubsection[{\_\-\_\-construct}]{\setlength{\rightskip}{0pt plus 5cm}IsisDb::\_\-\_\-construct (\$ {\em schema})}}
+\label{interfaceIsisDb_ae1c0a3496d55f710d34c5c19ada7a66b}
+Constructor.
+
+The implementation constructor should accept a database schema definition and setup the appropriate db resource.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$schema}]High level database schema description.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Database resource or FALSE in case of error.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+default\_\-schema() 
+\end{DoxySeeAlso}
+
+
+Implemented in \hyperlink{classBiblioIsisDb_ab2c5ec782b324847e104d8ad35a230af}{BiblioIsisDb}, \hyperlink{classMaleteDb_a60f87371bc1ec156b010e5b38b4c22e2}{MaleteDb}, and \hyperlink{classPhpIsisDb_abb6db51373d065baf9135fd278653bc5}{PhpIsisDb}.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{interfaceIsisDb_af681b8f990b579f1835aa7ba4c83f1b8}{
+\index{IsisDb@{IsisDb}!check@{check}}
+\index{check@{check}!IsisDb@{IsisDb}}
+\subsubsection[{check}]{\setlength{\rightskip}{0pt plus 5cm}static IsisDb::check (\$ {\em schema}, \/  \$ {\em section} = {\ttfamily NULL})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{interfaceIsisDb_af681b8f990b579f1835aa7ba4c83f1b8}
+Configuration check.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$schema}]Database schema to check.\item[{\em \$section}]Configuration section.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Database schema or FALSE if error. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classBiblioIsisDb_a929467f1907d3aeaeebe493f0c188c5b}{BiblioIsisDb}, \hyperlink{classMaleteDb_ab2da32d84af17df79d947ae32257b4ec}{MaleteDb}, and \hyperlink{classPhpIsisDb_a23761cc04114090a2863467b2accc80a}{PhpIsisDb}.
+
+\hypertarget{interfaceIsisDb_a86f38eca2b6d0835b60770d8a4e511ff}{
+\index{IsisDb@{IsisDb}!entries@{entries}}
+\index{entries@{entries}!IsisDb@{IsisDb}}
+\subsubsection[{entries}]{\setlength{\rightskip}{0pt plus 5cm}IsisDb::entries ()}}
+\label{interfaceIsisDb_a86f38eca2b6d0835b60770d8a4e511ff}
+Return number of entries in the database.
+
+\begin{DoxyReturn}{Returns}
+Number of entries in the database. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classBiblioIsisDb_ab6b0a977c066c25c6bdca5c1d3a083e8}{BiblioIsisDb}, \hyperlink{classMaleteDb_a5c6cb09a072e5d2ddce31c77098ccba4}{MaleteDb}, and \hyperlink{classPhpIsisDb_a0491ce84e5a85e775f811f18e63ef0fb}{PhpIsisDb}.
+
+\hypertarget{interfaceIsisDb_a857c10d90da64067efa17afb2f32edb6}{
+\index{IsisDb@{IsisDb}!example@{example}}
+\index{example@{example}!IsisDb@{IsisDb}}
+\subsubsection[{example}]{\setlength{\rightskip}{0pt plus 5cm}IsisDb::example ()}}
+\label{interfaceIsisDb_a857c10d90da64067efa17afb2f32edb6}
+Return an example database schema.
+
+The example schema should have all information the implementation needs to be able to open and read a database.
+
+\begin{DoxyReturn}{Returns}
+Array with a sample database schema. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classBiblioIsisDb_a8e76b289b9e3a9893b9469094753d2bc}{BiblioIsisDb}, \hyperlink{classMaleteDb_a4f16c48facae498d0db1a042e9727d04}{MaleteDb}, and \hyperlink{classPhpIsisDb_a7f4f3a9fd6dab86bd3cb3149d65f92cd}{PhpIsisDb}.
+
+\hypertarget{interfaceIsisDb_a68335ec0db01ef03f0725621b38b5686}{
+\index{IsisDb@{IsisDb}!read@{read}}
+\index{read@{read}!IsisDb@{IsisDb}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}IsisDb::read (\$ {\em id})}}
+\label{interfaceIsisDb_a68335ec0db01ef03f0725621b38b5686}
+Read an entry from the database.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$id}]Database entry id. \end{DoxyParams}
+
+
+Implemented in \hyperlink{classMaleteDb_ad2a65876db24adc388afce465e0c153e}{MaleteDb}, and \hyperlink{classPhpIsisDb_af2266931746f6f2335b831be8b8333fb}{PhpIsisDb}.
+
+
+
+The documentation for this interface was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+classes/backends/IsisDb.php\end{DoxyCompactItemize}
