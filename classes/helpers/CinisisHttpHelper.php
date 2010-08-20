@@ -10,7 +10,7 @@ class CinisisHttpHelper {
    * @param $name
    *   Argument name.
    *
-   * @param $mixed
+   * @param $default
    *   Default value.
    *
    * @return
