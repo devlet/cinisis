@@ -19,7 +19,7 @@ if ($isis) {
 
   // Display log messages.
   foreach ($isis->log as $message) {
-    $display->pre(print_r($message));
+    $display->pre($message);
   }
 }
 

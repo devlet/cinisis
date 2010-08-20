@@ -14,7 +14,8 @@ $fid   = CinisisHttpHelper::getNumericArg('fid');
 $display = new CinisisDisplayHelper('Field finder');
 $form    = $display->formInputText('entry', $entry);
 $form   .= $display->formInputText('fid', $fid);
-$display->form($form, basename(__FILE__));
+$script  = basename(__FILE__);
+$display->form($form, $script);
 
 // Get a db instance.
 $isis = new IsisFinder();
@@ -26,16 +27,13 @@ if ($isis) {
   list($entry, $result) = $isis->nextField($field, $entry);
 
   // Navigation bar.
-  $display->navbar($entry, $isis->entries, 'field.php', '&fid='. $fid);
+  $display->navbar($entry, $isis->entries, $script, '&fid='. $fid);
 
   // Format output.
-  echo "<pre>\n";
-  echo "Selected field: $fid: ". $field['name'] ."\n";
-  echo "Showing entry ". $display->entryLink($entry) ." from ". $isis->entries ." total entries.\n";
-  echo "Repetitions found: ". count($result[$field['name']]) .".\n";
-  echo "\n";
-  print_r($result[$field['name']]);
-  echo '</pre>';
+  $display->pre("Selected field: $fid: ". $field['name'] .".");
+  $display->pre("Showing entry ". $display->entryLink($entry) ." from ". $isis->entries ." total entries.");
+  $display->pre("Repetitions found: ". count($result[$field['name']]) .".");
+  $display->dump($result[$field['name']]);
 }
 
 $display->footer();

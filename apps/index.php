@@ -31,11 +31,8 @@ if ($isis->db) {
   $display->navbar($entry, $entries);
 
   // Format output.
-  echo "<pre>\n";
-  echo "Showing entry $entry from $entries total entries.\n";
-  echo "\n";
-  print_r($result);
-  echo '</pre>';
+  $display->pre("Showing entry $entry from $entries total entries.");
+  $display->dump($result);
 }
 
 $display->footer();

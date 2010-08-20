@@ -299,7 +299,21 @@ class CinisisDisplayHelper {
    *   Inner text.
    */
   protected static function webPre($text) {
-    echo "<pre>\n$text</pre>";
+    echo "<pre>$text</pre>";
+  }
+
+  /**
+   * Draws a pre open element.
+   */
+  protected static function webPreOpen() {
+    echo "<pre>";
+  }
+
+  /**
+   * Draws a pre open element.
+   */
+  protected static function webPreClose() {
+    echo "</pre>";
   }
 
   /**
@@ -310,5 +324,27 @@ class CinisisDisplayHelper {
    */
   protected static function cliPre($text) {
     echo "$text\n";
+  }
+
+  /**
+   * Dump value.
+   *
+   * @param $var
+   *   Variable to dump.
+   */
+  protected static function webDump($var) {
+    self::preOpen();
+    print_r($var);
+    self::preClose();
+  }
+
+  /**
+   * Dump value.
+   *
+   * @param $var
+   *   Variable to dump.
+   */
+  protected static function cliDump($var) {
+    print_r($var);
   }
 }
