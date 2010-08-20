@@ -18,9 +18,7 @@ if ($isis) {
   $result = $isis->run();
 
   // Format output.
-  echo "<pre>\n";
-  print_r($result);
-  echo '</pre>';
+  $display->pre(print_r($result));
 }
 
 $display->footer();

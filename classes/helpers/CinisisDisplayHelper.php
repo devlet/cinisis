@@ -22,7 +22,12 @@ class CinisisDisplayHelper {
    *   Page title;
    */
   static function title($title) {
-    echo "<h1>$title</h1>\n";
+    if (php_sapi_name() == "cli") {
+      echo "$title\n";
+    }
+    else {
+      echo "<h1>$title</h1>\n";
+    }
   }
 
   /**
@@ -32,20 +37,27 @@ class CinisisDisplayHelper {
    *   Page title;
    */
   static function header($title) {
-    echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">';
-    echo '<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">';
-    echo '<head>';
-    echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
-    echo '<title>'. $title .'</title>';
-    echo '</head>';
-    echo '<body>';
+    if (php_sapi_name() == "cli") {
+      echo "$title\n";
+    }
+    else {
+      echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">';
+      echo '<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">';
+      echo '<head>';
+      echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
+      echo '<title>'. $title .'</title>';
+      echo '</head>';
+      echo '<body>';
+    }
   }
 
   /**
    * Draws the page footer.
    */
   static function footer() {
-    echo '</body>';
+    if (php_sapi_name() != "cli") {
+      echo '</body>';
+    }
   }
 
   /**
@@ -61,11 +73,13 @@ class CinisisDisplayHelper {
    *   Form method.
    */
   static function form($content, $action = 'index.php', $method = 'get') {
-    echo '<form action="'. $action .'" method="'. $method .'">';
-    echo $content;
-    echo '<input type="submit" />';
-    echo '</form>';
-    echo '<br />';
+    if (php_sapi_name() != "cli") {
+      echo '<form action="'. $action .'" method="'. $method .'">';
+      echo $content;
+      echo '<input type="submit" />';
+      echo '</form>';
+      echo '<br />';
+    }
   }
 
   /**
@@ -81,6 +95,10 @@ class CinisisDisplayHelper {
    *   Rendered text input.
    */
   static function form_input_text($name, $default = null) {
+    if (php_sapi_name() == "cli") {
+      return;
+    }
+
     if ($default) {
       $default = 'value="'. $default .'"';
     }
@@ -104,6 +122,10 @@ class CinisisDisplayHelper {
    *   Extra parameters.
    */
   static function navbar($entry, $entries, $action = 'index.php', $extra = NULL) {
+    if (php_sapi_name() == "cli") {
+      return;
+    }
+
     // First / prev links.
     if ($entry != 1) {
       $prev = $entry - 1;
@@ -135,7 +157,9 @@ class CinisisDisplayHelper {
    *   Formatted link.
    */
   static function link($action, $args, $title) {
-    return '<a href="'. $action . $args .'">'. $title .'</a>';
+    if (php_sapi_name() != "cli") {
+      return '<a href="'. $action . $args .'">'. $title .'</a>';
+    }
   }
 
   /**
@@ -148,21 +172,27 @@ class CinisisDisplayHelper {
    *   Formatted link.
    */
   static function entry_link($entry) {
-    return self::link('index.php', '?entry='. $entry, $entry);
+    if (php_sapi_name() != "cli") {
+      return self::link('index.php', '?entry='. $entry, $entry);
+    }
   }
 
   /**
    * Draws tags for opening a table.
    */
   static function open_table() {
-    echo '<table><tr>';
+    if (php_sapi_name() != "cli") {
+      echo '<table><tr>';
+    }
   }
 
   /**
    * Draws tags for closing a table.
    */
   static function close_table() {
-    echo '</tr></table>';
+    if (php_sapi_name() != "cli") {
+      echo '</tr></table>';
+    }
   }
 
   /**
@@ -172,7 +202,12 @@ class CinisisDisplayHelper {
    *   Inner text.
    */
   static function h2($text) {
-    echo "<h2>$text</h2>";
+    if (php_sapi_name() == "cli") {
+      echo "$text\n";
+    }
+    else {
+      echo "<h2>$text</h2>";
+    }
   }
 
   /**
@@ -182,14 +217,24 @@ class CinisisDisplayHelper {
    *   Inner text.
    */
   static function h3($text) {
-    echo "<h3>$text</h3>";
+    if (php_sapi_name() == "cli") {
+      echo "$text\n";
+    }
+    else {
+      echo "<h3>$text</h3>";
+    }
   }
 
   /**
    * Draws a line break element.
    */
-  static function br($text) {
-    echo "<br />";
+  static function br() {
+    if (php_sapi_name() == "cli") {
+      echo "\n";
+    }
+    else {
+      echo "<br />";
+    }
   }
 
   /**
@@ -199,6 +244,11 @@ class CinisisDisplayHelper {
    *   Inner text.
    */
   static function pre($text) {
-    echo "<pre>$text</pre>";
+    if (php_sapi_name() == "cli") {
+      echo "$text\n";
+    }
+    else {
+      echo "<pre>\n$text</pre>";
+    }
   }  
 }
