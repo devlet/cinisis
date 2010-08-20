@@ -5,6 +5,22 @@
  */
 class IsisAudit extends IsisFinder {
   /**
+   * @var $log
+   *   Log messages. 
+   */
+  var $log;
+
+  /**
+   * Class logger.
+   *
+   * @param $message
+   *   Log message.
+   */
+  function logger($message) {
+    $this->log[] = $message;
+  }
+
+  /**
    * Run a standard audit procedure.
    */
   public function run() {
@@ -13,10 +29,10 @@ class IsisAudit extends IsisFinder {
 
       // Check for repetitions.
       if ($field['repeat'] && !$repetition) {
-        echo "Field ". $field['name'] ." is configured for repetitions but no repetitions found.\n";
+        $this->logger("Field ". $field['name'] ." is configured for repetitions but no repetitions found.");
       }
       elseif (!$field['repeat'] && $repetition) {
-        echo "Field ". $field['name'] ." is not configured for repetitions but a repetition was found for entry ". $repetition[0] .".\n";
+        $this->logger("Field ". $field['name'] ." is not configured for repetitions but a repetition was found for entry ". $repetition[0] .".");
       }
 
       // Check for subfields.
@@ -25,7 +41,7 @@ class IsisAudit extends IsisFinder {
           $next_subfield = $this->nextSubfield($field, $subfield);
 
           if (!$next_subfield) {
-            echo "No occurrences found for field ". $field['name'] ." and subfield $subfield\n";
+            $this->logger("No occurrences found for field ". $field['name'] ." and subfield $subfield.");
           }
         }
       }

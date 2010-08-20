@@ -15,10 +15,12 @@ $isis = new IsisAudit();
 // Setup database and entry number.
 if ($isis) {
   // Run audit.
-  $result = $isis->run();
+  $isis->run();
 
-  // Format output.
-  $display->pre(print_r($result));
+  // Display log messages.
+  foreach ($isis->log as $message) {
+    $display->pre(print_r($message));
+  }
 }
 
 $display->footer();
