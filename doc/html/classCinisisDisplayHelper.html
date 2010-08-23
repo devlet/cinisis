@@ -53,6 +53,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td colspan="2"><h2>Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#ab263cf81e5c459c60baa6ef7fa5f76b2">methodName</a> ($method)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#abae906d7606b7d76ef5ed754835ba7e2">__callStatic</a> ($method, $arguments)</td></tr>
+<tr><td colspan="2"><h2>Protected Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#a6c4042683e787ae54cd9e0c88c83606c">webMergeCsvItems</a> ($items)</td></tr>
 <tr><td colspan="2"><h2>Static Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#af3849efbba5e6980ddfdb4ceddb6ad17">webTitle</a> ($title)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#a8f0c8aec5b11a144b14278d287238c85">cliTitle</a> ($title)</td></tr>
@@ -77,6 +79,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#a50bf73bd3722766cbae1b46b3092453d">cliPre</a> ($text)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#a7811830062abc85b90cf391a9ff89fdf">webDump</a> ($var)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#abd525c7b612f9dce348bb1479470b445">cliDump</a> ($var)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#a6629bfa4b0ccd26d1433ca2302ce8c41">webHttpHeader</a> ($mime, $filename)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#a0155226dc341e71cf2d32a7611a6402b">webCsv</a> ($value=NULL)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#ae15e846c353078222ee061a835c8c0f8">webCsvTitles</a> ($format)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#aa020ea03001524e4e437069f08ba8e26">webCsvRow</a> ()</td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>Display helpers for test scripts. </p>
@@ -384,6 +390,74 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 </div>
 </div>
+<a class="anchor" id="a0155226dc341e71cf2d32a7611a6402b"></a><!-- doxytag: member="CinisisDisplayHelper::webCsv" ref="a0155226dc341e71cf2d32a7611a6402b" args="($value=NULL)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static CinisisDisplayHelper::webCsv </td>
+          <td>(</td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>value</em> = <code>NULL</code></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [static, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Display a value with CSV format.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$value</em>&nbsp;</td><td>Value entry. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aa020ea03001524e4e437069f08ba8e26"></a><!-- doxytag: member="CinisisDisplayHelper::webCsvRow" ref="aa020ea03001524e4e437069f08ba8e26" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static CinisisDisplayHelper::webCsvRow </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [static, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Display a new CSV row. </p>
+
+</div>
+</div>
+<a class="anchor" id="ae15e846c353078222ee061a835c8c0f8"></a><!-- doxytag: member="CinisisDisplayHelper::webCsvTitles" ref="ae15e846c353078222ee061a835c8c0f8" args="($format)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static CinisisDisplayHelper::webCsvTitles </td>
+          <td>(</td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>format</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [static, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Display CSV titles.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$format</em>&nbsp;</td><td>ISIS database format. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a7811830062abc85b90cf391a9ff89fdf"></a><!-- doxytag: member="CinisisDisplayHelper::webDump" ref="a7811830062abc85b90cf391a9ff89fdf" args="($var)" -->
 <div class="memitem">
 <div class="memproto">
@@ -606,6 +680,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 </div>
 </div>
+<a class="anchor" id="a6629bfa4b0ccd26d1433ca2302ce8c41"></a><!-- doxytag: member="CinisisDisplayHelper::webHttpHeader" ref="a6629bfa4b0ccd26d1433ca2302ce8c41" args="($mime, $filename)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static CinisisDisplayHelper::webHttpHeader </td>
+          <td>(</td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>mime</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>filename</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [static, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Set the response helper.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$mime</em>&nbsp;</td><td>MIME type.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$filename</em>&nbsp;</td><td>File name. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="aadc869909d8be43402d73fa3415827b4"></a><!-- doxytag: member="CinisisDisplayHelper::webLink" ref="aadc869909d8be43402d73fa3415827b4" args="($action, $args, $title)" -->
 <div class="memitem">
 <div class="memproto">
@@ -646,6 +755,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>Formatted link. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6c4042683e787ae54cd9e0c88c83606c"></a><!-- doxytag: member="CinisisDisplayHelper::webMergeCsvItems" ref="a6c4042683e787ae54cd9e0c88c83606c" args="($items)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CinisisDisplayHelper::webMergeCsvItems </td>
+          <td>(</td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>items</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Merge items in a CSV roll.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$items</em>&nbsp;</td><td>Array with items to be merged. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -820,7 +954,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Fri Aug 20 18:50:26 2010 for Cinisis Database Reader by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Aug 23 16:26:22 2010 for Cinisis Database Reader by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

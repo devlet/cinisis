@@ -16,6 +16,11 @@ static \hyperlink{classCinisisDisplayHelper_ab263cf81e5c459c60baa6ef7fa5f76b2}{m
 \item 
 static \hyperlink{classCinisisDisplayHelper_abae906d7606b7d76ef5ed754835ba7e2}{\_\-\_\-callStatic} (\$method, \$arguments)
 \end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCinisisDisplayHelper_a6c4042683e787ae54cd9e0c88c83606c}{webMergeCsvItems} (\$items)
+\end{DoxyCompactItemize}
 \subsection*{Static Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -64,6 +69,14 @@ static \hyperlink{classCinisisDisplayHelper_a50bf73bd3722766cbae1b46b3092453d}{c
 static \hyperlink{classCinisisDisplayHelper_a7811830062abc85b90cf391a9ff89fdf}{webDump} (\$var)
 \item 
 static \hyperlink{classCinisisDisplayHelper_abd525c7b612f9dce348bb1479470b445}{cliDump} (\$var)
+\item 
+static \hyperlink{classCinisisDisplayHelper_a6629bfa4b0ccd26d1433ca2302ce8c41}{webHttpHeader} (\$mime, \$filename)
+\item 
+static \hyperlink{classCinisisDisplayHelper_a0155226dc341e71cf2d32a7611a6402b}{webCsv} (\$value=NULL)
+\item 
+static \hyperlink{classCinisisDisplayHelper_ae15e846c353078222ee061a835c8c0f8}{webCsvTitles} (\$format)
+\item 
+static \hyperlink{classCinisisDisplayHelper_aa020ea03001524e4e437069f08ba8e26}{webCsvRow} ()
 \end{DoxyCompactItemize}
 
 
@@ -188,7 +201,32 @@ Draws a line break element. \hypertarget{classCinisisDisplayHelper_ab4e55ec58b59
 \index{webCloseTable@{webCloseTable}!CinisisDisplayHelper@{CinisisDisplayHelper}}
 \subsubsection[{webCloseTable}]{\setlength{\rightskip}{0pt plus 5cm}static CinisisDisplayHelper::webCloseTable ()\hspace{0.3cm}{\ttfamily  \mbox{[}static, protected\mbox{]}}}}
 \label{classCinisisDisplayHelper_ab4e55ec58b59bc8b2af32b93cdf0d7c1}
-Draws tags for closing a table. \hypertarget{classCinisisDisplayHelper_a7811830062abc85b90cf391a9ff89fdf}{
+Draws tags for closing a table. \hypertarget{classCinisisDisplayHelper_a0155226dc341e71cf2d32a7611a6402b}{
+\index{CinisisDisplayHelper@{CinisisDisplayHelper}!webCsv@{webCsv}}
+\index{webCsv@{webCsv}!CinisisDisplayHelper@{CinisisDisplayHelper}}
+\subsubsection[{webCsv}]{\setlength{\rightskip}{0pt plus 5cm}static CinisisDisplayHelper::webCsv (\$ {\em value} = {\ttfamily NULL})\hspace{0.3cm}{\ttfamily  \mbox{[}static, protected\mbox{]}}}}
+\label{classCinisisDisplayHelper_a0155226dc341e71cf2d32a7611a6402b}
+Display a value with CSV format.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$value}]Value entry. \end{DoxyParams}
+\hypertarget{classCinisisDisplayHelper_aa020ea03001524e4e437069f08ba8e26}{
+\index{CinisisDisplayHelper@{CinisisDisplayHelper}!webCsvRow@{webCsvRow}}
+\index{webCsvRow@{webCsvRow}!CinisisDisplayHelper@{CinisisDisplayHelper}}
+\subsubsection[{webCsvRow}]{\setlength{\rightskip}{0pt plus 5cm}static CinisisDisplayHelper::webCsvRow ()\hspace{0.3cm}{\ttfamily  \mbox{[}static, protected\mbox{]}}}}
+\label{classCinisisDisplayHelper_aa020ea03001524e4e437069f08ba8e26}
+Display a new CSV row. \hypertarget{classCinisisDisplayHelper_ae15e846c353078222ee061a835c8c0f8}{
+\index{CinisisDisplayHelper@{CinisisDisplayHelper}!webCsvTitles@{webCsvTitles}}
+\index{webCsvTitles@{webCsvTitles}!CinisisDisplayHelper@{CinisisDisplayHelper}}
+\subsubsection[{webCsvTitles}]{\setlength{\rightskip}{0pt plus 5cm}static CinisisDisplayHelper::webCsvTitles (\$ {\em format})\hspace{0.3cm}{\ttfamily  \mbox{[}static, protected\mbox{]}}}}
+\label{classCinisisDisplayHelper_ae15e846c353078222ee061a835c8c0f8}
+Display CSV titles.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$format}]ISIS database format. \end{DoxyParams}
+\hypertarget{classCinisisDisplayHelper_a7811830062abc85b90cf391a9ff89fdf}{
 \index{CinisisDisplayHelper@{CinisisDisplayHelper}!webDump@{webDump}}
 \index{webDump@{webDump}!CinisisDisplayHelper@{CinisisDisplayHelper}}
 \subsubsection[{webDump}]{\setlength{\rightskip}{0pt plus 5cm}static CinisisDisplayHelper::webDump (\$ {\em var})\hspace{0.3cm}{\ttfamily  \mbox{[}static, protected\mbox{]}}}}
@@ -269,6 +307,16 @@ Draws the page header.
 
 \begin{DoxyParams}{Parameters}
 \item[{\em \$title}]Page title; \end{DoxyParams}
+\hypertarget{classCinisisDisplayHelper_a6629bfa4b0ccd26d1433ca2302ce8c41}{
+\index{CinisisDisplayHelper@{CinisisDisplayHelper}!webHttpHeader@{webHttpHeader}}
+\index{webHttpHeader@{webHttpHeader}!CinisisDisplayHelper@{CinisisDisplayHelper}}
+\subsubsection[{webHttpHeader}]{\setlength{\rightskip}{0pt plus 5cm}static CinisisDisplayHelper::webHttpHeader (\$ {\em mime}, \/  \$ {\em filename})\hspace{0.3cm}{\ttfamily  \mbox{[}static, protected\mbox{]}}}}
+\label{classCinisisDisplayHelper_a6629bfa4b0ccd26d1433ca2302ce8c41}
+Set the response helper.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$mime}]MIME type.\item[{\em \$filename}]File name. \end{DoxyParams}
 \hypertarget{classCinisisDisplayHelper_aadc869909d8be43402d73fa3415827b4}{
 \index{CinisisDisplayHelper@{CinisisDisplayHelper}!webLink@{webLink}}
 \index{webLink@{webLink}!CinisisDisplayHelper@{CinisisDisplayHelper}}
@@ -282,6 +330,16 @@ Format a link.
 \begin{DoxyReturn}{Returns}
 Formatted link. 
 \end{DoxyReturn}
+\hypertarget{classCinisisDisplayHelper_a6c4042683e787ae54cd9e0c88c83606c}{
+\index{CinisisDisplayHelper@{CinisisDisplayHelper}!webMergeCsvItems@{webMergeCsvItems}}
+\index{webMergeCsvItems@{webMergeCsvItems}!CinisisDisplayHelper@{CinisisDisplayHelper}}
+\subsubsection[{webMergeCsvItems}]{\setlength{\rightskip}{0pt plus 5cm}CinisisDisplayHelper::webMergeCsvItems (\$ {\em items})\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classCinisisDisplayHelper_a6c4042683e787ae54cd9e0c88c83606c}
+Merge items in a CSV roll.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$items}]Array with items to be merged. \end{DoxyParams}
 \hypertarget{classCinisisDisplayHelper_a291e2da97fd646e7fa34fb92879fc3d6}{
 \index{CinisisDisplayHelper@{CinisisDisplayHelper}!webNavbar@{webNavbar}}
 \index{webNavbar@{webNavbar}!CinisisDisplayHelper@{CinisisDisplayHelper}}

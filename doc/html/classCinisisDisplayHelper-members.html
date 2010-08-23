@@ -57,6 +57,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <tr class="memlist"><td><a class="el" href="classCinisisDisplayHelper.html#ab263cf81e5c459c60baa6ef7fa5f76b2">methodName</a>($method)</td><td><a class="el" href="classCinisisDisplayHelper.html">CinisisDisplayHelper</a></td><td><code> [static]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classCinisisDisplayHelper.html#a9c8b637e47e4263901baf4c5f2064d8d">webBr</a>()</td><td><a class="el" href="classCinisisDisplayHelper.html">CinisisDisplayHelper</a></td><td><code> [protected, static]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classCinisisDisplayHelper.html#ab4e55ec58b59bc8b2af32b93cdf0d7c1">webCloseTable</a>()</td><td><a class="el" href="classCinisisDisplayHelper.html">CinisisDisplayHelper</a></td><td><code> [protected, static]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classCinisisDisplayHelper.html#a0155226dc341e71cf2d32a7611a6402b">webCsv</a>($value=NULL)</td><td><a class="el" href="classCinisisDisplayHelper.html">CinisisDisplayHelper</a></td><td><code> [protected, static]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classCinisisDisplayHelper.html#aa020ea03001524e4e437069f08ba8e26">webCsvRow</a>()</td><td><a class="el" href="classCinisisDisplayHelper.html">CinisisDisplayHelper</a></td><td><code> [protected, static]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classCinisisDisplayHelper.html#ae15e846c353078222ee061a835c8c0f8">webCsvTitles</a>($format)</td><td><a class="el" href="classCinisisDisplayHelper.html">CinisisDisplayHelper</a></td><td><code> [protected, static]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classCinisisDisplayHelper.html#a7811830062abc85b90cf391a9ff89fdf">webDump</a>($var)</td><td><a class="el" href="classCinisisDisplayHelper.html">CinisisDisplayHelper</a></td><td><code> [protected, static]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classCinisisDisplayHelper.html#a7ffe33c336d0b495807a2c4bae78cbfb">webEntryLink</a>($entry)</td><td><a class="el" href="classCinisisDisplayHelper.html">CinisisDisplayHelper</a></td><td><code> [protected, static]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classCinisisDisplayHelper.html#aa331cd95a86ffd270784736e74f253e6">webFooter</a>()</td><td><a class="el" href="classCinisisDisplayHelper.html">CinisisDisplayHelper</a></td><td><code> [protected, static]</code></td></tr>
@@ -65,7 +68,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <tr class="memlist"><td><a class="el" href="classCinisisDisplayHelper.html#a0f2e5c78f6fdd146df04382e497cfe94">webH2</a>($text)</td><td><a class="el" href="classCinisisDisplayHelper.html">CinisisDisplayHelper</a></td><td><code> [protected, static]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classCinisisDisplayHelper.html#acc20c726a214895584d15a434b2f3548">webH3</a>($text)</td><td><a class="el" href="classCinisisDisplayHelper.html">CinisisDisplayHelper</a></td><td><code> [protected, static]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classCinisisDisplayHelper.html#a356d8117dfcb220b7bb9996b569f5f25">webHeader</a>($title)</td><td><a class="el" href="classCinisisDisplayHelper.html">CinisisDisplayHelper</a></td><td><code> [protected, static]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classCinisisDisplayHelper.html#a6629bfa4b0ccd26d1433ca2302ce8c41">webHttpHeader</a>($mime, $filename)</td><td><a class="el" href="classCinisisDisplayHelper.html">CinisisDisplayHelper</a></td><td><code> [protected, static]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classCinisisDisplayHelper.html#aadc869909d8be43402d73fa3415827b4">webLink</a>($action, $args, $title)</td><td><a class="el" href="classCinisisDisplayHelper.html">CinisisDisplayHelper</a></td><td><code> [protected, static]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classCinisisDisplayHelper.html#a6c4042683e787ae54cd9e0c88c83606c">webMergeCsvItems</a>($items)</td><td><a class="el" href="classCinisisDisplayHelper.html">CinisisDisplayHelper</a></td><td><code> [protected]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classCinisisDisplayHelper.html#a291e2da97fd646e7fa34fb92879fc3d6">webNavbar</a>($entry, $entries, $action= 'index.php', $extra=NULL)</td><td><a class="el" href="classCinisisDisplayHelper.html">CinisisDisplayHelper</a></td><td><code> [protected, static]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classCinisisDisplayHelper.html#a4028def92d8511e525251ec7ab06246d">webOpenTable</a>()</td><td><a class="el" href="classCinisisDisplayHelper.html">CinisisDisplayHelper</a></td><td><code> [protected, static]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classCinisisDisplayHelper.html#a528283a8b16090918f1878dca5ee24fb">webPre</a>($text)</td><td><a class="el" href="classCinisisDisplayHelper.html">CinisisDisplayHelper</a></td><td><code> [protected, static]</code></td></tr>
@@ -87,7 +92,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Fri Aug 20 18:50:26 2010 for Cinisis Database Reader by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Aug 23 16:26:22 2010 for Cinisis Database Reader by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>
