@@ -146,7 +146,7 @@ class IsisFinder extends IsisConnector {
           return array($entry, $result);
         }
       }
-    } while ($entry++);
+    } while ($entry++ && $entry <= $this->entries);
   }
 
   /**
