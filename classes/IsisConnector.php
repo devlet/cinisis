@@ -116,6 +116,8 @@ class IsisConnector extends IsisMap {
    *   Field data.
    */
   public function getMainItems($field) {
+    $values = array();
+
     foreach (new IsisRowIterator($this, $field) as $row) {
       $values[$row] = $this->getMainItem($field, $row);
     }

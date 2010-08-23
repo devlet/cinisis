@@ -52,11 +52,25 @@ class IsisReader {
    *
    * @param $value
    *   Array with bracketed strings.
+   *
+   * @return
+   *   Array with strings without brackets.
    */
   public function removeBrackets($value) {
     $value = str_replace('<', '', $value);
     $value = str_replace('>', '', $value);
     return $value;
+  }
+
+  /**
+   * Remove brackets from strings whithin an array.
+   * Callback version
+   *
+   * @param $value
+   *   Array with bracketed strings.
+   */
+  public function removeBracketsCallback(&$value = NULL) {
+    $value = $this->removeBrackets($value);
   }
 
   /**

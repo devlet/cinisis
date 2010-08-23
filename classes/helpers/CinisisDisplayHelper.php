@@ -11,8 +11,10 @@ class CinisisDisplayHelper {
    *   Page title;
    */
   function __construct($title) {
-    $this->header($title);
-    $this->title($title);
+    if ($title != NULL) {
+      $this->header($title);
+      $this->title($title);
+    }
   }
 
   /**
@@ -346,5 +348,71 @@ class CinisisDisplayHelper {
    */
   protected static function cliDump($var) {
     print_r($var);
+  }
+
+  /**
+   * Set the response helper.
+   *
+   * @param $mime
+   *   MIME type.
+   *
+   * @param $filename
+   *   File name.
+   */
+  protected static function webHttpHeader($mime, $filename) {
+    header("Content-type: $mime");
+    header("Content-Disposition: attachment; filename=$filename");
+    header("Pragma: no-cache");
+    header("Expires: 0");
+  }
+
+  /**
+   * Display a value with CSV format.
+   *
+   * @param $value
+   *   Value entry.
+   */
+  protected static function webCsv($value = NULL) {
+    echo '"'. preg_replace('/"/', '""', $value) .'",';
+  }
+
+  /**
+   * Display CSV titles.
+   *
+   * @param $format
+   *   ISIS database format.
+   */
+  protected static function webCsvTitles($format) {
+    // Format fields.
+    foreach ($format['fields'] as $field) {
+      self::csv($field['name']);
+      if (isset($field['subfields']) && is_array($field['subfields'])) {
+        foreach ($field['subfields'] as $key => $value) {
+          self::csv($field['name'] .': '. $value);
+        }
+      }
+    }
+  }
+
+  /**
+   * Display a new CSV row.
+   */
+  protected static function webCsvRow() {
+    echo "\n";
+  }
+  
+  /**
+   * Merge items in a CSV roll.
+   *
+   * @param $items
+   *   Array with items to be merged.
+   */
+  protected function webMergeCsvItems($items) {
+    if (!empty($items)) {
+      self::csv(implode(';', $items));
+    }
+    else {
+      self::csv();
+    }
   }
 }
