@@ -30,11 +30,13 @@ else {
   $display->h3("Number of records");
   $query = 'Test';
   $recs  = $db->num_recs($query);
-  echo "Got ". count($recs) ." terms for '$query'</br>\n";
+  echo "Got ". count($recs) ." terms for '$query'";
+  $display->br();
 
   $display->h3("Terms beginning with...");
   $terms = $db->terms(strtoupper($query));
-  echo "Got ". count($terms) ." terms for '$query'</br>\n";
+  echo "Got ". count($terms) ." terms for '$query'";
+  $display->br();
 
   foreach ($terms as $t) {
     list($cnt, $term) = explode("\t", $t);
@@ -45,7 +47,8 @@ else {
   $display->h3('Query reading records');
   $recs = $db->query(strtoupper($query));
 
-  echo "Got ". count($recs) ." records for '$query'</br>\n";
+  echo "Got ". count($recs) ." records for '$query'";
+  $display->br();
 
   foreach ($recs as $r) {
     $display->pre($r->toString());
