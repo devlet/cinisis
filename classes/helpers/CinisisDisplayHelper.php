@@ -407,12 +407,69 @@ class CinisisDisplayHelper {
    * @param $items
    *   Array with items to be merged.
    */
-  protected function webMergeCsvItems($items) {
+  protected static function webMergeCsvItems($items) {
     if (!empty($items)) {
       self::csv(implode(';', $items));
     }
     else {
       self::csv();
     }
+  }
+
+  /**
+   * Renders a radio button.
+   *
+   * @param $name
+   *   Radio name.
+   *
+   * @param $value
+   *   Radio value.
+   *
+   * @param $caption
+   *   Radio caption.
+   *
+   * @param $checked
+   *   Whether the radio is checked.
+   *
+   * @return
+   *   HTML rendered radio button.
+   */
+  protected static function webRadio($name, $value, $caption, $checked = NULL) {
+    return '<input type="radio" name="'. $name .'" value="'. $value .'" '. $checked .' > '. $caption .'<br />';
+  }
+
+  /**
+   * Draws a combination of radio buttons.
+   *
+   * @param $name
+   *   Radio names.
+   *
+   * @param $data
+   *   Array with values and captions.
+   *
+   * @param $checked
+   *   Index of the selected option.
+   */
+  protected static function webRadios($name, $data, $checked = NULL) {
+    $radios = '<table><tr><td>';
+    $count  = 0;
+
+    foreach ($data as $key => $value) {
+      if ($count++ > 5) {
+        $count   = 0;
+        $radios .= '</td><td>';
+      }
+
+      if ($key == $checked) {
+        $radios .= self::webRadio($name, $key, $value, 'checked');
+      }
+      else {
+        $radios .= self::webRadio($name, $key, $value);
+      }
+    }
+
+    $radios .= '</td></tr></table>';
+
+    return $radios;
   }
 }

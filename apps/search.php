@@ -15,20 +15,21 @@ $fid   = CinisisHttpHelper::getNumericArg('fid');
 $sid   = CinisisHttpHelper::getTextualArg('sid');
 $text  = CinisisHttpHelper::getTextualArg('text');
 
-// Draw the document.
-$display = new CinisisDisplayHelper('Text finder');
-$form    = $display->formInputText('entry', $entry);
-$form   .= $display->formInputText('fid', $fid);
-$form   .= $display->formInputText('sid', $sid);
-$form   .= $display->formInputText('text', $text);
-$script  = basename(__FILE__);
-$display->form($form, $script);
-
 // Get a db instance.
 $isis = new IsisFinder();
 
-// Setup database and entry number.
 if ($isis) {
+  // Draw the document.
+  $display = new CinisisDisplayHelper('Text finder');
+  $form    = $display->formInputText('entry', $entry);
+  $form   .= $display->radios('fid', $isis->getFieldNames(), $fid);
+  $form   .= $display->radios('sid', $isis->getSubFieldNames($fid), $sid);
+  //$form   .= $display->formInputText('fid', $fid);
+  //$form   .= $display->formInputText('sid', $sid);
+  $form   .= $display->formInputText('text', $text);
+  $script  = basename(__FILE__);
+  $display->form($form, $script);
+
   // Query database.
   $field = $isis->getFieldArray($fid);
   $item  = ($sid == 'main') ? 'main' : $isis->getSubfieldName($fid, $sid);

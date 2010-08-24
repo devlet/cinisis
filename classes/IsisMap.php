@@ -279,6 +279,25 @@ class IsisMap extends IsisReader {
   }
 
   /**
+   * Get all subfield names.
+   *
+   * @param $field_key
+   *   Field key.
+   *
+   * @return
+   *   Array with subfield names.
+   */
+  public function getSubfieldNames($field_key) {
+    $subfields = array();
+
+    foreach ($this->format['fields'][$field_key]['subfields'] as $key => $value) {
+      $subfields[$key] = $value;
+    }
+
+    return $subfields;
+  }
+
+  /**
    * Get a field name.
    *
    * @param $field_key
@@ -289,5 +308,21 @@ class IsisMap extends IsisReader {
    */
   public function getFieldName($field_key) {
     return $this->format['fields'][$field_key]['name'];
+  }
+
+  /**
+   * Get all field names.
+   *
+   * @return
+   *   Array with field names.
+   */
+  public function getFieldNames() {
+    $fields = array();
+
+    foreach ($this->format['fields'] as $key => $field) {
+      $fields[$key] = $field['name'];
+    }
+
+    return $fields;
   }
 }

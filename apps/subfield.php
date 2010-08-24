@@ -11,19 +11,20 @@ $entry = CinisisHttpHelper::getNumericArg('entry');
 $fid   = CinisisHttpHelper::getNumericArg('fid');
 $sid   = CinisisHttpHelper::getTextualArg('sid');
 
-// Draw the document.
-$display = new CinisisDisplayHelper('Subfield finder');
-$form    = $display->formInputText('entry', $entry);
-$form   .= $display->formInputText('fid', $fid);
-$form   .= $display->formInputText('sid', $sid);
-$script  = basename(__FILE__);
-$display->form($form, $script);
-
 // Get a db instance.
 $isis = new IsisFinder();
 
-// Setup database and entry number.
 if ($isis) {
+  // Draw the document.
+  $display = new CinisisDisplayHelper('Subfield finder');
+  $form    = $display->formInputText('entry', $entry);
+  $form   .= $display->radios('fid', $isis->getFieldNames(), $fid);
+  $form   .= $display->radios('sid', $isis->getSubFieldNames($fid), $sid);
+  //$form   .= $display->formInputText('fid', $fid);
+  //$form   .= $display->formInputText('sid', $sid);
+  $script  = basename(__FILE__);
+  $display->form($form, $script);
+
   // Query database.
   $field                = $isis->getFieldArray($fid);
   $subfield             = $isis->getSubfieldName($fid, $sid);
