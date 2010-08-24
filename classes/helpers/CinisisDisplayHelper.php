@@ -435,7 +435,7 @@ class CinisisDisplayHelper {
    *   HTML rendered radio button.
    */
   protected static function webRadio($name, $value, $caption, $checked = NULL) {
-    return '<input type="radio" name="'. $name .'" value="'. $value .'" '. $checked .' > '. $caption .'<br />';
+    return '<input type="radio" name="'. $name .'" value="'. $value .'" '. $checked .' > '. $value .' - '. $caption .'<br />';
   }
 
   /**
