@@ -32,6 +32,7 @@ if ($isis) {
   $display->pre("Selected field: $fid: ". $field['name'] .".");
   $display->pre("Showing entry ". $display->entryLink($entry) ." from ". $isis->entries ." total entries.");
   $display->pre("Repetitions found: ". count($result[$field['name']]) .".");
+  $display->pre($display->fieldLink($entry, $fid));
   $display->dump($result[$field['name']]);
 }
 

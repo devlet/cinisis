@@ -227,6 +227,38 @@ class CinisisDisplayHelper {
   }
 
   /**
+   * Format a link to the field app.
+   *
+   * @param $entry
+   *   Entry number.
+   *
+   * @param $fid
+   *   Field code.
+   *
+   * @return
+   *   Formatted link.
+   */
+  protected static function webFieldLink($entry, $fid) {
+    return "Field search: ". self::link('field.php', '?entry='. $entry .'&fid='. $fid, $entry);
+  }
+
+  /**
+   * Format a link to the field app.
+   *
+   * @param $entry
+   *   Entry number.
+   *
+   * @param $fid
+   *   Field code.
+   *
+   * @return
+   *   Formatted link.
+   */
+  protected static function webRepetitionLink($entry, $fid) {
+    return "Repetition search: ". self::link('repetition.php', '?entry='. $entry .'&fid='. $fid, $entry);
+  }
+
+  /**
    * Draws tags for opening a table.
    */
   protected static function webOpenTable() {
