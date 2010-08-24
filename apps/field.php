@@ -17,7 +17,6 @@ if ($isis) {
   // Draw the document.
   $display = new CinisisDisplayHelper('Field finder');
   $form    = $display->formInputText('entry', $entry);
-  //$form   .= $display->formInputText('fid', $fid);
   $form   .= $display->radios('fid', $isis->getFieldNames(), $fid);
   $script  = basename(__FILE__);
   $display->form($form, $script);

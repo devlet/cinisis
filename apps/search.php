@@ -24,8 +24,6 @@ if ($isis) {
   $form    = $display->formInputText('entry', $entry);
   $form   .= $display->radios('fid', $isis->getFieldNames(), $fid);
   $form   .= $display->radios('sid', $isis->getSubFieldNames($fid), $sid);
-  //$form   .= $display->formInputText('fid', $fid);
-  //$form   .= $display->formInputText('sid', $sid);
   $form   .= $display->formInputText('text', $text);
   $script  = basename(__FILE__);
   $display->form($form, $script);
