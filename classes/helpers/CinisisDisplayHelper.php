@@ -136,11 +136,13 @@ class CinisisDisplayHelper {
    *   Form method.
    */
   protected static function webForm($content, $action = 'index.php', $method = 'get') {
+    echo '<td>';
     echo '<form action="'. $action .'" method="'. $method .'">';
     echo $content;
     echo '<input type="submit" />';
     echo '</form>';
     echo '<br />';
+    echo '</td><td>';
   }
 
   /**
@@ -269,7 +271,7 @@ class CinisisDisplayHelper {
    * Draws tags for closing a table.
    */
   protected static function webCloseTable() {
-    echo '</tr></table>';
+    echo '</td></tr></table>';
   }
 
   /**
@@ -483,11 +485,12 @@ class CinisisDisplayHelper {
    *   Index of the selected option.
    */
   protected static function webRadios($name, $data, $checked = NULL) {
+    sort($data);
     $radios = '<table><tr><td>';
     $count  = 0;
 
     foreach ($data as $key => $value) {
-      if ($count++ > 5) {
+      if ($count++ > 25) {
         $count   = 0;
         $radios .= '</td><td>';
       }

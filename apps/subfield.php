@@ -21,6 +21,7 @@ if ($isis) {
   $form   .= $display->radios('fid', $isis->getFieldNames(), $fid);
   $form   .= $display->radios('sid', $isis->getSubFieldNames($fid), $sid);
   $script  = basename(__FILE__);
+  $display->openTable();
   $display->form($form, $script);
 
   // Query database.
@@ -37,6 +38,6 @@ if ($isis) {
   $display->pre("Showing entry ". $display->entryLink($entry) ." from ". $isis->entries ." total entries.");
   $display->pre("Repetitions found: ". count($result[$field['name']]) .".");
   $display->dump($result[$field['name']]);
+  $display->closeTable();
+  $display->footer();
 }
-
-$display->footer();
