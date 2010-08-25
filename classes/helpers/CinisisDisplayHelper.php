@@ -485,7 +485,7 @@ class CinisisDisplayHelper {
    *   Index of the selected option.
    */
   protected static function webRadios($name, $data, $checked = NULL) {
-    sort($data);
+    ksort($data);
     $radios = '<table><tr><td>';
     $count  = 0;
 
