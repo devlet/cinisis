@@ -48,7 +48,9 @@ class IsisMainItemIterator implements Iterator
    */
   function current() {
     $field = $this->class->getMainItemName($this->field);
-    return $this->valueset[$this->row][$field];
+    if (isset($this->valueset[$this->row])) {
+      return $this->valueset[$this->row][$field];
+    }
   }
 
   /**
@@ -65,7 +67,7 @@ class IsisMainItemIterator implements Iterator
    * Check if there are more rows.
    */
   function has_more_rows() {
-    return $this->row < $this->rows - 1;
+    return $this->row < $this->rows;
   }
 
   /**

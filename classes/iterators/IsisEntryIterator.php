@@ -61,6 +61,6 @@ class IsisEntryIterator implements Iterator
    * Check if there is a current element after calls to rewind() or next().
    */
   function valid() {
-    return $this->entry < $this->entries;
+    return $this->entry <= $this->entries;
   }  
 }
