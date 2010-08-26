@@ -190,7 +190,7 @@ class Cinisis {
    *   Boolean.
    */
   static function join_subfields($format) {
-    if ($format['db']['join_subfields']) {
+    if (isset($format['db']['join_subfields']) && $format['db']['join_subfields']) {
       return TRUE;
     }
 
