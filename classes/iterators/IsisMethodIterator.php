@@ -6,21 +6,26 @@
 class IsisMethodIterator implements Iterator
 {
   private $total = 0;
-  private $class;
+  private $isis;
   private $keys;
   private $position = -1;
 
   /**
    * Constructor.
    *
-   * @param $class
+   * @param $isis
    *   Instance of IsisConnector or child class.
+   *
+   * @param $class
+   *   Optional class where to look for methods, defaults
+   *   to $isis itself.
    */ 
-  public function __construct($class) {
+  public function __construct($isis, $class = NULL) {
     // Setup.
-    $this->class = $class;
-    $this->total = count($class->fields);
-    $this->keys  = array_keys($class->fields);
+    $this->isis  = $isis;
+    $this->total = count($isis->fields);
+    $this->keys  = array_keys($isis->fields);
+    $this->class = ($class == null) ? $isis : $class;
 
     // Find the first valid occurrence.
     $this->next();
@@ -38,15 +43,15 @@ class IsisMethodIterator implements Iterator
    * Return the key of the current element.
    */
   function key() {
-    $type = $this->class->getMapType($this->current());
-    return $this->class->methodName($type);
+    $type = $this->isis->getMapType($this->current());
+    return $this->isis->methodName($type);
   }
 
   /**
    * Return the current element.
    */
   function current() {
-    return $this->class->fields[$this->keys[$this->position]];
+    return $this->isis->fields[$this->keys[$this->position]];
   }
 
   /**
