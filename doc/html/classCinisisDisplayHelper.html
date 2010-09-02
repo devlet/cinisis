@@ -53,8 +53,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td colspan="2"><h2>Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#ab263cf81e5c459c60baa6ef7fa5f76b2">methodName</a> ($method)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#abae906d7606b7d76ef5ed754835ba7e2">__callStatic</a> ($method, $arguments)</td></tr>
-<tr><td colspan="2"><h2>Protected Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#a6c4042683e787ae54cd9e0c88c83606c">webMergeCsvItems</a> ($items)</td></tr>
 <tr><td colspan="2"><h2>Static Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#af3849efbba5e6980ddfdb4ceddb6ad17">webTitle</a> ($title)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#a8f0c8aec5b11a144b14278d287238c85">cliTitle</a> ($title)</td></tr>
@@ -65,6 +63,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#a291e2da97fd646e7fa34fb92879fc3d6">webNavbar</a> ($entry, $entries, $action= 'index.php', $extra=NULL)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#aadc869909d8be43402d73fa3415827b4">webLink</a> ($action, $args, $title)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#a7ffe33c336d0b495807a2c4bae78cbfb">webEntryLink</a> ($entry)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#a5c3500893f3f7e415fe87874c808021d">webFieldLink</a> ($entry, $fid)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#a1400c9d85878229fd02b3651ed9e0d63">webRepetitionLink</a> ($entry, $fid)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#a4028def92d8511e525251ec7ab06246d">webOpenTable</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#ab4e55ec58b59bc8b2af32b93cdf0d7c1">webCloseTable</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#a0f2e5c78f6fdd146df04382e497cfe94">webH2</a> ($text)</td></tr>
@@ -83,6 +83,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#a0155226dc341e71cf2d32a7611a6402b">webCsv</a> ($value=NULL)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#ae15e846c353078222ee061a835c8c0f8">webCsvTitles</a> ($format)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#aa020ea03001524e4e437069f08ba8e26">webCsvRow</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#a6e04da665f31a88eb3c42579d266bd4f">webMergeCsvItems</a> ($items)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#abd8110a9976bb72b42992b28b5aae80d">webRadio</a> ($name, $value, $caption, $checked=NULL)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCinisisDisplayHelper.html#ac8c66caf42859ab8308aa40dfa33dbd0">webRadios</a> ($name, $data, $checked=NULL)</td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>Display helpers for test scripts. </p>
@@ -509,6 +512,42 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 </div>
 </div>
+<a class="anchor" id="a5c3500893f3f7e415fe87874c808021d"></a><!-- doxytag: member="CinisisDisplayHelper::webFieldLink" ref="a5c3500893f3f7e415fe87874c808021d" args="($entry, $fid)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static CinisisDisplayHelper::webFieldLink </td>
+          <td>(</td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>entry</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>fid</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [static, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Format a link to the field app.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$entry</em>&nbsp;</td><td>Entry number.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$fid</em>&nbsp;</td><td>Field code.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Formatted link. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="aa331cd95a86ffd270784736e74f253e6"></a><!-- doxytag: member="CinisisDisplayHelper::webFooter" ref="aa331cd95a86ffd270784736e74f253e6" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -758,17 +797,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 </div>
 </div>
-<a class="anchor" id="a6c4042683e787ae54cd9e0c88c83606c"></a><!-- doxytag: member="CinisisDisplayHelper::webMergeCsvItems" ref="a6c4042683e787ae54cd9e0c88c83606c" args="($items)" -->
+<a class="anchor" id="a6e04da665f31a88eb3c42579d266bd4f"></a><!-- doxytag: member="CinisisDisplayHelper::webMergeCsvItems" ref="a6e04da665f31a88eb3c42579d266bd4f" args="($items)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">CinisisDisplayHelper::webMergeCsvItems </td>
+          <td class="memname">static CinisisDisplayHelper::webMergeCsvItems </td>
           <td>(</td>
           <td class="paramtype">$&nbsp;</td>
           <td class="paramname"> <em>items</em></td>
           <td>&nbsp;)&nbsp;</td>
-          <td><code> [protected]</code></td>
+          <td><code> [static, protected]</code></td>
         </tr>
       </table>
 </div>
@@ -911,6 +950,134 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 </div>
 </div>
+<a class="anchor" id="abd8110a9976bb72b42992b28b5aae80d"></a><!-- doxytag: member="CinisisDisplayHelper::webRadio" ref="abd8110a9976bb72b42992b28b5aae80d" args="($name, $value, $caption, $checked=NULL)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static CinisisDisplayHelper::webRadio </td>
+          <td>(</td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>caption</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>checked</em> = <code>NULL</code></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [static, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Renders a radio button.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$name</em>&nbsp;</td><td>Radio name.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$value</em>&nbsp;</td><td>Radio value.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$caption</em>&nbsp;</td><td>Radio caption.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$checked</em>&nbsp;</td><td>Whether the radio is checked.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>HTML rendered radio button. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac8c66caf42859ab8308aa40dfa33dbd0"></a><!-- doxytag: member="CinisisDisplayHelper::webRadios" ref="ac8c66caf42859ab8308aa40dfa33dbd0" args="($name, $data, $checked=NULL)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static CinisisDisplayHelper::webRadios </td>
+          <td>(</td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>checked</em> = <code>NULL</code></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [static, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Draws a combination of radio buttons.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$name</em>&nbsp;</td><td>Radio names.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$data</em>&nbsp;</td><td>Array with values and captions.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$checked</em>&nbsp;</td><td>Index of the selected option. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a1400c9d85878229fd02b3651ed9e0d63"></a><!-- doxytag: member="CinisisDisplayHelper::webRepetitionLink" ref="a1400c9d85878229fd02b3651ed9e0d63" args="($entry, $fid)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static CinisisDisplayHelper::webRepetitionLink </td>
+          <td>(</td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>entry</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>fid</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [static, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Format a link to the field app.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$entry</em>&nbsp;</td><td>Entry number.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$fid</em>&nbsp;</td><td>Field code.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Formatted link. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="af3849efbba5e6980ddfdb4ceddb6ad17"></a><!-- doxytag: member="CinisisDisplayHelper::webTitle" ref="af3849efbba5e6980ddfdb4ceddb6ad17" args="($title)" -->
 <div class="memitem">
 <div class="memproto">
@@ -954,7 +1121,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Aug 23 16:26:22 2010 for Cinisis Database Reader by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Thu Sep 2 12:20:42 2010 for Cinisis Database Reader by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

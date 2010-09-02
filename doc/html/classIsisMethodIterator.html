@@ -48,7 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p><a href="classIsisMethodIterator-members.html">List of all members.</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIsisMethodIterator.html#a1cf2e69c03a092839a2494264ca2ed07">__construct</a> ($class)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIsisMethodIterator.html#a63918446ce5cb16c55166a23dcf6ac0f">__construct</a> ($isis, $class=NULL)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIsisMethodIterator.html#a1a0ee1617a50e6aa57fe80cd0c2023df">rewind</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIsisMethodIterator.html#ad750f5dd57dcb6480f64f9ac703492fc">key</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIsisMethodIterator.html#a1d7236d349cd282c4c0ff6ec8f186e93">current</a> ()</td></tr>
@@ -58,7 +58,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>Iterates over all callable methods for database mapping. </p>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a1cf2e69c03a092839a2494264ca2ed07"></a><!-- doxytag: member="IsisMethodIterator::__construct" ref="a1cf2e69c03a092839a2494264ca2ed07" args="($class)" -->
+<a class="anchor" id="a63918446ce5cb16c55166a23dcf6ac0f"></a><!-- doxytag: member="IsisMethodIterator::__construct" ref="a63918446ce5cb16c55166a23dcf6ac0f" args="($isis, $class=NULL)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -66,9 +66,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
           <td class="memname">IsisMethodIterator::__construct </td>
           <td>(</td>
           <td class="paramtype">$&nbsp;</td>
-          <td class="paramname"> <em>class</em></td>
-          <td>&nbsp;)&nbsp;</td>
+          <td class="paramname"> <em>isis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>class</em> = <code>NULL</code></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
         </tr>
       </table>
 </div>
@@ -76,7 +85,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>Constructor.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>$class</em>&nbsp;</td><td>Instance of <a class="el" href="classIsisConnector.html">IsisConnector</a> or child class. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$isis</em>&nbsp;</td><td>Instance of <a class="el" href="classIsisConnector.html">IsisConnector</a> or child class.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$class</em>&nbsp;</td><td>Optional class where to look for methods, defaults to $isis itself. </td></tr>
   </table>
   </dd>
 </dl>
@@ -192,7 +202,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Aug 23 16:26:23 2010 for Cinisis Database Reader by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Thu Sep 2 12:20:42 2010 for Cinisis Database Reader by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>
