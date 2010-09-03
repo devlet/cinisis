@@ -258,7 +258,7 @@ class IsisConnector extends IsisMap {
       $has = $this->hasMainItem($field, $row);
     }
     else {
-      $subfield = $this->getSubfieldName($this->getFieldKey($field), $item);
+      $subfield = $this->getSubfieldName($field, $item);
       $has      = $this->hasSubfield($field, $subfield, $row);
     }
 

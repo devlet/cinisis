@@ -261,16 +261,21 @@ class IsisMap extends IsisReader {
   /**
    * Get a subfield name.
    *
-   * @param $field_key
-   *   Field key.
+   * @param $field
+   *   Field name or key.
    *
    * @param $subfield_key
    *   Subfield key. 
    *
+   * @param $by_key
+   *   Set to true if you're passing the field key instead of it's name.
+   *
    * @return
    *   Subfield name.
    */
-  public function getSubfieldName($field_key, $subfield_key) {
+  public function getSubfieldName($field, $subfield_key, $by_key = FALSE) {
+    $field_key = (!$by_key) ? $this->getFieldKey($field) : $field;
+
     if (isset($this->format['fields'][$field_key]['subfields'][$subfield_key])) {
       return $this->format['fields'][$field_key]['subfields'][$subfield_key];
     }
