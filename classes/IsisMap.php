@@ -330,4 +330,21 @@ class IsisMap extends IsisReader {
 
     return $fields;
   }
+
+  /**
+   * Get the full map.
+   *
+   * @param $field
+   *   Field key.
+   *
+   * @return
+   *   Array with full map or false if there is no map.
+   */
+  public function getFullMap($field) {
+    if (isset($field['map'])) {
+      return $field['map'];
+    }
+
+    return FALSE;
+  }
 }
