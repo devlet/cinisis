@@ -369,9 +369,16 @@ class CinisisDisplayHelper {
    *   Variable to dump.
    */
   protected static function webDump($var) {
-    self::preOpen();
-    print_r($var);
-    self::preClose();
+    if (file_exists('../contrib/krumo/class.krumo.php')) {
+      // Use Krumo.
+      include_once '../contrib/krumo/class.krumo.php';
+      krumo($var);
+    }
+    else {    
+      self::preOpen();
+      print_r($var);
+      self::preClose();
+    }
   }
 
   /**
