@@ -10,7 +10,7 @@ require_once '../index.php';
 $entry = CinisisHttpHelper::getNumericArg('entry');
 
 // Draw the document.
-$display = new CinisisDisplayHelper('Isis Navigator');
+$display = new CinisisDisplayHelper('Cinisis Navigator');
 $display->form($display->formInputText('entry', $entry));
 
 // Get a db instance.
