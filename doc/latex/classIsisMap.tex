@@ -31,13 +31,19 @@ Inheritance diagram for IsisMap:\begin{figure}[H]
 \item 
 \hyperlink{classIsisMap_aee1953b6e46b1612c725b2da82414d14}{getFieldArray} (\$field\_\-key)
 \item 
-\hyperlink{classIsisMap_a83ffdd84c385513a09e5ab523a44d6f2}{getSubfieldName} (\$field\_\-key, \$subfield\_\-key)
+\hyperlink{classIsisMap_a58d739ea1f014befdafef7035d46c074}{getSubfieldName} (\$field, \$subfield\_\-key, \$by\_\-key=FALSE)
 \item 
 \hyperlink{classIsisMap_a1f30d131831b036271b0a1ff6d5d9d68}{getSubfieldNames} (\$field\_\-key)
 \item 
 \hyperlink{classIsisMap_ae41313537e399f15ff16a4db887cf5b9}{getFieldName} (\$field\_\-key)
 \item 
 \hyperlink{classIsisMap_a157fffbdb6c533a66e3f73674bfd8ea4}{getFieldNames} ()
+\item 
+\hyperlink{classIsisMap_a2ca9d83aad166eed936f6f9ef8df05e3}{getFullMap} (\$field)
+\item 
+\hyperlink{classIsisMap_a64c7193dd61a21c1af3624152d31ee51}{getAttributes} (\$field, \$subfield=null)
+\item 
+\hyperlink{classIsisMap_a57808b2ac5892d71308c629b6ae990ff}{getDeniedCombinations} (\$field)
 \end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -67,6 +73,38 @@ Check on an ISIS schema whether a field has a map.
 \begin{DoxyReturn}{Returns}
 TRUE if field has a map, FALSE otherwise. 
 \end{DoxyReturn}
+\hypertarget{classIsisMap_a64c7193dd61a21c1af3624152d31ee51}{
+\index{IsisMap@{IsisMap}!getAttributes@{getAttributes}}
+\index{getAttributes@{getAttributes}!IsisMap@{IsisMap}}
+\subsubsection[{getAttributes}]{\setlength{\rightskip}{0pt plus 5cm}IsisMap::getAttributes (\$ {\em field}, \/  \$ {\em subfield} = {\ttfamily null})}}
+\label{classIsisMap_a64c7193dd61a21c1af3624152d31ee51}
+Get attributes based on field and subfield.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field data from ISIS database schema.\item[{\em \$subfield}]Subfield name.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Attributes. 
+\end{DoxyReturn}
+\hypertarget{classIsisMap_a57808b2ac5892d71308c629b6ae990ff}{
+\index{IsisMap@{IsisMap}!getDeniedCombinations@{getDeniedCombinations}}
+\index{getDeniedCombinations@{getDeniedCombinations}!IsisMap@{IsisMap}}
+\subsubsection[{getDeniedCombinations}]{\setlength{\rightskip}{0pt plus 5cm}IsisMap::getDeniedCombinations (\$ {\em field})}}
+\label{classIsisMap_a57808b2ac5892d71308c629b6ae990ff}
+Defines the denied field combinations.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field data from ISIS database schema.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Denied field combinations. 
+\end{DoxyReturn}
+
+
+Sample denied combination.
+
+\$sample = array( 0 =$>$ array('a', 'b', 'c'), // a AND b AND c OR 1 =$>$ array('a', 'c', '!d'), // a AND b BUT WITHOUT d OR 2 =$>$ array('a', 'b', '$\ast$'), // a AND b AND any other item OR 3 =$>$ array('$\ast$2'), // ANY two items together OR 4 =$>$ array('main', '$\ast$'), // main AND ANY other item OR );
+
 \hypertarget{classIsisMap_aee1953b6e46b1612c725b2da82414d14}{
 \index{IsisMap@{IsisMap}!getFieldArray@{getFieldArray}}
 \index{getFieldArray@{getFieldArray}!IsisMap@{IsisMap}}
@@ -115,6 +153,19 @@ Get all field names.
 
 \begin{DoxyReturn}{Returns}
 Array with field names. 
+\end{DoxyReturn}
+\hypertarget{classIsisMap_a2ca9d83aad166eed936f6f9ef8df05e3}{
+\index{IsisMap@{IsisMap}!getFullMap@{getFullMap}}
+\index{getFullMap@{getFullMap}!IsisMap@{IsisMap}}
+\subsubsection[{getFullMap}]{\setlength{\rightskip}{0pt plus 5cm}IsisMap::getFullMap (\$ {\em field})}}
+\label{classIsisMap_a2ca9d83aad166eed936f6f9ef8df05e3}
+Get the full map.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \$field}]Field key.\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Array with full map or false if there is no map. 
 \end{DoxyReturn}
 \hypertarget{classIsisMap_a994934784caa4149737bda55160a459f}{
 \index{IsisMap@{IsisMap}!getItemKey@{getItemKey}}
@@ -203,16 +254,16 @@ Get the list of subfields from a given field.
 
 \begin{DoxyParams}{Parameters}
 \item[{\em \$field}]Field array. \end{DoxyParams}
-\hypertarget{classIsisMap_a83ffdd84c385513a09e5ab523a44d6f2}{
+\hypertarget{classIsisMap_a58d739ea1f014befdafef7035d46c074}{
 \index{IsisMap@{IsisMap}!getSubfieldName@{getSubfieldName}}
 \index{getSubfieldName@{getSubfieldName}!IsisMap@{IsisMap}}
-\subsubsection[{getSubfieldName}]{\setlength{\rightskip}{0pt plus 5cm}IsisMap::getSubfieldName (\$ {\em field\_\-key}, \/  \$ {\em subfield\_\-key})}}
-\label{classIsisMap_a83ffdd84c385513a09e5ab523a44d6f2}
+\subsubsection[{getSubfieldName}]{\setlength{\rightskip}{0pt plus 5cm}IsisMap::getSubfieldName (\$ {\em field}, \/  \$ {\em subfield\_\-key}, \/  \$ {\em by\_\-key} = {\ttfamily FALSE})}}
+\label{classIsisMap_a58d739ea1f014befdafef7035d46c074}
 Get a subfield name.
 
 
 \begin{DoxyParams}{Parameters}
-\item[{\em \$field\_\-key}]Field key.\item[{\em \$subfield\_\-key}]Subfield key.\end{DoxyParams}
+\item[{\em \$field}]Field name or key.\item[{\em \$subfield\_\-key}]Subfield key.\item[{\em \$by\_\-key}]Set to true if you're passing the field key instead of it's name.\end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Subfield name. 
 \end{DoxyReturn}

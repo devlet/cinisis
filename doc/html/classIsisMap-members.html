@@ -50,17 +50,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <tr class="memlist"><td><a class="el" href="classIsisReader.html#a3cc08df25da082046d496db93778709b">explodeValue</a>($value)</td><td><a class="el" href="classIsisReader.html">IsisReader</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classIsisMap.html#af94e1fc5d73a6272f04a60c0acaeb409">fieldHasMap</a>($field)</td><td><a class="el" href="classIsisMap.html">IsisMap</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classIsisReader.html#aa6099ed6bd276b32bd7bba184f144529">filterBrackets</a>($values)</td><td><a class="el" href="classIsisReader.html">IsisReader</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classIsisMap.html#a64c7193dd61a21c1af3624152d31ee51">getAttributes</a>($field, $subfield=null)</td><td><a class="el" href="classIsisMap.html">IsisMap</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classIsisMap.html#a57808b2ac5892d71308c629b6ae990ff">getDeniedCombinations</a>($field)</td><td><a class="el" href="classIsisMap.html">IsisMap</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classIsisMap.html#aee1953b6e46b1612c725b2da82414d14">getFieldArray</a>($field_key)</td><td><a class="el" href="classIsisMap.html">IsisMap</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classIsisMap.html#ac6a4eed048ddfa62c76e6d813754af81">getFieldKey</a>($field)</td><td><a class="el" href="classIsisMap.html">IsisMap</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classIsisMap.html#ae41313537e399f15ff16a4db887cf5b9">getFieldName</a>($field_key)</td><td><a class="el" href="classIsisMap.html">IsisMap</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classIsisMap.html#a157fffbdb6c533a66e3f73674bfd8ea4">getFieldNames</a>()</td><td><a class="el" href="classIsisMap.html">IsisMap</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classIsisMap.html#a2ca9d83aad166eed936f6f9ef8df05e3">getFullMap</a>($field)</td><td><a class="el" href="classIsisMap.html">IsisMap</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classIsisMap.html#a994934784caa4149737bda55160a459f">getItemKey</a>($field, $item)</td><td><a class="el" href="classIsisMap.html">IsisMap</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classIsisMap.html#af689f27e67b0b38a3e880ead17a487f5">getMainItemName</a>($field)</td><td><a class="el" href="classIsisMap.html">IsisMap</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classIsisMap.html#a29eb2c45b51f95fdfb9ff7af770ca6ce">getMap</a>($field, $subfield=NULL)</td><td><a class="el" href="classIsisMap.html">IsisMap</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classIsisMap.html#a62b933be483fb6704e12e41f10286cd5">getMapType</a>($field)</td><td><a class="el" href="classIsisMap.html">IsisMap</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classIsisMap.html#ae5d904b8407b38751656715fb9efd7cf">getSubfieldKey</a>($field, $subfield)</td><td><a class="el" href="classIsisMap.html">IsisMap</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classIsisMap.html#ad0b61ec2fbfb011db4bf89c5f54efab4">getSubfieldList</a>($field)</td><td><a class="el" href="classIsisMap.html">IsisMap</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="classIsisMap.html#a83ffdd84c385513a09e5ab523a44d6f2">getSubfieldName</a>($field_key, $subfield_key)</td><td><a class="el" href="classIsisMap.html">IsisMap</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classIsisMap.html#a58d739ea1f014befdafef7035d46c074">getSubfieldName</a>($field, $subfield_key, $by_key=FALSE)</td><td><a class="el" href="classIsisMap.html">IsisMap</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classIsisMap.html#a1f30d131831b036271b0a1ff6d5d9d68">getSubfieldNames</a>($field_key)</td><td><a class="el" href="classIsisMap.html">IsisMap</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classIsisReader.html#a109a6ef49b2190bfbcee796dae954baf">hasBrackets</a>($value)</td><td><a class="el" href="classIsisReader.html">IsisReader</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classIsisReader.html#ae65e172e3b5c9ac3c8a5e1352ba80904">joinSubfields</a>()</td><td><a class="el" href="classIsisReader.html">IsisReader</a></td><td></td></tr>
@@ -88,7 +91,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Thu Sep 2 12:20:42 2010 for Cinisis Database Reader by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Thu Sep 16 11:13:08 2010 for Cinisis Database Reader by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

@@ -71,10 +71,13 @@ Inheritance diagram for IsisMap:</div>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIsisMap.html#a994934784caa4149737bda55160a459f">getItemKey</a> ($field, $item)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIsisMap.html#ac6a4eed048ddfa62c76e6d813754af81">getFieldKey</a> ($field)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIsisMap.html#aee1953b6e46b1612c725b2da82414d14">getFieldArray</a> ($field_key)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIsisMap.html#a83ffdd84c385513a09e5ab523a44d6f2">getSubfieldName</a> ($field_key, $subfield_key)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIsisMap.html#a58d739ea1f014befdafef7035d46c074">getSubfieldName</a> ($field, $subfield_key, $by_key=FALSE)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIsisMap.html#a1f30d131831b036271b0a1ff6d5d9d68">getSubfieldNames</a> ($field_key)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIsisMap.html#ae41313537e399f15ff16a4db887cf5b9">getFieldName</a> ($field_key)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIsisMap.html#a157fffbdb6c533a66e3f73674bfd8ea4">getFieldNames</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIsisMap.html#a2ca9d83aad166eed936f6f9ef8df05e3">getFullMap</a> ($field)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIsisMap.html#a64c7193dd61a21c1af3624152d31ee51">getAttributes</a> ($field, $subfield=null)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIsisMap.html#a57808b2ac5892d71308c629b6ae990ff">getDeniedCombinations</a> ($field)</td></tr>
 <tr><td colspan="2"><h2>Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIsisMap.html#af80aedabfeca623a9022dfcbc95d591c">methodName</a> ($type)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIsisMap.html#ae2abf0591a4862f537fa23537ffca705">normalizeFieldName</a> ($name)</td></tr>
@@ -106,6 +109,72 @@ Inheritance diagram for IsisMap:</div>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>TRUE if field has a map, FALSE otherwise. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a64c7193dd61a21c1af3624152d31ee51"></a><!-- doxytag: member="IsisMap::getAttributes" ref="a64c7193dd61a21c1af3624152d31ee51" args="($field, $subfield=null)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IsisMap::getAttributes </td>
+          <td>(</td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>field</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>subfield</em> = <code>null</code></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Get attributes based on field and subfield.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$field</em>&nbsp;</td><td>Field data from ISIS database schema.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$subfield</em>&nbsp;</td><td>Subfield name.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Attributes. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a57808b2ac5892d71308c629b6ae990ff"></a><!-- doxytag: member="IsisMap::getDeniedCombinations" ref="a57808b2ac5892d71308c629b6ae990ff" args="($field)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IsisMap::getDeniedCombinations </td>
+          <td>(</td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>field</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Defines the denied field combinations.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$field</em>&nbsp;</td><td>Field data from ISIS database schema.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Denied field combinations. </dd></dl>
+
+<p><p>Sample denied combination.</p>
+<p>$sample = array( 0 =&gt; array('a', 'b', 'c'), // a AND b AND c OR 1 =&gt; array('a', 'c', '!d'), // a AND b BUT WITHOUT d OR 2 =&gt; array('a', 'b', '*'), // a AND b AND any other item OR 3 =&gt; array('*2'), // ANY two items together OR 4 =&gt; array('main', '*'), // main AND ANY other item OR );</p>
+</p>
 
 </div>
 </div>
@@ -203,6 +272,32 @@ Inheritance diagram for IsisMap:</div>
 <div class="memdoc">
 <p>Get all field names.</p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>Array with field names. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2ca9d83aad166eed936f6f9ef8df05e3"></a><!-- doxytag: member="IsisMap::getFullMap" ref="a2ca9d83aad166eed936f6f9ef8df05e3" args="($field)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IsisMap::getFullMap </td>
+          <td>(</td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>field</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Get the full map.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$field</em>&nbsp;</td><td>Field key.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Array with full map or false if there is no map. </dd></dl>
 
 </div>
 </div>
@@ -397,7 +492,7 @@ Inheritance diagram for IsisMap:</div>
 
 </div>
 </div>
-<a class="anchor" id="a83ffdd84c385513a09e5ab523a44d6f2"></a><!-- doxytag: member="IsisMap::getSubfieldName" ref="a83ffdd84c385513a09e5ab523a44d6f2" args="($field_key, $subfield_key)" -->
+<a class="anchor" id="a58d739ea1f014befdafef7035d46c074"></a><!-- doxytag: member="IsisMap::getSubfieldName" ref="a58d739ea1f014befdafef7035d46c074" args="($field, $subfield_key, $by_key=FALSE)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -405,13 +500,19 @@ Inheritance diagram for IsisMap:</div>
           <td class="memname">IsisMap::getSubfieldName </td>
           <td>(</td>
           <td class="paramtype">$&nbsp;</td>
-          <td class="paramname"> <em>field_key</em>, </td>
+          <td class="paramname"> <em>field</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">$&nbsp;</td>
-          <td class="paramname"> <em>subfield_key</em></td><td>&nbsp;</td>
+          <td class="paramname"> <em>subfield_key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&nbsp;</td>
+          <td class="paramname"> <em>by_key</em> = <code>FALSE</code></td><td>&nbsp;</td>
         </tr>
         <tr>
           <td></td>
@@ -424,8 +525,9 @@ Inheritance diagram for IsisMap:</div>
 <p>Get a subfield name.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>$field_key</em>&nbsp;</td><td>Field key.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$field</em>&nbsp;</td><td>Field name or key.</td></tr>
     <tr><td valign="top"></td><td valign="top"><em>$subfield_key</em>&nbsp;</td><td>Subfield key.</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$by_key</em>&nbsp;</td><td>Set to true if you're passing the field key instead of it's name.</td></tr>
   </table>
   </dd>
 </dl>
@@ -591,7 +693,7 @@ Inheritance diagram for IsisMap:</div>
 </iframe>
 </div>
 
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Thu Sep 2 12:20:42 2010 for Cinisis Database Reader by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Thu Sep 16 11:13:08 2010 for Cinisis Database Reader by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

@@ -360,7 +360,7 @@ class IsisMap extends IsisReader {
    * @return
    *   Attributes.
    */
-  public function getAttributes(&$model, $field, $subfield = null)
+  public function getAttributes($field, $subfield = null)
   {
     $attributes = array();
     $map        = $this->getFullMap($field);
