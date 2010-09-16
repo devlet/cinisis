@@ -347,4 +347,81 @@ class IsisMap extends IsisReader {
 
     return FALSE;
   }
+
+  /**
+   * Get attributes based on field and subfield.
+   *
+   * @param $field 
+   *   Field data from ISIS database schema.
+   *
+   * @param $subfield
+   *   Subfield name.
+   *
+   * @return
+   *   Attributes.
+   */
+  public function getAttributes(&$model, $field, $subfield = null)
+  {
+    $attributes = array();
+    $map        = $this->getFullMap($field);
+
+    if ($map)
+    {
+      if (isset($map['attributes']['field']))
+      {
+        $attributes = $map['attributes']['field'];
+      }
+
+      if ($subfield == null)
+      {
+        return $attributes;
+      }
+
+      $key = $this->getSubfieldKey($field, $subfield);
+
+      if (isset($map['attributes'][$key]))
+      {
+        $attributes = array_merge($attributes, $map['attributes'][$key]);
+      }
+    }
+
+    return $attributes;
+  }
+
+  /**
+   * Defines the denied field combinations.
+   *
+   * @param $field
+   *   Field data from ISIS database schema.
+   *
+   * @return 
+   *   Denied field combinations.
+   */
+  public function getDeniedCombinations($field)
+  {
+    /**
+     * Sample denied combination.
+     */
+    /**
+    $sample = array(
+      0 => array('a', 'b', 'c'),  // a    AND b AND c              OR
+      1 => array('a', 'c', '!d'), // a    AND b BUT WITHOUT d      OR
+      2 => array('a', 'b', '*'),  // a    AND b AND any other item OR
+      3 => array('*2'),           //      ANY two items together   OR
+      4 => array('main', '*'),    // main AND ANY other item       OR
+    ); 
+     */    
+
+    $map = $this->getFullMap($field);
+
+    if ($map)
+    {
+      if (isset($map['denied']))
+      {
+        return $map['denied'];
+      }
+    }
+
+    return array();
+  }
 }
