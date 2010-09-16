@@ -181,6 +181,8 @@ class CinisisDisplayHelper {
    *   Extra parameters.
    */
   protected static function webNavbar($entry, $entries, $action = 'index.php', $extra = NULL) {
+    self::preOpen();
+
     // First / prev links.
     if ($entry != 1) {
       $prev = $entry - 1;
@@ -194,6 +196,8 @@ class CinisisDisplayHelper {
       echo '<a href="'. $action .'?entry='. $next . $extra .'">next &gt;</a> ';
       echo '<a href="'. $action .'?entry='. $entries . $extra .'">last</a>';
     }
+
+    self::preClose();
   }
 
   /**
