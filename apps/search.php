@@ -30,7 +30,7 @@ if ($isis) {
 
   // Query database.
   $field = $isis->getFieldArray($fid);
-  $item  = ($sid == 'main') ? 'main' : $isis->getSubfieldName($fid, $sid);
+  $item  = ($sid == 'main') ? 'main' : $isis->getSubfieldName($fid, $sid, TRUE);
   list($entry, $result) = $isis->nextResult($field, $item, $text, $entry);
 
   // Navigation bar.

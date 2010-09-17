@@ -26,7 +26,7 @@ if ($isis) {
 
   // Query database.
   $field                = $isis->getFieldArray($fid);
-  $subfield             = $isis->getSubfieldName($fid, $sid);
+  $subfield             = $isis->getSubfieldName($fid, $sid, TRUE);
   list($entry, $result) = $isis->nextSubfield($field, $subfield, $entry);
 
   // Navigation bar.
