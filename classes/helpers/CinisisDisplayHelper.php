@@ -186,7 +186,7 @@ class CinisisDisplayHelper {
     // First / prev links.
     if ($entry != 1) {
       $prev = $entry - 1;
-      echo '<a href="'. $action .'?entry=1"'. $extra .'>first</a> ';
+      echo '<a href="'. $action .'?entry=1'. $extra .'">first</a> ';
       echo '<a href="'. $action .'?entry='. $prev . $extra .'">&lt; prev</a> ';
     }
 
