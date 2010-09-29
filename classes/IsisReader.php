@@ -96,8 +96,13 @@ class IsisReader {
    *   Array of matched strings.
    */
   public function explodeBrackets($subject) {
-    preg_match_all('/<[^<>]*>/', $subject, $values);
-    return $this->filterBrackets($values[0]);
+    if ($this->hasBrackets($subject)) {
+      preg_match_all('/<[^<>]*>/', $subject, $values);
+      return $this->filterBrackets($values[0]);
+    }
+    else {
+      return array($subject);
+    }
   }
 
   /**
