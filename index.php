@@ -5,17 +5,23 @@
 
 // Autoloader.
 function cinisis_autoload($class) {
+  $base = dirname(__FILE__) .'/';
+
   if (strstr($class, 'Db')) {
-    require_once 'classes/backends/'. $class .'.php';
+    $file = 'classes/backends/'. $class .'.php';
   }
   elseif (strstr($class, 'Iterator')) {
-    require_once 'classes/iterators/'. $class .'.php';
+    $file = 'classes/iterators/'. $class .'.php';
   }
   elseif (strstr($class, 'Helper')) {
-    require_once 'classes/helpers/'. $class .'.php';
+    $file = 'classes/helpers/'. $class .'.php';
   }
   else {
-    require_once 'classes/'. $class .'.php';
+    $file = 'classes/'. $class .'.php';
+  }
+
+  if (file_exists($base . $file)) {
+    require_once $base . $file;
   }
 }
 
