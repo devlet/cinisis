@@ -1,6 +1,13 @@
 <?php
-/**
- * Cinisis - Isis db reading tool.
+/*! \mainpage Cinisis Database Reader
+ *
+ * Cinisis is a <a href="https://secure.wikimedia.org/wikipedia/en/wiki/CDS/ISIS">CDS/ISIS</a>
+ * database reading library written in PHP. It's intended for integrating or migrating
+ * existing ISIS databases into other applications.
+ *
+ * Usage:
+ *
+ * \verbinclude README.txt
  */
 
 // Autoloader.
