@@ -1,3 +1,20 @@
+\hyperlink{classCinisis}{Cinisis} is a \href{https://secure.wikimedia.org/wikipedia/en/wiki/CDS/ISIS}{\tt CDS/ISIS} database reading library written in PHP. It's intended for integrating or migrating existing ISIS databases into other applications. It is a wrapper around other ISIS libraries and tools, providing an uniform interface and iterators for easily fetching data without bothering with internals.
+
+\hyperlink{classCinisis}{Cinisis} works with the following ISIS backend libraries:
+
+
+\begin{DoxyItemize}
+\item \href{http://search.cpan.org/~dpavlin/Biblio-Isis-0.24/lib/Biblio/Isis.pm}{\tt Biblio::Isis} through \href{http://pecl.php.net/package/perl}{\tt Perl PECL extension}, which is the recommended choice.
+\item \href{http://malete.org}{\tt GNI's Malete}.
+\item \href{http://pecl.php.net/package/isis}{\tt Openisis}.
+\end{DoxyItemize}
+
+Both Malete and Openisis support is outdated in favour os Biblio::Isis as it has proven to be simpler and more functional.
+
+\subsection*{Installation and usage}
+
+
+\begin{DoxyVerbInclude}
 Cinisis database reader
 =======================
 
@@ -69,3 +86,5 @@ Example:
 For that entry we have fields 10 and 20, where field 10 has two rows (i.e, two
 repetitions). The main field is the data wich is has no qualifier (^) and a
 subfield is the data with qualifiers (like subfields a and b from above).
+\end{DoxyVerbInclude}
+ 

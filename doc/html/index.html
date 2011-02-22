@@ -43,10 +43,60 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h1><a class="el" href="classCinisis.html">Cinisis</a> Database Reader </h1>  </div>
 </div>
 <div class="contents">
-<p><a class="el" href="classCinisis.html">Cinisis</a> is a <a href="https://secure.wikimedia.org/wikipedia/en/wiki/CDS/ISIS">CDS/ISIS</a> database reading library written in PHP. It's intended for integrating or migrating existing ISIS databases into other applications.</p>
-<p>Usage:</p>
+<p><a class="el" href="classCinisis.html">Cinisis</a> is a <a href="https://secure.wikimedia.org/wikipedia/en/wiki/CDS/ISIS">CDS/ISIS</a> database reading library written in PHP. It's intended for integrating or migrating existing ISIS databases into other applications. It is a wrapper around other ISIS libraries and tools, providing an uniform interface and iterators for easily fetching data without bothering with internals.</p>
+<p><a class="el" href="classCinisis.html">Cinisis</a> works with the following ISIS backend libraries:</p>
+<ul>
+<li><a href="http://search.cpan.org/~dpavlin/Biblio-Isis-0.24/lib/Biblio/Isis.pm">Biblio::Isis</a> through <a href="http://pecl.php.net/package/perl">Perl PECL extension</a>, which is the recommended choice.</li>
+<li><a href="http://malete.org">GNI's Malete</a>.</li>
+<li><a href="http://pecl.php.net/package/isis">Openisis</a>.</li>
+</ul>
+<p>Both Malete and Openisis support is outdated in favour os Biblio::Isis as it has proven to be simpler and more functional.</p>
+<h2>Installation and usage</h2>
 <div class="fragment"><pre class="fragment">Cinisis database reader
 =======================
+
+Installation
+------------
+
+### Getting Cinisis
+
+Cinisis source code can be obtained via git:
+
+    git clone http://git.devlet.com.br/cinisis.git
+
+This documentation covers just installation with Biblio::Isis library
+and assumes a Debian like operating system.
+
+### Installing BiblioIsis
+
+The Biblio:Isis can be installed directly from package together with
+development files for perl:
+
+    apt-get install libbiblio-isis-perl libperl-dev
+
+### Installing pecl-perl
+
+Then download and build pecl-perl:
+
+    pecl install perl
+
+Due to a bug (see http://pecl.php.net/bugs/bug.php?id=16807), you might
+prefer to install it directly from source:
+
+    svn checkout http://svn.php.net/repository/pecl/perl/trunk pecl-perl
+    cd pecl-perl
+    phpize
+    ./configure
+    make install
+
+You will still need to enable the extension in your php.ini depending on
+how your system is configured.
+
+### Getting spyc
+
+Cinisis config files are written in YAML. You'll need to download Spyc
+library from https://code.google.com/p/spyc/ and put the files at
+the contrib/ folder.
 
 Naming conventions
 ------------------
@@ -65,10 +115,10 @@ iterating over all the data from a ISIS database.
 
 Example:
 
-  MFN 1 with entry
-  10: First  row of field 10^aWith a subfield^bAnd another one
-  10: Second row of field 10^bJust with the second subfield
-  20: This is the main item^yAnd this is another item
+    MFN 1 with entry
+    10: First  row of field 10^aWith a subfield^bAnd another one
+    10: Second row of field 10^bJust with the second subfield
+    20: This is the main item^yAnd this is another item
 
 For that entry we have fields 10 and 20, where field 10 has two rows (i.e, two
 repetitions). The main field is the data wich is has no qualifier (^) and a
@@ -88,7 +138,7 @@ subfield is the data with qualifiers (like subfields a and b from above).
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Feb 22 2011 10:19:13 for Cinisis Database Reader by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Feb 22 2011 11:43:15 for Cinisis Database Reader by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

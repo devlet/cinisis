@@ -3,9 +3,20 @@
  *
  * Cinisis is a <a href="https://secure.wikimedia.org/wikipedia/en/wiki/CDS/ISIS">CDS/ISIS</a>
  * database reading library written in PHP. It's intended for integrating or migrating
- * existing ISIS databases into other applications.
+ * existing ISIS databases into other applications. It is a wrapper around other ISIS
+ * libraries and tools, providing an uniform interface and iterators for easily fetching
+ * data without bothering with internals.
  *
- * Usage:
+ * Cinisis works with the following ISIS backend libraries:
+ *
+ *   - <a href="http://search.cpan.org/~dpavlin/Biblio-Isis-0.24/lib/Biblio/Isis.pm">Biblio::Isis</a> through <a href="http://pecl.php.net/package/perl">Perl PECL extension</a>, which is the recommended choice.
+ *   - <a href="http://malete.org">GNI's Malete</a>.
+ *   - <a href="http://pecl.php.net/package/isis">Openisis</a>.
+ *
+ * Both Malete and Openisis support is outdated in favour os Biblio::Isis as it has proven
+ * to be simpler and more functional.
+ *
+ * <h2>Installation and usage</h2>
  *
  * \verbinclude README.txt
  */
