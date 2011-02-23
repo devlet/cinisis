@@ -61,6 +61,12 @@ Cinisis config files are written in YAML. You'll need to download Spyc
 library from https://code.google.com/p/spyc/ and put the files at
 the contrib/ folder.
 
+Configuration
+-------------
+
+  - Put your databases into the db folder, one folder per database.
+  - Optionally edit config/config.yaml to set the default database.
+
 Naming conventions
 ------------------
 
@@ -87,4 +93,54 @@ For that entry we have fields 10 and 20, where field 10 has two rows (i.e, two
 repetitions). The main field is the data wich is has no qualifier (^) and a
 subfield is the data with qualifiers (like subfields a and b from above).
 \end{DoxyVerbInclude}
+
+
+\subsection*{Example}
+
+The following exemple shows how to read a database entry using two different ISIS backends:
+
+
+\begin{DoxyCodeInclude}
+<?php
+// Import requisites.
+require_once '../index.php';
+
+// Draw the document.
+$display = new CinisisDisplayHelper('Isis Reader');
+$display->open_table();
+
+$configs = array(
+  0 => array(
+    'implementation' => 'PhpIsis',
+    'database'       => 'dbname',
+  ),
+  1 => array(
+    'implementation' => 'BiblioIsis',
+    'database'       => 'dbname',
+  ),
+);
+
+foreach ($configs as $config) {
+  // Get a db instance.
+  $isis = new Cinisis($config);
+
+  // Test connection.
+  if ($isis->db) {
+    $result  = $isis->db->read(1);
+    $entries = $isis->db->entries();
+
+    // Format output.
+    echo '<td>';
+    echo '<pre>';
+    echo 'Implementation: '. $config['implementation'] ."\n";
+    echo "Rows: $entries\n";
+    print_r($result);
+    echo '</pre>';
+    echo '</td>';
+  }
+}
+
+$display->close_table();
+$display->footer();
+\end{DoxyCodeInclude}
  

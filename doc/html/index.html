@@ -98,6 +98,12 @@ Cinisis config files are written in YAML. You'll need to download Spyc
 library from https://code.google.com/p/spyc/ and put the files at
 the contrib/ folder.
 
+Configuration
+-------------
+
+  - Put your databases into the db folder, one folder per database.
+  - Optionally edit config/config.yaml to set the default database.
+
 Naming conventions
 ------------------
 
@@ -123,6 +129,49 @@ Example:
 For that entry we have fields 10 and 20, where field 10 has two rows (i.e, two
 repetitions). The main field is the data wich is has no qualifier (^) and a
 subfield is the data with qualifiers (like subfields a and b from above).
+</pre></div><h2>Example</h2>
+<p>The following exemple shows how to read a database entry using two different ISIS backends:</p>
+<div class="fragment"><pre class="fragment">&lt;?php
+<span class="comment">// Import requisites.</span>
+require_once <span class="stringliteral">&#39;../index.php&#39;</span>;
+
+<span class="comment">// Draw the document.</span>
+$display = <span class="keyword">new</span> <a class="code" href="classCinisisDisplayHelper.html">CinisisDisplayHelper</a>(<span class="stringliteral">&#39;Isis Reader&#39;</span>);
+$display-&gt;open_table();
+
+$configs = array(
+  0 =&gt; array(
+    <span class="stringliteral">&#39;implementation&#39;</span> =&gt; <span class="stringliteral">&#39;PhpIsis&#39;</span>,
+    <span class="stringliteral">&#39;database&#39;</span>       =&gt; <span class="stringliteral">&#39;dbname&#39;</span>,
+  ),
+  1 =&gt; array(
+    <span class="stringliteral">&#39;implementation&#39;</span> =&gt; <span class="stringliteral">&#39;BiblioIsis&#39;</span>,
+    <span class="stringliteral">&#39;database&#39;</span>       =&gt; <span class="stringliteral">&#39;dbname&#39;</span>,
+  ),
+);
+
+<span class="keywordflow">foreach</span> ($configs as $config) {
+  <span class="comment">// Get a db instance.</span>
+  $isis = <span class="keyword">new</span> <a class="code" href="classCinisis.html">Cinisis</a>($config);
+
+  <span class="comment">// Test connection.</span>
+  <span class="keywordflow">if</span> ($isis-&gt;db) {
+    $result  = $isis-&gt;db-&gt;read(1);
+    $entries = $isis-&gt;db-&gt;entries();
+
+    <span class="comment">// Format output.</span>
+    echo <span class="stringliteral">&#39;&lt;td&gt;&#39;</span>;
+    echo <span class="stringliteral">&#39;&lt;pre&gt;&#39;</span>;
+    echo <span class="stringliteral">&#39;Implementation: &#39;</span>. $config[<span class="stringliteral">&#39;implementation&#39;</span>] .<span class="stringliteral">&quot;\n&quot;</span>;
+    echo <span class="stringliteral">&quot;Rows: $entries\n&quot;</span>;
+    print_r($result);
+    echo <span class="stringliteral">&#39;&lt;/pre&gt;&#39;</span>;
+    echo <span class="stringliteral">&#39;&lt;/td&gt;&#39;</span>;
+  }
+}
+
+$display-&gt;close_table();
+$display-&gt;footer();
 </pre></div> </div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -138,7 +187,7 @@ subfield is the data with qualifiers (like subfields a and b from above).
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Feb 22 2011 11:43:15 for Cinisis Database Reader by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Feb 23 2011 11:44:08 for Cinisis Database Reader by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

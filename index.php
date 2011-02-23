@@ -19,6 +19,13 @@
  * <h2>Installation and usage</h2>
  *
  * \verbinclude README.txt
+ *
+ * <h2>Example</h2>
+ *
+ * The following exemple shows how to read a database entry using
+ * two different ISIS backends:
+ *
+ * \include samples/read.php
  */
 
 // Autoloader.

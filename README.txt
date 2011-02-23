@@ -44,6 +44,12 @@ Cinisis config files are written in YAML. You'll need to download Spyc
 library from https://code.google.com/p/spyc/ and put the files at
 the contrib/ folder.
 
+Configuration
+-------------
+
+  - Put your databases into the db folder, one folder per database.
+  - Optionally edit config/config.yaml to set the default database.
+
 Naming conventions
 ------------------
 
